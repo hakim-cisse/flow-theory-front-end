@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import heroImage from "@/assets/hero-bg.jpg";
-import logo from "@/assets/logo.png";
 
 export const Hero = () => {
   return (
@@ -27,11 +26,6 @@ export const Hero = () => {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="max-w-5xl mx-auto space-y-8 animate-fade-in-up">
-          {/* Logo */}
-          <div className="flex justify-center mb-8">
-            <img src={logo} alt="Flow Theory AI" className="h-16 sm:h-20 lg:h-24 w-auto animate-glow" />
-          </div>
-          
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight">
             <span className="block text-foreground">Become an</span>
             <span className="block text-gradient mt-2">AI-First Business.</span>
