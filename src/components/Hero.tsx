@@ -5,11 +5,11 @@ import flowTheoryLogo from "@/assets/flow-theory-logo.png";
 export const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
-      {/* Logo in top right */}
+      {/* Logo in top left */}
       <img 
         src={flowTheoryLogo} 
         alt="Flow Theory AI Logo" 
-        className="absolute top-8 right-8 w-16 h-16 sm:w-20 sm:h-20 z-20"
+        className="absolute top-8 left-8 w-16 h-16 sm:w-20 sm:h-20 z-20"
       />
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
