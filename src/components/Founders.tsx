@@ -1,5 +1,6 @@
 import hakimImage from "@/assets/hakim.jpg";
 import yassineImage from "@/assets/yassine.jpg";
+import yunusImage from "@/assets/yunus.jpg";
 
 const founders = [
   {
@@ -14,6 +15,12 @@ const founders = [
     image: yassineImage,
     description: "Technical leader and automation architect focused on building stable, high-performance AI ecosystems for clients.",
   },
+  {
+    name: "Yunus Kounkourou",
+    title: "Head of Growth",
+    image: yunusImage,
+    description: "Growth strategist with extensive technical experience driving scalable expansion and market development initiatives.",
+  },
 ];
 
 export const Founders = () => {
@@ -25,7 +32,7 @@ export const Founders = () => {
             The People Behind <span className="text-gradient">the Vision</span>
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16">
             {founders.map((founder) => (
               <div
                 key={founder.name}
