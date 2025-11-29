@@ -33,7 +33,7 @@ export const Hero = () => {
               className="w-full sm:w-auto group bg-gradient-to-r from-primary to-primary/80 hover:from-primary-glow hover:to-primary text-primary-foreground font-semibold px-6 py-5 sm:px-8 sm:py-6 text-base sm:text-lg glow transition-all duration-300"
               asChild
             >
-              <a href="https://cal.com/hakim-cisse/alignment-call" target="_blank" rel="noopener noreferrer">
+              <a href="https://cal.com/flow-theory-ai/alignment-call" target="_blank" rel="noopener noreferrer">
                 Start Your AI Transformation
                 <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 group-hover:translate-x-1 transition-transform" />
               </a>
@@ -45,7 +45,7 @@ export const Hero = () => {
               className="w-full sm:w-auto border-2 border-primary/50 text-foreground hover:bg-primary/10 hover:border-primary font-semibold px-6 py-5 sm:px-8 sm:py-6 text-base sm:text-lg backdrop-blur-sm transition-all duration-300"
               asChild
             >
-              <a href="https://cal.com/hakim-cisse/alignment-call" target="_blank" rel="noopener noreferrer">
+              <a href="https://cal.com/flow-theory-ai/alignment-call" target="_blank" rel="noopener noreferrer">
                 See How It Works
               </a>
             </Button>
