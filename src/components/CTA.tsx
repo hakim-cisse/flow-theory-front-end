@@ -15,7 +15,7 @@ export const CTA = () => {
 
           <div className="w-full aspect-[16/9] sm:aspect-[16/10] lg:aspect-[16/9] rounded-2xl overflow-hidden shadow-card bg-card">
             <iframe
-              src="https://cal.com/hakim-cisse/alignment-call"
+              src="https://cal.com/flow-theory-ai/alignment-call"
               width="100%"
               height="100%"
               frameBorder="0"
