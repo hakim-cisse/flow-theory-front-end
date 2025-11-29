@@ -17,7 +17,7 @@ const founders = [
   },
   {
     name: "Yunus Kounkourou",
-    title: "Head of Growth",
+    title: "Co-Founder & CRO",
     image: yunusImage,
     description: "Growth strategist with extensive technical experience driving scalable expansion and market development initiatives.",
   },
