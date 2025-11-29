@@ -59,6 +59,53 @@ All colors MUST be HSL.
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   }
+
+  .dark {
+    /* Flow Theory AI Design System - Dark Mode */
+    --background: 0 0% 8%;
+    --foreground: 0 0% 95%;
+
+    --card: 0 0% 12%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 0 0% 12%;
+    --popover-foreground: 0 0% 95%;
+
+    /* Primary Cyan Brand Color (stays vibrant in dark) */
+    --primary: 194 83% 61%;
+    --primary-foreground: 0 0% 10%;
+    --primary-glow: 194 83% 71%;
+
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 95%;
+
+    --muted: 0 0% 18%;
+    --muted-foreground: 0 0% 60%;
+
+    --accent: 194 83% 61%;
+    --accent-foreground: 0 0% 10%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 15%;
+    --ring: 194 83% 61%;
+
+    /* Gradients - Dark Mode */
+    --gradient-primary: linear-gradient(135deg, hsl(194, 83%, 61%), hsl(194, 83%, 51%));
+    --gradient-glow: radial-gradient(circle at center, hsl(194, 83%, 61% / 0.25), transparent 70%);
+    --gradient-hero: linear-gradient(180deg, hsl(0, 0%, 8%), hsl(0, 0%, 10%));
+
+    /* Shadows & Glows - Enhanced for dark mode */
+    --shadow-glow: 0 0 50px hsl(194 83% 61% / 0.35);
+    --shadow-card: 0 8px 32px hsl(0 0% 0% / 0.5);
+    --shadow-subtle: 0 4px 16px hsl(0 0% 0% / 0.3);
+
+    /* Glass Effect - Dark Mode */
+    --glass-bg: hsl(0 0% 12% / 0.6);
+    --glass-border: hsl(194 83% 61% / 0.3);
+  }
 }
 
 @layer base {
