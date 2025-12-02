@@ -1,4 +1,5 @@
 import { Clock, DollarSign, Building2, CheckCircle } from "lucide-react";
+import aptLocatorLogo from "@/assets/apt-locator-logo.png";
 
 const metrics = [
   {
@@ -55,9 +56,11 @@ export const CaseStudy = () => {
           {/* Company & Overview */}
           <div className="glass rounded-2xl p-8 sm:p-10 mb-10">
             <div className="flex flex-col sm:flex-row items-center gap-6 mb-8">
-              <div className="w-20 h-20 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
-                <Building2 className="w-10 h-10 text-primary" />
-              </div>
+              <img 
+                src={aptLocatorLogo} 
+                alt="APT Locator logo" 
+                className="w-24 h-24 object-contain shrink-0"
+              />
               <div className="text-center sm:text-left">
                 <h3 className="text-2xl font-bold mb-1">APT Locator</h3>
                 <p className="text-muted-foreground">Leading Apartment Locating Company</p>
