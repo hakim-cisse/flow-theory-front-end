@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/flow-theory-logo.png";
 
 const navLinks = [
   { label: "About", href: "#about" },
