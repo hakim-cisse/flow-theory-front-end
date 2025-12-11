@@ -1,6 +1,6 @@
 export const CTA = () => {
   return (
-    <section className="py-24 sm:py-32 relative overflow-hidden bg-muted">
+    <section id="cta" className="py-24 sm:py-32 relative overflow-hidden bg-muted">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
           <div className="text-center space-y-4 mb-12">

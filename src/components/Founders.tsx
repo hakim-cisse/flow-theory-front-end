@@ -25,7 +25,7 @@ const founders = [
 
 export const Founders = () => {
   return (
-    <section className="py-24 sm:py-32 relative">
+    <section id="founders" className="py-24 sm:py-32 relative">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl sm:text-5xl font-bold text-center mb-16">
