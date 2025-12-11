@@ -1,16 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import flowTheoryLogo from "@/assets/flow-theory-logo.png";
 
 export const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
-      {/* Logo in top left */}
-      <img 
-        src={flowTheoryLogo} 
-        alt="Flow Theory AI Logo" 
-        className="absolute top-4 left-4 w-12 h-12 sm:top-8 sm:left-8 sm:w-20 sm:h-20 z-20"
-      />
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="max-w-5xl mx-auto space-y-6 sm:space-y-8 animate-fade-in-up pt-12 sm:pt-0">
