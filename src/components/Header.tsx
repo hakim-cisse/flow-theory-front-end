@@ -6,7 +6,6 @@ const navLinks = [
   { label: "About", href: "#about" },
   { label: "Team", href: "#founders" },
   { label: "Services", href: "#services" },
-  { label: "Results", href: "#results" },
   { label: "Case Studies", href: "#case-studies" },
 ];
 
@@ -24,7 +23,7 @@ export const Header = () => {
         <img
           src={logo}
           alt="Flow Theory AI"
-          className="h-8 w-auto cursor-pointer"
+          className="h-16 w-auto cursor-pointer"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         />
 
