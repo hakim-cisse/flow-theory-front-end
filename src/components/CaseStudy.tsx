@@ -169,7 +169,7 @@ const CaseStudyCard = ({ study }: { study: CaseStudyData }) => {
 
 export const CaseStudy = () => {
   return (
-    <section id="case-study" className="py-24 sm:py-32 relative overflow-hidden bg-gradient-to-b from-transparent via-primary/5 to-transparent">
+    <section id="case-studies" className="py-24 sm:py-32 relative overflow-hidden bg-gradient-to-b from-transparent via-primary/5 to-transparent">
       {/* Background Effects */}
       <div className="absolute top-1/4 right-1/4 w-[600px] h-[600px] bg-primary/10 rounded-full blur-3xl animate-pulse"></div>
       <div className="absolute bottom-1/4 left-1/4 w-[400px] h-[400px] bg-primary/5 rounded-full blur-3xl"></div>

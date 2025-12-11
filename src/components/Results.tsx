@@ -19,7 +19,7 @@ export const Results = () => {
       { threshold: 0.3 }
     );
 
-    const element = document.getElementById("results-section");
+    const element = document.getElementById("results");
     if (element) observer.observe(element);
 
     return () => {
@@ -28,7 +28,7 @@ export const Results = () => {
   }, []);
 
   return (
-    <section id="results-section" className="py-24 sm:py-32 relative overflow-hidden">
+    <section id="results" className="py-24 sm:py-32 relative overflow-hidden">
       {/* Background Glow */}
       <div className="absolute top-1/2 left-1/4 w-[700px] h-[700px] bg-primary/5 rounded-full blur-3xl"></div>
 
