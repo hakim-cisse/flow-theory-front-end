@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const navLinks = [
   { label: "About", href: "#about" },
@@ -18,8 +19,15 @@ export const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50">
-      <div className="container mx-auto px-6 py-4 flex items-center justify-between">
+    <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-6xl">
+      <div className="bg-background/60 backdrop-blur-xl border border-border/50 rounded-2xl px-6 py-3 flex items-center justify-between shadow-lg">
+        <img
+          src={logo}
+          alt="Flow Theory AI"
+          className="h-8 w-auto cursor-pointer"
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        />
+
         <nav className="hidden md:flex items-center gap-1">
           {navLinks.map((link) => (
             <button
@@ -36,7 +44,7 @@ export const Header = () => {
           onClick={() => scrollToSection("#cta")}
           className="bg-primary hover:bg-primary/90 text-primary-foreground gap-2"
         >
-          Get Started
+          Book an intro
           <ArrowRight className="w-4 h-4" />
         </Button>
       </div>
