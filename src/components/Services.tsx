@@ -1,4 +1,4 @@
-import { Search, Workflow, Puzzle } from "lucide-react";
+import { Search, Workflow, Puzzle, GraduationCap } from "lucide-react";
 
 const services = [
   {
@@ -15,6 +15,11 @@ const services = [
     icon: Puzzle,
     title: "AI Integrations",
     description: "Connect your tools into one intelligent ecosystem that learns and adapts.",
+  },
+  {
+    icon: GraduationCap,
+    title: "Education",
+    description: "Empower your team with AI knowledge and best practices for lasting transformation.",
   },
 ];
 
