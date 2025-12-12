@@ -1,5 +1,5 @@
 import hakimImage from "@/assets/hakim.jpg";
-import yassineImage from "@/assets/yassine.jpg";
+import yassineImage from "@/assets/yassine.png";
 import yunusImage from "@/assets/yunus.jpg";
 
 const founders = [
