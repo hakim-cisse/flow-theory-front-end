@@ -25,16 +25,12 @@ export const Hero = () => {
           </button>
 
           <h1 className="text-3xl sm:text-5xl lg:text-7xl font-bold tracking-tight">
-            <span className="block text-foreground">Become an</span>
-            <span className="block text-gradient mt-1 sm:mt-2">AI-First Business.</span>
+            <span className="block text-foreground">AI Transformation Built on</span>
+            <span className="block text-gradient mt-1 sm:mt-2">Strategy and ROI.</span>
           </h1>
           
           <p className="text-base sm:text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed px-2">
-            Flow Theory AI helps small and growing companies evolve from manual operations to intelligent, automated ecosystems that give you the speed, focus, and leverage of the future.
-          </p>
-
-          <p className="text-sm sm:text-base lg:text-lg text-muted-foreground/80 max-w-2xl mx-auto px-2">
-            Stop working harder. Start working smarter with systems that think, act, and adapt alongside you.
+            Flow Theory AI helps businesses cut through the noise, build a clear AI roadmap, and execute only what delivers measurable business value.
           </p>
 
           <div className="flex justify-center items-center pt-2 sm:pt-4 px-4">
