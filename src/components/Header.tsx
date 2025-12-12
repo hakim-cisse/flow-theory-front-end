@@ -19,11 +19,11 @@ export const Header = () => {
 
   return (
     <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-6xl">
-      <div className="bg-background/60 backdrop-blur-xl border border-border/50 rounded-2xl px-6 py-3 flex items-center justify-between shadow-lg">
+      <div className="bg-background/60 backdrop-blur-xl border border-border/50 rounded-2xl px-6 py-2 flex items-center justify-between shadow-lg">
         <img
           src={logo}
           alt="Flow Theory AI"
-          className="h-16 w-auto cursor-pointer"
+          className="h-12 w-auto cursor-pointer"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         />
 
