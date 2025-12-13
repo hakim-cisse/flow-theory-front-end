@@ -20,7 +20,7 @@ export const ThemeToggle = () => {
       variant="outline"
       size="icon"
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className="hidden md:flex fixed top-6 right-6 z-50 rounded-full w-12 h-12 bg-background/80 backdrop-blur-sm border-border/50 hover:bg-accent hover:text-accent-foreground transition-all duration-300 hover:scale-110 glow"
+      className="hidden md:flex fixed top-24 right-6 z-50 rounded-full w-12 h-12 bg-background/80 backdrop-blur-sm border-border/50 hover:bg-accent hover:text-accent-foreground transition-all duration-300 hover:scale-110 glow"
       aria-label="Toggle theme"
     >
       {theme === "dark" ? (
