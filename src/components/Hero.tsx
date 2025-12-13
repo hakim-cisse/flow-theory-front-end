@@ -10,10 +10,10 @@ export const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background pt-20 md:pt-0">
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div className="max-w-5xl mx-auto space-y-6 sm:space-y-8 animate-fade-in-up pt-12 sm:pt-0">
+        <div className="max-w-5xl mx-auto space-y-6 sm:space-y-8 animate-fade-in-up">
           {/* Case Study Link */}
           <button
             onClick={scrollToCaseStudy}

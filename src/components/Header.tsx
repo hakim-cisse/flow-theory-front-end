@@ -53,10 +53,11 @@ export const Header = () => {
         <div className="flex items-center gap-2">
           <Button
             onClick={() => scrollToSection("#cta")}
-            className="hidden md:flex bg-primary hover:bg-primary/90 text-primary-foreground gap-2"
+            className="bg-primary hover:bg-primary/90 text-primary-foreground gap-2 text-xs md:text-sm px-3 md:px-4"
+            size="sm"
           >
             Book an intro
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-3 h-3 md:w-4 md:h-4" />
           </Button>
 
           {/* Mobile hamburger */}
@@ -85,11 +86,11 @@ export const Header = () => {
             ))}
           </nav>
 
-          <div className="mt-3 pt-3 border-t border-border/50 flex items-center justify-between">
-            {mounted && (
+          {mounted && (
+            <div className="mt-3 pt-3 border-t border-border/50">
               <button
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                className="flex items-center gap-2 px-4 py-3 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-accent/50"
+                className="flex items-center gap-2 px-4 py-3 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-accent/50 w-full"
               >
                 {theme === "dark" ? (
                   <>
@@ -103,17 +104,8 @@ export const Header = () => {
                   </>
                 )}
               </button>
-            )}
-
-            <Button
-              onClick={() => scrollToSection("#cta")}
-              className="bg-primary hover:bg-primary/90 text-primary-foreground gap-2"
-              size="sm"
-            >
-              Book an intro
-              <ArrowRight className="w-4 h-4" />
-            </Button>
-          </div>
+            </div>
+          )}
         </div>
       )}
     </header>
