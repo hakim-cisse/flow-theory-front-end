@@ -17,7 +17,7 @@ export const Hero = () => {
           {/* Case Study Link */}
           <button
             onClick={scrollToCaseStudy}
-            className="group inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-sm text-primary hover:bg-primary/20 hover:scale-105 hover:shadow-lg hover:shadow-primary/20 transition-all duration-300"
+            className="group inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-sm text-primary hover:bg-primary/20 hover:scale-105 hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 animate-[slideInDown_0.6s_ease-out_0.3s_both]"
           >
             <FileText className="w-4 h-4 group-hover:rotate-6 transition-transform duration-300" />
             <span>How we automated one of the largest apartment locators in the U.S.</span>
