@@ -17,11 +17,11 @@ export const Hero = () => {
           {/* Case Study Link */}
           <button
             onClick={scrollToCaseStudy}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-sm text-primary hover:bg-primary/20 transition-colors"
+            className="group inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-sm text-primary hover:bg-primary/20 hover:scale-105 hover:shadow-lg hover:shadow-primary/20 transition-all duration-300"
           >
-            <FileText className="w-4 h-4" />
+            <FileText className="w-4 h-4 group-hover:rotate-6 transition-transform duration-300" />
             <span>How we automated one of the largest apartment locators in the U.S.</span>
-            <ArrowRight className="w-3 h-3" />
+            <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform duration-300" />
           </button>
 
           <h1 className="text-3xl sm:text-5xl lg:text-7xl font-bold tracking-tight">
