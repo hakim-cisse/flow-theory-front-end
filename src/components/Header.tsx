@@ -3,6 +3,7 @@ import { ArrowRight, Menu, X, Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useState, useEffect } from "react";
 import logo from "@/assets/flow-theory-logo.png";
+import { ContactDialog } from "./ContactDialog";
 
 const navLinks = [
   { label: "About", href: "#about" },
@@ -13,6 +14,7 @@ const navLinks = [
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [contactOpen, setContactOpen] = useState(false);
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
@@ -48,6 +50,12 @@ export const Header = () => {
               {link.label}
             </button>
           ))}
+          <button
+            onClick={() => setContactOpen(true)}
+            className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors rounded-md hover:bg-accent/50"
+          >
+            Contact
+          </button>
         </nav>
 
         <div className="flex items-center gap-2">
@@ -84,6 +92,15 @@ export const Header = () => {
                 {link.label}
               </button>
             ))}
+            <button
+              onClick={() => {
+                setContactOpen(true);
+                setIsOpen(false);
+              }}
+              className="px-4 py-3 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-accent/50 text-left"
+            >
+              Contact
+            </button>
           </nav>
 
           {mounted && (
@@ -108,6 +125,7 @@ export const Header = () => {
           )}
         </div>
       )}
+      <ContactDialog open={contactOpen} onOpenChange={setContactOpen} />
     </header>
   );
 };
