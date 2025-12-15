@@ -66,13 +66,33 @@ export const ContactDialog = ({ open, onOpenChange }: ContactDialogProps) => {
 
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    try {
+      const response = await fetch("https://hook.us2.make.com/xa6o1t5aeqt7r28k3v12k8bk7ksuor54", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        mode: "no-cors",
+        body: JSON.stringify({
+          ...result.data,
+          timestamp: new Date().toISOString(),
+        }),
+      });
 
-    toast({
-      title: "Message sent!",
-      description: "We'll get back to you within 24 hours.",
-    });
+      toast({
+        title: "Message sent!",
+        description: "We'll get back to you within 24 hours.",
+      });
+    } catch (error) {
+      console.error("Error sending message:", error);
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again.",
+        variant: "destructive",
+      });
+      setIsSubmitting(false);
+      return;
+    }
 
     setFormData({ name: "", email: "", company: "", message: "" });
     setIsSubmitting(false);
