@@ -1,19 +1,17 @@
 import { Linkedin, Twitter, Instagram } from "lucide-react";
 import logo from "@/assets/logo.png";
 
-const navigation = [
-  { name: "About", href: "#about" },
-  { name: "Services", href: "#services" },
-  { name: "Contact", href: "https://cal.com/hakim-cisse/alignment-call" },
-];
-
 const social = [
   { name: "LinkedIn", icon: Linkedin, href: "https://www.linkedin.com/company/107525980" },
   { name: "Twitter", icon: Twitter, href: "https://x.com/flowtheoryai" },
   { name: "Instagram", icon: Instagram, href: "https://www.instagram.com/flowtheoryai/" },
 ];
 
-export const Footer = () => {
+interface FooterProps {
+  onContactClick: () => void;
+}
+
+export const Footer = ({ onContactClick }: FooterProps) => {
   return (
     <footer className="relative border-t border-primary/20">
       {/* Top Glow */}
@@ -28,17 +26,24 @@ export const Footer = () => {
 
           {/* Navigation */}
           <nav className="flex flex-wrap justify-center gap-8 mb-8">
-            {navigation.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="text-muted-foreground hover:text-primary transition-colors duration-300 font-medium"
-                target={item.href.startsWith("http") ? "_blank" : undefined}
-                rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
-              >
-                {item.name}
-              </a>
-            ))}
+            <a
+              href="#about"
+              className="text-muted-foreground hover:text-primary transition-colors duration-300 font-medium"
+            >
+              About
+            </a>
+            <a
+              href="#services"
+              className="text-muted-foreground hover:text-primary transition-colors duration-300 font-medium"
+            >
+              Services
+            </a>
+            <button
+              onClick={onContactClick}
+              className="text-muted-foreground hover:text-primary transition-colors duration-300 font-medium"
+            >
+              Contact
+            </button>
           </nav>
 
           {/* Social Links */}
