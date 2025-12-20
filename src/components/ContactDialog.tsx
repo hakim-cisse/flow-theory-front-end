@@ -17,7 +17,8 @@ import { Send, Loader2 } from "lucide-react";
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100, "Name must be less than 100 characters"),
   email: z.string().trim().email("Invalid email address").max(255, "Email must be less than 255 characters"),
-  company: z.string().trim().max(100, "Company name must be less than 100 characters").optional(),
+  company: z.string().trim().min(1, "Company name is required").max(100, "Company name must be less than 100 characters"),
+  website: z.string().trim().url("Invalid website URL").max(255, "Website must be less than 255 characters").optional().or(z.literal("")),
   message: z.string().trim().min(1, "Message is required").max(1000, "Message must be less than 1000 characters"),
 });
 
@@ -35,6 +36,7 @@ export const ContactDialog = ({ open, onOpenChange }: ContactDialogProps) => {
     name: "",
     email: "",
     company: "",
+    website: "",
     message: "",
   });
   const [errors, setErrors] = useState<Partial<Record<keyof ContactFormData, string>>>({});
@@ -94,7 +96,7 @@ export const ContactDialog = ({ open, onOpenChange }: ContactDialogProps) => {
       return;
     }
 
-    setFormData({ name: "", email: "", company: "", message: "" });
+    setFormData({ name: "", email: "", company: "", website: "", message: "" });
     setIsSubmitting(false);
     onOpenChange(false);
   };
@@ -138,14 +140,29 @@ export const ContactDialog = ({ open, onOpenChange }: ContactDialogProps) => {
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="company">Company</Label>
+            <Label htmlFor="company">Company *</Label>
             <Input
               id="company"
               name="company"
               value={formData.company}
               onChange={handleChange}
-              placeholder="Your company (optional)"
+              placeholder="Your company"
+              className={errors.company ? "border-destructive" : ""}
             />
+            {errors.company && <p className="text-sm text-destructive">{errors.company}</p>}
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="website">Website</Label>
+            <Input
+              id="website"
+              name="website"
+              value={formData.website}
+              onChange={handleChange}
+              placeholder="https://yourwebsite.com (optional)"
+              className={errors.website ? "border-destructive" : ""}
+            />
+            {errors.website && <p className="text-sm text-destructive">{errors.website}</p>}
           </div>
 
           <div className="space-y-2">
