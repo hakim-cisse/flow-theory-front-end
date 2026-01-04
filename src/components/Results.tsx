@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 const stats = [
-  { value: 25, suffix: "+", label: "Hours Saved Weekly" },
+  { value: 25, suffix: "+", label: "Average Hours Saved Weekly" },
   { value: 40, suffix: "%", label: "Reduced Lead Time" },
   { value: 100, suffix: "%", label: "Scalable Without Hiring" },
 ];
