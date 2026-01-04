@@ -1,4 +1,5 @@
-import { Search, Workflow, Puzzle, GraduationCap, Code, Dumbbell, Layers } from "lucide-react";
+import { Search, Workflow, Puzzle, GraduationCap, Code, Dumbbell, Layers, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const services = [
   {
@@ -20,11 +21,6 @@ const services = [
     icon: Code,
     title: "Development",
     description: "Build custom AI-powered applications and solutions tailored to your business needs.",
-  },
-  {
-    icon: Layers,
-    title: "Custom SaaS Development",
-    description: "Design and build scalable SaaS platforms from concept to launch, tailored to your market.",
   },
   {
     icon: Dumbbell,
@@ -73,6 +69,35 @@ export const Services = () => {
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* Custom SaaS Development Featured Block */}
+          <div className="mt-12 group p-10 md:p-12 rounded-2xl glass hover:bg-primary/5 transition-all duration-500 hover:glow">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+              <div className="flex items-start gap-6">
+                <div className="inline-flex p-5 rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-all duration-300 group-hover:scale-110 shrink-0">
+                  <Layers className="h-10 w-10 text-primary" strokeWidth={1.5} />
+                </div>
+                <div className="space-y-3">
+                  <h3 className="text-2xl md:text-3xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
+                    Custom SaaS Development
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed text-lg max-w-2xl">
+                    Design and build scalable SaaS platforms from concept to launch. We handle architecture, development, and deployment—tailored to your market and growth goals.
+                  </p>
+                </div>
+              </div>
+              <Button
+                asChild
+                size="lg"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground gap-2 shrink-0 self-start md:self-center"
+              >
+                <a href="https://cal.com/flow-theory-ai/alignment-call" target="_blank" rel="noopener noreferrer">
+                  Let's Talk
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+              </Button>
+            </div>
           </div>
         </div>
       </div>
