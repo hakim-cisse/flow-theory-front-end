@@ -1,4 +1,4 @@
-import { Search, Workflow, Puzzle, GraduationCap, Code, Dumbbell } from "lucide-react";
+import { Search, Workflow, Puzzle, GraduationCap, Code, Dumbbell, Layers } from "lucide-react";
 
 const services = [
   {
@@ -20,6 +20,11 @@ const services = [
     icon: Code,
     title: "Development",
     description: "Build custom AI-powered applications and solutions tailored to your business needs.",
+  },
+  {
+    icon: Layers,
+    title: "Custom SaaS Development",
+    description: "Design and build scalable SaaS platforms from concept to launch, tailored to your market.",
   },
   {
     icon: Dumbbell,
