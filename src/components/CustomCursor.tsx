@@ -24,22 +24,14 @@ export const CustomCursor = () => {
   }, []);
 
   return (
-    <svg
-      className="fixed pointer-events-none z-[9999] transition-opacity duration-75 ease-out"
+    <div
+      className="fixed pointer-events-none z-[9999] w-8 h-8 rounded-full bg-primary mix-blend-difference transition-transform duration-75 ease-out"
       style={{
         left: position.x,
         top: position.y,
+        transform: "translate(-50%, -50%)",
         opacity: isVisible ? 1 : 0,
-        width: 32,
-        height: 32,
       }}
-      viewBox="0 0 24 24"
-      fill="none"
-    >
-      <path
-        d="M4 4L20 12L4 20L8 12L4 4Z"
-        fill="hsl(194, 83%, 61%)"
-      />
-    </svg>
+    />
   );
 };
