@@ -10,14 +10,12 @@ import { Footer } from "@/components/Footer";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { Header } from "@/components/Header";
 import { ContactDialog } from "@/components/ContactDialog";
-import { CustomCursor } from "@/components/CustomCursor";
 
 const Index = () => {
   const [contactOpen, setContactOpen] = useState(false);
 
   return (
     <div className="min-h-screen pt-16">
-      <CustomCursor />
       <Header onContactClick={() => setContactOpen(true)} />
       <ThemeToggle />
       <Hero />
