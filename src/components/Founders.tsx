@@ -19,7 +19,7 @@ const founders = [
     name: "Yunus Kounkourou",
     title: "Co-Founder & COO",
     image: yunusImage,
-    description: "Operations leader with extensive technical experience, responsible for building scalable infrastructure, optimizing internal processes, and translating strategy into reliable execution across teams.",
+    description: "Operations leader with technical experience enabling scalable execution and efficiency.",
   },
 ];
 
