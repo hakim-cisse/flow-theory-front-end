@@ -30,7 +30,7 @@ export const Hero = () => {
             className="group inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-sm text-primary hover:bg-primary/20 hover:scale-105 hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 animate-[slideInDown_0.6s_ease-out_0.3s_both]"
           >
             <FileText className="w-4 h-4 group-hover:rotate-6 transition-transform duration-300" />
-            <span>How we automated one of the largest apartment locators in the U.S.</span>
+            <span>How we saved $96,000 a year for one of the largest apartment locators in the U.S.</span>
             <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform duration-300" />
           </button>
 
