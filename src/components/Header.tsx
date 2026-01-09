@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Menu, X, Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useState, useEffect } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import logo from "@/assets/flow-theory-logo.png";
 
 const navLinks = [
@@ -9,6 +10,7 @@ const navLinks = [
   { label: "Team", href: "#founders" },
   { label: "Services", href: "#services" },
   { label: "Case Studies", href: "#case-studies" },
+  { label: "Blog", href: "/blog", isRoute: true },
 ];
 
 interface HeaderProps {
@@ -19,17 +21,41 @@ export const Header = ({ onContactClick }: HeaderProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+  const handleNavClick = (link: { href: string; isRoute?: boolean }) => {
+    if (link.isRoute) {
+      navigate(link.href);
+    } else {
+      if (location.pathname !== "/") {
+        navigate("/");
+        setTimeout(() => {
+          const element = document.querySelector(link.href);
+          if (element) {
+            element.scrollIntoView({ behavior: "smooth" });
+          }
+        }, 100);
+      } else {
+        const element = document.querySelector(link.href);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }
     }
     setIsOpen(false);
+  };
+
+  const handleLogoClick = () => {
+    if (location.pathname !== "/") {
+      navigate("/");
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
   };
 
   return (
@@ -39,14 +65,14 @@ export const Header = ({ onContactClick }: HeaderProps) => {
           src={logo}
           alt="Flow Theory AI"
           className="h-10 md:h-12 w-auto cursor-pointer"
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          onClick={handleLogoClick}
         />
 
         <nav className="hidden md:flex items-center gap-1">
           {navLinks.map((link) => (
             <button
               key={link.href}
-              onClick={() => scrollToSection(link.href)}
+              onClick={() => handleNavClick(link)}
               className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors rounded-md hover:bg-accent/50"
             >
               {link.label}
@@ -62,7 +88,7 @@ export const Header = ({ onContactClick }: HeaderProps) => {
 
         <div className="flex items-center gap-2">
           <Button
-            onClick={() => scrollToSection("#cta")}
+            onClick={() => handleNavClick({ href: "#cta" })}
             className="bg-primary hover:bg-primary/90 text-primary-foreground gap-2 text-xs md:text-sm px-3 md:px-4"
             size="sm"
           >
@@ -88,7 +114,7 @@ export const Header = ({ onContactClick }: HeaderProps) => {
             {navLinks.map((link) => (
               <button
                 key={link.href}
-                onClick={() => scrollToSection(link.href)}
+                onClick={() => handleNavClick(link)}
                 className="px-4 py-3 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-accent/50 text-left"
               >
                 {link.label}
