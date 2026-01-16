@@ -118,6 +118,16 @@ const BlogPost = () => {
             Back to Blog
           </Link>
 
+          {blog.image_url && (
+            <div className="aspect-video rounded-lg overflow-hidden mb-8">
+              <img
+                src={blog.image_url}
+                alt={blog.title}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          )}
+
           <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-6">
             {blog.title}
           </h1>
@@ -139,16 +149,6 @@ const BlogPost = () => {
               </p>
             </div>
           </div>
-
-          {blog.image_url && (
-            <div className="aspect-video rounded-lg overflow-hidden mb-8">
-              <img
-                src={blog.image_url}
-                alt={blog.title}
-                className="w-full h-full object-cover"
-              />
-            </div>
-          )}
 
           <div className="prose prose-lg dark:prose-invert max-w-none">
             {blog.body.split("\n").map((paragraph, index) => (
