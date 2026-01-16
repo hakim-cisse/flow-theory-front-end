@@ -14,8 +14,8 @@ import yassineImage from "@/assets/yassine.png";
 import yunusImage from "@/assets/yunus.jpg";
 
 const authorImages: Record<string, string> = {
-  "Hakim Zerhouni": hakimImage,
-  "Yassine Zerhouni": yassineImage,
+  "Hakim Cisse": hakimImage,
+  "Yassine Diallo": yassineImage,
   "Yunus Kounkourou": yunusImage,
 };
 
