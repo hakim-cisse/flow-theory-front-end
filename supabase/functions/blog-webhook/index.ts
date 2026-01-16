@@ -13,8 +13,8 @@ interface BlogPayload {
 }
 
 const VALID_AUTHORS = [
-  "Hakim Zerhouni",
-  "Yassine Zerhouni",
+  "Hakim Cisse",
+  "Yassine Diallo",
   "Yunus Kounkourou",
 ];
 
