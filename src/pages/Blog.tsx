@@ -101,7 +101,7 @@ const Blog = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {blogs.map((blog) => (
                 <Link key={blog.id} to={`/blog/${blog.id}`}>
-                <Card className="group h-full hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 hover:-translate-y-1 cursor-pointer overflow-hidden">
+                <Card className="group h-full hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 hover:-translate-y-1 cursor-pointer overflow-hidden flex flex-col">
                     <CardHeader className="pb-2">
                       <CardTitle className="text-xl group-hover:text-primary transition-colors line-clamp-2">
                         {blog.title}
@@ -126,20 +126,20 @@ const Blog = () => {
                         </div>
                       </div>
                     </CardHeader>
-                    {blog.image_url && (
-                      <div className="aspect-video overflow-hidden mx-4">
-                        <img
-                          src={blog.image_url}
-                          alt={blog.title}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 rounded-md"
-                        />
-                      </div>
-                    )}
-                    <CardContent className="pt-4">
+                    <CardContent className="pt-4 flex-1">
                       <p className="text-muted-foreground line-clamp-3">
                         {truncateBody(blog.body)}
                       </p>
                     </CardContent>
+                    {blog.image_url && (
+                      <div className="aspect-video overflow-hidden">
+                        <img
+                          src={blog.image_url}
+                          alt={blog.title}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                      </div>
+                    )}
                   </Card>
                 </Link>
               ))}
