@@ -103,7 +103,7 @@ const Blog = () => {
                 <Link key={blog.id} to={`/blog/${blog.id}`}>
                 <Card className="group h-full hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 hover:-translate-y-1 cursor-pointer overflow-hidden flex flex-col">
                     <CardHeader className="pb-2">
-                      <CardTitle className="text-xl group-hover:text-primary transition-colors line-clamp-2">
+                      <CardTitle className="text-xl group-hover:text-primary transition-colors">
                         {blog.title}
                       </CardTitle>
                       <div className="flex items-center gap-3 mt-2">
