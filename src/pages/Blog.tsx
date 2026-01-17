@@ -101,27 +101,13 @@ const Blog = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {blogs.map((blog) => (
                 <Link key={blog.id} to={`/blog/${blog.id}`}>
-                  <Card className="group h-full hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 hover:-translate-y-1 cursor-pointer overflow-hidden">
-                    {blog.image_url && (
-                      <div className="aspect-video overflow-hidden">
-                        <img
-                          src={blog.image_url}
-                          alt={blog.title}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                        />
-                      </div>
-                    )}
-                    <CardHeader>
+                <Card className="group h-full hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 hover:-translate-y-1 cursor-pointer overflow-hidden">
+                    <CardHeader className="pb-2">
                       <CardTitle className="text-xl group-hover:text-primary transition-colors line-clamp-2">
                         {blog.title}
                       </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-muted-foreground mb-4 line-clamp-3">
-                        {truncateBody(blog.body)}
-                      </p>
-                      <div className="flex items-center gap-3">
-                        <Avatar className="h-10 w-10">
+                      <div className="flex items-center gap-3 mt-2">
+                        <Avatar className="h-8 w-8">
                           <AvatarImage
                             src={authorImages[blog.author_name]}
                             alt={blog.author_name}
@@ -139,6 +125,20 @@ const Blog = () => {
                           </p>
                         </div>
                       </div>
+                    </CardHeader>
+                    {blog.image_url && (
+                      <div className="aspect-video overflow-hidden mx-4">
+                        <img
+                          src={blog.image_url}
+                          alt={blog.title}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 rounded-md"
+                        />
+                      </div>
+                    )}
+                    <CardContent className="pt-4">
+                      <p className="text-muted-foreground line-clamp-3">
+                        {truncateBody(blog.body)}
+                      </p>
                     </CardContent>
                   </Card>
                 </Link>
