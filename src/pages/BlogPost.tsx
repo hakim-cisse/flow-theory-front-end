@@ -8,6 +8,7 @@ import { ContactDialog } from "@/components/ContactDialog";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { format } from "date-fns";
 import { ArrowLeft } from "lucide-react";
+import ReactMarkdown from "react-markdown";
 
 import hakimImage from "@/assets/hakim.jpg";
 import yassineImage from "@/assets/yassine.png";
@@ -118,6 +119,10 @@ const BlogPost = () => {
             Back to Blog
           </Link>
 
+          <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-6">
+            {blog.title}
+          </h1>
+
           {blog.image_url && (
             <div className="aspect-video rounded-lg overflow-hidden mb-8">
               <img
@@ -127,10 +132,6 @@ const BlogPost = () => {
               />
             </div>
           )}
-
-          <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-6">
-            {blog.title}
-          </h1>
 
           <div className="flex items-center gap-4 mb-8">
             <Avatar className="h-12 w-12">
@@ -150,12 +151,8 @@ const BlogPost = () => {
             </div>
           </div>
 
-          <div className="prose prose-lg dark:prose-invert max-w-none">
-            {blog.body.split("\n").map((paragraph, index) => (
-              <p key={index} className="text-muted-foreground leading-relaxed mb-4">
-                {paragraph}
-              </p>
-            ))}
+          <div className="prose prose-lg dark:prose-invert max-w-none prose-headings:text-foreground prose-p:text-muted-foreground prose-strong:text-foreground prose-a:text-primary prose-code:text-foreground prose-blockquote:text-muted-foreground prose-li:text-muted-foreground">
+            <ReactMarkdown>{blog.body}</ReactMarkdown>
           </div>
         </article>
       </main>
