@@ -1,7 +1,14 @@
 import { useState, useRef } from "react";
-import { Clock, DollarSign, Building2, ChevronDown, ChevronUp, CheckCircle } from "lucide-react";
+import { Clock, DollarSign, Building2, ChevronDown, ChevronUp, CheckCircle, PhoneOff, Zap } from "lucide-react";
 import aptLocatorLogo from "@/assets/apt-locator-logo.png";
+import eenLogo from "@/assets/een-logo.png";
 import { cn } from "@/lib/utils";
+
+interface MetricItem {
+  icon: React.ReactNode;
+  value: string;
+  label: string;
+}
 
 interface CaseStudyData {
   id: string;
@@ -9,10 +16,7 @@ interface CaseStudyData {
   logo: string;
   tagline: string;
   overview: string;
-  metrics: {
-    costSavings: string;
-    timeSavings: string;
-  };
+  metrics: MetricItem[];
   problem: string;
   solution: string;
   results: string;
@@ -26,16 +30,34 @@ const caseStudies: CaseStudyData[] = [
     tagline: "Leading Apartment Locating Company",
     overview:
       "APT Locator is one of the largest apartment locating companies in the United States. As their lead volume grew, their internal systems couldn't keep up. ISAs were overwhelmed with repetitive tasks, apartment recommendations took too long, and invoicing required hours of manual work. Flow Theory AI partnered with them to modernize their operations using automation and AI, while also empowering the founders to use AI internally without relying on external vendors.",
-    metrics: {
-      costSavings: "$6,000–$10,000",
-      timeSavings: "~55 hours",
-    },
+    metrics: [
+      { icon: <DollarSign className="w-8 h-8 text-primary" />, value: "$6,000–$10,000", label: "Monthly Cost Savings" },
+      { icon: <Clock className="w-8 h-8 text-primary" />, value: "~55 hours", label: "Saved Weekly Across Team" },
+    ],
     problem:
       "Despite strong demand, APT Locator's processes were slowing the business down. ISAs spent too much time qualifying leads and manually compiling apartment suggestions. Founders were losing hours each month to invoice creation and follow-up. Internal AI adoption was low, and the company lacked a scalable operational foundation to support their growth. These bottlenecks created slow response times, inconsistent client experiences, and unnecessary labor costs.",
     solution:
       "Flow Theory AI redesigned APT Locator's workflows from the ground up. We automated core ISA tasks and introduced a streamlined qualification process that significantly reduced their workload. We built a custom AI-powered apartment suggestion bot that could generate personalized recommendations in seconds, improving both speed and consistency. We also automated their entire invoicing workflow, removing manual data entry and accelerating cash collection. Finally, we trained the founders to integrate AI into daily operations, giving them long-term independence and eliminating vendor reliance.",
     results:
       "APT Locator now operates with a faster, leaner, and more scalable system. Their ISAs work with dramatically reduced friction, apartment recommendations are generated almost instantly, and invoicing runs automatically. The result is a stronger operational backbone, improved customer experience, and leadership that is fully equipped to leverage AI across the company.",
+  },
+  {
+    id: "empower-estates-network",
+    company: "Empower Estates Network",
+    logo: eenLogo,
+    tagline: "Real Estate Wholesaling Network",
+    overview:
+      "Empower Estates Network is a growing real estate wholesaling company managing high volumes of seller and buyer activity through their CRM. As deal flow increased, operational inefficiencies began to surface. Sales reps were unintentionally calling the same sellers multiple times due to duplicated contact records tied to the same property. Buyer outreach was slow and largely manual, and founders lacked real-time visibility into key sales moments. Flow Theory AI partnered with Empower Estates Network to rebuild these workflows using automation and custom integrations beyond the limits of their CRM.",
+    metrics: [
+      { icon: <PhoneOff className="w-8 h-8 text-primary" />, value: "0 duplicate seller calls", label: "Across Active Dialer Queues" },
+      { icon: <Zap className="w-8 h-8 text-primary" />, value: "3–5× faster", label: "Buyer Outreach After Contract" },
+    ],
+    problem:
+      "Empower Estates Network's CRM did not account for multiple contacts associated with a single property address. This caused sellers to receive repeated calls from different reps, creating frustration and wasting dialer capacity. Buyer outreach only began after manual intervention, slowing dispositions once properties went under contract. In addition, founders had limited insight into when reps generated hot leads, limiting accountability and real-time performance awareness.",
+    solution:
+      "Flow Theory AI redesigned Empower Estates Network's operational workflows. We built a system that identifies all contacts tied to a single property address and automatically removes duplicates from the dialer queue, eliminating repeat outreach. We then created an automated buyer outreach system that contacts matched buyers within minutes of a property going under contract, reducing disposition delays. Finally, we implemented a real-time notification bot that alerts the team when a sales rep generates a hot lead, increasing transparency and reinforcing performance. These solutions required external tools and integrations to extend beyond native CRM limitations.",
+    results:
+      "Empower Estates Network now operates with a cleaner, more efficient sales system. Duplicate seller calls were reduced to near zero, buyer outreach time decreased by an estimated 60–75%, and founders gained immediate visibility into high-intent leads as they occur. Sales reps experience fewer stalled deals, improved focus, and clearer feedback loops, resulting in faster deal execution and a more disciplined sales operation.",
   },
 ];
 
@@ -86,20 +108,15 @@ const CaseStudyCard = ({ study }: { study: CaseStudyData }) => {
 
           {/* Metrics - Always Visible */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-            <div className="bg-primary/5 rounded-xl p-5 text-center">
-              <DollarSign className="w-8 h-8 text-primary mx-auto mb-2" />
-              <div className="text-2xl sm:text-3xl font-bold text-gradient mb-1">
-                {study.metrics.costSavings}
+            {study.metrics.map((metric, index) => (
+              <div key={index} className="bg-primary/5 rounded-xl p-5 text-center">
+                <div className="flex justify-center mb-2">{metric.icon}</div>
+                <div className="text-2xl sm:text-3xl font-bold text-gradient mb-1">
+                  {metric.value}
+                </div>
+                <p className="text-sm text-muted-foreground font-medium">{metric.label}</p>
               </div>
-              <p className="text-sm text-muted-foreground font-medium">Monthly Cost Savings</p>
-            </div>
-            <div className="bg-primary/5 rounded-xl p-5 text-center">
-              <Clock className="w-8 h-8 text-primary mx-auto mb-2" />
-              <div className="text-2xl sm:text-3xl font-bold text-gradient mb-1">
-                {study.metrics.timeSavings}
-              </div>
-              <p className="text-sm text-muted-foreground font-medium">Saved Weekly Across Team</p>
-            </div>
+            ))}
           </div>
 
           {/* Toggle Button */}
