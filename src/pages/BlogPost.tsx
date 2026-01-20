@@ -41,13 +41,48 @@ const getAuthorInitials = (name: string | null) => {
     .toUpperCase();
 };
 
+interface BlogListItem {
+  id: string;
+  title: string;
+}
+
+interface BlogListResponse {
+  posts: BlogListItem[];
+}
+
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
   const location = useLocation();
   const [contactOpen, setContactOpen] = useState(false);
 
-  // Extract the ID from the slug-id format
-  const postId = slug ? extractIdFromSlug(slug) : null;
+  // Extract the ID from the slug format
+  const extractedId = slug ? extractIdFromSlug(slug) : null;
+  
+  // Check if it's a valid UUID (new format) or just a short ID (old format)
+  const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+  const isFullUuid = extractedId ? uuidRegex.test(extractedId) : false;
+
+  // For old URLs with short IDs, fetch posts list to find matching post
+  const { data: postsData } = useQuery({
+    queryKey: ["blog-list-lookup"],
+    queryFn: async () => {
+      const response = await fetch(`${API_BASE_URL}?limit=100&offset=0`);
+      if (!response.ok) throw new Error("Failed to fetch posts");
+      return response.json() as Promise<BlogListResponse>;
+    },
+    enabled: !isFullUuid && !!extractedId,
+  });
+
+  // Find matching post ID from short ID
+  const postId = useMemo(() => {
+    if (isFullUuid) return extractedId;
+    if (!postsData?.posts || !extractedId) return null;
+    
+    const matchingPost = postsData.posts.find(post => 
+      post.id.startsWith(extractedId)
+    );
+    return matchingPost?.id || null;
+  }, [isFullUuid, extractedId, postsData]);
 
   const shareUrl = typeof window !== "undefined" 
     ? `${window.location.origin}${location.pathname}` 
