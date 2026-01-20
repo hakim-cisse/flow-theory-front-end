@@ -1,12 +1,13 @@
 import { useState, useMemo } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useLocation } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ContactDialog } from "@/components/ContactDialog";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import { Button } from "@/components/ui/button";
 import { format } from "date-fns";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Twitter, Linkedin, Facebook } from "lucide-react";
 import { generateHTML } from "@tiptap/html";
 import StarterKit from "@tiptap/starter-kit";
 import Image from "@tiptap/extension-image";
@@ -41,7 +42,26 @@ const getAuthorInitials = (name: string | null) => {
 
 const BlogPost = () => {
   const { id } = useParams<{ id: string }>();
+  const location = useLocation();
   const [contactOpen, setContactOpen] = useState(false);
+
+  const shareUrl = typeof window !== "undefined" 
+    ? `${window.location.origin}${location.pathname}` 
+    : "";
+
+  const handleShare = (platform: "twitter" | "linkedin" | "facebook") => {
+    const title = blog?.title || "";
+    const encodedUrl = encodeURIComponent(shareUrl);
+    const encodedTitle = encodeURIComponent(title);
+
+    const urls = {
+      twitter: `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`,
+      linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`,
+      facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`,
+    };
+
+    window.open(urls[platform], "_blank", "noopener,noreferrer,width=600,height=400");
+  };
 
   const { data: blog, isLoading, error } = useQuery({
     queryKey: ["blog", id],
@@ -149,23 +169,55 @@ const BlogPost = () => {
             </div>
           )}
 
-          <div className="flex items-center gap-4 mb-8">
-            <Avatar className="h-12 w-12">
-              <AvatarImage
-                src={blog.author?.avatar_url || undefined}
-                alt={blog.author?.display_name || "Author"}
-              />
-              <AvatarFallback>
-                {getAuthorInitials(blog.author?.display_name || null)}
-              </AvatarFallback>
-            </Avatar>
-            <div>
-              <p className="font-medium text-foreground">
-                {blog.author?.display_name || "Anonymous"}
-              </p>
-              <p className="text-sm text-muted-foreground">
-                {format(new Date(blog.published_at), "MMMM d, yyyy")}
-              </p>
+          <div className="flex items-center justify-between mb-8">
+            <div className="flex items-center gap-4">
+              <Avatar className="h-12 w-12">
+                <AvatarImage
+                  src={blog.author?.avatar_url || undefined}
+                  alt={blog.author?.display_name || "Author"}
+                />
+                <AvatarFallback>
+                  {getAuthorInitials(blog.author?.display_name || null)}
+                </AvatarFallback>
+              </Avatar>
+              <div>
+                <p className="font-medium text-foreground">
+                  {blog.author?.display_name || "Anonymous"}
+                </p>
+                <p className="text-sm text-muted-foreground">
+                  {format(new Date(blog.published_at), "MMMM d, yyyy")}
+                </p>
+              </div>
+            </div>
+            
+            <div className="flex items-center gap-2">
+              <Button
+                variant="outline"
+                size="icon"
+                onClick={() => handleShare("twitter")}
+                className="h-9 w-9"
+                aria-label="Share on Twitter"
+              >
+                <Twitter className="h-4 w-4" />
+              </Button>
+              <Button
+                variant="outline"
+                size="icon"
+                onClick={() => handleShare("linkedin")}
+                className="h-9 w-9"
+                aria-label="Share on LinkedIn"
+              >
+                <Linkedin className="h-4 w-4" />
+              </Button>
+              <Button
+                variant="outline"
+                size="icon"
+                onClick={() => handleShare("facebook")}
+                className="h-9 w-9"
+                aria-label="Share on Facebook"
+              >
+                <Facebook className="h-4 w-4" />
+              </Button>
             </div>
           </div>
 
