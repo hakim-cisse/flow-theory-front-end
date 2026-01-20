@@ -12,18 +12,18 @@ export const generateSlug = (title: string): string => {
 };
 
 /**
- * Create a full blog URL path with slug and ID
- * Format: /blog/my-post-title-abc123
+ * Create a full blog URL path with slug and full ID
+ * Format: /blog/full-uuid-my-post-title
  */
 export const createBlogPath = (id: string, title: string): string => {
   const slug = generateSlug(title);
-  const shortId = id.split("-")[0]; // Use first segment of UUID
-  return `/blog/${slug}-${shortId}`;
+  return `/blog/${id}-${slug}`;
 };
 
 /**
- * Extract the ID from a slug-id URL parameter
- * Handles both old format (just ID) and new format (slug-shortId)
+ * Extract the UUID from a slug URL parameter
+ * Format expected: full-uuid-slug-text
+ * UUID format: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx (36 chars)
  */
 export const extractIdFromSlug = (slugWithId: string): string => {
   // If it's a full UUID (old format), return as-is
@@ -32,7 +32,18 @@ export const extractIdFromSlug = (slugWithId: string): string => {
     return slugWithId;
   }
   
-  // Extract the short ID from the end of the slug
-  const parts = slugWithId.split("-");
-  return parts[parts.length - 1];
+  // Extract UUID from the beginning of the slug (first 36 characters)
+  const potentialUuid = slugWithId.substring(0, 36);
+  if (uuidRegex.test(potentialUuid)) {
+    return potentialUuid;
+  }
+  
+  // Fallback: try to find UUID pattern anywhere in the string
+  const uuidMatch = slugWithId.match(/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/i);
+  if (uuidMatch) {
+    return uuidMatch[0];
+  }
+  
+  // Last resort: return the original (will likely fail but provides debugging info)
+  return slugWithId;
 };
