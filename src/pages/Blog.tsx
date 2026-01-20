@@ -7,8 +7,9 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { format } from "date-fns";
 import { Link } from "react-router-dom";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Clock } from "lucide-react";
 import { createBlogPath } from "@/lib/slug";
+import { calculateReadingTime, formatReadingTime } from "@/lib/readingTime";
 
 // Import author images
 import hakimImage from "@/assets/hakim.jpg";
@@ -30,6 +31,7 @@ interface BlogPost {
   excerpt: string | null;
   cover_image_url: string | null;
   published_at: string;
+  content?: object;
   author: {
     display_name: string | null;
     avatar_url: string | null;
@@ -150,8 +152,17 @@ const Blog = () => {
                           <p className="text-sm font-medium text-foreground">
                             {blog.author?.display_name || "Anonymous"}
                           </p>
-                          <p className="text-xs text-muted-foreground">
-                            {format(new Date(blog.published_at), "MMM d, yyyy")}
+                          <p className="text-xs text-muted-foreground flex items-center gap-2">
+                            <span>{format(new Date(blog.published_at), "MMM d, yyyy")}</span>
+                            {blog.content && (
+                              <>
+                                <span>·</span>
+                                <span className="flex items-center gap-1">
+                                  <Clock className="h-3 w-3" />
+                                  {formatReadingTime(calculateReadingTime(blog.content))}
+                                </span>
+                              </>
+                            )}
                           </p>
                         </div>
                       </div>

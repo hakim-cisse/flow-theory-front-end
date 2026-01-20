@@ -7,7 +7,7 @@ import { ContactDialog } from "@/components/ContactDialog";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { format } from "date-fns";
-import { ArrowLeft, Twitter, Linkedin, Facebook } from "lucide-react";
+import { ArrowLeft, Twitter, Linkedin, Facebook, Clock } from "lucide-react";
 import { generateHTML } from "@tiptap/html";
 import StarterKit from "@tiptap/starter-kit";
 import Image from "@tiptap/extension-image";
@@ -16,6 +16,7 @@ import TextAlign from "@tiptap/extension-text-align";
 import Underline from "@tiptap/extension-underline";
 import { TextStyle } from "@tiptap/extension-text-style";
 import { extractIdFromSlug } from "@/lib/slug";
+import { calculateReadingTime, formatReadingTime } from "@/lib/readingTime";
 
 // Author images mapping
 import hakimImage from "@/assets/hakim.jpg";
@@ -244,8 +245,13 @@ const BlogPost = () => {
                 <p className="font-medium text-foreground">
                   {blog.author?.display_name || "Anonymous"}
                 </p>
-                <p className="text-sm text-muted-foreground">
-                  {format(new Date(blog.published_at), "MMMM d, yyyy")}
+                <p className="text-sm text-muted-foreground flex items-center gap-2">
+                  <span>{format(new Date(blog.published_at), "MMMM d, yyyy")}</span>
+                  <span>·</span>
+                  <span className="flex items-center gap-1">
+                    <Clock className="h-3.5 w-3.5" />
+                    {formatReadingTime(calculateReadingTime(blog.content))}
+                  </span>
                 </p>
               </div>
             </div>
