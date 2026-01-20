@@ -15,6 +15,7 @@ import Link_ from "@tiptap/extension-link";
 import TextAlign from "@tiptap/extension-text-align";
 import Underline from "@tiptap/extension-underline";
 import { TextStyle } from "@tiptap/extension-text-style";
+import { extractIdFromSlug } from "@/lib/slug";
 
 const API_BASE_URL = "https://taetntekartazcxgrawh.supabase.co/functions/v1/get-posts";
 
@@ -41,9 +42,12 @@ const getAuthorInitials = (name: string | null) => {
 };
 
 const BlogPost = () => {
-  const { id } = useParams<{ id: string }>();
+  const { slug } = useParams<{ slug: string }>();
   const location = useLocation();
   const [contactOpen, setContactOpen] = useState(false);
+
+  // Extract the ID from the slug-id format
+  const postId = slug ? extractIdFromSlug(slug) : null;
 
   const shareUrl = typeof window !== "undefined" 
     ? `${window.location.origin}${location.pathname}` 
@@ -64,15 +68,15 @@ const BlogPost = () => {
   };
 
   const { data: blog, isLoading, error } = useQuery({
-    queryKey: ["blog", id],
+    queryKey: ["blog", postId],
     queryFn: async () => {
-      const response = await fetch(`${API_BASE_URL}?id=${id}`);
+      const response = await fetch(`${API_BASE_URL}?id=${postId}`);
       if (!response.ok) {
         throw new Error("Failed to fetch blog post");
       }
       return response.json() as Promise<BlogPostData>;
     },
-    enabled: !!id,
+    enabled: !!postId,
   });
 
   const htmlContent = useMemo(() => {
