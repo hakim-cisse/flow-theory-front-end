@@ -1,41 +1,43 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { useParams, Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import { supabase } from "@/integrations/supabase/client";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ContactDialog } from "@/components/ContactDialog";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { format } from "date-fns";
 import { ArrowLeft } from "lucide-react";
-import ReactMarkdown from "react-markdown";
+import { generateHTML } from "@tiptap/html";
+import StarterKit from "@tiptap/starter-kit";
+import Image from "@tiptap/extension-image";
+import Link_ from "@tiptap/extension-link";
+import TextAlign from "@tiptap/extension-text-align";
+import Underline from "@tiptap/extension-underline";
+import { TextStyle } from "@tiptap/extension-text-style";
 
-import hakimImage from "@/assets/hakim.jpg";
-import yassineImage from "@/assets/yassine.png";
-import yunusImage from "@/assets/yunus.jpg";
+const API_BASE_URL = "https://taetntekartazcxgrawh.supabase.co/functions/v1/get-posts";
 
-const authorImages: Record<string, string> = {
-  "Hakim Cisse": hakimImage,
-  "Yassine Diallo": yassineImage,
-  "Yunus Kounkourou": yunusImage,
-};
+interface BlogPostData {
+  id: string;
+  title: string;
+  excerpt: string | null;
+  cover_image_url: string | null;
+  published_at: string;
+  content: object;
+  author: {
+    display_name: string | null;
+    avatar_url: string | null;
+  } | null;
+}
 
-const getAuthorInitials = (name: string) => {
+const getAuthorInitials = (name: string | null) => {
+  if (!name) return "A";
   return name
     .split(" ")
     .map((n) => n[0])
     .join("")
     .toUpperCase();
 };
-
-interface Blog {
-  id: string;
-  title: string;
-  body: string;
-  author_name: string;
-  image_url: string | null;
-  created_at: string;
-}
 
 const BlogPost = () => {
   const { id } = useParams<{ id: string }>();
@@ -44,17 +46,31 @@ const BlogPost = () => {
   const { data: blog, isLoading, error } = useQuery({
     queryKey: ["blog", id],
     queryFn: async () => {
-      const { data, error } = await supabase
-        .from("blogs")
-        .select("*")
-        .eq("id", id)
-        .single();
-
-      if (error) throw error;
-      return data as Blog;
+      const response = await fetch(`${API_BASE_URL}?id=${id}`);
+      if (!response.ok) {
+        throw new Error("Failed to fetch blog post");
+      }
+      return response.json() as Promise<BlogPostData>;
     },
     enabled: !!id,
   });
+
+  const htmlContent = useMemo(() => {
+    if (!blog?.content) return "";
+    try {
+      return generateHTML(blog.content as Parameters<typeof generateHTML>[0], [
+        StarterKit,
+        Image,
+        Link_.configure({ openOnClick: false }),
+        TextAlign.configure({ types: ["heading", "paragraph"] }),
+        Underline,
+        TextStyle,
+      ]);
+    } catch (e) {
+      console.error("Failed to generate HTML from TipTap content:", e);
+      return "";
+    }
+  }, [blog?.content]);
 
   if (isLoading) {
     return (
@@ -123,10 +139,10 @@ const BlogPost = () => {
             {blog.title}
           </h1>
 
-          {blog.image_url && (
+          {blog.cover_image_url && (
             <div className="aspect-video rounded-lg overflow-hidden mb-8">
               <img
-                src={blog.image_url}
+                src={blog.cover_image_url}
                 alt={blog.title}
                 className="w-full h-full object-cover"
               />
@@ -136,24 +152,27 @@ const BlogPost = () => {
           <div className="flex items-center gap-4 mb-8">
             <Avatar className="h-12 w-12">
               <AvatarImage
-                src={authorImages[blog.author_name]}
-                alt={blog.author_name}
+                src={blog.author?.avatar_url || undefined}
+                alt={blog.author?.display_name || "Author"}
               />
               <AvatarFallback>
-                {getAuthorInitials(blog.author_name)}
+                {getAuthorInitials(blog.author?.display_name || null)}
               </AvatarFallback>
             </Avatar>
             <div>
-              <p className="font-medium text-foreground">{blog.author_name}</p>
+              <p className="font-medium text-foreground">
+                {blog.author?.display_name || "Anonymous"}
+              </p>
               <p className="text-sm text-muted-foreground">
-                {format(new Date(blog.created_at), "MMMM d, yyyy")}
+                {format(new Date(blog.published_at), "MMMM d, yyyy")}
               </p>
             </div>
           </div>
 
-          <div className="prose prose-lg dark:prose-invert max-w-none prose-headings:text-foreground prose-p:text-muted-foreground prose-strong:text-foreground prose-a:text-primary prose-code:text-foreground prose-blockquote:text-muted-foreground prose-li:text-muted-foreground [&>p]:indent-8 [&>p:first-of-type]:indent-0 [&>p:first-of-type]:first-letter:text-5xl [&>p:first-of-type]:first-letter:font-bold [&>p:first-of-type]:first-letter:float-left [&>p:first-of-type]:first-letter:mr-2 [&>p:first-of-type]:first-letter:mt-1 [&>p:first-of-type]:first-letter:text-primary">
-            <ReactMarkdown>{blog.body}</ReactMarkdown>
-          </div>
+          <div
+            className="prose prose-lg dark:prose-invert max-w-none prose-headings:text-foreground prose-p:text-muted-foreground prose-strong:text-foreground prose-a:text-primary prose-code:text-foreground prose-blockquote:text-muted-foreground prose-li:text-muted-foreground"
+            dangerouslySetInnerHTML={{ __html: htmlContent }}
+          />
         </article>
       </main>
 
