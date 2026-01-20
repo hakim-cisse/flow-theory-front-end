@@ -8,6 +8,7 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { format } from "date-fns";
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
+import { createBlogPath } from "@/lib/slug";
 
 const API_BASE_URL = "https://taetntekartazcxgrawh.supabase.co/functions/v1/get-posts";
 
@@ -103,7 +104,7 @@ const Blog = () => {
           ) : blogs.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {blogs.map((blog) => (
-                <Link key={blog.id} to={`/blog/${blog.id}`}>
+                <Link key={blog.id} to={createBlogPath(blog.id, blog.title)}>
                   <Card className="group h-full hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 hover:-translate-y-1 cursor-pointer overflow-hidden flex flex-col">
                     {blog.cover_image_url && (
                       <div className="aspect-video overflow-hidden">
