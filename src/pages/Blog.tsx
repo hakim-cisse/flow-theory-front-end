@@ -10,7 +10,19 @@ import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { createBlogPath } from "@/lib/slug";
 
+// Import author images
+import hakimImage from "@/assets/hakim.jpg";
+import yassineImage from "@/assets/yassine.png";
+import yunusImage from "@/assets/yunus.jpg";
+
 const API_BASE_URL = "https://taetntekartazcxgrawh.supabase.co/functions/v1/get-posts";
+
+// Map author names to their local images
+const authorImages: Record<string, string> = {
+  "Hakim Cisse": hakimImage,
+  "Yassine Diallo": yassineImage,
+  "Yunus Kounkourou": yunusImage,
+};
 
 interface BlogPost {
   id: string;
@@ -38,6 +50,11 @@ const getAuthorInitials = (name: string | null) => {
     .map((n) => n[0])
     .join("")
     .toUpperCase();
+};
+
+const getAuthorImage = (author: BlogPost["author"]): string | undefined => {
+  if (!author?.display_name) return undefined;
+  return authorImages[author.display_name] || author.avatar_url || undefined;
 };
 
 const Blog = () => {
@@ -122,7 +139,7 @@ const Blog = () => {
                       <div className="flex items-center gap-3 mt-2">
                         <Avatar className="h-8 w-8">
                           <AvatarImage
-                            src={blog.author?.avatar_url || undefined}
+                            src={getAuthorImage(blog.author)}
                             alt={blog.author?.display_name || "Author"}
                           />
                           <AvatarFallback>
