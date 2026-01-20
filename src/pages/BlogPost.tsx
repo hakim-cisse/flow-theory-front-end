@@ -17,6 +17,17 @@ import Underline from "@tiptap/extension-underline";
 import { TextStyle } from "@tiptap/extension-text-style";
 import { extractIdFromSlug } from "@/lib/slug";
 
+// Author images mapping
+import hakimImage from "@/assets/hakim.jpg";
+import yassineImage from "@/assets/yassine.png";
+import yunusImage from "@/assets/yunus.jpg";
+
+const authorImages: Record<string, string> = {
+  "Hakim Cisse": hakimImage,
+  "Yassine Diallo": yassineImage,
+  "Yunus Kounkourou": yunusImage,
+};
+
 const API_BASE_URL = "https://taetntekartazcxgrawh.supabase.co/functions/v1/get-posts";
 
 interface BlogPostData {
@@ -39,6 +50,16 @@ const getAuthorInitials = (name: string | null) => {
     .map((n) => n[0])
     .join("")
     .toUpperCase();
+};
+
+const getAuthorImage = (author: BlogPostData["author"]) => {
+  if (!author?.display_name) return undefined;
+  // First check our local mapping
+  if (authorImages[author.display_name]) {
+    return authorImages[author.display_name];
+  }
+  // Fall back to API avatar URL
+  return author.avatar_url || undefined;
 };
 
 interface BlogListItem {
@@ -212,7 +233,7 @@ const BlogPost = () => {
             <div className="flex items-center gap-4">
               <Avatar className="h-12 w-12">
                 <AvatarImage
-                  src={blog.author?.avatar_url || undefined}
+                  src={getAuthorImage(blog.author)}
                   alt={blog.author?.display_name || "Author"}
                 />
                 <AvatarFallback>
@@ -261,7 +282,23 @@ const BlogPost = () => {
           </div>
 
           <div
-            className="prose prose-lg dark:prose-invert max-w-none prose-headings:text-foreground prose-p:text-muted-foreground prose-strong:text-foreground prose-a:text-primary prose-code:text-foreground prose-blockquote:text-muted-foreground prose-li:text-muted-foreground"
+            className="blog-content prose prose-lg dark:prose-invert max-w-none 
+              prose-headings:text-foreground prose-headings:font-bold prose-headings:leading-tight
+              prose-h1:text-3xl prose-h1:mt-10 prose-h1:mb-4
+              prose-h2:text-2xl prose-h2:mt-8 prose-h2:mb-3
+              prose-h3:text-xl prose-h3:mt-6 prose-h3:mb-2
+              prose-p:text-foreground prose-p:leading-relaxed prose-p:mb-4
+              prose-strong:text-foreground prose-strong:font-semibold
+              prose-a:text-primary prose-a:underline prose-a:underline-offset-2 hover:prose-a:text-primary/80
+              prose-code:text-foreground prose-code:bg-muted prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded
+              prose-blockquote:text-muted-foreground prose-blockquote:border-l-primary prose-blockquote:italic
+              prose-li:text-foreground prose-li:leading-relaxed
+              prose-ul:my-4 prose-ol:my-4
+              prose-img:rounded-lg prose-img:shadow-md prose-img:my-6
+              [&>p:first-of-type]:first-letter:text-5xl [&>p:first-of-type]:first-letter:font-bold 
+              [&>p:first-of-type]:first-letter:text-primary [&>p:first-of-type]:first-letter:float-left 
+              [&>p:first-of-type]:first-letter:mr-3 [&>p:first-of-type]:first-letter:leading-none
+              [&>p:not(:first-of-type)]:indent-6"
             dangerouslySetInnerHTML={{ __html: htmlContent }}
           />
         </article>
