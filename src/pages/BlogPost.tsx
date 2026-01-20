@@ -282,23 +282,7 @@ const BlogPost = () => {
           </div>
 
           <div
-            className="blog-content prose prose-lg dark:prose-invert max-w-none 
-              prose-headings:text-foreground prose-headings:font-bold prose-headings:leading-tight
-              prose-h1:text-3xl prose-h1:mt-10 prose-h1:mb-4
-              prose-h2:text-2xl prose-h2:mt-8 prose-h2:mb-3
-              prose-h3:text-xl prose-h3:mt-6 prose-h3:mb-2
-              prose-p:text-foreground prose-p:leading-relaxed prose-p:mb-4
-              prose-strong:text-foreground prose-strong:font-semibold
-              prose-a:text-primary prose-a:underline prose-a:underline-offset-2 hover:prose-a:text-primary/80
-              prose-code:text-foreground prose-code:bg-muted prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded
-              prose-blockquote:text-muted-foreground prose-blockquote:border-l-primary prose-blockquote:italic
-              prose-li:text-foreground prose-li:leading-relaxed
-              prose-ul:my-4 prose-ol:my-4
-              prose-img:rounded-lg prose-img:shadow-md prose-img:my-6
-              [&>p:first-of-type]:first-letter:text-5xl [&>p:first-of-type]:first-letter:font-bold 
-              [&>p:first-of-type]:first-letter:text-primary [&>p:first-of-type]:first-letter:float-left 
-              [&>p:first-of-type]:first-letter:mr-3 [&>p:first-of-type]:first-letter:leading-none
-              [&>p:not(:first-of-type)]:indent-6"
+            className="prose prose-lg dark:prose-invert max-w-none"
             dangerouslySetInnerHTML={{ __html: htmlContent }}
           />
         </article>
