@@ -20,6 +20,7 @@ import { calculateReadingTime, formatReadingTime } from "@/lib/readingTime";
 import { SEO } from "@/components/SEO";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { ArticleSchema, BreadcrumbSchema } from "@/components/StructuredData";
+import { RelatedPosts } from "@/components/RelatedPosts";
 
 // Author images mapping
 import hakimImage from "@/assets/hakim.jpg";
@@ -334,6 +335,8 @@ const BlogPost = () => {
             className="prose prose-lg dark:prose-invert max-w-none"
             dangerouslySetInnerHTML={{ __html: htmlContent }}
           />
+
+          <RelatedPosts currentPostId={postId!} />
         </article>
       </main>
 
