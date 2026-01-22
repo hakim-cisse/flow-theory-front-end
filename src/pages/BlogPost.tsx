@@ -7,7 +7,7 @@ import { ContactDialog } from "@/components/ContactDialog";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { format } from "date-fns";
-import { ArrowLeft, Twitter, Linkedin, Facebook, Clock } from "lucide-react";
+import { Twitter, Linkedin, Facebook, Clock } from "lucide-react";
 import { generateHTML } from "@tiptap/html";
 import StarterKit from "@tiptap/starter-kit";
 import Image from "@tiptap/extension-image";
@@ -17,6 +17,9 @@ import Underline from "@tiptap/extension-underline";
 import { TextStyle } from "@tiptap/extension-text-style";
 import { extractIdFromSlug } from "@/lib/slug";
 import { calculateReadingTime, formatReadingTime } from "@/lib/readingTime";
+import { SEO } from "@/components/SEO";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { ArticleSchema, BreadcrumbSchema } from "@/components/StructuredData";
 
 // Author images mapping
 import hakimImage from "@/assets/hakim.jpg";
@@ -30,6 +33,7 @@ const authorImages: Record<string, string> = {
 };
 
 const API_BASE_URL = "https://taetntekartazcxgrawh.supabase.co/functions/v1/get-posts";
+const SITE_URL = "https://www.flowtheoryai.com";
 
 interface BlogPostData {
   id: string;
@@ -55,11 +59,9 @@ const getAuthorInitials = (name: string | null) => {
 
 const getAuthorImage = (author: BlogPostData["author"]) => {
   if (!author?.display_name) return undefined;
-  // First check our local mapping
   if (authorImages[author.display_name]) {
     return authorImages[author.display_name];
   }
-  // Fall back to API avatar URL
   return author.avatar_url || undefined;
 };
 
@@ -77,14 +79,11 @@ const BlogPost = () => {
   const location = useLocation();
   const [contactOpen, setContactOpen] = useState(false);
 
-  // Extract the ID from the slug format
   const extractedId = slug ? extractIdFromSlug(slug) : null;
   
-  // Check if it's a valid UUID (new format) or just a short ID (old format)
   const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
   const isFullUuid = extractedId ? uuidRegex.test(extractedId) : false;
 
-  // For old URLs with short IDs, fetch posts list to find matching post
   const { data: postsData } = useQuery({
     queryKey: ["blog-list-lookup"],
     queryFn: async () => {
@@ -95,7 +94,6 @@ const BlogPost = () => {
     enabled: !isFullUuid && !!extractedId,
   });
 
-  // Find matching post ID from short ID
   const postId = useMemo(() => {
     if (isFullUuid) return extractedId;
     if (!postsData?.posts || !extractedId) return null;
@@ -153,6 +151,22 @@ const BlogPost = () => {
     }
   }, [blog?.content]);
 
+  // Generate breadcrumb data
+  const breadcrumbItems = blog 
+    ? [{ label: "Blog", href: "/blog" }, { label: blog.title }]
+    : [{ label: "Blog", href: "/blog" }];
+  
+  const breadcrumbSchemaItems = blog
+    ? [
+        { name: "Home", url: SITE_URL },
+        { name: "Blog", url: `${SITE_URL}/blog` },
+        { name: blog.title, url: `${SITE_URL}${location.pathname}` },
+      ]
+    : [
+        { name: "Home", url: SITE_URL },
+        { name: "Blog", url: `${SITE_URL}/blog` },
+      ];
+
   if (isLoading) {
     return (
       <div className="min-h-screen bg-background">
@@ -177,6 +191,11 @@ const BlogPost = () => {
   if (error || !blog) {
     return (
       <div className="min-h-screen bg-background">
+        <SEO
+          title="Blog Post Not Found"
+          description="The blog post you're looking for doesn't exist."
+          noIndex
+        />
         <Header onContactClick={() => setContactOpen(true)} />
         <ContactDialog open={contactOpen} onOpenChange={setContactOpen} />
         <main className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
@@ -191,7 +210,6 @@ const BlogPost = () => {
               to="/blog"
               className="inline-flex items-center gap-2 text-primary hover:underline"
             >
-              <ArrowLeft className="w-4 h-4" />
               Back to Blog
             </Link>
           </div>
@@ -201,93 +219,118 @@ const BlogPost = () => {
     );
   }
 
+  const canonicalUrl = `${SITE_URL}${location.pathname}`;
+  const authorName = blog.author?.display_name || "Flow Theory AI";
+  const readingTime = calculateReadingTime(blog.content);
+
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title={blog.title}
+        description={blog.excerpt || `Read ${blog.title} on the Flow Theory AI blog.`}
+        canonicalUrl={canonicalUrl}
+        ogTitle={blog.title}
+        ogDescription={blog.excerpt || `Read ${blog.title} on the Flow Theory AI blog.`}
+        ogImage={blog.cover_image_url || undefined}
+        ogType="article"
+        article={{
+          publishedTime: blog.published_at,
+          author: authorName,
+          section: "AI & Business",
+        }}
+      />
+      <ArticleSchema
+        title={blog.title}
+        description={blog.excerpt || `Read ${blog.title} on the Flow Theory AI blog.`}
+        url={canonicalUrl}
+        imageUrl={blog.cover_image_url || undefined}
+        publishedTime={blog.published_at}
+        authorName={authorName}
+      />
+      <BreadcrumbSchema items={breadcrumbSchemaItems} />
+      
       <Header onContactClick={() => setContactOpen(true)} />
       <ContactDialog open={contactOpen} onOpenChange={setContactOpen} />
 
       <main className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
         <article className="container mx-auto max-w-4xl">
-          <Link
-            to="/blog"
-            className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-8"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            Back to Blog
-          </Link>
+          <Breadcrumbs items={breadcrumbItems} />
 
-          <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-6">
-            {blog.title}
-          </h1>
+          <header>
+            <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-6">
+              {blog.title}
+            </h1>
 
-          {blog.cover_image_url && (
-            <div className="aspect-video rounded-lg overflow-hidden mb-8">
-              <img
-                src={blog.cover_image_url}
-                alt={blog.title}
-                className="w-full h-full object-cover"
-              />
-            </div>
-          )}
-
-          <div className="flex items-center justify-between mb-8">
-            <div className="flex items-center gap-4">
-              <Avatar className="h-12 w-12">
-                <AvatarImage
-                  src={getAuthorImage(blog.author)}
-                  alt={blog.author?.display_name || "Author"}
+            {blog.cover_image_url && (
+              <figure className="aspect-video rounded-lg overflow-hidden mb-8">
+                <img
+                  src={blog.cover_image_url}
+                  alt={blog.title}
+                  loading="eager"
+                  className="w-full h-full object-cover"
                 />
-                <AvatarFallback>
-                  {getAuthorInitials(blog.author?.display_name || null)}
-                </AvatarFallback>
-              </Avatar>
-              <div>
-                <p className="font-medium text-foreground">
-                  {blog.author?.display_name || "Anonymous"}
-                </p>
-                <p className="text-sm text-muted-foreground flex items-center gap-2">
-                  <span>{format(new Date(blog.published_at), "MMMM d, yyyy")}</span>
-                  <span>·</span>
-                  <span className="flex items-center gap-1">
-                    <Clock className="h-3.5 w-3.5" />
-                    {formatReadingTime(calculateReadingTime(blog.content))}
-                  </span>
-                </p>
-              </div>
-            </div>
-            
-            <div className="flex items-center gap-2">
-              <Button
-                variant="outline"
-                size="icon"
-                onClick={() => handleShare("twitter")}
-                className="h-9 w-9"
-                aria-label="Share on Twitter"
-              >
-                <Twitter className="h-4 w-4" />
-              </Button>
-              <Button
-                variant="outline"
-                size="icon"
-                onClick={() => handleShare("linkedin")}
-                className="h-9 w-9"
-                aria-label="Share on LinkedIn"
-              >
-                <Linkedin className="h-4 w-4" />
-              </Button>
-              <Button
-                variant="outline"
-                size="icon"
-                onClick={() => handleShare("facebook")}
-                className="h-9 w-9"
-                aria-label="Share on Facebook"
-              >
-                <Facebook className="h-4 w-4" />
-              </Button>
-            </div>
-          </div>
+              </figure>
+            )}
 
-          <div
+            <div className="flex items-center justify-between mb-8">
+              <div className="flex items-center gap-4">
+                <Avatar className="h-12 w-12">
+                  <AvatarImage
+                    src={getAuthorImage(blog.author)}
+                    alt={authorName}
+                  />
+                  <AvatarFallback>
+                    {getAuthorInitials(blog.author?.display_name || null)}
+                  </AvatarFallback>
+                </Avatar>
+                <div>
+                  <p className="font-medium text-foreground">{authorName}</p>
+                  <p className="text-sm text-muted-foreground flex items-center gap-2">
+                    <time dateTime={blog.published_at}>
+                      {format(new Date(blog.published_at), "MMMM d, yyyy")}
+                    </time>
+                    <span>·</span>
+                    <span className="flex items-center gap-1">
+                      <Clock className="h-3.5 w-3.5" aria-hidden="true" />
+                      {formatReadingTime(readingTime)}
+                    </span>
+                  </p>
+                </div>
+              </div>
+              
+              <nav aria-label="Share this article" className="flex items-center gap-2">
+                <Button
+                  variant="outline"
+                  size="icon"
+                  onClick={() => handleShare("twitter")}
+                  className="h-9 w-9"
+                  aria-label="Share on Twitter"
+                >
+                  <Twitter className="h-4 w-4" aria-hidden="true" />
+                </Button>
+                <Button
+                  variant="outline"
+                  size="icon"
+                  onClick={() => handleShare("linkedin")}
+                  className="h-9 w-9"
+                  aria-label="Share on LinkedIn"
+                >
+                  <Linkedin className="h-4 w-4" aria-hidden="true" />
+                </Button>
+                <Button
+                  variant="outline"
+                  size="icon"
+                  onClick={() => handleShare("facebook")}
+                  className="h-9 w-9"
+                  aria-label="Share on Facebook"
+                >
+                  <Facebook className="h-4 w-4" aria-hidden="true" />
+                </Button>
+              </nav>
+            </div>
+          </header>
+
+          <section
             className="prose prose-lg dark:prose-invert max-w-none"
             dangerouslySetInnerHTML={{ __html: htmlContent }}
           />
