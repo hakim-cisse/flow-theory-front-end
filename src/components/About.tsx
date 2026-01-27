@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 
 const stats = [
-  { value: 40, suffix: "+", label: "Hours Saved", sublabel: "Weekly" },
-  { value: 40, suffix: "%", label: "Lead Time", sublabel: "Reduced" },
-  { value: 100, suffix: "%", label: "Scalable", sublabel: "Without Hiring" },
+  { value: 25, suffix: "+", label: "Average Hours Saved Weekly" },
+  { value: 40, suffix: "%", label: "Reduced Lead Time" },
+  { value: 100, suffix: "%", label: "Scalable Without Hiring" },
 ];
 
 const CountUp = ({ end, suffix, duration }: { end: number; suffix: string; duration: number }) => {
@@ -65,27 +65,19 @@ export const About = () => {
           </p>
 
           {/* Stats Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-12">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 pt-12">
             {stats.map((stat, index) => (
               <div
                 key={stat.label}
-                className="group relative overflow-hidden rounded-3xl border border-border/50 bg-card/50 backdrop-blur-sm p-8 hover:border-primary/50 transition-all duration-500"
+                className="group flex flex-col items-center space-y-4 p-6 rounded-2xl glass hover:bg-primary/5 transition-all duration-300"
                 style={{ animationDelay: `${index * 150}ms` }}
               >
-                {/* Glow effect on hover */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                
-                <div className="relative z-10 flex flex-col items-center text-center space-y-3">
-                  <div className="text-5xl sm:text-6xl lg:text-7xl font-bold text-gradient tracking-tight">
-                    {isVisible && (
-                      <CountUp end={stat.value} suffix={stat.suffix} duration={2} />
-                    )}
-                  </div>
-                  <div className="space-y-1">
-                    <p className="text-lg sm:text-xl font-semibold text-foreground">{stat.label}</p>
-                    <p className="text-sm text-muted-foreground uppercase tracking-wider">{stat.sublabel}</p>
-                  </div>
+                <div className="text-4xl sm:text-5xl font-bold text-gradient">
+                  {isVisible && (
+                    <CountUp end={stat.value} suffix={stat.suffix} duration={2} />
+                  )}
                 </div>
+                <span className="text-lg font-semibold text-muted-foreground">{stat.label}</span>
               </div>
             ))}
           </div>
