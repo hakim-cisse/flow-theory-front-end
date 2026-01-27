@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Hero } from "@/components/Hero";
-import { TrustedBy } from "@/components/TrustedBy";
 import { About } from "@/components/About";
 import { HowItWorks } from "@/components/HowItWorks";
 import { Founders } from "@/components/Founders";
@@ -21,7 +20,6 @@ const Index = () => {
       <Header onContactClick={() => setContactOpen(true)} />
       <ThemeToggle />
       <Hero />
-      <TrustedBy />
       <About />
       <HowItWorks />
       <Services />
