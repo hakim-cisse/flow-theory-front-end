@@ -4,6 +4,7 @@ import { About } from "@/components/About";
 import { Founders } from "@/components/Founders";
 import { Services } from "@/components/Services";
 import { CaseStudy } from "@/components/CaseStudy";
+import { Testimonials } from "@/components/Testimonials";
 import { CTA } from "@/components/CTA";
 import { Footer } from "@/components/Footer";
 import { ThemeToggle } from "@/components/ThemeToggle";
@@ -22,6 +23,7 @@ const Index = () => {
       <Founders />
       <Services />
       <CaseStudy />
+      <Testimonials />
       <CTA />
       <Footer onContactClick={() => setContactOpen(true)} />
       <ContactDialog open={contactOpen} onOpenChange={setContactOpen} />
