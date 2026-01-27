@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 const stats = [
-  { value: 47, suffix: "+", label: "Average Hours Saved Weekly" },
+  { value: 25, suffix: "+", label: "Average Hours Saved Weekly" },
   { value: 40, suffix: "%", label: "Reduced Lead Time" },
   { value: 100, suffix: "%", label: "Scalable Without Hiring" },
 ];
@@ -65,21 +65,19 @@ export const About = () => {
           </p>
 
           {/* Stats Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 pt-12">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 pt-12">
             {stats.map((stat, index) => (
               <div
                 key={stat.label}
-                className="group flex flex-col items-center justify-center p-8 rounded-2xl glass hover:bg-primary/5 transition-all duration-300"
+                className="group flex flex-col items-center space-y-4 p-6 rounded-2xl glass hover:bg-primary/5 transition-all duration-300"
                 style={{ animationDelay: `${index * 150}ms` }}
               >
-                <div className="text-5xl sm:text-6xl font-bold text-gradient mb-3">
-                  {isVisible ? (
+                <div className="text-4xl sm:text-5xl font-bold text-gradient">
+                  {isVisible && (
                     <CountUp end={stat.value} suffix={stat.suffix} duration={2} />
-                  ) : (
-                    <span className="opacity-0">{stat.value}{stat.suffix}</span>
                   )}
                 </div>
-                <span className="text-base sm:text-lg font-medium text-muted-foreground text-center">{stat.label}</span>
+                <span className="text-lg font-semibold text-muted-foreground">{stat.label}</span>
               </div>
             ))}
           </div>
