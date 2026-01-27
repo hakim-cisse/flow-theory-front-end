@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { Clock, DollarSign } from "lucide-react";
+import { Clock, DollarSign, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const stats = [
   { value: 47, suffix: "+", label: "Hours Saved", icon: Clock, qualifier: "Per week across client workflows" },
@@ -176,6 +177,27 @@ export const About = () => {
           <p className="text-sm text-muted-foreground pt-6 italic">
             Based on real client implementations and internal audits
           </p>
+
+          {/* CTAs */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8">
+            <Button 
+              asChild 
+              size="lg" 
+              className="group px-8 py-6 text-lg font-semibold shadow-[0_0_30px_hsl(var(--primary)/0.3)] hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] transition-all duration-300"
+            >
+              <a href="https://cal.com/flow-theory-ai/alignment-call" target="_blank" rel="noopener noreferrer">
+                See Where You're Losing Time
+                <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
+              </a>
+            </Button>
+            
+            <a 
+              href="#case-studies" 
+              className="text-muted-foreground hover:text-primary transition-colors duration-300 text-sm font-medium underline underline-offset-4"
+            >
+              See Case Studies
+            </a>
+          </div>
         </div>
       </div>
     </section>
