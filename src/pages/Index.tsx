@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Hero } from "@/components/Hero";
 import { About } from "@/components/About";
+import { HowItWorks } from "@/components/HowItWorks";
 import { Founders } from "@/components/Founders";
 import { Services } from "@/components/Services";
 import { CaseStudy } from "@/components/CaseStudy";
@@ -20,6 +21,7 @@ const Index = () => {
       <ThemeToggle />
       <Hero />
       <About />
+      <HowItWorks />
       <Services />
       <CaseStudy />
       <Testimonials />
