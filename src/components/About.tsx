@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { Clock, DollarSign } from "lucide-react";
 
 const stats = [
-  { value: 47, suffix: "+", label: "Hours Saved", icon: Clock, description: "Weekly time reclaimed through automation" },
-  { value: 10000, suffix: "+", label: "Dollars Saved", icon: DollarSign, description: "Monthly cost reduction for our clients", prefix: "$" },
+  { value: 47, suffix: "+", label: "Hours Saved", icon: Clock, qualifier: "Per week across client workflows" },
+  { value: 10000, suffix: "+", label: "Saved", icon: DollarSign, qualifier: "Average monthly cost reduction", prefix: "$" },
 ];
 
 const CountUp = ({ end, suffix, duration, prefix = "" }: { end: number; suffix: string; duration: number; prefix?: string }) => {
@@ -150,9 +150,9 @@ export const About = () => {
                       {stat.label}
                     </span>
 
-                    {/* Description - Always visible */}
+                    {/* Qualifier */}
                     <p className="text-sm text-muted-foreground text-center max-w-[220px]">
-                      {stat.description}
+                      {stat.qualifier}
                     </p>
                   </div>
 
@@ -171,6 +171,11 @@ export const About = () => {
               );
             })}
           </div>
+
+          {/* Trust Anchor */}
+          <p className="text-sm text-muted-foreground pt-6 italic">
+            Based on real client implementations and internal audits
+          </p>
         </div>
       </div>
     </section>
