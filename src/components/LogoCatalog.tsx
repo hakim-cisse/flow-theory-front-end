@@ -2,14 +2,13 @@ import { useEffect, useRef } from "react";
 import aptLocatorLogo from "@/assets/apt-locator-logo.png";
 import eenLogo from "@/assets/een-logo.png";
 import formabuildLogo from "@/assets/formabuild-logo.png";
+import creperyLogo from "@/assets/crepery-logo.png";
 
 const logos = [
   { src: aptLocatorLogo, alt: "APT Locator", name: "APT Locator" },
   { src: eenLogo, alt: "EEN", name: "EEN" },
   { src: formabuildLogo, alt: "Formabuild", name: "Formabuild" },
-  { src: aptLocatorLogo, alt: "APT Locator", name: "APT Locator" },
-  { src: eenLogo, alt: "EEN", name: "EEN" },
-  { src: formabuildLogo, alt: "Formabuild", name: "Formabuild" },
+  { src: creperyLogo, alt: "Crepery", name: "Crepery" },
 ];
 
 export const LogoCatalog = () => {
