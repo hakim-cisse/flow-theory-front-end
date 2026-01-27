@@ -49,10 +49,10 @@ export const Testimonials = () => {
 
           {/* Optional quote highlight */}
           <div className="pt-8">
-            <blockquote className="text-xl sm:text-2xl font-medium text-foreground italic">
-              "Flow Theory AI transformed how we handle our operations—saving us countless hours every week."
+          <blockquote className="text-xl sm:text-2xl font-medium text-foreground italic">
+              "Flow Theory AI did a great job helping us integrate our CRM and improve our overall business efficiency. We would definitely recommend them to other tech-oriented businesses."
             </blockquote>
-            <p className="mt-4 text-muted-foreground">— Apt Locator Team</p>
+            <p className="mt-4 text-muted-foreground">— Empower Estates Network</p>
           </div>
         </div>
       </div>
