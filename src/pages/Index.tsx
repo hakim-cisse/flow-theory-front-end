@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Hero } from "@/components/Hero";
+import { LogoCatalog } from "@/components/LogoCatalog";
 import { About } from "@/components/About";
 import { HowItWorks } from "@/components/HowItWorks";
 import { Founders } from "@/components/Founders";
@@ -20,6 +21,7 @@ const Index = () => {
       <Header onContactClick={() => setContactOpen(true)} />
       <ThemeToggle />
       <Hero />
+      <LogoCatalog />
       <About />
       <HowItWorks />
       <Services />
