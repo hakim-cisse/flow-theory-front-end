@@ -20,10 +20,10 @@ const Index = () => {
       <ThemeToggle />
       <Hero />
       <About />
-      <Founders />
       <Services />
       <CaseStudy />
       <Testimonials />
+      <Founders />
       <CTA />
       <Footer onContactClick={() => setContactOpen(true)} />
       <ContactDialog open={contactOpen} onOpenChange={setContactOpen} />
