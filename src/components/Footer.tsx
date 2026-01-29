@@ -1,5 +1,5 @@
 import { Linkedin, Twitter, Instagram } from "lucide-react";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/flow-theory-logo.png";
 
 const social = [
   { name: "LinkedIn", icon: Linkedin, href: "https://www.linkedin.com/company/107525980" },
