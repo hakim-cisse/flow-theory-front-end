@@ -172,15 +172,15 @@ const BlogPost = () => {
     return (
       <div className="min-h-screen bg-background">
         <Header onContactClick={() => setContactOpen(true)} />
-        <main className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+        <main className="pt-24 sm:pt-32 pb-12 sm:pb-20 px-4 sm:px-6 lg:px-8">
           <div className="container mx-auto max-w-4xl animate-pulse">
-            <div className="h-8 bg-muted rounded w-1/4 mb-8" />
-            <div className="h-12 bg-muted rounded w-3/4 mb-4" />
-            <div className="h-64 bg-muted rounded mb-8" />
-            <div className="space-y-3">
-              <div className="h-4 bg-muted rounded w-full" />
-              <div className="h-4 bg-muted rounded w-full" />
-              <div className="h-4 bg-muted rounded w-2/3" />
+            <div className="h-6 sm:h-8 bg-muted rounded w-1/4 mb-6 sm:mb-8" />
+            <div className="h-8 sm:h-12 bg-muted rounded w-3/4 mb-4" />
+            <div className="h-48 sm:h-64 bg-muted rounded mb-6 sm:mb-8" />
+            <div className="space-y-2 sm:space-y-3">
+              <div className="h-3 sm:h-4 bg-muted rounded w-full" />
+              <div className="h-3 sm:h-4 bg-muted rounded w-full" />
+              <div className="h-3 sm:h-4 bg-muted rounded w-2/3" />
             </div>
           </div>
         </main>
@@ -199,17 +199,17 @@ const BlogPost = () => {
         />
         <Header onContactClick={() => setContactOpen(true)} />
         <ContactDialog open={contactOpen} onOpenChange={setContactOpen} />
-        <main className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+        <main className="pt-24 sm:pt-32 pb-12 sm:pb-20 px-4 sm:px-6 lg:px-8">
           <div className="container mx-auto max-w-4xl text-center">
-            <h1 className="text-4xl font-bold text-foreground mb-4">
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground mb-3 sm:mb-4">
               Blog Post Not Found
             </h1>
-            <p className="text-muted-foreground mb-8">
+            <p className="text-sm sm:text-base text-muted-foreground mb-6 sm:mb-8">
               The blog post you're looking for doesn't exist.
             </p>
             <Link
               to="/blog"
-              className="inline-flex items-center gap-2 text-primary hover:underline"
+              className="inline-flex items-center gap-2 text-primary hover:underline text-sm sm:text-base"
             >
               Back to Blog
             </Link>
@@ -253,17 +253,17 @@ const BlogPost = () => {
       <Header onContactClick={() => setContactOpen(true)} />
       <ContactDialog open={contactOpen} onOpenChange={setContactOpen} />
 
-      <main className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+      <main className="pt-24 sm:pt-32 pb-12 sm:pb-20 px-4 sm:px-6 lg:px-8">
         <article className="container mx-auto max-w-4xl">
           <Breadcrumbs items={breadcrumbItems} />
 
           <header>
-            <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-6">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 sm:mb-6 leading-tight">
               {blog.title}
             </h1>
 
             {blog.cover_image_url && (
-              <figure className="aspect-video rounded-lg overflow-hidden mb-8">
+              <figure className="aspect-video rounded-lg overflow-hidden mb-5 sm:mb-8">
                 <img
                   src={blog.cover_image_url}
                   alt={blog.title}
@@ -273,26 +273,26 @@ const BlogPost = () => {
               </figure>
             )}
 
-            <div className="flex items-center justify-between mb-8">
-              <div className="flex items-center gap-4">
-                <Avatar className="h-12 w-12">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 sm:gap-6 mb-6 sm:mb-8">
+              <div className="flex items-center gap-3 sm:gap-4">
+                <Avatar className="h-10 w-10 sm:h-12 sm:w-12">
                   <AvatarImage
                     src={getAuthorImage(blog.author)}
                     alt={authorName}
                   />
-                  <AvatarFallback>
+                  <AvatarFallback className="text-sm sm:text-base">
                     {getAuthorInitials(blog.author?.display_name || null)}
                   </AvatarFallback>
                 </Avatar>
                 <div>
-                  <p className="font-medium text-foreground">{authorName}</p>
-                  <p className="text-sm text-muted-foreground flex items-center gap-2">
+                  <p className="font-medium text-sm sm:text-base text-foreground">{authorName}</p>
+                  <p className="text-xs sm:text-sm text-muted-foreground flex items-center gap-1 sm:gap-2 flex-wrap">
                     <time dateTime={blog.published_at}>
                       {format(new Date(blog.published_at), "MMMM d, yyyy")}
                     </time>
                     <span>·</span>
                     <span className="flex items-center gap-1">
-                      <Clock className="h-3.5 w-3.5" aria-hidden="true" />
+                      <Clock className="h-3 w-3 sm:h-3.5 sm:w-3.5" aria-hidden="true" />
                       {formatReadingTime(readingTime)}
                     </span>
                   </p>
@@ -304,35 +304,35 @@ const BlogPost = () => {
                   variant="outline"
                   size="icon"
                   onClick={() => handleShare("twitter")}
-                  className="h-9 w-9"
+                  className="h-8 w-8 sm:h-9 sm:w-9"
                   aria-label="Share on Twitter"
                 >
-                  <Twitter className="h-4 w-4" aria-hidden="true" />
+                  <Twitter className="h-3.5 w-3.5 sm:h-4 sm:w-4" aria-hidden="true" />
                 </Button>
                 <Button
                   variant="outline"
                   size="icon"
                   onClick={() => handleShare("linkedin")}
-                  className="h-9 w-9"
+                  className="h-8 w-8 sm:h-9 sm:w-9"
                   aria-label="Share on LinkedIn"
                 >
-                  <Linkedin className="h-4 w-4" aria-hidden="true" />
+                  <Linkedin className="h-3.5 w-3.5 sm:h-4 sm:w-4" aria-hidden="true" />
                 </Button>
                 <Button
                   variant="outline"
                   size="icon"
                   onClick={() => handleShare("facebook")}
-                  className="h-9 w-9"
+                  className="h-8 w-8 sm:h-9 sm:w-9"
                   aria-label="Share on Facebook"
                 >
-                  <Facebook className="h-4 w-4" aria-hidden="true" />
+                  <Facebook className="h-3.5 w-3.5 sm:h-4 sm:w-4" aria-hidden="true" />
                 </Button>
               </nav>
             </div>
           </header>
 
           <section
-            className="prose prose-lg dark:prose-invert max-w-none"
+            className="prose prose-sm sm:prose-base lg:prose-lg dark:prose-invert max-w-none"
             dangerouslySetInnerHTML={{ __html: htmlContent }}
           />
 
