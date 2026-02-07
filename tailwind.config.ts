@@ -88,6 +88,36 @@ export default {
           from: { opacity: "0", transform: "translateY(-20px)" },
           to: { opacity: "1", transform: "translateY(0)" },
         },
+        "paper-plane-flight": {
+          "0%": { 
+            transform: "translateY(0) translateX(0) rotate(45deg) scale(1)",
+            opacity: "1"
+          },
+          "15%": { 
+            transform: "translateY(30vh) translateX(20px) rotate(90deg) scale(1.2)",
+            opacity: "1"
+          },
+          "35%": { 
+            transform: "translateY(70vh) translateX(-30px) rotate(120deg) scale(1)",
+            opacity: "1"
+          },
+          "50%": { 
+            transform: "translateY(90vh) translateX(10px) rotate(180deg) scale(0.9)",
+            opacity: "1"
+          },
+          "65%": { 
+            transform: "translateY(60vh) translateX(-20px) rotate(220deg) scale(1)",
+            opacity: "1"
+          },
+          "85%": { 
+            transform: "translateY(20vh) translateX(15px) rotate(320deg) scale(1.1)",
+            opacity: "1"
+          },
+          "100%": { 
+            transform: "translateY(0) translateX(0) rotate(405deg) scale(1)",
+            opacity: "0"
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -95,6 +125,7 @@ export default {
         "float": "float 6s ease-in-out infinite",
         "glow": "glow 3s ease-in-out infinite",
         "fade-in-up": "fade-in-up 0.8s ease-out forwards",
+        "paper-plane-flight": "paper-plane-flight 4s ease-in-out forwards",
       },
     },
   },
