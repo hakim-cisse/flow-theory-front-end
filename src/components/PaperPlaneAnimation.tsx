@@ -26,11 +26,11 @@ export const PaperPlaneAnimation = ({ className }: PaperPlaneAnimationProps) => 
 
   useEffect(() => {
     if (isFlying) {
-      // Animation duration: fly down (2s) + fly up (2s) = 4s total
+      // Animation duration: 6s total for full page journey
       const timer = setTimeout(() => {
         setIsFlying(false);
         setShowPeriod(true);
-      }, 4000);
+      }, 6000);
 
       return () => clearTimeout(timer);
     }
