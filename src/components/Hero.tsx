@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, FileText } from "lucide-react";
 import { TypewriterText } from "./TypewriterText";
-import { PaperPlaneAnimation } from "./PaperPlaneAnimation";
 
 const animatedPhrases = [
   "AI Transformation",
@@ -39,9 +38,7 @@ export const Hero = () => {
             <span className="block text-foreground min-h-[1.2em]">
               <TypewriterText phrases={animatedPhrases} className="text-gradient" />
             </span>
-            <span className="block text-foreground mt-1 sm:mt-2">
-              Built on Strategy and ROI<PaperPlaneAnimation />
-            </span>
+            <span className="block text-foreground mt-1 sm:mt-2">Built on Strategy and ROI.</span>
           </h1>
           
           <p className="text-base sm:text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed px-2">

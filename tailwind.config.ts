@@ -88,44 +88,6 @@ export default {
           from: { opacity: "0", transform: "translateY(-20px)" },
           to: { opacity: "1", transform: "translateY(0)" },
         },
-        "paper-plane-flight": {
-          "0%": { 
-            transform: "translateY(0) translateX(0) rotate(45deg) scale(1)",
-            opacity: "1"
-          },
-          "10%": { 
-            transform: "translateY(50vh) translateX(30px) rotate(80deg) scale(1.2)",
-            opacity: "1"
-          },
-          "25%": { 
-            transform: "translateY(150vh) translateX(-40px) rotate(110deg) scale(1)",
-            opacity: "1"
-          },
-          "40%": { 
-            transform: "translateY(280vh) translateX(50px) rotate(150deg) scale(1.1)",
-            opacity: "1"
-          },
-          "50%": { 
-            transform: "translateY(350vh) translateX(0) rotate(180deg) scale(0.9)",
-            opacity: "1"
-          },
-          "60%": { 
-            transform: "translateY(280vh) translateX(-40px) rotate(220deg) scale(1)",
-            opacity: "1"
-          },
-          "75%": { 
-            transform: "translateY(150vh) translateX(30px) rotate(280deg) scale(1.1)",
-            opacity: "1"
-          },
-          "90%": { 
-            transform: "translateY(50vh) translateX(-20px) rotate(340deg) scale(1)",
-            opacity: "1"
-          },
-          "100%": { 
-            transform: "translateY(0) translateX(0) rotate(405deg) scale(1)",
-            opacity: "0"
-          },
-        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -133,7 +95,6 @@ export default {
         "float": "float 6s ease-in-out infinite",
         "glow": "glow 3s ease-in-out infinite",
         "fade-in-up": "fade-in-up 0.8s ease-out forwards",
-        "paper-plane-flight": "paper-plane-flight 6s ease-in-out forwards",
       },
     },
   },
