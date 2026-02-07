@@ -7,12 +7,13 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { format } from "date-fns";
 import { Link } from "react-router-dom";
-import { Clock } from "lucide-react";
+import { Clock, ChevronLeft, ChevronRight } from "lucide-react";
 import { createBlogPath } from "@/lib/slug";
 import { calculateReadingTime, formatReadingTime } from "@/lib/readingTime";
 import { SEO } from "@/components/SEO";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { BreadcrumbSchema, BlogListingSchema } from "@/components/StructuredData";
+import { Button } from "@/components/ui/button";
 
 // Import author images
 import hakimImage from "@/assets/hakim.jpg";
@@ -21,6 +22,7 @@ import yunusImage from "@/assets/yunus.jpg";
 
 const API_BASE_URL = "https://taetntekartazcxgrawh.supabase.co/functions/v1/get-posts";
 const SITE_URL = "https://www.flowtheoryai.com";
+const POSTS_PER_PAGE = 9;
 
 // Map author names to their local images
 const authorImages: Record<string, string> = {
@@ -65,11 +67,12 @@ const getAuthorImage = (author: BlogPost["author"]): string | undefined => {
 
 const Blog = () => {
   const [contactOpen, setContactOpen] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
 
   const { data, isLoading, error } = useQuery({
     queryKey: ["blogs"],
     queryFn: async () => {
-      const response = await fetch(`${API_BASE_URL}?limit=50&offset=0`);
+      const response = await fetch(`${API_BASE_URL}?limit=100&offset=0`);
       if (!response.ok) {
         throw new Error("Failed to fetch blog posts");
       }
@@ -77,7 +80,15 @@ const Blog = () => {
     },
   });
 
-  const blogs = data?.posts || [];
+  const allBlogs = data?.posts || [];
+  const totalPages = Math.ceil(allBlogs.length / POSTS_PER_PAGE);
+  const startIndex = (currentPage - 1) * POSTS_PER_PAGE;
+  const blogs = allBlogs.slice(startIndex, startIndex + POSTS_PER_PAGE);
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   const breadcrumbItems = [{ label: "Blog" }];
   const breadcrumbSchemaItems = [
@@ -100,110 +111,177 @@ const Blog = () => {
       <Header onContactClick={() => setContactOpen(true)} />
       <ContactDialog open={contactOpen} onOpenChange={setContactOpen} />
 
-      <main className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+      <main className="pt-24 sm:pt-32 pb-12 sm:pb-20 px-4 sm:px-6 lg:px-8">
         <article className="container mx-auto max-w-6xl">
           <Breadcrumbs items={breadcrumbItems} />
 
-          <header className="mb-12">
-            <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-4">
+          <header className="mb-8 sm:mb-12">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-3 sm:mb-4">
               Blog
             </h1>
-            <p className="text-xl text-muted-foreground max-w-2xl">
+            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-2xl">
               Insights, strategies, and case studies from the Flow Theory AI team.
             </p>
           </header>
 
           {isLoading ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {[...Array(3)].map((_, i) => (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+              {[...Array(6)].map((_, i) => (
                 <Card key={i} className="animate-pulse">
-                  <div className="h-48 bg-muted rounded-t-lg" />
-                  <CardHeader>
-                    <div className="h-6 bg-muted rounded w-3/4" />
+                  <div className="h-36 sm:h-48 bg-muted rounded-t-lg" />
+                  <CardHeader className="p-4 sm:p-6">
+                    <div className="h-5 sm:h-6 bg-muted rounded w-3/4" />
                   </CardHeader>
-                  <CardContent>
+                  <CardContent className="p-4 sm:p-6 pt-0 sm:pt-0">
                     <div className="space-y-2">
-                      <div className="h-4 bg-muted rounded w-full" />
-                      <div className="h-4 bg-muted rounded w-2/3" />
+                      <div className="h-3 sm:h-4 bg-muted rounded w-full" />
+                      <div className="h-3 sm:h-4 bg-muted rounded w-2/3" />
                     </div>
                   </CardContent>
                 </Card>
               ))}
             </div>
           ) : error ? (
-            <section className="text-center py-20">
-              <p className="text-xl text-muted-foreground">
+            <section className="text-center py-12 sm:py-20">
+              <p className="text-base sm:text-xl text-muted-foreground">
                 Failed to load blog posts. Please try again later.
               </p>
             </section>
           ) : blogs.length > 0 ? (
-            <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {blogs.map((blog) => (
-                <Link 
-                  key={blog.id} 
-                  to={createBlogPath(blog.id, blog.title)}
-                  title={blog.title}
-                >
-                  <Card className="group h-full hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 hover:-translate-y-1 cursor-pointer overflow-hidden flex flex-col">
-                    {blog.cover_image_url && (
-                      <div className="aspect-video overflow-hidden">
-                        <img
-                          src={blog.cover_image_url}
-                          alt={blog.title}
-                          loading="lazy"
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                        />
-                      </div>
-                    )}
-                    <CardHeader className="pb-2">
-                      <CardTitle className="text-xl group-hover:text-primary transition-colors">
-                        {blog.title}
-                      </CardTitle>
-                      <div className="flex items-center gap-3 mt-2">
-                        <Avatar className="h-8 w-8">
-                          <AvatarImage
-                            src={getAuthorImage(blog.author)}
-                            alt={blog.author?.display_name || "Author"}
+            <>
+              <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+                {blogs.map((blog) => (
+                  <Link 
+                    key={blog.id} 
+                    to={createBlogPath(blog.id, blog.title)}
+                    title={blog.title}
+                  >
+                    <Card className="group h-full hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 hover:-translate-y-1 cursor-pointer overflow-hidden flex flex-col">
+                      {blog.cover_image_url && (
+                        <div className="aspect-video overflow-hidden">
+                          <img
+                            src={blog.cover_image_url}
+                            alt={blog.title}
+                            loading="lazy"
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                           />
-                          <AvatarFallback>
-                            {getAuthorInitials(blog.author?.display_name || null)}
-                          </AvatarFallback>
-                        </Avatar>
-                        <div>
-                          <p className="text-sm font-medium text-foreground">
-                            {blog.author?.display_name || "Anonymous"}
-                          </p>
-                          <p className="text-xs text-muted-foreground flex items-center gap-2">
-                            <time dateTime={blog.published_at}>
-                              {format(new Date(blog.published_at), "MMM d, yyyy")}
-                            </time>
-                            {blog.content && (
-                              <>
-                                <span>·</span>
-                                <span className="flex items-center gap-1">
-                                  <Clock className="h-3 w-3" aria-hidden="true" />
-                                  {formatReadingTime(calculateReadingTime(blog.content))}
-                                </span>
-                              </>
-                            )}
-                          </p>
                         </div>
-                      </div>
-                    </CardHeader>
-                    <CardContent className="pt-4 flex-1">
-                      {blog.excerpt && (
-                        <p className="text-muted-foreground line-clamp-3">
-                          {blog.excerpt}
-                        </p>
                       )}
-                    </CardContent>
-                  </Card>
-                </Link>
-              ))}
-            </section>
+                      <CardHeader className="p-4 sm:p-6 pb-2">
+                        <CardTitle className="text-lg sm:text-xl group-hover:text-primary transition-colors line-clamp-2">
+                          {blog.title}
+                        </CardTitle>
+                        <div className="flex items-center gap-2 sm:gap-3 mt-2">
+                          <Avatar className="h-7 w-7 sm:h-8 sm:w-8">
+                            <AvatarImage
+                              src={getAuthorImage(blog.author)}
+                              alt={blog.author?.display_name || "Author"}
+                            />
+                            <AvatarFallback className="text-xs">
+                              {getAuthorInitials(blog.author?.display_name || null)}
+                            </AvatarFallback>
+                          </Avatar>
+                          <div>
+                            <p className="text-xs sm:text-sm font-medium text-foreground">
+                              {blog.author?.display_name || "Anonymous"}
+                            </p>
+                            <p className="text-[10px] sm:text-xs text-muted-foreground flex items-center gap-1 sm:gap-2 flex-wrap">
+                              <time dateTime={blog.published_at}>
+                                {format(new Date(blog.published_at), "MMM d, yyyy")}
+                              </time>
+                              {blog.content && (
+                                <>
+                                  <span>·</span>
+                                  <span className="flex items-center gap-1">
+                                    <Clock className="h-3 w-3" aria-hidden="true" />
+                                    {formatReadingTime(calculateReadingTime(blog.content))}
+                                  </span>
+                                </>
+                              )}
+                            </p>
+                          </div>
+                        </div>
+                      </CardHeader>
+                      <CardContent className="p-4 sm:p-6 pt-2 sm:pt-4 flex-1">
+                        {blog.excerpt && (
+                          <p className="text-sm sm:text-base text-muted-foreground line-clamp-2 sm:line-clamp-3">
+                            {blog.excerpt}
+                          </p>
+                        )}
+                      </CardContent>
+                    </Card>
+                  </Link>
+                ))}
+              </section>
+
+              {/* Pagination */}
+              {totalPages > 1 && (
+                <nav className="flex items-center justify-center gap-2 mt-8 sm:mt-12" aria-label="Blog pagination">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => handlePageChange(currentPage - 1)}
+                    disabled={currentPage === 1}
+                    className="gap-1 px-2 sm:px-3"
+                    aria-label="Go to previous page"
+                  >
+                    <ChevronLeft className="h-4 w-4" />
+                    <span className="hidden sm:inline">Previous</span>
+                  </Button>
+
+                  <div className="flex items-center gap-1 sm:gap-2">
+                    {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => {
+                      // Show first, last, current, and pages around current
+                      const showPage = page === 1 || 
+                        page === totalPages || 
+                        Math.abs(page - currentPage) <= 1;
+                      
+                      const showEllipsis = (page === 2 && currentPage > 3) || 
+                        (page === totalPages - 1 && currentPage < totalPages - 2);
+
+                      if (!showPage && !showEllipsis) return null;
+
+                      if (showEllipsis && !showPage) {
+                        return (
+                          <span key={page} className="px-1 sm:px-2 text-muted-foreground" aria-hidden>
+                            ...
+                          </span>
+                        );
+                      }
+
+                      return (
+                        <Button
+                          key={page}
+                          variant={currentPage === page ? "default" : "outline"}
+                          size="sm"
+                          onClick={() => handlePageChange(page)}
+                          className="w-8 h-8 sm:w-9 sm:h-9 p-0"
+                          aria-label={`Go to page ${page}`}
+                          aria-current={currentPage === page ? "page" : undefined}
+                        >
+                          {page}
+                        </Button>
+                      );
+                    })}
+                  </div>
+
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => handlePageChange(currentPage + 1)}
+                    disabled={currentPage === totalPages}
+                    className="gap-1 px-2 sm:px-3"
+                    aria-label="Go to next page"
+                  >
+                    <span className="hidden sm:inline">Next</span>
+                    <ChevronRight className="h-4 w-4" />
+                  </Button>
+                </nav>
+              )}
+            </>
           ) : (
-            <section className="text-center py-20">
-              <p className="text-xl text-muted-foreground">
+            <section className="text-center py-12 sm:py-20">
+              <p className="text-base sm:text-xl text-muted-foreground">
                 No blog posts yet. Check back soon!
               </p>
             </section>
