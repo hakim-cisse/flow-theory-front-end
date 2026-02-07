@@ -93,24 +93,32 @@ export default {
             transform: "translateY(0) translateX(0) rotate(45deg) scale(1)",
             opacity: "1"
           },
-          "15%": { 
-            transform: "translateY(30vh) translateX(20px) rotate(90deg) scale(1.2)",
+          "10%": { 
+            transform: "translateY(50vh) translateX(30px) rotate(80deg) scale(1.2)",
             opacity: "1"
           },
-          "35%": { 
-            transform: "translateY(70vh) translateX(-30px) rotate(120deg) scale(1)",
+          "25%": { 
+            transform: "translateY(150vh) translateX(-40px) rotate(110deg) scale(1)",
+            opacity: "1"
+          },
+          "40%": { 
+            transform: "translateY(280vh) translateX(50px) rotate(150deg) scale(1.1)",
             opacity: "1"
           },
           "50%": { 
-            transform: "translateY(90vh) translateX(10px) rotate(180deg) scale(0.9)",
+            transform: "translateY(350vh) translateX(0) rotate(180deg) scale(0.9)",
             opacity: "1"
           },
-          "65%": { 
-            transform: "translateY(60vh) translateX(-20px) rotate(220deg) scale(1)",
+          "60%": { 
+            transform: "translateY(280vh) translateX(-40px) rotate(220deg) scale(1)",
             opacity: "1"
           },
-          "85%": { 
-            transform: "translateY(20vh) translateX(15px) rotate(320deg) scale(1.1)",
+          "75%": { 
+            transform: "translateY(150vh) translateX(30px) rotate(280deg) scale(1.1)",
+            opacity: "1"
+          },
+          "90%": { 
+            transform: "translateY(50vh) translateX(-20px) rotate(340deg) scale(1)",
             opacity: "1"
           },
           "100%": { 
@@ -125,7 +133,7 @@ export default {
         "float": "float 6s ease-in-out infinite",
         "glow": "glow 3s ease-in-out infinite",
         "fade-in-up": "fade-in-up 0.8s ease-out forwards",
-        "paper-plane-flight": "paper-plane-flight 4s ease-in-out forwards",
+        "paper-plane-flight": "paper-plane-flight 6s ease-in-out forwards",
       },
     },
   },
