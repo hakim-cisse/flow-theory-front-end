@@ -22,7 +22,7 @@ import yunusImage from "@/assets/yunus.jpg";
 
 const API_BASE_URL = "https://taetntekartazcxgrawh.supabase.co/functions/v1/get-posts";
 const SITE_URL = "https://www.flowtheoryai.com";
-const POSTS_PER_PAGE = 9;
+const POSTS_PER_PAGE = 6;
 
 // Map author names to their local images
 const authorImages: Record<string, string> = {
