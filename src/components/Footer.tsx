@@ -65,7 +65,7 @@ export const Footer = ({ onContactClick }: FooterProps) => {
           {/* Copyright & Tagline */}
           <div className="text-center space-y-2">
             <p className="text-sm text-muted-foreground">
-              © 2025 Flow Theory AI
+              © 2026 Flow Theory AI
             </p>
             <p className="text-sm text-muted-foreground/60 italic">
               Built with precision and purpose.
