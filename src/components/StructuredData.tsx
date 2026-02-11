@@ -32,7 +32,16 @@ export const OrganizationSchema = () => {
     url: SITE_URL,
     logo: LOGO_URL,
     description: "Flow Theory AI helps small and growing companies evolve from manual operations to intelligent, automated ecosystems.",
-    sameAs: [],
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "sales",
+      url: "https://cal.com/flow-theory-ai/alignment-call",
+    },
+    sameAs: [
+      "https://www.linkedin.com/company/107525980",
+      "https://x.com/flowtheoryai",
+      "https://www.instagram.com/flowtheoryai/",
+    ],
   };
 
   return (
