@@ -4,7 +4,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://gkwsgbldtojarjsulbof.supabase.co/functions/v1/sitemap
+Sitemap: https://www.flowtheoryai.com/sitemap.xml
 
 # Allow all major search engine bots
 User-agent: Googlebot

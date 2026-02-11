@@ -112,7 +112,7 @@ const Blog = () => {
       <ContactDialog open={contactOpen} onOpenChange={setContactOpen} />
 
       <main className="pt-24 sm:pt-32 pb-12 sm:pb-20 px-4 sm:px-6 lg:px-8">
-        <article className="container mx-auto max-w-6xl">
+        <div className="container mx-auto max-w-6xl">
           <Breadcrumbs items={breadcrumbItems} />
 
           <header className="mb-8 sm:mb-12">
@@ -286,7 +286,7 @@ const Blog = () => {
               </p>
             </section>
           )}
-        </article>
+        </div>
       </main>
 
       <Footer onContactClick={() => setContactOpen(true)} />
