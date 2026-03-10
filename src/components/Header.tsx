@@ -56,12 +56,12 @@ export const Header = ({ onContactClick }: HeaderProps) => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
-      <div className={`transition-all duration-300 ${
+      <div className={`border-b transition-all duration-300 ${
         scrolled 
-          ? 'bg-background/80 backdrop-blur-2xl border-b border-border/20 shadow-lg shadow-black/10' 
-          : 'bg-transparent border-b border-transparent'
+          ? 'bg-background/90 backdrop-blur-xl border-border/30' 
+          : 'bg-transparent border-transparent'
       }`}>
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
           <div className="flex items-center justify-between h-16">
             <img
               src={logo}
@@ -70,19 +70,19 @@ export const Header = ({ onContactClick }: HeaderProps) => {
               onClick={handleLogoClick}
             />
 
-            <nav className="hidden md:flex items-center gap-1 bg-card/30 backdrop-blur-sm rounded-full px-2 py-1.5 border border-border/20">
+            <nav className="hidden md:flex items-center gap-1">
               {navLinks.map((link) => (
                 <button
                   key={link.href}
                   onClick={() => handleNavClick(link)}
-                  className="px-4 py-1.5 rounded-full text-sm text-muted-foreground hover:text-foreground hover:bg-primary/10 transition-all duration-200"
+                  className="px-3 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
                   {link.label}
                 </button>
               ))}
               <button
                 onClick={onContactClick}
-                className="px-4 py-1.5 rounded-full text-sm text-muted-foreground hover:text-foreground hover:bg-primary/10 transition-all duration-200"
+                className="px-3 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
                 Contact
               </button>
@@ -91,7 +91,7 @@ export const Header = ({ onContactClick }: HeaderProps) => {
             <div className="flex items-center gap-3">
               <Button
                 onClick={() => handleNavClick({ href: "#cta" })}
-                className="gap-2 text-xs md:text-sm px-5 rounded-full"
+                className="gap-2 text-xs md:text-sm px-4"
                 size="sm"
               >
                 Book an intro
@@ -111,20 +111,20 @@ export const Header = ({ onContactClick }: HeaderProps) => {
       </div>
 
       {isOpen && (
-        <div className="md:hidden bg-background/95 backdrop-blur-2xl border-b border-border/20">
+        <div className="md:hidden bg-background/95 backdrop-blur-xl border-b border-border/30">
           <nav className="container mx-auto px-4 py-4 flex flex-col gap-1">
             {navLinks.map((link) => (
               <button
                 key={link.href}
                 onClick={() => handleNavClick(link)}
-                className="px-4 py-3 rounded-xl text-sm text-muted-foreground hover:text-foreground hover:bg-primary/10 transition-all text-left"
+                className="px-4 py-3 text-sm text-muted-foreground hover:text-foreground transition-colors text-left"
               >
                 {link.label}
               </button>
             ))}
             <button
               onClick={() => { onContactClick(); setIsOpen(false); }}
-              className="px-4 py-3 rounded-xl text-sm text-muted-foreground hover:text-foreground hover:bg-primary/10 transition-all text-left"
+              className="px-4 py-3 text-sm text-muted-foreground hover:text-foreground transition-colors text-left"
             >
               Contact
             </button>
