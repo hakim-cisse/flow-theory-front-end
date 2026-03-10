@@ -20,45 +20,56 @@ export const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background pt-20 md:pt-0">
-      {/* Content */}
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden section-1 pt-20 md:pt-0">
+      {/* Subtle grid overlay */}
+      <div className="absolute inset-0 opacity-[0.03]" style={{
+        backgroundImage: `linear-gradient(hsl(193 100% 56% / 0.3) 1px, transparent 1px), linear-gradient(90deg, hsl(193 100% 56% / 0.3) 1px, transparent 1px)`,
+        backgroundSize: '60px 60px'
+      }} />
+      
+      {/* Radial glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[120px]" />
+
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div className="max-w-5xl mx-auto space-y-6 sm:space-y-8 animate-fade-in-up">
+        <div className="max-w-5xl mx-auto space-y-8 animate-fade-in-up">
           {/* Case Study Link */}
           <button
             onClick={scrollToCaseStudy}
-            className="group inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-sm text-primary hover:bg-primary/20 hover:scale-105 hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 animate-[slideInDown_0.6s_ease-out_0.3s_both]"
+            className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-primary/20 text-sm text-primary hover:bg-primary/10 transition-all duration-300"
           >
-            <FileText className="w-4 h-4 group-hover:rotate-6 transition-transform duration-300" />
-            <span>How we saved $96,000 a year for one of the largest apartment locators in the U.S.</span>
+            <FileText className="w-4 h-4" />
+            <span>How we saved $96,000/year for a top apartment locator</span>
             <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform duration-300" />
           </button>
 
-          <h1 className="text-3xl sm:text-5xl lg:text-7xl font-bold tracking-tight">
+          <h1 className="text-scale-hero font-bold tracking-tight">
             <span className="block text-foreground min-h-[1.2em]">
               <TypewriterText phrases={animatedPhrases} className="text-gradient" />
             </span>
-            <span className="block text-foreground mt-1 sm:mt-2">Built on Strategy and ROI.</span>
+            <span className="block text-foreground mt-2">Built on Strategy and ROI.</span>
           </h1>
           
-          <p className="text-base sm:text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed px-2">
+          <p className="text-scale-sub text-muted-foreground max-w-3xl mx-auto">
             Flow Theory AI helps businesses cut through the noise, build a clear AI roadmap, and execute only what delivers measurable business value.
           </p>
 
-          <div className="flex justify-center items-center pt-2 sm:pt-4 px-4">
+          <div className="flex justify-center items-center pt-4 px-4">
             <Button 
               size="lg" 
-              className="w-full sm:w-auto group bg-gradient-to-r from-primary to-primary/80 hover:from-primary-glow hover:to-primary text-primary-foreground font-semibold px-6 py-5 sm:px-8 sm:py-6 text-base sm:text-lg glow transition-all duration-300"
+              className="w-full sm:w-auto group font-semibold px-8 py-6 text-lg glow transition-all duration-300"
               asChild
             >
               <a href="https://cal.com/flow-theory-ai/alignment-call" target="_blank" rel="noopener noreferrer">
                 Start Your AI Transformation
-                <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </a>
             </Button>
           </div>
         </div>
       </div>
+
+      {/* Bottom divider */}
+      <div className="absolute bottom-0 left-0 right-0 section-divider" />
     </section>
   );
 };

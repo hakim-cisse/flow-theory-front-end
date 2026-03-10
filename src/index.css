@@ -2,115 +2,65 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
 @layer base {
   :root {
-    /* Flow Theory AI Design System - Light Mode */
-    --background: 200 20% 98%;
-    --foreground: 200 25% 10%;
+    /* Force dark — this site is always dark */
+    --background: 220 20% 4%;
+    --foreground: 210 20% 92%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 200 25% 10%;
+    --card: 220 18% 8%;
+    --card-foreground: 210 20% 92%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 200 25% 10%;
+    --popover: 220 18% 8%;
+    --popover-foreground: 210 20% 92%;
 
-    /* Primary Cyan Brand Color */
+    /* Primary — Logo Blue */
     --primary: 193 100% 56%;
-    --primary-foreground: 0 0% 100%;
+    --primary-foreground: 220 20% 4%;
     --primary-glow: 193 100% 66%;
 
-    --secondary: 193 30% 95%;
-    --secondary-foreground: 200 25% 10%;
+    --secondary: 220 18% 12%;
+    --secondary-foreground: 210 20% 92%;
 
-    --muted: 200 15% 92%;
-    --muted-foreground: 200 15% 40%;
+    --muted: 220 15% 14%;
+    --muted-foreground: 210 12% 55%;
 
     --accent: 193 90% 48%;
-    --accent-foreground: 0 0% 100%;
+    --accent-foreground: 220 20% 4%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 200 20% 88%;
-    --input: 200 15% 95%;
+    --border: 220 15% 16%;
+    --input: 220 15% 12%;
     --ring: 193 100% 56%;
 
-    --radius: 0.5rem;
+    --radius: 0.625rem;
+
+    /* Section backgrounds — shift as you scroll */
+    --section-1: 220 20% 4%;
+    --section-2: 215 22% 7%;
+    --section-3: 210 25% 5%;
+    --section-4: 220 18% 8%;
+    --section-5: 205 28% 6%;
+    --section-6: 215 20% 9%;
+    --section-7: 220 22% 5%;
+    --section-8: 210 20% 7%;
+    --section-9: 220 20% 4%;
 
     /* Shadows */
-    --shadow-soft: 0 2px 8px -2px hsl(193 50% 20% / 0.08), 0 4px 16px -4px hsl(193 50% 20% / 0.12);
-    --shadow-medium: 0 4px 12px -2px hsl(193 50% 20% / 0.1), 0 8px 24px -4px hsl(193 50% 20% / 0.15);
-    --shadow-strong: 0 8px 24px -4px hsl(193 50% 20% / 0.15), 0 16px 48px -8px hsl(193 50% 20% / 0.2);
+    --shadow-soft: 0 2px 12px -3px hsl(0 0% 0% / 0.4);
+    --shadow-medium: 0 8px 24px -4px hsl(0 0% 0% / 0.5);
+    --shadow-strong: 0 16px 48px -8px hsl(0 0% 0% / 0.6);
+    --shadow-glow: 0 0 50px hsl(193 100% 56% / 0.2);
+    --shadow-card: 0 8px 32px hsl(0 0% 0% / 0.4);
 
-    /* Legacy gradients & glows */
-    --gradient-primary: linear-gradient(135deg, hsl(193, 100%, 56%), hsl(193, 100%, 46%));
-    --gradient-glow: radial-gradient(circle at center, hsl(193, 100%, 56% / 0.15), transparent 70%);
-    --gradient-hero: linear-gradient(180deg, hsl(200, 20%, 98%), hsl(200, 20%, 95%));
-    --shadow-glow: 0 0 40px hsl(193 100% 56% / 0.2);
-    --shadow-card: 0 8px 32px hsl(193 100% 56% / 0.08);
-    --shadow-subtle: 0 4px 16px hsl(0 0% 0% / 0.08);
+    /* Glass */
+    --glass-bg: hsl(220 18% 8% / 0.6);
+    --glass-border: hsl(193 100% 56% / 0.15);
 
-    /* Glass Effect */
-    --glass-bg: hsl(0 0% 100% / 0.6);
-    --glass-border: hsl(193 100% 56% / 0.2);
-
-    /* Animations */
+    /* Transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  }
-
-  .dark {
-    /* Flow Theory AI Design System - Dark Mode */
-    --background: 200 25% 8%;
-    --foreground: 200 10% 95%;
-
-    --card: 200 20% 12%;
-    --card-foreground: 200 10% 95%;
-
-    --popover: 200 20% 12%;
-    --popover-foreground: 200 10% 95%;
-
-    /* Primary Cyan Brand Color (stays vibrant in dark) */
-    --primary: 193 100% 56%;
-    --primary-foreground: 200 25% 10%;
-    --primary-glow: 193 100% 66%;
-
-    --secondary: 200 20% 18%;
-    --secondary-foreground: 200 10% 95%;
-
-    --muted: 200 20% 15%;
-    --muted-foreground: 200 15% 60%;
-
-    --accent: 193 90% 48%;
-    --accent-foreground: 200 25% 10%;
-
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
-
-    --border: 200 20% 20%;
-    --input: 200 20% 15%;
-    --ring: 193 100% 56%;
-
-    /* Shadows - Dark Mode */
-    --shadow-soft: 0 2px 8px -2px hsl(0 0% 0% / 0.3), 0 4px 16px -4px hsl(0 0% 0% / 0.4);
-    --shadow-medium: 0 4px 12px -2px hsl(0 0% 0% / 0.4), 0 8px 24px -4px hsl(0 0% 0% / 0.5);
-    --shadow-strong: 0 8px 24px -4px hsl(0 0% 0% / 0.5), 0 16px 48px -8px hsl(0 0% 0% / 0.6);
-
-    /* Legacy gradients & glows */
-    --gradient-primary: linear-gradient(135deg, hsl(193, 100%, 56%), hsl(193, 100%, 46%));
-    --gradient-glow: radial-gradient(circle at center, hsl(193, 100%, 56% / 0.25), transparent 70%);
-    --gradient-hero: linear-gradient(180deg, hsl(200, 25%, 8%), hsl(200, 25%, 10%));
-    --shadow-glow: 0 0 50px hsl(193 100% 56% / 0.35);
-    --shadow-card: 0 8px 32px hsl(0 0% 0% / 0.5);
-    --shadow-subtle: 0 4px 16px hsl(0 0% 0% / 0.3);
-
-    /* Glass Effect - Dark Mode */
-    --glass-bg: hsl(200 20% 12% / 0.6);
-    --glass-border: hsl(193 100% 56% / 0.3);
   }
 }
 
@@ -131,7 +81,7 @@ All colors MUST be HSL.
 @layer utilities {
   .glass {
     background: var(--glass-bg);
-    backdrop-filter: blur(12px);
+    backdrop-filter: blur(16px);
     border: 1px solid var(--glass-border);
   }
 
@@ -140,11 +90,38 @@ All colors MUST be HSL.
   }
 
   .text-gradient {
-    background: var(--gradient-primary);
+    background: linear-gradient(135deg, hsl(193, 100%, 56%), hsl(193, 100%, 72%));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     padding-bottom: 0.1em;
+  }
+
+  /* Section color classes */
+  .section-1 { background-color: hsl(var(--section-1)); }
+  .section-2 { background-color: hsl(var(--section-2)); }
+  .section-3 { background-color: hsl(var(--section-3)); }
+  .section-4 { background-color: hsl(var(--section-4)); }
+  .section-5 { background-color: hsl(var(--section-5)); }
+  .section-6 { background-color: hsl(var(--section-6)); }
+  .section-7 { background-color: hsl(var(--section-7)); }
+  .section-8 { background-color: hsl(var(--section-8)); }
+  .section-9 { background-color: hsl(var(--section-9)); }
+
+  /* Scale text utility for scroll-based sizing */
+  .text-scale-hero {
+    font-size: clamp(2.5rem, 6vw, 5.5rem);
+    line-height: 1.05;
+  }
+
+  .text-scale-section {
+    font-size: clamp(2rem, 4.5vw, 4rem);
+    line-height: 1.1;
+  }
+
+  .text-scale-sub {
+    font-size: clamp(1.125rem, 2vw, 1.5rem);
+    line-height: 1.6;
   }
 
   .animate-float {
@@ -156,40 +133,41 @@ All colors MUST be HSL.
   }
 
   @keyframes float {
-    0%, 100% {
-      transform: translateY(0px);
-    }
-    50% {
-      transform: translateY(-20px);
-    }
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
   }
 
   @keyframes glow {
-    0%, 100% {
-      filter: drop-shadow(0 0 20px hsl(194, 83%, 61%, 0.4));
-    }
-    50% {
-      filter: drop-shadow(0 0 30px hsl(194, 83%, 61%, 0.6));
-    }
+    0%, 100% { filter: drop-shadow(0 0 20px hsl(193, 100%, 56%, 0.3)); }
+    50% { filter: drop-shadow(0 0 30px hsl(193, 100%, 56%, 0.5)); }
   }
 
   @keyframes fade-in-up {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 
   .animate-fade-in-up {
     animation: fade-in-up 0.8s ease-out forwards;
   }
+
+  @keyframes slide-in-left {
+    from { opacity: 0; transform: translateX(-60px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  .animate-slide-in-left {
+    animation: slide-in-left 0.7s ease-out forwards;
+  }
+
+  /* Horizontal rule styling for section dividers */
+  .section-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, hsl(193 100% 56% / 0.3), transparent);
+  }
 }
 
-/* TipTap Editor / Blog Content Styles - Matches Editor Exactly */
+/* TipTap / Blog prose styles */
 .prose {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
@@ -197,12 +175,7 @@ All colors MUST be HSL.
   color: hsl(var(--foreground));
 }
 
-.prose h1,
-.prose h2,
-.prose h3,
-.prose h4,
-.prose h5,
-.prose h6 {
+.prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
   font-family: 'Inter', sans-serif;
   font-weight: 600;
   color: hsl(var(--foreground));
@@ -211,23 +184,11 @@ All colors MUST be HSL.
   margin-bottom: 0.75em;
 }
 
-.prose h1 {
-  font-size: 2.25rem;
-  font-weight: 700;
-}
+.prose h1 { font-size: 2.25rem; font-weight: 700; }
+.prose h2 { font-size: 1.75rem; }
+.prose h3 { font-size: 1.375rem; }
 
-.prose h2 {
-  font-size: 1.75rem;
-}
-
-.prose h3 {
-  font-size: 1.375rem;
-}
-
-.prose p {
-  margin-bottom: 1.25em;
-  color: hsl(var(--foreground));
-}
+.prose p { margin-bottom: 1.25em; color: hsl(var(--foreground)); }
 
 .prose a {
   color: hsl(var(--primary));
@@ -235,29 +196,15 @@ All colors MUST be HSL.
   text-underline-offset: 2px;
   transition: color 0.2s ease;
 }
+.prose a:hover { color: hsl(var(--accent)); }
 
-.prose a:hover {
-  color: hsl(var(--accent));
-}
-
-.prose strong {
-  font-weight: 600;
-  color: hsl(var(--foreground));
-}
-
-.prose em {
-  font-style: italic;
-}
-
-.prose u {
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
+.prose strong { font-weight: 600; color: hsl(var(--foreground)); }
+.prose em { font-style: italic; }
+.prose u { text-decoration: underline; text-underline-offset: 2px; }
 
 .prose code {
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.875em;
-  font-weight: 400;
   background-color: hsl(var(--muted));
   color: hsl(var(--foreground));
   padding: 0.2em 0.4em;
@@ -275,11 +222,7 @@ All colors MUST be HSL.
   margin: 1.5em 0;
 }
 
-.prose pre code {
-  background: none;
-  padding: 0;
-  font-size: inherit;
-}
+.prose pre code { background: none; padding: 0; font-size: inherit; }
 
 .prose blockquote {
   border-left: 3px solid hsl(var(--primary));
@@ -289,47 +232,12 @@ All colors MUST be HSL.
   color: hsl(var(--muted-foreground));
 }
 
-.prose ul,
-.prose ol {
-  padding-left: 1.5em;
-  margin: 1em 0;
-}
-
-.prose li {
-  margin: 0.5em 0;
-  color: hsl(var(--foreground));
-}
-
-.prose ul > li {
-  list-style-type: disc;
-}
-
-.prose ol > li {
-  list-style-type: decimal;
-}
-
-.prose img {
-  max-width: 100%;
-  height: auto;
-  border-radius: var(--radius);
-  margin: 1.5em 0;
-}
-
-.prose hr {
-  border: none;
-  border-top: 1px solid hsl(var(--border));
-  margin: 2em 0;
-}
-
-/* Text alignment from TipTap */
-.prose [style*="text-align: center"] {
-  text-align: center;
-}
-
-.prose [style*="text-align: right"] {
-  text-align: right;
-}
-
-.prose [style*="text-align: justify"] {
-  text-align: justify;
-}
+.prose ul, .prose ol { padding-left: 1.5em; margin: 1em 0; }
+.prose li { margin: 0.5em 0; color: hsl(var(--foreground)); }
+.prose ul > li { list-style-type: disc; }
+.prose ol > li { list-style-type: decimal; }
+.prose img { max-width: 100%; height: auto; border-radius: var(--radius); margin: 1.5em 0; }
+.prose hr { border: none; border-top: 1px solid hsl(var(--border)); margin: 2em 0; }
+.prose [style*="text-align: center"] { text-align: center; }
+.prose [style*="text-align: right"] { text-align: right; }
+.prose [style*="text-align: justify"] { text-align: justify; }

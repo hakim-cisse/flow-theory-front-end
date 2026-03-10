@@ -9,7 +9,6 @@ import { CaseStudy } from "@/components/CaseStudy";
 import { Testimonials } from "@/components/Testimonials";
 import { CTA } from "@/components/CTA";
 import { Footer } from "@/components/Footer";
-import { ThemeToggle } from "@/components/ThemeToggle";
 import { Header } from "@/components/Header";
 import { ContactDialog } from "@/components/ContactDialog";
 import { SEO } from "@/components/SEO";
@@ -30,7 +29,6 @@ const Index = () => {
       <OrganizationSchema />
       <WebsiteSchema />
       <Header onContactClick={() => setContactOpen(true)} />
-      <ThemeToggle />
       <Hero />
       <LogoCatalog />
       <About />

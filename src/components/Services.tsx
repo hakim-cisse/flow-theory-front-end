@@ -36,13 +36,10 @@ const services = [
 
 export const Services = () => {
   return (
-    <section id="services" className="py-16 sm:py-24 lg:py-32 relative overflow-hidden">
-      {/* Background Glow */}
-      <div className="absolute top-1/3 right-0 w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-primary/5 rounded-full blur-3xl"></div>
-
+    <section id="services" className="py-16 sm:py-24 lg:py-32 relative overflow-hidden section-5">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center mb-8 sm:mb-12 lg:mb-16">
+          <h2 className="text-scale-section font-bold text-center mb-8 sm:mb-12 lg:mb-16">
             What We <span className="text-gradient">Build</span>
           </h2>
 
@@ -50,11 +47,11 @@ export const Services = () => {
             {services.map((service, index) => (
               <div
                 key={service.title}
-                className="group p-5 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl glass hover:bg-primary/5 transition-all duration-500 hover:glow"
+                className="group p-5 sm:p-6 lg:p-8 rounded-2xl border border-border/30 bg-card/40 hover:bg-primary/5 hover:border-primary/30 transition-all duration-500"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="space-y-4 sm:space-y-6">
-                  <div className="inline-flex p-3 sm:p-4 rounded-lg sm:rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-all duration-300 group-hover:scale-110">
+                  <div className="inline-flex p-3 sm:p-4 rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-all duration-300 group-hover:scale-110">
                     <service.icon className="h-6 w-6 sm:h-8 sm:w-8 text-primary" strokeWidth={1.5} />
                   </div>
 
@@ -71,11 +68,11 @@ export const Services = () => {
             ))}
           </div>
 
-          {/* Custom SaaS Development Featured Block */}
-          <div className="mt-6 sm:mt-8 lg:mt-12 group p-6 sm:p-8 lg:p-10 xl:p-12 rounded-xl sm:rounded-2xl glass hover:bg-primary/5 transition-all duration-500 hover:glow">
+          {/* Custom SaaS Block */}
+          <div className="mt-6 sm:mt-8 lg:mt-12 group p-6 sm:p-8 lg:p-10 xl:p-12 rounded-2xl border border-border/30 bg-card/40 hover:bg-primary/5 hover:border-primary/30 transition-all duration-500">
             <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-5 sm:gap-6 lg:gap-8">
               <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
-                <div className="inline-flex p-4 sm:p-5 rounded-lg sm:rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-all duration-300 group-hover:scale-110 shrink-0">
+                <div className="inline-flex p-4 sm:p-5 rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-all duration-300 group-hover:scale-110 shrink-0">
                   <Layers className="h-8 w-8 sm:h-10 sm:w-10 text-primary" strokeWidth={1.5} />
                 </div>
                 <div className="space-y-2 sm:space-y-3">
@@ -90,7 +87,7 @@ export const Services = () => {
               <Button
                 asChild
                 size="lg"
-                className="bg-primary hover:bg-primary/90 text-primary-foreground gap-2 shrink-0 self-start lg:self-center w-full sm:w-auto"
+                className="gap-2 shrink-0 self-start lg:self-center w-full sm:w-auto"
               >
                 <a href="https://cal.com/flow-theory-ai/alignment-call" target="_blank" rel="noopener noreferrer">
                   Let's Talk
@@ -101,6 +98,8 @@ export const Services = () => {
           </div>
         </div>
       </div>
+
+      <div className="absolute bottom-0 left-0 right-0 section-divider" />
     </section>
   );
 };
