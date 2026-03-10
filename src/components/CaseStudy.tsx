@@ -31,8 +31,8 @@ const caseStudies: CaseStudyData[] = [
     overview:
       "APT Locator is one of the largest apartment locating companies in the United States. As their lead volume grew, their internal systems couldn't keep up. ISAs were overwhelmed with repetitive tasks, apartment recommendations took too long, and invoicing required hours of manual work. Flow Theory AI partnered with them to modernize their operations using automation and AI, while also empowering the founders to use AI internally without relying on external vendors.",
     metrics: [
-      { icon: <DollarSign className="w-8 h-8 text-primary" />, value: "$6,000–$10,000", label: "Monthly Cost Savings" },
-      { icon: <Clock className="w-8 h-8 text-primary" />, value: "~55 hours", label: "Saved Weekly Across Team" },
+      { icon: <DollarSign className="w-7 h-7 text-primary" />, value: "$6,000–$10,000", label: "Monthly Cost Savings" },
+      { icon: <Clock className="w-7 h-7 text-primary" />, value: "~55 hours", label: "Saved Weekly Across Team" },
     ],
     problem:
       "Despite strong demand, APT Locator's processes were slowing the business down. ISAs spent too much time qualifying leads and manually compiling apartment suggestions. Founders were losing hours each month to invoice creation and follow-up. Internal AI adoption was low, and the company lacked a scalable operational foundation to support their growth. These bottlenecks created slow response times, inconsistent client experiences, and unnecessary labor costs.",
@@ -49,8 +49,8 @@ const caseStudies: CaseStudyData[] = [
     overview:
       "Empower Estates Network is a growing real estate wholesaling company managing high volumes of seller and buyer activity through their CRM. As deal flow increased, operational inefficiencies began to surface. Sales reps were unintentionally calling the same sellers multiple times due to duplicated contact records tied to the same property. Buyer outreach was slow and largely manual, and founders lacked real-time visibility into key sales moments. Flow Theory AI partnered with Empower Estates Network to rebuild these workflows using automation and custom integrations beyond the limits of their CRM.",
     metrics: [
-      { icon: <PhoneOff className="w-8 h-8 text-primary" />, value: "0 duplicate seller calls", label: "Across Active Dialer Queues" },
-      { icon: <Zap className="w-8 h-8 text-primary" />, value: "3–5× faster", label: "Buyer Outreach After Contract" },
+      { icon: <PhoneOff className="w-7 h-7 text-primary" />, value: "0 duplicate seller calls", label: "Across Active Dialer Queues" },
+      { icon: <Zap className="w-7 h-7 text-primary" />, value: "3–5× faster", label: "Buyer Outreach After Contract" },
     ],
     problem:
       "Empower Estates Network's CRM did not account for multiple contacts associated with a single property address. This caused sellers to receive repeated calls from different reps, creating frustration and wasting dialer capacity. Buyer outreach only began after manual intervention, slowing dispositions once properties went under contract. In addition, founders had limited insight into when reps generated hot leads, limiting accountability and real-time performance awareness.",
@@ -69,14 +69,10 @@ const CaseStudyCard = ({ study }: { study: CaseStudyData }) => {
   const handleToggle = () => {
     if (!isExpanded) {
       setIsExpanded(true);
-      setTimeout(() => {
-        contentRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
-      }, 100);
+      setTimeout(() => contentRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" }), 100);
     } else {
       setIsExpanded(false);
-      setTimeout(() => {
-        cardRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
-      }, 100);
+      setTimeout(() => cardRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }), 100);
     }
   };
 
@@ -87,72 +83,48 @@ const CaseStudyCard = ({ study }: { study: CaseStudyData }) => {
   ];
 
   return (
-    <div
-      ref={cardRef}
-      className="relative rounded-2xl overflow-hidden border border-border/30 bg-card/50"
-    >
-      {/* Header */}
+    <div ref={cardRef} className="relative border border-border/30 bg-card/30 hover:border-primary/20 transition-all duration-500">
       <div className="p-8 sm:p-10">
-        <div className="flex flex-col sm:flex-row items-center gap-6 mb-6">
-          <img
-            src={study.logo}
-            alt={`${study.company} logo`}
-            className="w-20 h-20 object-contain shrink-0"
-          />
+        <div className="flex flex-col sm:flex-row items-center gap-6 mb-8">
+          <img src={study.logo} alt={`${study.company} logo`} className="w-16 h-16 object-contain shrink-0" />
           <div className="text-center sm:text-left">
             <h3 className="text-2xl font-bold mb-1">{study.company}</h3>
-            <p className="text-muted-foreground">{study.tagline}</p>
+            <p className="text-muted-foreground text-sm">{study.tagline}</p>
           </div>
         </div>
 
-        {/* Metrics */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
           {study.metrics.map((metric, index) => (
-            <div key={index} className="bg-primary/5 border border-primary/10 rounded-xl p-5 text-center">
-              <div className="flex justify-center mb-2">{metric.icon}</div>
-              <div className="text-2xl sm:text-3xl font-bold text-gradient mb-1">
-                {metric.value}
-              </div>
-              <p className="text-sm text-muted-foreground font-medium">{metric.label}</p>
+            <div key={index} className="bg-primary/5 border border-primary/10 p-6">
+              <div className="flex items-center gap-3 mb-2">{metric.icon}</div>
+              <div className="text-2xl sm:text-3xl font-bold text-gradient mb-1">{metric.value}</div>
+              <p className="text-sm text-muted-foreground">{metric.label}</p>
             </div>
           ))}
         </div>
 
-        {/* Toggle */}
         <button
           onClick={handleToggle}
-          className="w-full flex items-center justify-center gap-2 py-4 px-6 rounded-xl bg-primary/10 hover:bg-primary/15 text-primary font-semibold transition-all duration-300 border border-primary/20"
+          className="w-full flex items-center justify-center gap-2 py-4 px-6 bg-primary/10 hover:bg-primary/15 text-primary font-semibold transition-all duration-300 border border-primary/20 text-sm"
         >
-          {isExpanded ? (
-            <>Show Less <ChevronUp className="w-5 h-5" /></>
-          ) : (
-            <>View Full Case Study <ChevronDown className="w-5 h-5 animate-bounce" /></>
-          )}
+          {isExpanded ? <>Show Less <ChevronUp className="w-4 h-4" /></> : <>View Full Case Study <ChevronDown className="w-4 h-4" /></>}
         </button>
       </div>
 
-      {/* Expandable */}
       <div
         ref={contentRef}
-        className={cn(
-          "grid transition-all duration-500 ease-in-out",
-          isExpanded ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
-        )}
+        className={cn("grid transition-all duration-500 ease-in-out", isExpanded ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0")}
       >
         <div className="overflow-hidden">
           <div className="px-8 sm:px-10 pb-8 sm:pb-10 pt-2 space-y-6">
-            <div className="bg-primary/5 border border-primary/10 rounded-xl p-6">
+            <div className="bg-primary/5 border border-primary/10 p-6">
               <h4 className="text-lg font-semibold mb-3">Overview</h4>
               <p className="text-muted-foreground leading-relaxed">{study.overview}</p>
             </div>
-
             {sections.map((section, index) => (
-              <div
-                key={section.title}
-                className="bg-primary/5 border border-primary/10 rounded-xl p-6"
-              >
+              <div key={section.title} className="bg-primary/5 border border-primary/10 p-6">
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-bold text-sm">
+                  <div className="w-8 h-8 bg-primary flex items-center justify-center text-primary-foreground font-bold text-sm">
                     {index + 1}
                   </div>
                   <h4 className="text-lg font-semibold">{section.title}</h4>
@@ -160,11 +132,10 @@ const CaseStudyCard = ({ study }: { study: CaseStudyData }) => {
                 <p className="text-muted-foreground leading-relaxed">{section.content}</p>
               </div>
             ))}
-
             <div className="flex items-center justify-center gap-3 pt-4">
-              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/10 border border-green-500/20">
+              <div className="flex items-center gap-2 px-4 py-2 bg-green-500/10 border border-green-500/20">
                 <CheckCircle className="w-5 h-5 text-green-500" />
-                <span className="font-medium text-green-500">Transformation Complete</span>
+                <span className="font-medium text-green-500 text-sm">Transformation Complete</span>
               </div>
             </div>
           </div>
@@ -179,17 +150,18 @@ export const CaseStudy = () => {
     <section id="case-studies" className="py-24 sm:py-32 relative overflow-hidden section-6">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-16">
-            <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-sm font-semibold mb-6">
-              <Building2 className="w-4 h-4" />
+          <div className="mb-20">
+            <span className="text-mono text-primary/70 block mb-6">
+              <Building2 className="w-3.5 h-3.5 inline mr-2" />
               Case Studies
             </span>
-            <h2 className="text-scale-section font-bold leading-tight mb-4">
-              AI Transformation for{" "}
-              <span className="text-gradient">Industry Leaders</span>
+            <h2 className="text-heading max-w-3xl">
+              Real founders.<br />
+              <span className="text-gradient">Real results.</span>
             </h2>
-            <p className="text-scale-sub text-muted-foreground max-w-2xl mx-auto">
-              Discover how we've helped businesses streamline operations, reduce costs, and scale with AI-powered solutions.
+            <div className="accent-bar mt-6" />
+            <p className="text-subheading text-muted-foreground max-w-2xl mt-8">
+              Discover how we've helped founders streamline operations, reduce costs, and scale with AI-powered solutions.
             </p>
           </div>
 

@@ -28,31 +28,36 @@ export const Founders = () => {
     <section id="founders" className="py-24 sm:py-32 relative section-8">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-scale-section font-bold text-center mb-16">
-            The People Behind <span className="text-gradient">the Vision</span>
-          </h2>
+          <div className="mb-20">
+            <span className="text-mono text-primary/70 block mb-6">Our team</span>
+            <h2 className="text-heading">
+              Built by founders,<br />
+              <span className="text-gradient">for founders.</span>
+            </h2>
+            <div className="accent-bar mt-6" />
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-border/30">
             {founders.map((founder) => (
               <div
                 key={founder.name}
-                className="group flex flex-col items-center text-center space-y-6 p-8 rounded-2xl border border-border/30 bg-card/40 hover:bg-primary/5 hover:border-primary/30 transition-all duration-500"
+                className="group flex flex-col items-center text-center p-10 bg-background hover:bg-primary/5 transition-all duration-500"
               >
-                <div className="relative">
-                  <div className="absolute inset-0 bg-primary/10 rounded-full blur-2xl group-hover:bg-primary/20 transition-all duration-500"></div>
+                <div className="relative mb-8">
                   <img
                     src={founder.image}
                     alt={founder.name}
-                    className="relative w-48 h-48 rounded-full object-cover border-2 border-primary/20 group-hover:border-primary/40 transition-all duration-500 group-hover:scale-105"
+                    className="relative w-40 h-40 object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                    style={{ clipPath: 'polygon(0 0, 100% 0, 100% 85%, 85% 100%, 0 100%)' }}
                   />
                 </div>
 
-                <div className="space-y-2">
-                  <h3 className="text-2xl font-bold text-foreground">{founder.name}</h3>
-                  <p className="text-primary font-semibold">{founder.title}</p>
+                <div className="space-y-3">
+                  <h3 className="text-xl font-bold text-foreground">{founder.name}</h3>
+                  <p className="text-mono text-primary">{founder.title}</p>
                 </div>
 
-                <p className="text-muted-foreground leading-relaxed max-w-md">
+                <p className="text-sm text-muted-foreground leading-relaxed mt-4 max-w-xs">
                   {founder.description}
                 </p>
               </div>

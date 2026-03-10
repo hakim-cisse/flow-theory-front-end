@@ -1,41 +1,41 @@
 import { useState } from "react";
-import { Search, Target, PenTool, Rocket, TrendingUp, MapPin, Flag } from "lucide-react";
+import { Search, Target, PenTool, Rocket, TrendingUp } from "lucide-react";
 
 const steps = [
   {
-    phase: "Phase 1",
+    phase: "01",
     title: "Discover",
-    description: "Understand the business and surface bottlenecks",
+    description: "We listen first. Deep-dive interviews, workflow mapping, and pain point analysis to understand your business inside out.",
     icon: Search,
-    detail: "Deep-dive interviews, workflow mapping, and pain point analysis",
+    detail: "Most firms skip this. We don't. Because building the wrong thing fast is still waste.",
   },
   {
-    phase: "Phase 2",
+    phase: "02",
     title: "Diagnose",
-    description: "Validate priorities and identify highest ROI opportunities",
+    description: "Validate priorities and identify the highest-ROI opportunities hiding in your operations.",
     icon: Target,
-    detail: "Data-driven assessment to prioritize quick wins and long-term gains",
+    detail: "Data-driven assessment to separate real bottlenecks from symptoms.",
   },
   {
-    phase: "Phase 3",
+    phase: "03",
     title: "Design",
-    description: "Present a clear, measurable execution plan",
+    description: "A clear, measurable execution plan — no vague decks, no buzzword roadmaps.",
     icon: PenTool,
-    detail: "Custom roadmap with timelines, milestones, and success metrics",
+    detail: "Custom roadmap with timelines, milestones, and success metrics you'll actually track.",
   },
   {
-    phase: "Phase 4",
+    phase: "04",
     title: "Deploy",
-    description: "Implement fast and prove results",
+    description: "Implement fast, prove results, and train your team to own the systems we build.",
     icon: Rocket,
-    detail: "Agile implementation with continuous feedback and iteration",
+    detail: "Agile implementation with continuous feedback. Your team learns alongside us.",
   },
   {
-    phase: "Phase 5",
+    phase: "05",
     title: "Scale",
-    description: "Turn wins into long-term systems",
+    description: "Turn early wins into company-wide systems. We don't leave until you're self-sufficient.",
     icon: TrendingUp,
-    detail: "Expand successful solutions across your entire organization",
+    detail: "Expand successful solutions across your entire organization with confidence.",
   },
 ];
 
@@ -44,197 +44,83 @@ export const HowItWorks = () => {
 
   return (
     <section id="how-it-works" className="py-24 sm:py-32 relative overflow-hidden section-4">
-      {/* Background accents */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_30%,hsl(193_100%_56%/0.04)_0%,transparent_50%)]" />
-        <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_80%_70%,hsl(193_100%_56%/0.04)_0%,transparent_50%)]" />
-      </div>
-
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 mb-4 px-4 py-2 rounded-full border border-primary/20 bg-primary/5">
-              <MapPin className="w-4 h-4 text-primary" />
-              <span className="text-sm font-medium text-primary">Your Journey to AI Excellence</span>
-            </div>
-            <h2 className="text-scale-section font-bold mb-6">
-              The <span className="text-gradient">Roadmap</span> to Results
+          <div className="mb-20">
+            <span className="text-mono text-primary/70 block mb-6">Our process</span>
+            <h2 className="text-heading max-w-3xl">
+              Discovery first.<br />
+              <span className="text-gradient">Results always.</span>
             </h2>
-            <p className="text-scale-sub text-muted-foreground max-w-2xl mx-auto">
-              Follow the path from discovery to scale — click each phase to explore
+            <div className="accent-bar mt-6" />
+            <p className="text-subheading text-muted-foreground max-w-2xl mt-8">
+              We don't guess what your business needs. We follow a disciplined process that puts understanding before action.
             </p>
           </div>
 
-          {/* Desktop */}
-          <div className="hidden lg:block relative">
-            <svg
-              className="absolute inset-0 w-full h-full pointer-events-none"
-              viewBox="0 0 1200 300"
-              preserveAspectRatio="xMidYMid meet"
-            >
-              <path
-                d="M 100 150 Q 250 50, 400 150 T 700 150 T 1000 150"
-                fill="none"
-                stroke="hsl(193, 100%, 56%)"
-                strokeWidth="2"
-                strokeDasharray="8 8"
-                className="opacity-20"
-              />
-              <circle r="6" fill="hsl(193, 100%, 56%)" className="opacity-40">
-                <animateMotion
-                  dur="8s"
-                  repeatCount="indefinite"
-                  path="M 100 150 Q 250 50, 400 150 T 700 150 T 1000 150"
-                />
-              </circle>
-            </svg>
+          {/* Steps — stacked editorial layout */}
+          <div className="space-y-0">
+            {steps.map((step, index) => {
+              const Icon = step.icon;
+              const isActive = activeStep === index;
 
-            <div className="grid grid-cols-5 gap-6 relative">
-              {steps.map((step, index) => {
-                const Icon = step.icon;
-                const isActive = activeStep === index;
-                const isLast = index === steps.length - 1;
-
-                return (
-                  <div
-                    key={step.phase}
-                    className={`relative cursor-pointer transition-all duration-500 ${
-                      index % 2 === 0 ? "mt-0" : "mt-16"
-                    }`}
-                    onMouseEnter={() => setActiveStep(index)}
-                    onMouseLeave={() => setActiveStep(null)}
-                  >
-                    <div
-                      className={`relative p-6 rounded-2xl border transition-all duration-500 ${
-                        isActive
-                          ? "bg-primary/10 border-primary/50 scale-105"
-                          : "bg-card/40 border-border/30 hover:border-primary/30"
-                      }`}
-                    >
-                      <div
-                        className={`absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full border text-xs font-mono font-bold whitespace-nowrap transition-all duration-300 ${
-                          isActive
-                            ? "bg-primary text-primary-foreground border-primary"
-                            : "bg-card border-border/50 text-primary"
-                        }`}
-                      >
+              return (
+                <div
+                  key={step.phase}
+                  className={`group relative border-t border-border/30 cursor-pointer transition-all duration-500 ${
+                    isActive ? 'bg-primary/5' : 'hover:bg-card/50'
+                  }`}
+                  onMouseEnter={() => setActiveStep(index)}
+                  onMouseLeave={() => setActiveStep(null)}
+                >
+                  <div className="grid grid-cols-12 gap-4 py-8 sm:py-10 px-2 sm:px-6">
+                    {/* Phase number */}
+                    <div className="col-span-2 sm:col-span-1">
+                      <span className={`text-mono transition-colors duration-300 ${
+                        isActive ? 'text-primary' : 'text-muted-foreground'
+                      }`}>
                         {step.phase}
-                      </div>
+                      </span>
+                    </div>
 
-                      <div className="absolute -top-8 left-1/2 -translate-x-1/2">
-                        <div className={`transition-all duration-300 ${isActive ? "scale-125" : ""}`}>
-                          {isLast ? (
-                            <Flag className={`w-6 h-6 ${isActive ? "text-primary" : "text-primary/40"}`} />
-                          ) : (
-                            <MapPin className={`w-6 h-6 ${isActive ? "text-primary" : "text-primary/40"}`} />
-                          )}
-                        </div>
+                    {/* Icon */}
+                    <div className="col-span-2 sm:col-span-1 flex justify-center">
+                      <div className={`w-10 h-10 flex items-center justify-center transition-all duration-300 ${
+                        isActive ? 'bg-primary text-primary-foreground' : 'bg-primary/10 text-primary'
+                      }`}>
+                        <Icon className="w-5 h-5" />
                       </div>
+                    </div>
 
-                      <div className="relative mx-auto mb-4 mt-4">
-                        <div className={`relative w-14 h-14 rounded-full flex items-center justify-center transition-all duration-500 ${
-                          isActive
-                            ? "bg-primary text-primary-foreground"
-                            : "bg-primary/10 border border-primary/20"
-                        }`}>
-                          <Icon className={`w-6 h-6 transition-all duration-300 ${isActive ? "scale-110" : "text-primary"}`} />
-                        </div>
-                      </div>
-
-                      <h3 className={`text-xl font-bold text-center mb-2 transition-colors duration-300 ${
-                        isActive ? "text-primary" : "text-foreground"
+                    {/* Title */}
+                    <div className="col-span-8 sm:col-span-3">
+                      <h3 className={`text-xl sm:text-2xl font-bold transition-colors duration-300 ${
+                        isActive ? 'text-primary' : 'text-foreground'
                       }`}>
                         {step.title}
                       </h3>
+                    </div>
 
-                      <p className="text-sm text-muted-foreground text-center leading-relaxed">
+                    {/* Description */}
+                    <div className="col-span-12 sm:col-span-7">
+                      <p className="text-muted-foreground leading-relaxed mb-2">
                         {step.description}
                       </p>
-
                       <div className={`overflow-hidden transition-all duration-500 ${
-                        isActive ? "max-h-24 opacity-100 mt-4" : "max-h-0 opacity-0"
+                        isActive ? 'max-h-20 opacity-100' : 'max-h-0 opacity-0'
                       }`}>
-                        <div className="pt-4 border-t border-primary/20">
-                          <p className="text-xs text-primary/80 text-center leading-relaxed">
-                            {step.detail}
-                          </p>
-                        </div>
+                        <p className="text-sm text-primary/80 italic pt-2">
+                          {step.detail}
+                        </p>
                       </div>
                     </div>
                   </div>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* Mobile */}
-          <div className="lg:hidden relative">
-            <div className="absolute left-8 top-0 bottom-0 w-px border-l-2 border-dashed border-primary/20" />
-
-            <div className="space-y-8">
-              {steps.map((step, index) => {
-                const Icon = step.icon;
-                const isActive = activeStep === index;
-                const isLast = index === steps.length - 1;
-
-                return (
-                  <div
-                    key={step.phase}
-                    className="relative pl-20 cursor-pointer"
-                    onClick={() => setActiveStep(isActive ? null : index)}
-                  >
-                    <div className="absolute left-4 top-6 -translate-x-1/2">
-                      <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${
-                        isActive
-                          ? "bg-primary text-primary-foreground scale-125"
-                          : "bg-primary/15 text-primary"
-                      }`}>
-                        {isLast ? <Flag className="w-4 h-4" /> : <MapPin className="w-4 h-4" />}
-                      </div>
-                    </div>
-
-                    <div className={`p-6 rounded-2xl border transition-all duration-500 ${
-                      isActive
-                        ? "bg-primary/10 border-primary/40"
-                        : "bg-card/40 border-border/30"
-                    }`}>
-                      <div className="flex items-start gap-4">
-                        <div className={`flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 ${
-                          isActive ? "bg-primary text-primary-foreground" : "bg-primary/10"
-                        }`}>
-                          <Icon className={`w-5 h-5 ${isActive ? "" : "text-primary"}`} />
-                        </div>
-
-                        <div className="flex-1">
-                          <div className="flex items-center gap-2 mb-1">
-                            <span className={`text-xs font-mono font-bold px-2 py-0.5 rounded transition-colors duration-300 ${
-                              isActive ? "bg-primary text-primary-foreground" : "bg-primary/10 text-primary"
-                            }`}>
-                              {step.phase}
-                            </span>
-                          </div>
-                          <h3 className={`text-xl font-bold mb-1 transition-colors duration-300 ${
-                            isActive ? "text-primary" : "text-foreground"
-                          }`}>
-                            {step.title}
-                          </h3>
-                          <p className="text-sm text-muted-foreground">{step.description}</p>
-
-                          <div className={`overflow-hidden transition-all duration-500 ${
-                            isActive ? "max-h-24 opacity-100 mt-3" : "max-h-0 opacity-0"
-                          }`}>
-                            <p className="text-xs text-primary/80 pt-3 border-t border-primary/20">
-                              {step.detail}
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
+                </div>
+              );
+            })}
+            {/* Bottom border */}
+            <div className="border-t border-border/30" />
           </div>
         </div>
       </div>
