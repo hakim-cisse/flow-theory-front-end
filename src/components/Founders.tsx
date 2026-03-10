@@ -28,18 +28,18 @@ export const Founders = () => {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section id="founders" className="py-24 sm:py-32 relative section-8">
+    <section id="founders" className="py-16 sm:py-24 lg:py-32 relative section-8">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div ref={ref} className="max-w-6xl mx-auto">
           <div
-            className="mb-16"
+            className="mb-10 sm:mb-16"
             style={{
               transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
               opacity: isVisible ? 1 : 0,
               transition: 'all 0.7s ease-out',
             }}
           >
-            <span className="inline-block px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-mono text-primary/80 mb-6">
+            <span className="inline-block px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-mono text-primary/80 mb-4 sm:mb-6">
               Our Team
             </span>
             <h2 className="text-heading">
@@ -48,32 +48,32 @@ export const Founders = () => {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
             {founders.map((founder, i) => (
               <div
                 key={founder.name}
-                className="group flex flex-col items-center text-center p-8 rounded-2xl border border-border/30 bg-card/30 hover:border-primary/30 hover:bg-primary/5 transition-all duration-500"
+                className="group flex flex-col items-center text-center p-6 sm:p-8 rounded-xl sm:rounded-2xl border border-border/30 bg-card/30 hover:border-primary/30 hover:bg-primary/5 transition-all duration-500"
                 style={{
                   transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
                   opacity: isVisible ? 1 : 0,
                   transition: `all 0.6s ease-out ${i * 0.15}s`,
                 }}
               >
-                <div className="relative mb-6">
+                <div className="relative mb-5 sm:mb-6">
                   <div className="absolute inset-0 rounded-full bg-primary/10 blur-xl group-hover:bg-primary/20 transition-all duration-500" />
                   <img
                     src={founder.image}
                     alt={founder.name}
-                    className="relative w-32 h-32 object-cover rounded-2xl grayscale group-hover:grayscale-0 transition-all duration-700"
+                    className="relative w-24 h-24 sm:w-32 sm:h-32 object-cover rounded-2xl grayscale group-hover:grayscale-0 transition-all duration-700"
                   />
                 </div>
 
-                <div className="space-y-2">
-                  <h3 className="text-xl font-bold text-foreground">{founder.name}</h3>
-                  <p className="text-mono text-primary text-xs">{founder.title}</p>
+                <div className="space-y-1 sm:space-y-2">
+                  <h3 className="text-lg sm:text-xl font-bold text-foreground">{founder.name}</h3>
+                  <p className="text-mono text-primary text-[0.65rem] sm:text-xs">{founder.title}</p>
                 </div>
 
-                <p className="text-sm text-muted-foreground leading-relaxed mt-4 max-w-xs">
+                <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed mt-3 sm:mt-4 max-w-xs">
                   {founder.description}
                 </p>
               </div>
