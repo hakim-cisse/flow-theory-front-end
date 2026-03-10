@@ -45,10 +45,10 @@ export const Hero = () => {
             <h1 className="text-display">
               <span className="block text-foreground">Your business runs</span>
               <span className="block text-foreground">on decisions.</span>
+              <span className="block text-foreground mt-2">We deliver</span>
               <span className="block mt-2">
                 <TypewriterText phrases={animatedPhrases} className="text-gradient" />
               </span>
-              <span className="block text-foreground mt-2">runs on ours.</span>
             </h1>
           </div>
 
