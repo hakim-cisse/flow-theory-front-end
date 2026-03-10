@@ -114,7 +114,7 @@
 
   /* Fluid type */
   .text-display {
-    font-size: clamp(3rem, 8vw, 7rem);
+    font-size: clamp(2.25rem, 8vw, 7rem);
     line-height: 0.95;
     letter-spacing: -0.03em;
     font-weight: 700;
