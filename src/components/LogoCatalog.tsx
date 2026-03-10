@@ -25,9 +25,7 @@ export const LogoCatalog = () => {
 
     const animate = () => {
       scrollPosition += scrollSpeed;
-      if (scrollPosition >= scrollContainer.scrollWidth / 2) {
-        scrollPosition = 0;
-      }
+      if (scrollPosition >= scrollContainer.scrollWidth / 2) scrollPosition = 0;
       scrollContainer.scrollLeft = scrollPosition;
       animationId = requestAnimationFrame(animate);
     };
@@ -35,9 +33,7 @@ export const LogoCatalog = () => {
     animationId = requestAnimationFrame(animate);
 
     const handleMouseEnter = () => cancelAnimationFrame(animationId);
-    const handleMouseLeave = () => {
-      animationId = requestAnimationFrame(animate);
-    };
+    const handleMouseLeave = () => { animationId = requestAnimationFrame(animate); };
 
     scrollContainer.addEventListener("mouseenter", handleMouseEnter);
     scrollContainer.addEventListener("mouseleave", handleMouseLeave);
@@ -50,28 +46,21 @@ export const LogoCatalog = () => {
   }, []);
 
   return (
-    <section className="py-12 md:py-16 section-2 border-y border-border/30 overflow-hidden">
+    <section className="py-10 md:py-14 section-2 border-y border-border/20 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <p className="text-center text-xs font-medium text-muted-foreground uppercase tracking-[0.2em] mb-8">
-          Trusted by innovative companies
+        <p className="text-mono text-muted-foreground text-center mb-8">
+          Trusted by founders building the future
         </p>
         
         <div 
           ref={scrollRef}
-          className="flex items-center gap-12 md:gap-16 overflow-x-hidden"
+          className="flex items-center gap-14 md:gap-20 overflow-x-hidden"
           style={{ scrollBehavior: "auto" }}
         >
           {[...logos, ...logos].map((logo, index) => (
-            <div
-              key={index}
-              className="flex-shrink-0 group cursor-pointer transition-all duration-300"
-            >
-              <div className="relative h-12 md:h-16 w-32 md:w-40 flex items-center justify-center grayscale hover:grayscale-0 opacity-40 hover:opacity-90 transition-all duration-300">
-                <img
-                  src={logo.src}
-                  alt={logo.alt}
-                  className="max-h-full max-w-full object-contain"
-                />
+            <div key={index} className="flex-shrink-0 group cursor-pointer">
+              <div className="relative h-10 md:h-14 w-28 md:w-36 flex items-center justify-center grayscale hover:grayscale-0 opacity-30 hover:opacity-80 transition-all duration-300">
+                <img src={logo.src} alt={logo.alt} className="max-h-full max-w-full object-contain" />
               </div>
             </div>
           ))}
