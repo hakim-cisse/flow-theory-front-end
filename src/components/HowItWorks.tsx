@@ -1,5 +1,7 @@
 import { useState } from "react";
-import { Search, Target, PenTool, Rocket, TrendingUp } from "lucide-react";
+import { Search, Target, PenTool, Rocket, TrendingUp, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const steps = [
   {
@@ -41,26 +43,52 @@ const steps = [
 
 export const HowItWorks = () => {
   const [activeStep, setActiveStep] = useState<number | null>(null);
+  const { ref, isVisible } = useScrollAnimation();
 
   return (
     <section id="how-it-works" className="py-24 sm:py-32 relative overflow-hidden section-4">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="max-w-6xl mx-auto">
+        <div ref={ref} className="max-w-6xl mx-auto">
           {/* Header */}
-          <div className="mb-20">
-            <span className="text-mono text-primary/70 block mb-6">Our process</span>
-            <h2 className="text-heading max-w-3xl">
-              Discovery first.<br />
-              <span className="text-gradient">Results always.</span>
-            </h2>
-            <div className="accent-bar mt-6" />
-            <p className="text-subheading text-muted-foreground max-w-2xl mt-8">
-              We don't guess what your business needs. We follow a disciplined process that puts understanding before action.
-            </p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+            <div
+              style={{
+                transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
+                opacity: isVisible ? 1 : 0,
+                transition: 'all 0.7s ease-out',
+              }}
+            >
+              <span className="inline-block px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-mono text-primary/80 mb-6">
+                How It Works
+              </span>
+              <h2 className="text-heading max-w-md">
+                Accelerate Business <span className="text-gradient">Performance.</span>
+              </h2>
+            </div>
+            <div
+              className="flex items-end"
+              style={{
+                transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
+                opacity: isVisible ? 1 : 0,
+                transition: 'all 0.7s ease-out 0.2s',
+              }}
+            >
+              <div>
+                <p className="text-muted-foreground mb-6 leading-relaxed">
+                  We don't guess what your business needs. We follow a disciplined process that puts understanding before action.
+                </p>
+                <Button asChild size="lg" className="rounded-full glow">
+                  <a href="https://cal.com/flow-theory-ai/alignment-call" target="_blank" rel="noopener noreferrer">
+                    Get Started
+                    <ArrowRight className="ml-2 w-4 h-4" />
+                  </a>
+                </Button>
+              </div>
+            </div>
           </div>
 
-          {/* Steps — stacked editorial layout */}
-          <div className="space-y-0">
+          {/* Steps */}
+          <div className="space-y-3">
             {steps.map((step, index) => {
               const Icon = step.icon;
               const isActive = activeStep === index;
@@ -68,59 +96,46 @@ export const HowItWorks = () => {
               return (
                 <div
                   key={step.phase}
-                  className={`group relative border-t border-border/30 cursor-pointer transition-all duration-500 ${
-                    isActive ? 'bg-primary/5' : 'hover:bg-card/50'
+                  className={`group relative rounded-2xl border cursor-pointer transition-all duration-500 ${
+                    isActive ? 'bg-primary/5 border-primary/30' : 'border-border/30 bg-card/20 hover:bg-card/40 hover:border-border/50'
                   }`}
                   onMouseEnter={() => setActiveStep(index)}
                   onMouseLeave={() => setActiveStep(null)}
+                  style={{
+                    transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
+                    opacity: isVisible ? 1 : 0,
+                    transition: `all 0.6s ease-out ${index * 0.1}s`,
+                  }}
                 >
-                  <div className="grid grid-cols-12 gap-4 py-8 sm:py-10 px-2 sm:px-6">
-                    {/* Phase number */}
-                    <div className="col-span-2 sm:col-span-1">
-                      <span className={`text-mono transition-colors duration-300 ${
-                        isActive ? 'text-primary' : 'text-muted-foreground'
-                      }`}>
-                        {step.phase}
-                      </span>
+                  <div className="flex items-center gap-6 p-6 sm:p-8">
+                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 transition-all duration-300 ${
+                      isActive ? 'bg-primary text-primary-foreground' : 'bg-primary/10 text-primary'
+                    }`}>
+                      <Icon className="w-5 h-5" />
                     </div>
 
-                    {/* Icon */}
-                    <div className="col-span-2 sm:col-span-1 flex justify-center">
-                      <div className={`w-10 h-10 flex items-center justify-center transition-all duration-300 ${
-                        isActive ? 'bg-primary text-primary-foreground' : 'bg-primary/10 text-primary'
-                      }`}>
-                        <Icon className="w-5 h-5" />
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-3 mb-1">
+                        <span className={`text-mono transition-colors duration-300 ${isActive ? 'text-primary' : 'text-muted-foreground'}`}>
+                          {step.phase}
+                        </span>
+                        <h3 className={`text-xl font-bold transition-colors duration-300 ${isActive ? 'text-primary' : 'text-foreground'}`}>
+                          {step.title}
+                        </h3>
+                      </div>
+                      <p className="text-sm text-muted-foreground leading-relaxed">{step.description}</p>
+                      <div className={`overflow-hidden transition-all duration-500 ${isActive ? 'max-h-20 opacity-100 mt-2' : 'max-h-0 opacity-0'}`}>
+                        <p className="text-sm text-primary/80 italic">{step.detail}</p>
                       </div>
                     </div>
 
-                    {/* Title */}
-                    <div className="col-span-8 sm:col-span-3">
-                      <h3 className={`text-xl sm:text-2xl font-bold transition-colors duration-300 ${
-                        isActive ? 'text-primary' : 'text-foreground'
-                      }`}>
-                        {step.title}
-                      </h3>
-                    </div>
-
-                    {/* Description */}
-                    <div className="col-span-12 sm:col-span-7">
-                      <p className="text-muted-foreground leading-relaxed mb-2">
-                        {step.description}
-                      </p>
-                      <div className={`overflow-hidden transition-all duration-500 ${
-                        isActive ? 'max-h-20 opacity-100' : 'max-h-0 opacity-0'
-                      }`}>
-                        <p className="text-sm text-primary/80 italic pt-2">
-                          {step.detail}
-                        </p>
-                      </div>
-                    </div>
+                    <ArrowRight className={`w-5 h-5 shrink-0 transition-all duration-300 ${
+                      isActive ? 'text-primary translate-x-1' : 'text-muted-foreground'
+                    }`} />
                   </div>
                 </div>
               );
             })}
-            {/* Bottom border */}
-            <div className="border-t border-border/30" />
           </div>
         </div>
       </div>

@@ -46,24 +46,28 @@ export const LogoCatalog = () => {
   }, []);
 
   return (
-    <section className="py-10 md:py-14 section-2 border-y border-border/20 overflow-hidden">
+    <section className="py-10 md:py-14 section-2 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <p className="text-mono text-muted-foreground text-center mb-8">
-          Trusted by founders building the future
-        </p>
-        
-        <div 
-          ref={scrollRef}
-          className="flex items-center gap-14 md:gap-20 overflow-x-hidden"
-          style={{ scrollBehavior: "auto" }}
-        >
-          {[...logos, ...logos].map((logo, index) => (
-            <div key={index} className="flex-shrink-0 group cursor-pointer">
-              <div className="relative h-10 md:h-14 w-28 md:w-36 flex items-center justify-center grayscale hover:grayscale-0 opacity-30 hover:opacity-80 transition-all duration-300">
-                <img src={logo.src} alt={logo.alt} className="max-h-full max-w-full object-contain" />
+        <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-12">
+          <p className="text-mono text-muted-foreground whitespace-nowrap">
+            Trusted by
+          </p>
+          
+          <div className="w-px h-8 bg-border/30 hidden sm:block" />
+
+          <div 
+            ref={scrollRef}
+            className="flex items-center gap-14 md:gap-20 overflow-x-hidden flex-1"
+            style={{ scrollBehavior: "auto" }}
+          >
+            {[...logos, ...logos].map((logo, index) => (
+              <div key={index} className="flex-shrink-0 group cursor-pointer">
+                <div className="relative h-10 md:h-14 w-28 md:w-36 flex items-center justify-center grayscale hover:grayscale-0 opacity-40 hover:opacity-80 transition-all duration-300">
+                  <img src={logo.src} alt={logo.alt} className="max-h-full max-w-full object-contain" />
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
