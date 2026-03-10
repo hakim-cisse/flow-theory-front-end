@@ -61,7 +61,7 @@ export const TypewriterText = ({
     <span className={className}>
       {displayedText}
       <span
-        className={`inline-block w-[3px] h-[0.9em] bg-primary ml-1 align-middle ${
+        className={`inline-block w-[3px] h-[0.9em] bg-primary align-middle ${
           showCursor ? "animate-pulse" : "opacity-0"
         }`}
         aria-hidden="true"
