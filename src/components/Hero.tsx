@@ -4,7 +4,7 @@ import { TypewriterText } from "./TypewriterText";
 
 const animatedPhrases = [
   "AI Transformation",
-  "Automation & Integrations",
+  "Automations/Integrations",
   "Custom AI Systems",
   "AI-First Deployment",
   "AI Training for Teams",
@@ -49,6 +49,7 @@ export const Hero = () => {
               <span className="block mt-2">
                 <TypewriterText phrases={animatedPhrases} className="text-gradient" />
               </span>
+              <span className="block text-foreground text-[0.4em] mt-1 opacity-70">that make them smarter</span>
             </h1>
           </div>
 
