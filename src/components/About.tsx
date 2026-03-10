@@ -54,23 +54,22 @@ export const About = () => {
   }, []);
 
   return (
-    <section id="about" className="py-24 sm:py-32 relative overflow-hidden">
-      {/* Background Effects */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-3xl"></div>
-      <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-accent/5 rounded-full blur-3xl"></div>
+    <section id="about" className="py-24 sm:py-32 relative overflow-hidden section-3">
+      {/* Subtle glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/3 rounded-full blur-[100px]" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-5xl mx-auto text-center space-y-8">
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold">
+          <h2 className="text-scale-section font-bold">
             Your <span className="text-gradient">AI Transformation</span> Partner.
           </h2>
           
-          <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
+          <p className="text-scale-sub text-muted-foreground leading-relaxed max-w-3xl mx-auto">
             We help businesses reclaim time and scale faster by turning everyday operations into intelligent systems. From workflow automation to AI integration, Flow Theory AI builds the foundation for long-term leverage and growth.
           </p>
 
-          {/* Interactive Stats Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 pt-12 max-w-3xl mx-auto">
+          {/* Stats */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-12 max-w-3xl mx-auto">
             {stats.map((stat, index) => {
               const Icon = stat.icon;
               const isActive = activeIndex === index;
@@ -80,11 +79,10 @@ export const About = () => {
                   key={stat.label}
                   className={`
                     group relative flex flex-col items-center p-8 rounded-2xl cursor-pointer
-                    border bg-card/80 backdrop-blur-sm
-                    transition-all duration-500 ease-out overflow-hidden
+                    border transition-all duration-500 ease-out overflow-hidden
                     ${isActive 
-                      ? 'border-primary shadow-[0_0_50px_hsl(var(--primary)/0.3)] scale-[1.02]' 
-                      : 'border-border/50 hover:border-primary/50 hover:shadow-[0_0_30px_hsl(var(--primary)/0.15)]'
+                      ? 'border-primary/60 bg-primary/5' 
+                      : 'border-border/40 hover:border-primary/30 bg-card/50'
                     }
                   `}
                   style={{ 
@@ -92,98 +90,46 @@ export const About = () => {
                     opacity: isVisible ? 1 : 0,
                     transition: `all 0.6s ease-out ${index * 0.15}s`
                   }}
-                  onClick={() => setActiveIndex(isActive ? null : index)}
                   onMouseEnter={() => setActiveIndex(index)}
                   onMouseLeave={() => setActiveIndex(null)}
                 >
-                  {/* Animated background gradient */}
-                  <div className={`
-                    absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10
-                    transition-opacity duration-500
-                    ${isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-50'}
-                  `} />
-
-                  {/* Animated border glow */}
-                  <div className={`
-                    absolute inset-0 rounded-2xl
-                    transition-all duration-500
-                    ${isActive ? 'animate-pulse' : ''}
-                  `} style={{
-                    background: isActive 
-                      ? 'linear-gradient(135deg, hsl(var(--primary) / 0.2), transparent, hsl(var(--primary) / 0.2))' 
-                      : 'transparent'
-                  }} />
-
-                  {/* Content */}
                   <div className="relative z-10 flex flex-col items-center">
-                    {/* Icon with animation */}
-                    <div className={`
-                      mb-4 p-4 rounded-xl transition-all duration-500
-                      ${isActive 
-                        ? 'bg-primary text-primary-foreground scale-110 rotate-3' 
-                        : 'bg-primary/10 text-primary group-hover:scale-105'
-                      }
+                    <div className={`mb-4 p-4 rounded-xl transition-all duration-500
+                      ${isActive ? 'bg-primary text-primary-foreground scale-110' : 'bg-primary/10 text-primary'}
                     `}>
-                      <Icon className={`w-7 h-7 transition-transform duration-500 ${isActive ? 'animate-bounce' : ''}`} />
+                      <Icon className="w-7 h-7" />
                     </div>
 
-                    {/* Stat Value */}
-                    <div className={`
-                      text-5xl sm:text-6xl font-bold text-gradient mb-3
-                      transition-transform duration-300
-                      ${isActive ? 'scale-110' : 'group-hover:scale-105'}
-                    `}>
+                    <div className="text-5xl sm:text-6xl font-bold text-gradient mb-3">
                       {isVisible && (
-                        <CountUp 
-                          end={stat.value} 
-                          suffix={stat.suffix} 
-                          duration={2}
-                          prefix={stat.prefix || ""}
-                        />
+                        <CountUp end={stat.value} suffix={stat.suffix} duration={2} prefix={stat.prefix || ""} />
                       )}
                     </div>
 
-                    {/* Label */}
-                    <span className={`
-                      text-xl font-semibold mb-3 transition-colors duration-300
+                    <span className={`text-xl font-semibold mb-3 transition-colors duration-300
                       ${isActive ? 'text-primary' : 'text-foreground'}
                     `}>
                       {stat.label}
                     </span>
 
-                    {/* Qualifier */}
                     <p className="text-sm text-muted-foreground text-center max-w-[220px]">
                       {stat.qualifier}
                     </p>
                   </div>
-
-                  {/* Corner accents */}
-                  <div className={`
-                    absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 rounded-tl-2xl
-                    transition-all duration-500
-                    ${isActive ? 'border-primary' : 'border-transparent group-hover:border-primary/30'}
-                  `} />
-                  <div className={`
-                    absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 rounded-br-2xl
-                    transition-all duration-500
-                    ${isActive ? 'border-primary' : 'border-transparent group-hover:border-primary/30'}
-                  `} />
                 </div>
               );
             })}
           </div>
 
-          {/* Trust Anchor */}
           <p className="text-sm text-muted-foreground pt-6 italic">
             Based on real client implementations and internal audits
           </p>
 
-          {/* CTAs */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8">
             <Button 
               asChild 
               size="lg" 
-              className="group px-8 py-6 text-lg font-semibold shadow-[0_0_30px_hsl(var(--primary)/0.3)] hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] transition-all duration-300"
+              className="group px-8 py-6 text-lg font-semibold glow transition-all duration-300"
             >
               <a href="https://cal.com/flow-theory-ai/alignment-call" target="_blank" rel="noopener noreferrer">
                 See Where You're Losing Time
@@ -200,6 +146,8 @@ export const About = () => {
           </div>
         </div>
       </div>
+
+      <div className="absolute bottom-0 left-0 right-0 section-divider" />
     </section>
   );
 };

@@ -50,9 +50,9 @@ export const LogoCatalog = () => {
   }, []);
 
   return (
-    <section className="py-12 md:py-16 bg-background border-y border-border/30 overflow-hidden">
+    <section className="py-12 md:py-16 section-2 border-y border-border/30 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <p className="text-center text-sm font-medium text-muted-foreground uppercase tracking-widest mb-8">
+        <p className="text-center text-xs font-medium text-muted-foreground uppercase tracking-[0.2em] mb-8">
           Trusted by innovative companies
         </p>
         
@@ -61,13 +61,12 @@ export const LogoCatalog = () => {
           className="flex items-center gap-12 md:gap-16 overflow-x-hidden"
           style={{ scrollBehavior: "auto" }}
         >
-          {/* Double the logos for seamless infinite scroll */}
           {[...logos, ...logos].map((logo, index) => (
             <div
               key={index}
               className="flex-shrink-0 group cursor-pointer transition-all duration-300"
             >
-              <div className="relative h-12 md:h-16 w-32 md:w-40 flex items-center justify-center grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300">
+              <div className="relative h-12 md:h-16 w-32 md:w-40 flex items-center justify-center grayscale hover:grayscale-0 opacity-40 hover:opacity-90 transition-all duration-300">
                 <img
                   src={logo.src}
                   alt={logo.alt}

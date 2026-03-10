@@ -25,10 +25,10 @@ const founders = [
 
 export const Founders = () => {
   return (
-    <section id="founders" className="py-24 sm:py-32 relative">
+    <section id="founders" className="py-24 sm:py-32 relative section-8">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl sm:text-5xl font-bold text-center mb-16">
+          <h2 className="text-scale-section font-bold text-center mb-16">
             The People Behind <span className="text-gradient">the Vision</span>
           </h2>
 
@@ -36,14 +36,14 @@ export const Founders = () => {
             {founders.map((founder) => (
               <div
                 key={founder.name}
-                className="group flex flex-col items-center text-center space-y-6 p-8 rounded-2xl glass hover:bg-primary/5 transition-all duration-500"
+                className="group flex flex-col items-center text-center space-y-6 p-8 rounded-2xl border border-border/30 bg-card/40 hover:bg-primary/5 hover:border-primary/30 transition-all duration-500"
               >
                 <div className="relative">
-                  <div className="absolute inset-0 bg-primary/20 rounded-full blur-2xl group-hover:bg-primary/30 transition-all duration-500"></div>
+                  <div className="absolute inset-0 bg-primary/10 rounded-full blur-2xl group-hover:bg-primary/20 transition-all duration-500"></div>
                   <img
                     src={founder.image}
                     alt={founder.name}
-                    className="relative w-48 h-48 rounded-full object-cover border-4 border-primary/30 group-hover:border-primary/50 transition-all duration-500 group-hover:scale-105"
+                    className="relative w-48 h-48 rounded-full object-cover border-2 border-primary/20 group-hover:border-primary/40 transition-all duration-500 group-hover:scale-105"
                   />
                 </div>
 
@@ -60,6 +60,8 @@ export const Founders = () => {
           </div>
         </div>
       </div>
+
+      <div className="absolute bottom-0 left-0 right-0 section-divider" />
     </section>
   );
 };
