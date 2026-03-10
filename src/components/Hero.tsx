@@ -4,7 +4,7 @@ import { TypewriterText } from "./TypewriterText";
 
 const animatedPhrases = [
   "AI Transformation",
-  "Automation & Integrations",
+  "Automations/Integrations",
   "Custom AI Systems",
   "AI-First Deployment",
   "AI Training for Teams",
