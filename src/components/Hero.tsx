@@ -47,7 +47,7 @@ export const Hero = () => {
               <span className="block text-foreground">on decisions.</span>
               <span className="block text-foreground mt-2">We deliver</span>
               <span className="block mt-2 min-h-[1.2em]">
-                <TypewriterText phrases={animatedPhrases} className="text-gradient" />&nbsp;
+                <TypewriterText phrases={animatedPhrases} className="text-gradient" />
               </span>
               <span className="block text-foreground text-[0.4em] mt-1 opacity-70">that make them smarter</span>
             </h1>
