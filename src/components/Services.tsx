@@ -44,7 +44,7 @@ export const Services = () => {
             <span className="text-mono text-primary/70 block mb-6">What we build</span>
             <h2 className="text-heading max-w-3xl">
               Systems that give<br />
-              <span className="text-gradient">founders leverage.</span>
+              <span className="text-gradient">businesses leverage.</span>
             </h2>
             <div className="accent-bar mt-6" />
           </div>
