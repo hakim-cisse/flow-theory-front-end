@@ -15,15 +15,17 @@ export const CTA = () => {
             </p>
           </div>
 
-          <div className="w-full aspect-[16/9] sm:aspect-[16/10] lg:aspect-[16/9] border border-border/30 bg-card/30 overflow-hidden">
-            <iframe
-              src="https://cal.com/flow-theory-ai/alignment-call"
-              width="100%"
-              height="100%"
-              frameBorder="0"
-              title="Book Your Alignment Call"
-              className="w-full h-full"
-            />
+          <div className="w-full border border-border/30 bg-card/30 overflow-hidden">
+            <div className="aspect-[3/4] sm:aspect-[16/10] lg:aspect-[16/9]">
+              <iframe
+                src="https://cal.com/flow-theory-ai/alignment-call"
+                width="100%"
+                height="100%"
+                frameBorder="0"
+                title="Book Your Alignment Call"
+                className="w-full h-full"
+              />
+            </div>
           </div>
         </div>
       </div>

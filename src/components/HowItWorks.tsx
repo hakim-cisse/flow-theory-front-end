@@ -74,36 +74,61 @@ export const HowItWorks = () => {
                   onMouseEnter={() => setActiveStep(index)}
                   onMouseLeave={() => setActiveStep(null)}
                 >
-                  <div className="grid grid-cols-12 gap-4 py-8 sm:py-10 px-2 sm:px-6">
-                    {/* Phase number */}
-                    <div className="col-span-2 sm:col-span-1">
+                  {/* Mobile: stacked layout */}
+                  <div className="block sm:hidden px-4 py-6">
+                    <div className="flex items-center gap-4 mb-3">
+                      <span className={`text-mono transition-colors duration-300 ${
+                        isActive ? 'text-primary' : 'text-muted-foreground'
+                      }`}>
+                        {step.phase}
+                      </span>
+                      <div className={`w-10 h-10 flex items-center justify-center transition-all duration-300 ${
+                        isActive ? 'bg-primary text-primary-foreground' : 'bg-primary/10 text-primary'
+                      }`}>
+                        <Icon className="w-5 h-5" />
+                      </div>
+                      <h3 className={`text-lg font-bold transition-colors duration-300 ${
+                        isActive ? 'text-primary' : 'text-foreground'
+                      }`}>
+                        {step.title}
+                      </h3>
+                    </div>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {step.description}
+                    </p>
+                    <div className={`overflow-hidden transition-all duration-500 ${
+                      isActive ? 'max-h-20 opacity-100' : 'max-h-0 opacity-0'
+                    }`}>
+                      <p className="text-sm text-primary/80 italic pt-2">
+                        {step.detail}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Desktop: grid layout */}
+                  <div className="hidden sm:grid grid-cols-12 gap-4 py-8 sm:py-10 px-2 sm:px-6">
+                    <div className="col-span-1">
                       <span className={`text-mono transition-colors duration-300 ${
                         isActive ? 'text-primary' : 'text-muted-foreground'
                       }`}>
                         {step.phase}
                       </span>
                     </div>
-
-                    {/* Icon */}
-                    <div className="col-span-2 sm:col-span-1 flex justify-center">
+                    <div className="col-span-1 flex justify-center">
                       <div className={`w-10 h-10 flex items-center justify-center transition-all duration-300 ${
                         isActive ? 'bg-primary text-primary-foreground' : 'bg-primary/10 text-primary'
                       }`}>
                         <Icon className="w-5 h-5" />
                       </div>
                     </div>
-
-                    {/* Title */}
-                    <div className="col-span-8 sm:col-span-3">
+                    <div className="col-span-3">
                       <h3 className={`text-xl sm:text-2xl font-bold transition-colors duration-300 ${
                         isActive ? 'text-primary' : 'text-foreground'
                       }`}>
                         {step.title}
                       </h3>
                     </div>
-
-                    {/* Description */}
-                    <div className="col-span-12 sm:col-span-7">
+                    <div className="col-span-7">
                       <p className="text-muted-foreground leading-relaxed mb-2">
                         {step.description}
                       </p>

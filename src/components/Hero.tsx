@@ -41,21 +41,21 @@ export const Hero = () => {
           </div>
 
           {/* Main headline — asymmetric, massive */}
-          <div className="space-y-4 mb-12">
-            <h1 className="text-hero-fit">
-              <span className="block text-foreground">Your business runs</span>
-              <span className="block text-foreground">on decisions.</span>
-              <span className="block text-foreground mt-2">We deliver</span>
-              <span className="block mt-2 min-h-[1.2em] whitespace-nowrap overflow-hidden">
-                <TypewriterText phrases={animatedPhrases} className="text-gradient" />
-              </span>
-              <span className="block text-foreground text-[0.45em] mt-1 opacity-70">that make them smarter</span>
-            </h1>
-          </div>
+            <div className="space-y-2 sm:space-y-4 mb-8 sm:mb-12">
+              <h1 className="text-hero-fit">
+                <span className="block text-foreground">Your business runs</span>
+                <span className="block text-foreground">on decisions.</span>
+                <span className="block text-foreground mt-1 sm:mt-2">We deliver</span>
+                <span className="block mt-1 sm:mt-2 min-h-[1.2em] whitespace-nowrap overflow-hidden text-[0.75em] sm:text-[1em]">
+                  <TypewriterText phrases={animatedPhrases} className="text-gradient" />
+                </span>
+                <span className="block text-foreground text-[0.35em] sm:text-[0.45em] mt-1 opacity-70">that make them smarter</span>
+              </h1>
+            </div>
 
-          <div className="accent-bar mb-8" />
+          <div className="accent-bar mb-6 sm:mb-8" />
 
-          <p className="text-subheading text-muted-foreground max-w-2xl mb-12">
+          <p className="text-base sm:text-subheading text-muted-foreground max-w-2xl mb-8 sm:mb-12">
             As a founder, you don't need more AI hype. You need a partner who discovers what actually matters, trains your team to own it, and delivers results you can measure.
           </p>
 
