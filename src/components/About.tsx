@@ -57,7 +57,7 @@ export const About = () => {
               </h2>
               <div className="accent-bar" />
               <p className="text-subheading text-muted-foreground leading-relaxed">
-                We help founders reclaim time and scale faster by turning everyday operations into intelligent systems. From workflow automation to AI integration, we build the foundation for long-term leverage and growth.
+                We help businesses reclaim time and scale faster by turning everyday operations into intelligent systems. From workflow automation to AI integration, we build the foundation for long-term leverage and growth.
               </p>
               <div className="flex flex-col sm:flex-row items-start gap-4 pt-4">
                 <Button asChild size="lg" className="group px-8 py-6 font-semibold glow">
