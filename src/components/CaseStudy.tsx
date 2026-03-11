@@ -156,7 +156,7 @@ export const CaseStudy = () => {
               Case Studies
             </span>
             <h2 className="text-heading max-w-3xl">
-              Real founders.<br />
+              Real businesses.<br />
               <span className="text-gradient">Real results.</span>
             </h2>
             <div className="accent-bar mt-6" />
