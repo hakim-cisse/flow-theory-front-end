@@ -8,7 +8,8 @@ const animatedPhrases = [
   "Custom AI Systems",
   "AI-First Deployment",
   "AI Training for Teams",
-  "Ongoing Optimization",
+  "Ongoing Optimizations",
+  "Custom SaaS Development",
 ];
 
 export const Hero = () => {
