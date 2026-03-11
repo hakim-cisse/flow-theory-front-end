@@ -13,6 +13,7 @@ import { Header } from "@/components/Header";
 import { ContactDialog } from "@/components/ContactDialog";
 import { SEO } from "@/components/SEO";
 import { OrganizationSchema, WebsiteSchema } from "@/components/StructuredData";
+import { BlogPreview } from "@/components/BlogPreview";
 
 const Index = () => {
   const [contactOpen, setContactOpen] = useState(false);
@@ -36,6 +37,7 @@ const Index = () => {
       <Services />
       <CaseStudy />
       <Testimonials />
+      <BlogPreview />
       <Founders />
       <CTA />
       <Footer onContactClick={() => setContactOpen(true)} />
