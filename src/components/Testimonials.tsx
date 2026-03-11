@@ -20,7 +20,7 @@ export const Testimonials = () => {
           </div>
 
           <div className="border border-border/30 bg-card/30">
-            <div className="relative w-full" style={{ paddingBottom: '120.54%' }}>
+            <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
               <iframe
                 className="absolute inset-0 w-full h-full"
                 src="https://www.youtube.com/embed/Xq-JeAsenKM"
