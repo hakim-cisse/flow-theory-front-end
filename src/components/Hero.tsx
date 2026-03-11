@@ -42,14 +42,14 @@ export const Hero = () => {
 
           {/* Main headline — asymmetric, massive */}
           <div className="space-y-4 mb-12">
-            <h1 className="text-display">
+            <h1 className="text-heading">
               <span className="block text-foreground">Your business runs</span>
               <span className="block text-foreground">on decisions.</span>
               <span className="block text-foreground mt-2">We deliver</span>
               <span className="block mt-2 min-h-[1.2em] whitespace-nowrap overflow-hidden">
                 <TypewriterText phrases={animatedPhrases} className="text-gradient" />
               </span>
-              <span className="block text-foreground text-[0.4em] mt-1 opacity-70">that make them smarter</span>
+              <span className="block text-foreground text-[0.5em] mt-1 opacity-70">that make them smarter</span>
             </h1>
           </div>
 
