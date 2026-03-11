@@ -120,6 +120,13 @@
     font-weight: 700;
   }
 
+  .text-hero-fit {
+    font-size: clamp(2.5rem, 6.5vw, 5.5rem);
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    font-weight: 700;
+  }
+
   .text-heading {
     font-size: clamp(2rem, 5vw, 4.5rem);
     line-height: 1.0;
