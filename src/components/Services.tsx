@@ -85,7 +85,7 @@ export const Services = () => {
                     Custom SaaS Development
                   </h3>
                   <p className="text-muted-foreground leading-relaxed max-w-2xl">
-                    From concept to launch — we design and build scalable SaaS platforms tailored to your market and growth goals. Architecture, development, and deployment handled end to end.
+                    From concept to launch, we design and build scalable SaaS platforms tailored to your market and growth goals. Architecture, development, and deployment handled end to end.
                   </p>
                 </div>
               </div>
