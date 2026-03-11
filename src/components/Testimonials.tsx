@@ -33,8 +33,8 @@ export const Testimonials = () => {
             </div>
           </div>
 
-          <div className="mt-12 border-l-2 border-primary/40 pl-8">
-            <blockquote className="text-xl sm:text-2xl font-medium text-foreground italic leading-relaxed">
+          <div className="mt-8 sm:mt-12 border-l-2 border-primary/40 pl-6 sm:pl-8">
+            <blockquote className="text-lg sm:text-xl md:text-2xl font-medium text-foreground italic leading-relaxed">
               "Flow Theory AI did a great job helping us integrate our CRM and improve our overall business efficiency. We would definitely recommend them to other tech-oriented businesses."
             </blockquote>
             <p className="mt-4 text-mono text-muted-foreground">— Empower Estates Network</p>

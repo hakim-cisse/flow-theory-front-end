@@ -53,9 +53,9 @@ export const Hero = () => {
               </h1>
             </div>
 
-          <div className="accent-bar mb-8" />
+          <div className="accent-bar mb-6 sm:mb-8" />
 
-          <p className="text-subheading text-muted-foreground max-w-2xl mb-12">
+          <p className="text-base sm:text-subheading text-muted-foreground max-w-2xl mb-8 sm:mb-12">
             As a founder, you don't need more AI hype. You need a partner who discovers what actually matters, trains your team to own it, and delivers results you can measure.
           </p>
 
