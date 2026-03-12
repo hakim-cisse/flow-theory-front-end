@@ -78,6 +78,10 @@ interface BlogListResponse {
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
   const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [slug]);
   const [contactOpen, setContactOpen] = useState(false);
 
   const extractedId = slug ? extractIdFromSlug(slug) : null;
