@@ -3,8 +3,8 @@ import { Clock, DollarSign, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const stats = [
-  { value: 47, suffix: "+", label: "Hours Saved", icon: Clock, qualifier: "Per week across client workflows" },
-  { value: 3, suffix: "x", label: "ROI", icon: DollarSign, qualifier: "Average return within the first 90 days" },
+  { value: 47, suffix: "+", label: "Hours Saved", icon: Clock, qualifier: "Per week across client workflows", prefix: "" },
+  { value: 3, suffix: "x", label: "ROI", icon: DollarSign, qualifier: "Average return within the first 90 days", prefix: "" },
 ];
 
 const CountUp = ({ end, suffix, duration, prefix = "" }: { end: number; suffix: string; duration: number; prefix?: string }) => {
