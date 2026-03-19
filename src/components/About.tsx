@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 
 const stats = [
   { value: 47, suffix: "+", label: "Hours Saved", icon: Clock, qualifier: "Per week across client workflows" },
-  { value: 10000, suffix: "+", label: "Saved", icon: DollarSign, qualifier: "Average monthly cost reduction", prefix: "$" },
+  { value: 3, suffix: "x", label: "ROI", icon: DollarSign, qualifier: "Average return within the first 90 days" },
 ];
 
 const CountUp = ({ end, suffix, duration, prefix = "" }: { end: number; suffix: string; duration: number; prefix?: string }) => {
