@@ -87,6 +87,7 @@ export const BlogPreview = () => {
           </div>
 
           {/* Posts grid */}
+          <div ref={gridRef}>
           {isLoading ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
               {[...Array(3)].map((_, i) => (
@@ -105,7 +106,7 @@ export const BlogPreview = () => {
               ))}
             </div>
           ) : (
-            <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
               {posts.map((post, i) => (
                 <Link
                   key={post.id}
@@ -171,6 +172,7 @@ export const BlogPreview = () => {
               ))}
             </div>
           )}
+          </div>
 
           {/* View all link */}
           <div className="mt-10 sm:mt-12 text-center">
