@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { Clock, ArrowRight } from "lucide-react";
 import { createBlogPath } from "@/lib/slug";
 import { calculateReadingTime, formatReadingTime } from "@/lib/readingTime";
+import { useScrollReveal, staggerStyle } from "@/hooks/useScrollReveal";
 
 import hakimImage from "@/assets/hakim.jpg";
 import yassineImage from "@/assets/yassine.png";
@@ -51,6 +52,9 @@ const getAuthorImage = (author: BlogPost["author"]): string | undefined => {
 };
 
 export const BlogPreview = () => {
+  const { ref: headerRef, isVisible: headerVisible } = useScrollReveal();
+  const { ref: gridRef, isVisible: gridVisible } = useScrollReveal({ threshold: 0.1 });
+
   const { data, isLoading } = useQuery({
     queryKey: ["blogs-preview"],
     queryFn: async () => {
@@ -73,13 +77,13 @@ export const BlogPreview = () => {
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
-          <div className="mb-12 sm:mb-16">
-            <span className="text-mono text-primary/70 block mb-4">// INSIGHTS</span>
-            <h2 className="text-heading max-w-3xl">
+          <div ref={headerRef} className="mb-12 sm:mb-16">
+            <span className="text-mono text-primary/70 block mb-4" style={staggerStyle(0, headerVisible)}>// INSIGHTS</span>
+            <h2 className="text-heading max-w-3xl" style={staggerStyle(1, headerVisible)}>
               Latest from<br />
               <span className="text-gradient">our blog.</span>
             </h2>
-            <div className="accent-bar mt-6" />
+            <div className="accent-bar mt-6" style={staggerStyle(2, headerVisible)} />
           </div>
 
           {/* Posts grid */}
@@ -101,12 +105,13 @@ export const BlogPreview = () => {
               ))}
             </div>
           ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-              {posts.map((post) => (
+            <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+              {posts.map((post, i) => (
                 <Link
                   key={post.id}
                   to={createBlogPath(post.id, post.title)}
                   title={post.title}
+                  style={staggerStyle(i, gridVisible, { delay: 0.12 })}
                 >
                   <Card className="group h-full hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 hover:-translate-y-1 cursor-pointer overflow-hidden flex flex-col">
                     {post.cover_image_url && (
