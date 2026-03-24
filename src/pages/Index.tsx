@@ -33,10 +33,10 @@ const Index = () => {
       <Header onContactClick={() => setContactOpen(true)} />
       <Hero />
       <LogoCatalog />
-      <Industries />
       <About />
       <HowItWorks />
       <Services />
+      <Industries />
       <CaseStudy />
       <Testimonials />
       <Founders />
