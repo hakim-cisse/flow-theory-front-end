@@ -31,7 +31,7 @@ const caseStudies: CaseStudyData[] = [
     overview:
       "APT Locator is one of the largest apartment locating companies in the United States. As their lead volume grew, their internal systems couldn't keep up. Flow Theory AI partnered with them to modernize their operations using automation and AI.",
     metrics: [
-      { icon: <DollarSign className="w-5 h-5 text-primary" />, value: "$6K–$10K", label: "Monthly Savings" },
+      { icon: <DollarSign className="w-5 h-5 text-primary" />, value: "$72K–$120K", label: "Yearly Savings" },
       { icon: <Clock className="w-5 h-5 text-primary" />, value: "~55 hrs", label: "Saved Weekly" },
     ],
     problem:
