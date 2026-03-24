@@ -55,7 +55,7 @@ const cardVariants = {
   hover: {
     y: -6,
     boxShadow: "0 16px 48px -12px hsl(193 100% 50% / 0.15)",
-    transition: { duration: 0.35, ease: "easeOut" },
+    transition: { duration: 0.35, ease: "easeOut" as const },
   },
 };
 
@@ -63,13 +63,13 @@ const expandVariants = {
   hidden: { opacity: 0, height: 0 },
   visible: {
     opacity: 1,
-    height: "auto",
-    transition: { duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] },
+    height: "auto" as const,
+    transition: { duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] as const },
   },
   exit: {
     opacity: 0,
     height: 0,
-    transition: { duration: 0.3, ease: "easeInOut" },
+    transition: { duration: 0.3, ease: "easeInOut" as const },
   },
 };
 
@@ -78,7 +78,7 @@ const bulletVariants = {
   visible: (i: number) => ({
     opacity: 1,
     x: 0,
-    transition: { delay: 0.1 + i * 0.08, duration: 0.35, ease: "easeOut" },
+    transition: { delay: 0.1 + i * 0.08, duration: 0.35, ease: "easeOut" as const },
   }),
 };
 
