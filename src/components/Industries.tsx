@@ -1,4 +1,6 @@
+import { useState } from "react";
 import { Building2, HeartPulse, ShoppingCart, Users, ArrowRight } from "lucide-react";
+import { cn } from "@/lib/utils";
 import { useScrollReveal, staggerStyle } from "@/hooks/useScrollReveal";
 
 const industries = [
@@ -29,6 +31,7 @@ const industries = [
 ];
 
 export const Industries = () => {
+  const [active, setActive] = useState<number | null>(null);
   const { ref: headerRef, isVisible: headerVisible } = useScrollReveal();
   const { ref: gridRef, isVisible: gridVisible } = useScrollReveal({ threshold: 0.1 });
 
@@ -49,34 +52,80 @@ export const Industries = () => {
           </div>
 
           <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
-            {industries.map((industry, i) => (
-              <div
-                key={industry.title}
-                className="group relative rounded-lg border border-border/30 bg-card/40 p-7 sm:p-9 transition-all duration-500 hover:border-primary/25 hover:bg-primary/[0.03] hover:shadow-[0_8px_30px_-12px_hsl(var(--primary)/0.15)] hover:-translate-y-1"
-                style={staggerStyle(i, gridVisible, { delay: 0.12 })}
-              >
-                <div className="w-11 h-11 rounded-md flex items-center justify-center bg-primary/10 text-primary mb-6 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
-                  <industry.icon className="w-5 h-5" strokeWidth={1.5} />
-                </div>
+            {industries.map((industry, i) => {
+              const isActive = active === i;
+              return (
+                <button
+                  key={industry.title}
+                  onClick={() => setActive(isActive ? null : i)}
+                  onMouseEnter={() => setActive(i)}
+                  onMouseLeave={() => setActive(null)}
+                  className={cn(
+                    "group relative rounded-lg border text-left p-7 sm:p-9 transition-all duration-500 cursor-pointer overflow-hidden",
+                    isActive
+                      ? "border-primary/40 bg-primary/[0.06] shadow-[0_8px_40px_-12px_hsl(var(--primary)/0.2)] -translate-y-1"
+                      : "border-border/30 bg-card/40 hover:border-primary/20"
+                  )}
+                  style={staggerStyle(i, gridVisible, { delay: 0.12 })}
+                >
+                  {/* Glow effect */}
+                  <div className={cn(
+                    "absolute -top-20 -right-20 w-40 h-40 rounded-full blur-[60px] transition-opacity duration-500",
+                    isActive ? "bg-primary/10 opacity-100" : "opacity-0"
+                  )} />
 
-                <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
-                  {industry.title}
-                </h3>
+                  <div className="relative z-10">
+                    {/* Icon + Title row */}
+                    <div className="flex items-center gap-4 mb-4">
+                      <div className={cn(
+                        "w-11 h-11 rounded-md flex items-center justify-center transition-all duration-300",
+                        isActive
+                          ? "bg-primary text-primary-foreground scale-110"
+                          : "bg-primary/10 text-primary"
+                      )}>
+                        <industry.icon className="w-5 h-5" strokeWidth={1.5} />
+                      </div>
+                      <h3 className={cn(
+                        "text-lg font-bold transition-colors duration-300",
+                        isActive ? "text-primary" : "text-foreground"
+                      )}>
+                        {industry.title}
+                      </h3>
+                    </div>
 
-                <p className="text-sm text-muted-foreground leading-relaxed mb-5">
-                  {industry.description}
-                </p>
+                    {/* Description */}
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                      {industry.description}
+                    </p>
 
-                <ul className="space-y-2.5">
-                  {industry.highlights.map((bullet) => (
-                    <li key={bullet} className="flex items-start gap-2.5 text-sm text-muted-foreground/80">
-                      <span className="w-1 h-1 rounded-full bg-primary mt-2 shrink-0" />
-                      <span>{bullet}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+                    {/* Highlights — expand on active */}
+                    <div className={cn(
+                      "grid transition-all duration-500 ease-in-out",
+                      isActive ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+                    )}>
+                      <div className="overflow-hidden">
+                        <div className="pt-3 border-t border-primary/10 space-y-2.5">
+                          {industry.highlights.map((bullet, j) => (
+                            <div
+                              key={bullet}
+                              className="flex items-center gap-2.5 text-sm"
+                              style={{
+                                opacity: isActive ? 1 : 0,
+                                transform: isActive ? "translateX(0)" : "translateX(-8px)",
+                                transition: `opacity 0.3s ease-out ${j * 0.08}s, transform 0.3s ease-out ${j * 0.08}s`,
+                              }}
+                            >
+                              <ArrowRight className="w-3 h-3 text-primary shrink-0" />
+                              <span className="text-muted-foreground">{bullet}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </button>
+              );
+            })}
           </div>
 
           <p className="text-center text-xs text-muted-foreground/50 mt-10 tracking-wide" style={staggerStyle(5, gridVisible)}>
