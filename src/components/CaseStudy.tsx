@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import { Clock, DollarSign, Building2, ChevronDown, ChevronUp, CheckCircle, PhoneOff, Zap } from "lucide-react";
+import { Clock, DollarSign, Building2, ChevronRight, PhoneOff, Zap } from "lucide-react";
 import aptLocatorLogo from "@/assets/apt-locator-logo.png";
 import eenLogo from "@/assets/een-logo.png";
 import { cn } from "@/lib/utils";
@@ -29,17 +29,17 @@ const caseStudies: CaseStudyData[] = [
     logo: aptLocatorLogo,
     tagline: "Leading Apartment Locating Company",
     overview:
-      "APT Locator is one of the largest apartment locating companies in the United States. As their lead volume grew, their internal systems couldn't keep up. ISAs were overwhelmed with repetitive tasks, apartment recommendations took too long, and invoicing required hours of manual work. Flow Theory AI partnered with them to modernize their operations using automation and AI, while also empowering the founders to use AI internally without relying on external vendors.",
+      "APT Locator is one of the largest apartment locating companies in the United States. As their lead volume grew, their internal systems couldn't keep up. Flow Theory AI partnered with them to modernize their operations using automation and AI.",
     metrics: [
-      { icon: <DollarSign className="w-7 h-7 text-primary" />, value: "$6,000–$10,000", label: "Monthly Cost Savings" },
-      { icon: <Clock className="w-7 h-7 text-primary" />, value: "~55 hours", label: "Saved Weekly Across Team" },
+      { icon: <DollarSign className="w-5 h-5 text-primary" />, value: "$6K–$10K", label: "Monthly Savings" },
+      { icon: <Clock className="w-5 h-5 text-primary" />, value: "~55 hrs", label: "Saved Weekly" },
     ],
     problem:
-      "Despite strong demand, APT Locator's processes were slowing the business down. ISAs spent too much time qualifying leads and manually compiling apartment suggestions. Founders were losing hours each month to invoice creation and follow-up. Internal AI adoption was low, and the company lacked a scalable operational foundation to support their growth. These bottlenecks created slow response times, inconsistent client experiences, and unnecessary labor costs.",
+      "ISAs spent too much time qualifying leads and manually compiling apartment suggestions. Founders were losing hours each month to invoice creation and follow-up. Internal AI adoption was low.",
     solution:
-      "Flow Theory AI redesigned APT Locator's workflows from the ground up. We automated core ISA tasks and introduced a streamlined qualification process that significantly reduced their workload. We built a custom AI-powered apartment suggestion bot that could generate personalized recommendations in seconds, improving both speed and consistency. We also automated their entire invoicing workflow, removing manual data entry and accelerating cash collection. Finally, we trained the founders to integrate AI into daily operations, giving them long-term independence and eliminating vendor reliance.",
+      "We automated core ISA tasks, built a custom AI-powered apartment suggestion bot, automated their entire invoicing workflow, and trained the founders to integrate AI into daily operations.",
     results:
-      "APT Locator now operates with a faster, leaner, and more scalable system. Their ISAs work with dramatically reduced friction, apartment recommendations are generated almost instantly, and invoicing runs automatically. The result is a stronger operational backbone, improved customer experience, and leadership that is fully equipped to leverage AI across the company.",
+      "ISAs work with dramatically reduced friction, apartment recommendations are generated almost instantly, and invoicing runs automatically. The result is a stronger operational backbone and improved customer experience.",
   },
   {
     id: "empower-estates-network",
@@ -47,110 +47,38 @@ const caseStudies: CaseStudyData[] = [
     logo: eenLogo,
     tagline: "Real Estate Wholesaling Network",
     overview:
-      "Empower Estates Network is a growing real estate wholesaling company managing high volumes of seller and buyer activity through their CRM. As deal flow increased, operational inefficiencies began to surface. Sales reps were unintentionally calling the same sellers multiple times due to duplicated contact records tied to the same property. Buyer outreach was slow and largely manual, and founders lacked real-time visibility into key sales moments. Flow Theory AI partnered with Empower Estates Network to rebuild these workflows using automation and custom integrations beyond the limits of their CRM.",
+      "Empower Estates Network is a growing real estate wholesaling company. As deal flow increased, operational inefficiencies surfaced. Flow Theory AI rebuilt their workflows using automation and custom integrations.",
     metrics: [
-      { icon: <PhoneOff className="w-7 h-7 text-primary" />, value: "0 duplicate seller calls", label: "Across Active Dialer Queues" },
-      { icon: <Zap className="w-7 h-7 text-primary" />, value: "3–5× faster", label: "Buyer Outreach After Contract" },
+      { icon: <PhoneOff className="w-5 h-5 text-primary" />, value: "0 duplicates", label: "Seller Call Overlap" },
+      { icon: <Zap className="w-5 h-5 text-primary" />, value: "3–5× faster", label: "Buyer Outreach" },
     ],
     problem:
-      "Empower Estates Network's CRM did not account for multiple contacts associated with a single property address. This caused sellers to receive repeated calls from different reps, creating frustration and wasting dialer capacity. Buyer outreach only began after manual intervention, slowing dispositions once properties went under contract. In addition, founders had limited insight into when reps generated hot leads, limiting accountability and real-time performance awareness.",
+      "Multiple contacts tied to a single property caused repeated calls. Buyer outreach only began after manual intervention, and founders had limited insight into hot leads.",
     solution:
-      "Flow Theory AI redesigned Empower Estates Network's operational workflows. We built a system that identifies all contacts tied to a single property address and automatically removes duplicates from the dialer queue, eliminating repeat outreach. We then created an automated buyer outreach system that contacts matched buyers within minutes of a property going under contract, reducing disposition delays. Finally, we implemented a real-time notification bot that alerts the team when a sales rep generates a hot lead, increasing transparency and reinforcing performance. These solutions required external tools and integrations to extend beyond native CRM limitations.",
+      "We built a deduplication system for the dialer queue, created an automated buyer outreach system triggered on contract, and implemented a real-time hot lead notification bot.",
     results:
-      "Empower Estates Network now operates with a cleaner, more efficient sales system. Duplicate seller calls were reduced to near zero, buyer outreach time decreased by an estimated 60–75%, and founders gained immediate visibility into high-intent leads as they occur. Sales reps experience fewer stalled deals, improved focus, and clearer feedback loops, resulting in faster deal execution and a more disciplined sales operation.",
+      "Duplicate seller calls reduced to near zero, buyer outreach time decreased by 60–75%, and founders gained immediate visibility into high-intent leads as they occur.",
   },
 ];
 
-const CaseStudyCard = ({ study }: { study: CaseStudyData }) => {
-  const [isExpanded, setIsExpanded] = useState(false);
-  const contentRef = useRef<HTMLDivElement>(null);
-  const cardRef = useRef<HTMLDivElement>(null);
-
-  const handleToggle = () => {
-    if (!isExpanded) {
-      setIsExpanded(true);
-      setTimeout(() => contentRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" }), 100);
-    } else {
-      setIsExpanded(false);
-      setTimeout(() => cardRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }), 100);
-    }
-  };
+export const CaseStudy = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [expandedSection, setExpandedSection] = useState<string | null>(null);
+  const active = caseStudies[activeIndex];
 
   const sections = [
-    { title: "Problem", content: study.problem },
-    { title: "Solution", content: study.solution },
-    { title: "Results", content: study.results },
+    { key: "overview", title: "Overview", content: active.overview },
+    { key: "problem", title: "Problem", content: active.problem },
+    { key: "solution", title: "Solution", content: active.solution },
+    { key: "results", title: "Results", content: active.results },
   ];
 
   return (
-    <div ref={cardRef} className="relative border border-border/30 bg-card/30 hover:border-primary/20 transition-all duration-500">
-      <div className="p-8 sm:p-10">
-        <div className="flex flex-col sm:flex-row items-center gap-6 mb-8">
-          <img src={study.logo} alt={`${study.company} logo`} className="w-16 h-16 object-contain shrink-0" />
-          <div className="text-center sm:text-left">
-            <h3 className="text-2xl font-bold mb-1">{study.company}</h3>
-            <p className="text-muted-foreground text-sm">{study.tagline}</p>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-          {study.metrics.map((metric, index) => (
-            <div key={index} className="bg-primary/5 border border-primary/10 p-6">
-              <div className="flex items-center gap-3 mb-2">{metric.icon}</div>
-              <div className="text-2xl sm:text-3xl font-bold text-gradient mb-1">{metric.value}</div>
-              <p className="text-sm text-muted-foreground">{metric.label}</p>
-            </div>
-          ))}
-        </div>
-
-        <button
-          onClick={handleToggle}
-          className="w-full flex items-center justify-center gap-2 py-4 px-6 bg-primary/10 hover:bg-primary/15 text-primary font-semibold transition-all duration-300 border border-primary/20 text-sm"
-        >
-          {isExpanded ? <>Show Less <ChevronUp className="w-4 h-4" /></> : <>View Full Case Study <ChevronDown className="w-4 h-4" /></>}
-        </button>
-      </div>
-
-      <div
-        ref={contentRef}
-        className={cn("grid transition-all duration-500 ease-in-out", isExpanded ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0")}
-      >
-        <div className="overflow-hidden">
-          <div className="px-8 sm:px-10 pb-8 sm:pb-10 pt-2 space-y-6">
-            <div className="bg-primary/5 border border-primary/10 p-6">
-              <h4 className="text-lg font-semibold mb-3">Overview</h4>
-              <p className="text-muted-foreground leading-relaxed">{study.overview}</p>
-            </div>
-            {sections.map((section, index) => (
-              <div key={section.title} className="bg-primary/5 border border-primary/10 p-6">
-                <div className="flex items-center gap-3 mb-3">
-                  <div className="w-8 h-8 bg-primary flex items-center justify-center text-primary-foreground font-bold text-sm">
-                    {index + 1}
-                  </div>
-                  <h4 className="text-lg font-semibold">{section.title}</h4>
-                </div>
-                <p className="text-muted-foreground leading-relaxed">{section.content}</p>
-              </div>
-            ))}
-            <div className="flex items-center justify-center gap-3 pt-4">
-              <div className="flex items-center gap-2 px-4 py-2 bg-green-500/10 border border-green-500/20">
-                <CheckCircle className="w-5 h-5 text-green-500" />
-                <span className="font-medium text-green-500 text-sm">Transformation Complete</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export const CaseStudy = () => {
-  return (
-    <section id="case-studies" className="py-24 sm:py-32 relative overflow-hidden section-6">
+    <section id="case-studies" className="py-20 sm:py-28 relative overflow-hidden section-6">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="max-w-4xl mx-auto">
-          <div className="mb-20">
+        <div className="max-w-5xl mx-auto">
+          {/* Header */}
+          <div className="mb-14">
             <span className="text-mono text-primary/70 block mb-6">
               <Building2 className="w-3.5 h-3.5 inline mr-2" />
               Case Studies
@@ -160,15 +88,88 @@ export const CaseStudy = () => {
               <span className="text-gradient">Real results.</span>
             </h2>
             <div className="accent-bar mt-6" />
-            <p className="text-subheading text-muted-foreground max-w-2xl mt-8">
-              Discover how we've helped founders streamline operations, reduce costs, and scale with AI-powered solutions.
-            </p>
           </div>
 
-          <div className="space-y-8">
-            {caseStudies.map((study) => (
-              <CaseStudyCard key={study.id} study={study} />
+          {/* Tabs */}
+          <div className="flex gap-2 mb-6">
+            {caseStudies.map((study, i) => (
+              <button
+                key={study.id}
+                onClick={() => { setActiveIndex(i); setExpandedSection(null); }}
+                className={cn(
+                  "flex items-center gap-3 px-5 py-3 text-sm font-semibold transition-all duration-300 border",
+                  activeIndex === i
+                    ? "bg-primary/10 border-primary/30 text-primary"
+                    : "bg-card/30 border-border/30 text-muted-foreground hover:border-primary/20 hover:text-foreground"
+                )}
+              >
+                <img src={study.logo} alt={study.company} className="w-6 h-6 object-contain" />
+                <span className="hidden sm:inline">{study.company}</span>
+              </button>
             ))}
+          </div>
+
+          {/* Active Card */}
+          <div className="border border-border/30 bg-card/30 transition-all duration-500">
+            {/* Metrics row */}
+            <div className="grid grid-cols-2 border-b border-border/20">
+              {active.metrics.map((metric, i) => (
+                <div
+                  key={i}
+                  className={cn(
+                    "p-5 sm:p-6 flex items-center gap-4",
+                    i === 0 && "border-r border-border/20"
+                  )}
+                >
+                  {metric.icon}
+                  <div>
+                    <div className="text-xl sm:text-2xl font-bold text-gradient">{metric.value}</div>
+                    <p className="text-xs text-muted-foreground">{metric.label}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Expandable sections */}
+            <div className="divide-y divide-border/20">
+              {sections.map((section) => (
+                <div key={section.key}>
+                  <button
+                    onClick={() =>
+                      setExpandedSection(expandedSection === section.key ? null : section.key)
+                    }
+                    className="w-full flex items-center justify-between px-5 sm:px-6 py-4 text-left hover:bg-primary/[0.03] transition-colors duration-200"
+                  >
+                    <span className={cn(
+                      "text-sm font-semibold transition-colors duration-200",
+                      expandedSection === section.key ? "text-primary" : "text-foreground"
+                    )}>
+                      {section.title}
+                    </span>
+                    <ChevronRight
+                      className={cn(
+                        "w-4 h-4 text-muted-foreground transition-transform duration-300",
+                        expandedSection === section.key && "rotate-90 text-primary"
+                      )}
+                    />
+                  </button>
+                  <div
+                    className={cn(
+                      "grid transition-all duration-400 ease-in-out",
+                      expandedSection === section.key
+                        ? "grid-rows-[1fr] opacity-100"
+                        : "grid-rows-[0fr] opacity-0"
+                    )}
+                  >
+                    <div className="overflow-hidden">
+                      <p className="px-5 sm:px-6 pb-5 text-sm text-muted-foreground leading-relaxed">
+                        {section.content}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
