@@ -1,21 +1,25 @@
+import { useScrollReveal, staggerStyle } from "@/hooks/useScrollReveal";
+
 export const CTA = () => {
+  const { ref, isVisible } = useScrollReveal();
+
   return (
     <section id="cta" className="py-24 sm:py-32 relative overflow-hidden section-9">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div ref={ref} className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
           <div className="mb-16">
-            <span className="text-mono text-primary/70 block mb-6">Let's talk</span>
-            <h2 className="text-heading">
+            <span className="text-mono text-primary/70 block mb-6" style={staggerStyle(0, isVisible)}>Let's talk</span>
+            <h2 className="text-heading" style={staggerStyle(1, isVisible)}>
               Ready to stop guessing<br />
               <span className="text-gradient">and start building?</span>
             </h2>
-            <div className="accent-bar mt-6" />
-            <p className="text-subheading text-muted-foreground max-w-2xl mt-8">
+            <div className="accent-bar mt-6" style={staggerStyle(2, isVisible)} />
+            <p className="text-subheading text-muted-foreground max-w-2xl mt-8" style={staggerStyle(3, isVisible)}>
               Book a 30-minute alignment call. We'll identify how AI can create real leverage in your business — no pitch, just clarity.
             </p>
           </div>
 
-          <div className="w-full border border-border/30 bg-card/30 overflow-hidden">
+          <div className="w-full border border-border/30 bg-card/30 overflow-hidden" style={staggerStyle(4, isVisible, { distance: 20 })}>
             <div className="aspect-[3/4] sm:aspect-[16/10] lg:aspect-[16/9]">
               <iframe
                 src="https://cal.com/flow-theory-ai/alignment-call"

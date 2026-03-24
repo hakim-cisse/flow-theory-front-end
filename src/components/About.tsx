@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Clock, DollarSign, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useScrollReveal, staggerStyle } from "@/hooks/useScrollReveal";
 
 const stats = [
   { value: 47, suffix: "+", label: "Hours Saved", icon: Clock, qualifier: "Per week across client workflows", prefix: "" },
@@ -29,37 +30,27 @@ const CountUp = ({ end, suffix, duration, prefix = "" }: { end: number; suffix: 
 };
 
 export const About = () => {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setIsVisible(true); },
-      { threshold: 0.3 }
-    );
-    const el = document.getElementById("about");
-    if (el) observer.observe(el);
-    return () => { if (el) observer.unobserve(el); };
-  }, []);
+  const { ref, isVisible } = useScrollReveal({ threshold: 0.2 });
 
   return (
     <section id="about" className="py-24 sm:py-32 relative overflow-hidden section-3">
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/3 rounded-full blur-[120px]" />
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div ref={ref} className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Left — editorial text */}
             <div className="space-y-8">
-              <span className="text-mono text-primary/70">Why founders choose us</span>
-              <h2 className="text-heading">
+              <span className="text-mono text-primary/70" style={staggerStyle(0, isVisible)}>Why founders choose us</span>
+              <h2 className="text-heading" style={staggerStyle(1, isVisible)}>
                 You don't need <span className="text-gradient">more tools.</span><br />
                 You need the right systems.
               </h2>
-              <div className="accent-bar" />
-              <p className="text-subheading text-muted-foreground leading-relaxed">
+              <div className="accent-bar" style={staggerStyle(2, isVisible)} />
+              <p className="text-subheading text-muted-foreground leading-relaxed" style={staggerStyle(3, isVisible)}>
                 We help businesses reclaim time and scale faster by turning everyday operations into intelligent systems. From workflow automation to AI integration, we build the foundation for long-term leverage and growth.
               </p>
-              <div className="flex flex-col sm:flex-row items-start gap-4 pt-4">
+              <div className="flex flex-col sm:flex-row items-start gap-4 pt-4" style={staggerStyle(4, isVisible)}>
                 <Button asChild size="lg" className="group px-8 py-6 font-semibold glow">
                   <a href="https://cal.com/flow-theory-ai/alignment-call" target="_blank" rel="noopener noreferrer">
                     See Where You're Losing Time
@@ -80,11 +71,7 @@ export const About = () => {
                   <div
                     key={stat.label}
                     className="group relative p-8 border border-border/40 bg-card/50 hover:border-primary/30 hover:bg-primary/5 transition-all duration-500"
-                    style={{
-                      transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
-                      opacity: isVisible ? 1 : 0,
-                      transition: `all 0.6s ease-out ${index * 0.2}s`
-                    }}
+                    style={staggerStyle(index + 2, isVisible, { delay: 0.2, distance: 25 })}
                   >
                     <div className="flex items-center gap-6">
                       <div className="p-4 bg-primary/10 group-hover:bg-primary/20 transition-colors">
@@ -101,7 +88,7 @@ export const About = () => {
                   </div>
                 );
               })}
-              <p className="text-xs text-muted-foreground italic pl-2">
+              <p className="text-xs text-muted-foreground italic pl-2" style={staggerStyle(5, isVisible)}>
                 Based on real client implementations and internal audits
               </p>
             </div>

@@ -1,5 +1,6 @@
 import { Search, Workflow, Puzzle, GraduationCap, Code, Dumbbell, Layers, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useScrollReveal, staggerStyle } from "@/hooks/useScrollReveal";
 
 const services = [
   {
@@ -35,25 +36,30 @@ const services = [
 ];
 
 export const Services = () => {
+  const { ref: headerRef, isVisible: headerVisible } = useScrollReveal();
+  const { ref: gridRef, isVisible: gridVisible } = useScrollReveal({ threshold: 0.1 });
+  const { ref: saasRef, isVisible: saasVisible } = useScrollReveal();
+
   return (
     <section id="services" className="py-24 sm:py-32 relative overflow-hidden section-5">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
-          <div className="mb-20">
-            <span className="text-mono text-primary/70 block mb-6">What we build</span>
-            <h2 className="text-heading max-w-3xl">
+          <div ref={headerRef} className="mb-20">
+            <span className="text-mono text-primary/70 block mb-6" style={staggerStyle(0, headerVisible)}>What we build</span>
+            <h2 className="text-heading max-w-3xl" style={staggerStyle(1, headerVisible)}>
               Systems that give<br />
               <span className="text-gradient">businesses leverage.</span>
             </h2>
-            <div className="accent-bar mt-6" />
+            <div className="accent-bar mt-6" style={staggerStyle(2, headerVisible)} />
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border/30">
-            {services.map((service) => (
+          <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border/30">
+            {services.map((service, i) => (
               <div
                 key={service.title}
                 className="group p-8 sm:p-10 bg-background hover:bg-primary/5 transition-all duration-500"
+                style={staggerStyle(i, gridVisible, { delay: 0.08 })}
               >
                 <div className="space-y-6">
                   <div className="w-12 h-12 flex items-center justify-center bg-primary/10 group-hover:bg-primary group-hover:text-primary-foreground text-primary transition-all duration-300">
@@ -74,7 +80,7 @@ export const Services = () => {
           </div>
 
           {/* Custom SaaS Block */}
-          <div className="mt-px group p-8 sm:p-12 bg-background hover:bg-primary/5 border border-border/30 transition-all duration-500">
+          <div ref={saasRef} className="mt-px group p-8 sm:p-12 bg-background hover:bg-primary/5 border border-border/30 transition-all duration-500" style={staggerStyle(0, saasVisible, { distance: 20 })}>
             <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
               <div className="flex flex-col sm:flex-row items-start gap-6">
                 <div className="w-14 h-14 flex items-center justify-center bg-primary/10 group-hover:bg-primary group-hover:text-primary-foreground text-primary transition-all duration-300 shrink-0">

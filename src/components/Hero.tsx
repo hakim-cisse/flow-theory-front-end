@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, FileText } from "lucide-react";
 import { TypewriterText } from "./TypewriterText";
+import { useScrollReveal, staggerStyle } from "@/hooks/useScrollReveal";
 
 const animatedPhrases = [
   "AI Transformation",
@@ -13,6 +14,8 @@ const animatedPhrases = [
 ];
 
 export const Hero = () => {
+  const { ref, isVisible } = useScrollReveal({ threshold: 0.1 });
+
   const scrollToCaseStudy = () => {
     const element = document.querySelector("#case-studies");
     if (element) element.scrollIntoView({ behavior: "smooth" });
@@ -27,10 +30,10 @@ export const Hero = () => {
       <div className="absolute -top-40 -right-40 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[150px] animate-glow-pulse" />
       <div className="absolute -bottom-40 -left-40 w-[400px] h-[400px] bg-primary/3 rounded-full blur-[120px]" />
 
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto animate-fade-in-up">
+      <div ref={ref} className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
           {/* Mono label */}
-          <div className="mb-8">
+          <div className="mb-8" style={staggerStyle(0, isVisible, { delay: 0.15, distance: 20 })}>
             <button
               onClick={scrollToCaseStudy}
               className="group inline-flex items-center gap-3 text-mono text-primary/70 hover:text-primary transition-colors duration-300"
@@ -41,26 +44,26 @@ export const Hero = () => {
             </button>
           </div>
 
-          {/* Main headline — asymmetric, massive */}
-            <div className="space-y-2 sm:space-y-4 mb-8 sm:mb-12">
-              <h1 className="text-hero-fit">
-                <span className="block text-foreground">Your business runs</span>
-                <span className="block text-foreground">on decisions.</span>
-                <span className="block text-foreground mt-1 sm:mt-2">We deliver</span>
-                <span className="block mt-1 sm:mt-2 min-h-[1.2em] whitespace-nowrap overflow-hidden text-[0.75em] sm:text-[1em]">
-                  <TypewriterText phrases={animatedPhrases} className="text-gradient" />
-                </span>
-                <span className="block text-foreground text-[0.35em] sm:text-[0.45em] mt-1 opacity-70">that make them smarter</span>
-              </h1>
-            </div>
+          {/* Main headline */}
+          <div className="space-y-2 sm:space-y-4 mb-8 sm:mb-12" style={staggerStyle(1, isVisible, { delay: 0.15, duration: 0.8, distance: 40 })}>
+            <h1 className="text-hero-fit">
+              <span className="block text-foreground">Your business runs</span>
+              <span className="block text-foreground">on decisions.</span>
+              <span className="block text-foreground mt-1 sm:mt-2">We deliver</span>
+              <span className="block mt-1 sm:mt-2 min-h-[1.2em] whitespace-nowrap overflow-hidden text-[0.75em] sm:text-[1em]">
+                <TypewriterText phrases={animatedPhrases} className="text-gradient" />
+              </span>
+              <span className="block text-foreground text-[0.35em] sm:text-[0.45em] mt-1 opacity-70">that make them smarter</span>
+            </h1>
+          </div>
 
-          <div className="accent-bar mb-6 sm:mb-8" />
+          <div className="accent-bar mb-6 sm:mb-8" style={staggerStyle(2, isVisible, { delay: 0.15 })} />
 
-          <p className="text-base sm:text-subheading text-muted-foreground max-w-2xl mb-8 sm:mb-12">
+          <p className="text-base sm:text-subheading text-muted-foreground max-w-2xl mb-8 sm:mb-12" style={staggerStyle(3, isVisible, { delay: 0.15, distance: 20 })}>
             You don't need more AI hype. You need a partner who discovers what actually matters, trains your team to own it, and delivers results you can measure.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-start gap-4">
+          <div className="flex flex-col sm:flex-row items-start gap-4" style={staggerStyle(4, isVisible, { delay: 0.15, distance: 20 })}>
             <Button 
               size="lg" 
               className="group font-semibold px-8 py-6 text-base glow transition-all duration-300"
