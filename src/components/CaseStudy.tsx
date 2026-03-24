@@ -3,6 +3,7 @@ import { Clock, DollarSign, Building2, ChevronRight, PhoneOff, Zap } from "lucid
 import aptLocatorLogo from "@/assets/apt-locator-logo.png";
 import eenLogo from "@/assets/een-logo.png";
 import { cn } from "@/lib/utils";
+import { useScrollReveal, staggerStyle } from "@/hooks/useScrollReveal";
 
 interface MetricItem {
   icon: React.ReactNode;
