@@ -172,6 +172,7 @@ export const BlogPreview = () => {
               ))}
             </div>
           )}
+          </div>
 
           {/* View all link */}
           <div className="mt-10 sm:mt-12 text-center">
