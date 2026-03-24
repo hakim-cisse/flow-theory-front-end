@@ -39,8 +39,8 @@ const Index = () => {
       <Industries />
       <CaseStudy />
       <Testimonials />
-      <BlogPreview />
       <Founders />
+      <BlogPreview />
       <CTA />
       <Footer onContactClick={() => setContactOpen(true)} />
       <ContactDialog open={contactOpen} onOpenChange={setContactOpen} />
