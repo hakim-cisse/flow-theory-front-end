@@ -33,7 +33,7 @@ const authorImages: Record<string, string> = {
   "Yunus Kounkourou": yunusImage,
 };
 
-const API_BASE_URL = "https://taetntekartazcxgrawh.supabase.co/functions/v1/get-posts";
+import { BLOG_API_BASE_URL as API_BASE_URL } from "@/lib/blogApi";
 const SITE_URL = "https://www.flowtheoryai.com";
 
 interface BlogPostData {

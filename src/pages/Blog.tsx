@@ -20,7 +20,7 @@ import hakimImage from "@/assets/hakim.jpg";
 import yassineImage from "@/assets/yassine.png";
 import yunusImage from "@/assets/yunus.jpg";
 
-const API_BASE_URL = "https://taetntekartazcxgrawh.supabase.co/functions/v1/get-posts";
+import { BLOG_API_BASE_URL as API_BASE_URL } from "@/lib/blogApi";
 const SITE_URL = "https://www.flowtheoryai.com";
 const POSTS_PER_PAGE = 6;
 
