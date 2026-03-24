@@ -79,16 +79,16 @@ export const CaseStudy = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-5xl mx-auto">
           {/* Header */}
-          <div className="mb-14">
-            <span className="text-mono text-primary/70 block mb-6">
+          <div ref={headerRef} className="mb-14">
+            <span className="text-mono text-primary/70 block mb-6" style={staggerStyle(0, headerVisible)}>
               <Building2 className="w-3.5 h-3.5 inline mr-2" />
               Case Studies
             </span>
-            <h2 className="text-heading max-w-3xl">
+            <h2 className="text-heading max-w-3xl" style={staggerStyle(1, headerVisible)}>
               Real businesses.<br />
               <span className="text-gradient">Real results.</span>
             </h2>
-            <div className="accent-bar mt-6" />
+            <div className="accent-bar mt-6" style={staggerStyle(2, headerVisible)} />
           </div>
 
           {/* Tabs */}
