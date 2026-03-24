@@ -66,6 +66,7 @@ export const CaseStudy = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
   const active = caseStudies[activeIndex];
+  const { ref: headerRef, isVisible: headerVisible } = useScrollReveal();
 
   const sections = [
     { key: "overview", title: "Overview", content: active.overview },
