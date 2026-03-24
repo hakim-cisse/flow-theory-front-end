@@ -1,85 +1,89 @@
-import { Building2, HeartPulse, ShoppingCart, Users, ArrowRight } from "lucide-react";
+import { useState } from "react";
+import { Building2, HeartPulse, ShoppingCart, Users } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const industries = [
   {
     icon: Building2,
     title: "Real Estate",
-    description: "Automated lead qualification, CRM integrations, and deal pipeline optimization that close deals faster.",
-    highlights: ["Lead routing automation", "CRM workflow optimization", "Disposition acceleration"],
+    tagline: "Close deals faster with automated lead routing and pipeline optimization.",
   },
   {
     icon: HeartPulse,
     title: "Healthcare",
-    description: "Streamlined patient workflows, scheduling automation, and compliant data systems that reduce admin burden.",
-    highlights: ["Patient intake automation", "Scheduling optimization", "Compliance-ready systems"],
+    tagline: "Reduce admin burden with streamlined patient workflows and scheduling.",
   },
   {
     icon: ShoppingCart,
     title: "E-Commerce",
-    description: "Intelligent inventory management, customer journey automation, and AI-powered support that scales with you.",
-    highlights: ["Order fulfillment automation", "Customer journey optimization", "AI-powered support"],
+    tagline: "Scale operations with intelligent inventory and customer journey automation.",
   },
   {
     icon: Users,
     title: "Recruitment",
-    description: "Automated candidate screening, interview scheduling, and talent pipeline management that cut time-to-hire.",
-    highlights: ["Candidate screening automation", "Interview scheduling", "Pipeline management"],
+    tagline: "Cut time-to-hire with automated screening and pipeline management.",
   },
 ];
 
 export const Industries = () => {
+  const [active, setActive] = useState(0);
+
   return (
-    <section className="py-24 sm:py-32 relative overflow-hidden section-7">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="max-w-6xl mx-auto">
-          <div className="mb-20">
-            <span className="text-mono text-primary/70 block mb-6">Industries we serve</span>
-            <h2 className="text-heading max-w-3xl">
-              Built for industries<br />
-              <span className="text-gradient">that move fast.</span>
-            </h2>
-            <div className="accent-bar mt-6" />
-            <p className="text-subheading text-muted-foreground max-w-2xl mt-8">
-              We specialize in four high-impact verticals where AI automation delivers the fastest, most measurable results.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-border/30">
-            {industries.map((industry) => (
+    <div className="border-y border-border/20 section-7 overflow-hidden">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col sm:flex-row items-stretch">
+          {industries.map((industry, i) => (
+            <button
+              key={industry.title}
+              onMouseEnter={() => setActive(i)}
+              onClick={() => setActive(i)}
+              className={cn(
+                "group relative flex-1 py-6 sm:py-8 px-4 sm:px-6 text-left transition-all duration-500 border-b sm:border-b-0 sm:border-r last:border-0 border-border/20",
+                active === i
+                  ? "bg-primary/5"
+                  : "bg-transparent hover:bg-primary/[0.02]"
+              )}
+            >
+              {/* Active indicator bar */}
               <div
-                key={industry.title}
-                className="group p-8 sm:p-10 bg-background hover:bg-primary/5 transition-all duration-500 relative"
-              >
-                <div className="space-y-6">
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 flex items-center justify-center bg-primary/10 group-hover:bg-primary group-hover:text-primary-foreground text-primary transition-all duration-300">
-                      <industry.icon className="h-6 w-6" strokeWidth={1.5} />
-                    </div>
-                    <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
-                      {industry.title}
-                    </h3>
-                  </div>
+                className={cn(
+                  "absolute bottom-0 left-0 right-0 h-0.5 bg-primary transition-all duration-500",
+                  active === i ? "opacity-100" : "opacity-0"
+                )}
+              />
 
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    {industry.description}
-                  </p>
-
-                  <ul className="space-y-2">
-                    {industry.highlights.map((item) => (
-                      <li key={item} className="flex items-center gap-2 text-sm text-muted-foreground">
-                        <ArrowRight className="w-3 h-3 text-primary shrink-0" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+              <div className="flex items-center gap-3 mb-2">
+                <industry.icon
+                  className={cn(
+                    "w-4 h-4 transition-colors duration-300 shrink-0",
+                    active === i ? "text-primary" : "text-muted-foreground"
+                  )}
+                  strokeWidth={1.5}
+                />
+                <span
+                  className={cn(
+                    "text-sm font-semibold tracking-wide transition-colors duration-300",
+                    active === i ? "text-primary" : "text-muted-foreground"
+                  )}
+                >
+                  {industry.title}
+                </span>
               </div>
-            ))}
-          </div>
+
+              <p
+                className={cn(
+                  "text-xs leading-relaxed transition-all duration-500 overflow-hidden",
+                  active === i
+                    ? "text-muted-foreground max-h-20 opacity-100"
+                    : "text-muted-foreground/0 max-h-0 sm:max-h-20 sm:text-muted-foreground/50 opacity-0 sm:opacity-100"
+                )}
+              >
+                {industry.tagline}
+              </p>
+            </button>
+          ))}
         </div>
       </div>
-
-      <div className="absolute bottom-0 left-0 right-0 section-divider" />
-    </section>
+    </div>
   );
 };
