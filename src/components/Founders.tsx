@@ -6,7 +6,7 @@ import { useScrollReveal, staggerStyle } from "@/hooks/useScrollReveal";
 const founders = [
   {
     name: "Hakim Cisse",
-    title: "Founder & CEO",
+    title: "Co-Founder & CEO",
     image: hakimImage,
     description: "Visionary entrepreneur leading Flow Theory AI's mission to help companies scale intelligently through automation and AI systems.",
   },
