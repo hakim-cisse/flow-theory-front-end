@@ -132,7 +132,7 @@ export const HeroLogoGrid = () => {
   const hasCenters = centers.length === TOTAL_CELLS && centers.some((c) => c.x > 0);
 
   return (
-    <div className="absolute right-0 top-0 bottom-0 w-[60%] hidden lg:flex items-center justify-end pointer-events-none">
+    <div className="absolute right-0 top-0 bottom-0 w-[58%] hidden lg:flex items-center justify-center pointer-events-none">
       {/* Left fade into section background */}
       <div className="absolute inset-0 bg-gradient-to-r from-[hsl(var(--section-1))] via-[hsl(var(--section-1)/0.85)] to-transparent z-10" />
 
