@@ -35,7 +35,7 @@ export const Hero = () => {
       <HeroLogoGrid />
 
       <div ref={ref} className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-xl lg:max-w-[45%]">
           {/* Mono label */}
           <div className="mb-8" style={staggerStyle(0, isVisible, { delay: 0.15, distance: 20 })}>
             <button
