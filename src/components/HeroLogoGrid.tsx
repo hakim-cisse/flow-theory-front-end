@@ -1,13 +1,13 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-interface Logo {
+interface LogoDef {
   name: string;
   color: string;
-  icon: string; // CDN URL
+  icon: string;
 }
 
-const logos: Logo[] = [
+const ALL_LOGOS: LogoDef[] = [
   { name: "n8n", color: "#EA4B71", icon: "https://cdn.simpleicons.org/n8n/EA4B71" },
   { name: "Make", color: "#6D3BF5", icon: "https://cdn.simpleicons.org/integromat/6D3BF5" },
   { name: "Zapier", color: "#FF4A00", icon: "https://cdn.simpleicons.org/zapier/FF4A00" },
@@ -22,7 +22,7 @@ const logos: Logo[] = [
   { name: "Twilio", color: "#F22F46", icon: "https://cdn.simpleicons.org/twilio/F22F46" },
   { name: "Monday.com", color: "#FF3D57", icon: "https://cdn.simpleicons.org/mondaydotcom/FF3D57" },
   { name: "Pipedrive", color: "#1DB954", icon: "https://cdn.simpleicons.org/pipedrive/1DB954" },
-  { name: "Zendesk", color: "#03363D", icon: "https://cdn.simpleicons.org/zendesk/17494D" },
+  { name: "Zendesk", color: "#17494D", icon: "https://cdn.simpleicons.org/zendesk/17494D" },
   { name: "Mailchimp", color: "#FFE01B", icon: "https://cdn.simpleicons.org/mailchimp/FFE01B" },
   { name: "Calendly", color: "#006BFF", icon: "https://cdn.simpleicons.org/calendly/006BFF" },
   { name: "Intercom", color: "#6AFDEF", icon: "https://cdn.simpleicons.org/intercom/6AFDEF" },
@@ -34,35 +34,33 @@ const logos: Logo[] = [
   { name: "Webflow", color: "#4353FF", icon: "https://cdn.simpleicons.org/webflow/4353FF" },
   { name: "Squarespace", color: "#FFFFFF", icon: "https://cdn.simpleicons.org/squarespace/FFFFFF" },
   { name: "QuickBooks", color: "#2CA01C", icon: "https://cdn.simpleicons.org/quickbooks/2CA01C" },
-  { name: "Zoho", color: "#C8202B", icon: "https://cdn.simpleicons.org/zoho/E42527" },
+  { name: "Zoho", color: "#E42527", icon: "https://cdn.simpleicons.org/zoho/E42527" },
   { name: "ClickUp", color: "#7B68EE", icon: "https://cdn.simpleicons.org/clickup/7B68EE" },
   { name: "Supabase", color: "#3ECF8E", icon: "https://cdn.simpleicons.org/supabase/3ECF8E" },
   { name: "Trello", color: "#0052CC", icon: "https://cdn.simpleicons.org/trello/0052CC" },
+  { name: "Google Sheets", color: "#34A853", icon: "https://cdn.simpleicons.org/googlesheets/34A853" },
+  { name: "Microsoft Teams", color: "#6264A7", icon: "https://cdn.simpleicons.org/microsoftteams/6264A7" },
 ];
 
 const COLS = 5;
 const ROWS = 6;
-const CELL = 76; // px cell size
-const GAP = 12;  // px gap
+const TOTAL_CELLS = COLS * ROWS;
+const CELL = 80;
+const GAP = 10;
 
-// Highlighted indices (logos that appear bright)
-const HIGHLIGHTED = [2, 4, 7, 9, 12, 16, 20, 23, 27];
+// How many logos are visible at once
+const VISIBLE_COUNT = 6;
 
-// Workflow connection paths (index pairs forming animated lines)
-const CONNECTIONS: [number, number][] = [
-  [2, 7],   // Zapier → HubSpot
-  [7, 12],  // HubSpot → Monday
-  [4, 9],   // Shopify → Airtable
-  [9, 14],  // Airtable → Zendesk
-  [16, 21], // Calendly → Discord
-  [20, 21], // GitHub → Discord
-  [23, 28], // Webflow → Supabase
-  [12, 17], // Monday → Intercom
-  [3, 8],   // Slack → Notion
-  [27, 22], // ClickUp → WhatsApp
+// Connection lines between adjacent cells (col-row pairs)
+// Stored as cell index pairs
+const STATIC_LINES: [number, number][] = [
+  [1, 6], [6, 11], [3, 8], [8, 13],
+  [12, 17], [17, 22], [14, 19], [19, 24],
+  [2, 7], [7, 12], [10, 15], [15, 20],
+  [4, 9], [9, 14], [21, 26], [16, 21],
+  [22, 27], [23, 28], [5, 10],
 ];
 
-// Get center of a cell in the grid
 const getCellCenter = (index: number) => {
   const col = index % COLS;
   const row = Math.floor(index / COLS);
@@ -73,98 +71,154 @@ const getCellCenter = (index: number) => {
 };
 
 export const HeroLogoGrid = () => {
-  const [activeConnection, setActiveConnection] = useState(0);
-  const [pulsingIndices, setPulsingIndices] = useState<Set<number>>(new Set());
+  // Track which cells currently have logos, and which logo
+  const [filledCells, setFilledCells] = useState<Map<number, LogoDef>>(new Map());
+  const [activeLineIdx, setActiveLineIdx] = useState(0);
 
-  // Cycle through connections
+  // Pick random cells to fill with logos, cycling over time
+  const pickNewLogos = useCallback(() => {
+    const availableCells = Array.from({ length: TOTAL_CELLS }, (_, i) => i);
+    // Shuffle
+    for (let i = availableCells.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [availableCells[i], availableCells[j]] = [availableCells[j], availableCells[i]];
+    }
+    const selectedCells = availableCells.slice(0, VISIBLE_COUNT);
+
+    // Shuffle logos too
+    const shuffledLogos = [...ALL_LOGOS].sort(() => Math.random() - 0.5);
+
+    const newMap = new Map<number, LogoDef>();
+    selectedCells.forEach((cell, i) => {
+      newMap.set(cell, shuffledLogos[i % shuffledLogos.length]);
+    });
+    return newMap;
+  }, []);
+
+  // Initial fill
+  useEffect(() => {
+    setFilledCells(pickNewLogos());
+  }, [pickNewLogos]);
+
+  // Rotate logos every 3 seconds — swap 2-3 logos at a time
   useEffect(() => {
     const interval = setInterval(() => {
-      setActiveConnection((prev) => (prev + 1) % CONNECTIONS.length);
-    }, 2000);
+      setFilledCells((prev) => {
+        const newMap = new Map(prev);
+        const currentKeys = Array.from(newMap.keys());
+        const emptySlots = Array.from({ length: TOTAL_CELLS }, (_, i) => i).filter(
+          (i) => !newMap.has(i)
+        );
+
+        // Remove 2 random existing logos
+        const toRemove = currentKeys.sort(() => Math.random() - 0.5).slice(0, 2);
+        toRemove.forEach((k) => newMap.delete(k));
+
+        // Add 2 new logos in random empty slots
+        const shuffledEmpty = [...emptySlots, ...toRemove].sort(() => Math.random() - 0.5);
+        const usedLogos = new Set(Array.from(newMap.values()).map((l) => l.name));
+        const availableLogos = ALL_LOGOS.filter((l) => !usedLogos.has(l.name)).sort(
+          () => Math.random() - 0.5
+        );
+
+        for (let i = 0; i < 2 && i < shuffledEmpty.length && i < availableLogos.length; i++) {
+          newMap.set(shuffledEmpty[i], availableLogos[i]);
+        }
+
+        return newMap;
+      });
+    }, 3000);
     return () => clearInterval(interval);
   }, []);
 
-  // Track which logos are part of the active connection for glow
+  // Animate connection lines
   useEffect(() => {
-    const [from, to] = CONNECTIONS[activeConnection];
-    setPulsingIndices(new Set([from, to]));
-  }, [activeConnection]);
+    const interval = setInterval(() => {
+      setActiveLineIdx((prev) => (prev + 1) % STATIC_LINES.length);
+    }, 1800);
+    return () => clearInterval(interval);
+  }, []);
 
   const gridWidth = COLS * CELL + (COLS - 1) * GAP;
   const gridHeight = ROWS * CELL + (ROWS - 1) * GAP;
 
   return (
     <div className="absolute right-0 top-0 bottom-0 w-[55%] hidden lg:flex items-center justify-end pointer-events-none overflow-hidden">
-      {/* Fade overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[hsl(var(--section-1))] via-[hsl(var(--section-1)/0.7)] to-transparent z-10" />
+      {/* Left fade into background */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[hsl(var(--section-1))] via-[hsl(var(--section-1)/0.8)] to-transparent z-10" />
 
-      <div className="relative pr-8 xl:pr-16 z-0" style={{ width: gridWidth, height: gridHeight }}>
-        {/* Animated connection lines */}
+      <div className="relative pr-6 xl:pr-12 z-0" style={{ width: gridWidth, height: gridHeight }}>
+        {/* Connection lines SVG */}
         <svg
           className="absolute inset-0 z-0"
           width={gridWidth}
           height={gridHeight}
           viewBox={`0 0 ${gridWidth} ${gridHeight}`}
         >
-          {CONNECTIONS.map(([from, to], i) => {
+          {STATIC_LINES.map(([from, to], i) => {
+            if (from >= TOTAL_CELLS || to >= TOTAL_CELLS) return null;
             const start = getCellCenter(from);
             const end = getCellCenter(to);
-            const isActive = i === activeConnection;
-            const fromLogo = logos[from];
-
-            // Curved path
-            const midX = (start.x + end.x) / 2;
-            const midY = (start.y + end.y) / 2;
-            const dx = end.x - start.x;
-            const dy = end.y - start.y;
-            const cx = midX - dy * 0.15;
-            const cy = midY + dx * 0.15;
-            const d = `M ${start.x} ${start.y} Q ${cx} ${cy} ${end.x} ${end.y}`;
+            const isActive = i === activeLineIdx;
+            const isNearActive =
+              Math.abs(i - activeLineIdx) <= 1 ||
+              (activeLineIdx === 0 && i === STATIC_LINES.length - 1);
 
             return (
-              <g key={`${from}-${to}`}>
-                {/* Base line (always visible, very dim) */}
-                <path
-                  d={d}
-                  fill="none"
+              <g key={`line-${from}-${to}`}>
+                {/* Static dim line */}
+                <line
+                  x1={start.x}
+                  y1={start.y}
+                  x2={end.x}
+                  y2={end.y}
                   stroke="hsl(var(--border))"
                   strokeWidth="1"
-                  opacity="0.1"
-                  strokeDasharray="4 4"
+                  opacity="0.12"
                 />
-                {/* Active animated line */}
+                {/* Active line */}
                 {isActive && (
-                  <motion.path
-                    d={d}
-                    fill="none"
-                    stroke={fromLogo.color}
-                    strokeWidth="2"
-                    strokeLinecap="round"
+                  <motion.line
+                    x1={start.x}
+                    y1={start.y}
+                    x2={end.x}
+                    y2={end.y}
+                    stroke="hsl(var(--primary))"
+                    strokeWidth="1.5"
                     initial={{ pathLength: 0, opacity: 0 }}
-                    animate={{ pathLength: 1, opacity: [0, 0.6, 0.6, 0] }}
-                    transition={{ duration: 2, ease: "easeInOut" }}
+                    animate={{ pathLength: 1, opacity: [0, 0.5, 0.5, 0] }}
+                    transition={{ duration: 1.8, ease: "easeInOut" }}
                   />
                 )}
-                {/* Traveling dot */}
-                {isActive && (
-                  <motion.circle
-                    r="3"
-                    fill={fromLogo.color}
-                    initial={{ offsetDistance: "0%" }}
-                    animate={{ offsetDistance: "100%" }}
-                    transition={{ duration: 1.5, ease: "easeInOut" }}
-                    style={{
-                      offsetPath: `path('${d}')`,
-                      filter: `drop-shadow(0 0 6px ${fromLogo.color})`,
-                    } as any}
-                  />
+                {/* Node dots at intersections */}
+                {isNearActive && (
+                  <>
+                    <motion.circle
+                      cx={start.x}
+                      cy={start.y}
+                      r="2"
+                      fill="hsl(var(--primary))"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: [0, 0.6, 0] }}
+                      transition={{ duration: 1.8 }}
+                    />
+                    <motion.circle
+                      cx={end.x}
+                      cy={end.y}
+                      r="2"
+                      fill="hsl(var(--primary))"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: [0, 0.6, 0] }}
+                      transition={{ duration: 1.8, delay: 0.3 }}
+                    />
+                  </>
                 )}
               </g>
             );
           })}
         </svg>
 
-        {/* Logo grid */}
+        {/* Grid cells */}
         <div
           className="relative grid z-[1]"
           style={{
@@ -173,63 +227,45 @@ export const HeroLogoGrid = () => {
             gap: `${GAP}px`,
           }}
         >
-          {logos.slice(0, COLS * ROWS).map((logo, i) => {
-            const isHighlighted = HIGHLIGHTED.includes(i);
-            const isPulsing = pulsingIndices.has(i);
+          {Array.from({ length: TOTAL_CELLS }).map((_, i) => {
+            const logo = filledCells.get(i);
 
             return (
-              <motion.div
-                key={logo.name}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: i * 0.035 }}
-                className="relative"
+              <div
+                key={i}
+                className="relative rounded-xl border transition-all duration-500"
+                style={{
+                  borderColor: logo
+                    ? `${logo.color}30`
+                    : "hsl(var(--border) / 0.1)",
+                  backgroundColor: logo
+                    ? `${logo.color}06`
+                    : "transparent",
+                }}
               >
-                <div
-                  className="w-full h-full rounded-xl border flex items-center justify-center transition-all duration-500"
-                  style={{
-                    borderColor: isPulsing
-                      ? `${logo.color}50`
-                      : isHighlighted
-                        ? `${logo.color}25`
-                        : "hsl(var(--border) / 0.12)",
-                    backgroundColor: isPulsing
-                      ? `${logo.color}12`
-                      : isHighlighted
-                        ? `${logo.color}06`
-                        : "hsl(var(--card) / 0.12)",
-                  }}
-                >
-                  <img
-                    src={logo.icon}
-                    alt={logo.name}
-                    className="w-7 h-7 transition-all duration-500"
-                    style={{
-                      opacity: isPulsing ? 0.9 : isHighlighted ? 0.5 : 0.12,
-                      filter: isPulsing
-                        ? `drop-shadow(0 0 8px ${logo.color}60)`
-                        : "none",
-                    }}
-                    loading="lazy"
-                  />
-                </div>
-
-                {/* Glow ring on active connection */}
-                <AnimatePresence>
-                  {isPulsing && (
+                <AnimatePresence mode="wait">
+                  {logo && (
                     <motion.div
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      transition={{ duration: 0.4 }}
-                      className="absolute inset-0 rounded-xl pointer-events-none"
-                      style={{
-                        boxShadow: `0 0 25px ${logo.color}25, inset 0 0 15px ${logo.color}08`,
-                      }}
-                    />
+                      key={logo.name}
+                      initial={{ opacity: 0, scale: 0.6 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.6 }}
+                      transition={{ duration: 0.6, ease: "easeOut" }}
+                      className="absolute inset-0 flex items-center justify-center"
+                    >
+                      <img
+                        src={logo.icon}
+                        alt={logo.name}
+                        className="w-8 h-8"
+                        style={{
+                          filter: `drop-shadow(0 0 10px ${logo.color}40)`,
+                        }}
+                        loading="lazy"
+                      />
+                    </motion.div>
                   )}
                 </AnimatePresence>
-              </motion.div>
+              </div>
             );
           })}
         </div>
