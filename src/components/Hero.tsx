@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, FileText } from "lucide-react";
 import { TypewriterText } from "./TypewriterText";
 import { useScrollReveal, staggerStyle } from "@/hooks/useScrollReveal";
+import { HeroLogoGrid } from "./HeroLogoGrid";
 
 const animatedPhrases = [
   "AI Transformation",
@@ -29,6 +30,9 @@ export const Hero = () => {
       {/* Corner glow */}
       <div className="absolute -top-40 -right-40 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[150px] animate-glow-pulse" />
       <div className="absolute -bottom-40 -left-40 w-[400px] h-[400px] bg-primary/3 rounded-full blur-[120px]" />
+
+      {/* Background logo grid */}
+      <HeroLogoGrid />
 
       <div ref={ref} className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
