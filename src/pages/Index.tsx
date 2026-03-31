@@ -15,7 +15,7 @@ import { ContactDialog } from "@/components/ContactDialog";
 import { SEO } from "@/components/SEO";
 import { OrganizationSchema, WebsiteSchema } from "@/components/StructuredData";
 import { BlogPreview } from "@/components/BlogPreview";
-import { Integrations } from "@/components/Integrations";
+
 
 const Index = () => {
   const [contactOpen, setContactOpen] = useState(false);
