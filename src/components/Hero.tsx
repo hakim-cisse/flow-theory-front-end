@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, FileText } from "lucide-react";
 import { TypewriterText } from "./TypewriterText";
 import { useScrollReveal, staggerStyle } from "@/hooks/useScrollReveal";
+import { HeroLogoGrid } from "./HeroLogoGrid";
 
 const animatedPhrases = [
   "AI Transformation",
