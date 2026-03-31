@@ -139,7 +139,6 @@ export const HeroLogoGrid = () => {
       <div
         ref={wrapRef}
         className="relative z-0 h-full flex items-center"
-        style={{ paddingRight: "clamp(16px, 3vw, 48px)" }}
       >
         {/* Always-visible circuit-board lines */}
         {hasCenters && (
