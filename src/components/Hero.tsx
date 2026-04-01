@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, FileText } from "lucide-react";
 import { TypewriterText } from "./TypewriterText";
-import { FloatingIntegrations } from "./FloatingIntegrations";
 import { useScrollReveal, staggerStyle } from "@/hooks/useScrollReveal";
 
 const animatedPhrases = [
@@ -32,63 +31,55 @@ export const Hero = () => {
       <div className="absolute -bottom-40 -left-40 w-[400px] h-[400px] bg-primary/3 rounded-full blur-[120px]" />
 
       <div ref={ref} className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-8 lg:gap-4">
-          {/* Left: Text Content */}
-          <div className="flex-1 max-w-2xl">
-            {/* Mono label */}
-            <div className="mb-8" style={staggerStyle(0, isVisible, { delay: 0.15, distance: 20 })}>
-              <button
-                onClick={scrollToCaseStudy}
-                className="group inline-flex items-center gap-3 text-mono text-primary/70 hover:text-primary transition-colors duration-300"
-              >
-                <FileText className="w-3.5 h-3.5" />
-                <span>We saved a top apartment locator $96K/year</span>
-                <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform duration-300" />
-              </button>
-            </div>
-
-            {/* Main headline */}
-            <div className="space-y-2 sm:space-y-4 mb-8 sm:mb-12" style={staggerStyle(1, isVisible, { delay: 0.15, duration: 0.8, distance: 40 })}>
-              <h1 className="text-hero-fit">
-                <span className="block text-foreground">Your business runs</span>
-                <span className="block text-foreground">on decisions.</span>
-                <span className="block text-foreground mt-1 sm:mt-2">We deliver</span>
-                <span className="block mt-1 sm:mt-2 min-h-[1.2em] whitespace-nowrap overflow-hidden text-[0.75em] sm:text-[1em]">
-                  <TypewriterText phrases={animatedPhrases} className="text-gradient" />
-                </span>
-                <span className="block text-foreground text-[0.35em] sm:text-[0.45em] mt-1 opacity-70">that make them smarter</span>
-              </h1>
-            </div>
-
-            <div className="accent-bar mb-6 sm:mb-8" style={staggerStyle(2, isVisible, { delay: 0.15 })} />
-
-            <p className="text-base sm:text-subheading text-muted-foreground max-w-2xl mb-8 sm:mb-12" style={staggerStyle(3, isVisible, { delay: 0.15, distance: 20 })}>
-              You don't need more AI hype. You need a partner who discovers what actually matters, trains your team to own it, and delivers results you can measure.
-            </p>
-
-            <div className="flex flex-col sm:flex-row items-start gap-4" style={staggerStyle(4, isVisible, { delay: 0.15, distance: 20 })}>
-              <Button 
-                size="lg" 
-                className="group font-semibold px-8 py-6 text-base glow transition-all duration-300"
-                asChild
-              >
-                <a href="https://cal.com/flow-theory-ai/alignment-call" target="_blank" rel="noopener noreferrer">
-                  Book Your Discovery Call
-                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                </a>
-              </Button>
-              <button
-                onClick={scrollToCaseStudy}
-                className="text-muted-foreground hover:text-primary transition-colors duration-300 text-sm font-medium underline underline-offset-4 py-3"
-              >
-                See founder results →
-              </button>
-            </div>
+        <div className="max-w-6xl mx-auto">
+          {/* Mono label */}
+          <div className="mb-8" style={staggerStyle(0, isVisible, { delay: 0.15, distance: 20 })}>
+            <button
+              onClick={scrollToCaseStudy}
+              className="group inline-flex items-center gap-3 text-mono text-primary/70 hover:text-primary transition-colors duration-300"
+            >
+              <FileText className="w-3.5 h-3.5" />
+              <span>We saved a top apartment locator $96K/year</span>
+              <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform duration-300" />
+            </button>
           </div>
 
-          {/* Right: Floating Integrations Network */}
-          <div className="hidden lg:block flex-1 w-full max-w-xl h-[600px]">
-            <FloatingIntegrations />
+          {/* Main headline */}
+          <div className="space-y-2 sm:space-y-4 mb-8 sm:mb-12" style={staggerStyle(1, isVisible, { delay: 0.15, duration: 0.8, distance: 40 })}>
+            <h1 className="text-hero-fit">
+              <span className="block text-foreground">Your business runs</span>
+              <span className="block text-foreground">on decisions.</span>
+              <span className="block text-foreground mt-1 sm:mt-2">We deliver</span>
+              <span className="block mt-1 sm:mt-2 min-h-[1.2em] whitespace-nowrap overflow-hidden text-[0.75em] sm:text-[1em]">
+                <TypewriterText phrases={animatedPhrases} className="text-gradient" />
+              </span>
+              <span className="block text-foreground text-[0.35em] sm:text-[0.45em] mt-1 opacity-70">that make them smarter</span>
+            </h1>
+          </div>
+
+          <div className="accent-bar mb-6 sm:mb-8" style={staggerStyle(2, isVisible, { delay: 0.15 })} />
+
+          <p className="text-base sm:text-subheading text-muted-foreground max-w-2xl mb-8 sm:mb-12" style={staggerStyle(3, isVisible, { delay: 0.15, distance: 20 })}>
+            You don't need more AI hype. You need a partner who discovers what actually matters, trains your team to own it, and delivers results you can measure.
+          </p>
+
+          <div className="flex flex-col sm:flex-row items-start gap-4" style={staggerStyle(4, isVisible, { delay: 0.15, distance: 20 })}>
+            <Button 
+              size="lg" 
+              className="group font-semibold px-8 py-6 text-base glow transition-all duration-300"
+              asChild
+            >
+              <a href="https://cal.com/flow-theory-ai/alignment-call" target="_blank" rel="noopener noreferrer">
+                Book Your Discovery Call
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </a>
+            </Button>
+            <button
+              onClick={scrollToCaseStudy}
+              className="text-muted-foreground hover:text-primary transition-colors duration-300 text-sm font-medium underline underline-offset-4 py-3"
+            >
+              See founder results →
+            </button>
           </div>
         </div>
       </div>
