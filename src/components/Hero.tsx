@@ -2,7 +2,6 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, FileText } from "lucide-react";
 import { TypewriterText } from "./TypewriterText";
 import { useScrollReveal, staggerStyle } from "@/hooks/useScrollReveal";
-import { HeroLogoGrid } from "./HeroLogoGrid";
 
 const animatedPhrases = [
   "AI Transformation",
@@ -23,27 +22,17 @@ export const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen overflow-visible section-1 pt-24 pb-24 md:pt-0 md:pb-16">
+    <section className="relative min-h-screen flex items-center overflow-hidden section-1 pt-20 md:pt-0">
+      {/* Vertical accent line */}
       <div className="absolute left-8 md:left-16 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-primary/20 to-transparent" />
-
+      
+      {/* Corner glow */}
       <div className="absolute -top-40 -right-40 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[150px] animate-glow-pulse" />
       <div className="absolute -bottom-40 -left-40 w-[400px] h-[400px] bg-primary/3 rounded-full blur-[120px]" />
 
-      <div
-        className="pointer-events-none absolute inset-y-0 right-0 z-10 hidden w-[58%] overflow-visible lg:flex lg:items-center lg:justify-center opacity-95"
-        style={{
-          maskImage: "linear-gradient(to right, transparent 0%, transparent 18%, black 42%, black 100%)",
-          WebkitMaskImage: "linear-gradient(to right, transparent 0%, transparent 18%, black 42%, black 100%)",
-        }}
-      >
-        <HeroLogoGrid className="justify-center" />
-      </div>
-
-      <div
-        ref={ref}
-        className="relative z-20 container mx-auto grid min-h-[calc(100vh-4rem)] items-center px-4 sm:px-6 lg:grid-cols-[minmax(0,1fr)_minmax(420px,520px)] lg:gap-8 lg:px-8"
-      >
-        <div className="max-w-xl pb-10 lg:max-w-none lg:pr-8">
+      <div ref={ref} className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
+          {/* Mono label */}
           <div className="mb-8" style={staggerStyle(0, isVisible, { delay: 0.15, distance: 20 })}>
             <button
               onClick={scrollToCaseStudy}
@@ -55,8 +44,9 @@ export const Hero = () => {
             </button>
           </div>
 
+          {/* Main headline */}
           <div className="space-y-2 sm:space-y-4 mb-8 sm:mb-12" style={staggerStyle(1, isVisible, { delay: 0.15, duration: 0.8, distance: 40 })}>
-            <h1 className="text-hero-fit pb-2">
+            <h1 className="text-hero-fit">
               <span className="block text-foreground">Your business runs</span>
               <span className="block text-foreground">on decisions.</span>
               <span className="block text-foreground mt-1 sm:mt-2">We deliver</span>
@@ -74,8 +64,8 @@ export const Hero = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row items-start gap-4" style={staggerStyle(4, isVisible, { delay: 0.15, distance: 20 })}>
-            <Button
-              size="lg"
+            <Button 
+              size="lg" 
               className="group font-semibold px-8 py-6 text-base glow transition-all duration-300"
               asChild
             >
@@ -92,8 +82,6 @@ export const Hero = () => {
             </button>
           </div>
         </div>
-
-        <div aria-hidden="true" className="hidden lg:block" />
       </div>
 
       <div className="absolute bottom-0 left-0 right-0 section-divider" />

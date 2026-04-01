@@ -16,7 +16,6 @@ import { SEO } from "@/components/SEO";
 import { OrganizationSchema, WebsiteSchema } from "@/components/StructuredData";
 import { BlogPreview } from "@/components/BlogPreview";
 
-
 const Index = () => {
   const [contactOpen, setContactOpen] = useState(false);
 
@@ -37,7 +36,6 @@ const Index = () => {
       <About />
       <HowItWorks />
       <Services />
-      
       <Industries />
       <CaseStudy />
       <Testimonials />
