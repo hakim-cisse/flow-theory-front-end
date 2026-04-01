@@ -35,7 +35,7 @@ const caseStudies: CaseStudyData[] = [
     company: "APT Locator",
     logo: aptLocatorLogo,
     tagline: "Leading Apartment Locating Company",
-    slug: "apt-locator-case-study",
+    slug: "69219a0c-d59b-449d-a342-7aa75e06316e-saving-120k-and-55-hours-a-week-how-apt-locator-automated-th",
     metrics: [
       { icon: <DollarSign className="w-4 h-4" />, value: "$72K–$120K", label: "Yearly Savings" },
       { icon: <Clock className="w-4 h-4" />, value: "~55 hrs", label: "Saved Weekly" },
