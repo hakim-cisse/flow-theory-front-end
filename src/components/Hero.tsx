@@ -58,7 +58,7 @@ export const Hero = () => {
 
           {/* Main headline */}
           <div className="space-y-2 sm:space-y-4 mb-8 sm:mb-12" style={staggerStyle(1, isVisible, { delay: 0.15, duration: 0.8, distance: 40 })}>
-            <h1 className="text-hero-fit">
+            <h1 className="text-hero-fit pb-2">
               <span className="block text-foreground">Your business runs</span>
               <span className="block text-foreground">on decisions.</span>
               <span className="block text-foreground mt-1 sm:mt-2">We deliver</span>
