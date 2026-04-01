@@ -259,34 +259,44 @@ export const CaseStudy = () => {
 
                 {/* Navigation */}
                 <div className="flex items-center justify-between mt-6 pt-4 border-t border-border/15">
-                  <button
-                    onClick={() => setActiveStep(Math.max(0, activeStep - 1))}
-                    disabled={activeStep === 0}
-                    className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
-                  >
-                    <ChevronLeft className="w-3.5 h-3.5" />
-                    Previous
-                  </button>
-                  <div className="flex gap-1.5">
-                    {active.timeline.map((_, i) => (
-                      <button
-                        key={i}
-                        onClick={() => setActiveStep(i)}
-                        className={cn(
-                          "w-1.5 h-1.5 rounded-full transition-all duration-300",
-                          activeStep === i ? "bg-primary w-4" : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
-                        )}
-                      />
-                    ))}
+                  <div className="flex items-center gap-4">
+                    <button
+                      onClick={() => setActiveStep(Math.max(0, activeStep - 1))}
+                      disabled={activeStep === 0}
+                      className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+                    >
+                      <ChevronLeft className="w-3.5 h-3.5" />
+                      Previous
+                    </button>
+                    <div className="flex gap-1.5">
+                      {active.timeline.map((_, i) => (
+                        <button
+                          key={i}
+                          onClick={() => setActiveStep(i)}
+                          className={cn(
+                            "w-1.5 h-1.5 rounded-full transition-all duration-300",
+                            activeStep === i ? "bg-primary w-4" : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
+                          )}
+                        />
+                      ))}
+                    </div>
+                    <button
+                      onClick={() => setActiveStep(Math.min(active.timeline.length - 1, activeStep + 1))}
+                      disabled={activeStep === active.timeline.length - 1}
+                      className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+                    >
+                      Next
+                      <ChevronRight className="w-3.5 h-3.5" />
+                    </button>
                   </div>
-                  <button
-                    onClick={() => setActiveStep(Math.min(active.timeline.length - 1, activeStep + 1))}
-                    disabled={activeStep === active.timeline.length - 1}
-                    className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+
+                  <Link
+                    to={`/blog/${active.slug}`}
+                    className="flex items-center gap-1.5 text-xs font-medium text-primary hover:text-primary/80 transition-colors group"
                   >
-                    Next
-                    <ChevronRight className="w-3.5 h-3.5" />
-                  </button>
+                    Read Full Case Study
+                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                  </Link>
                 </div>
               </div>
             </motion.div>
