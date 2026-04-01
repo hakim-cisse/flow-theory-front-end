@@ -98,9 +98,6 @@ const ToolsStrip = ({ isVisible }: { isVisible: boolean }) => {
         transition: "opacity 0.6s ease-out 0.3s, transform 0.6s ease-out 0.3s",
       }}
     >
-      <p className="text-xs text-muted-foreground/50 uppercase tracking-[0.2em] mb-6 text-center">
-        Tools & platforms we integrate
-      </p>
       <div className="relative">
         <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
         <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
@@ -112,16 +109,9 @@ const ToolsStrip = ({ isVisible }: { isVisible: boolean }) => {
           {allLogos.map((logo, i) => (
             <div
               key={`${logo.name}-${i}`}
-              className="flex-shrink-0 group cursor-pointer flex flex-col items-center gap-2"
-            >
-              <div
-                className="w-10 h-10 flex items-center justify-center text-muted-foreground/30 group-hover:text-primary transition-colors duration-300"
-                dangerouslySetInnerHTML={{ __html: logo.svg }}
-              />
-              <span className="text-[10px] text-muted-foreground/30 group-hover:text-muted-foreground transition-colors duration-300 whitespace-nowrap">
-                {logo.name}
-              </span>
-            </div>
+              className="flex-shrink-0 w-10 h-10 flex items-center justify-center text-foreground/40 hover:text-foreground/70 transition-colors duration-300 cursor-pointer"
+              dangerouslySetInnerHTML={{ __html: logo.svg }}
+            />
           ))}
         </div>
       </div>
