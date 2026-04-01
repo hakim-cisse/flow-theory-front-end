@@ -109,8 +109,8 @@ const ToolsStrip = ({ isVisible }: { isVisible: boolean }) => {
           {allLogos.map((logo, i) => (
             <div
               key={`${logo.name}-${i}`}
-              className="flex-shrink-0 w-10 h-10 flex items-center justify-center text-foreground/40 hover:text-foreground/70 transition-colors duration-300 cursor-pointer"
-              dangerouslySetInnerHTML={{ __html: logo.svg }}
+              className="flex-shrink-0 w-10 h-10 flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity duration-300 cursor-pointer"
+              dangerouslySetInnerHTML={{ __html: logo.svg.replace('<svg ', `<svg fill="${logo.color}" `) }}
             />
           ))}
         </div>
