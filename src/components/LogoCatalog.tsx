@@ -13,7 +13,7 @@ export const LogoCatalog = () => {
   const repeated = [...logos, ...logos, ...logos, ...logos, ...logos, ...logos];
 
   return (
-    <section className="py-8 md:py-10 section-2">
+    <section className="py-8 md:py-10 section-2 overflow-hidden">
       <p className="text-mono text-muted-foreground text-center mb-6">
         Trusted by businesses building the future
       </p>
