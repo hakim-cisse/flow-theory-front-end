@@ -73,6 +73,9 @@ export const Services = () => {
             <div className="accent-bar mt-6" style={staggerStyle(2, headerVisible)} />
           </div>
 
+          {/* Tools & Integrations Strip */}
+          <ToolsStrip isVisible={headerVisible} />
+
           <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border/30">
             {services.map((service, i) => (
               <div
