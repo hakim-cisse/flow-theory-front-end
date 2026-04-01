@@ -63,7 +63,7 @@ const caseStudies: CaseStudyData[] = [
     company: "Empower Estates Network",
     logo: eenLogo,
     tagline: "Real Estate Wholesaling Network",
-    slug: "empower-estates-network-case-study",
+    slug: "1dfcc5a9-37be-4f2b-8327-cbcbc932b828-rebuilding-the-engine-how-empower-estates-network-scaled-the",
     metrics: [
       { icon: <PhoneOff className="w-4 h-4" />, value: "0 duplicates", label: "Seller Call Overlap" },
       { icon: <Zap className="w-4 h-4" />, value: "3–5× faster", label: "Buyer Outreach" },
