@@ -129,7 +129,7 @@ const ToolsStrip = ({ isVisible }: { isVisible: boolean }) => {
   );
 };
 
-
+export const Services = () => {
   const { ref: headerRef, isVisible: headerVisible } = useScrollReveal();
   const { ref: gridRef, isVisible: gridVisible } = useScrollReveal({ threshold: 0.1 });
   const { ref: saasRef, isVisible: saasVisible } = useScrollReveal();
