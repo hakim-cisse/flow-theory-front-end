@@ -32,12 +32,18 @@ export const Hero = () => {
       <div className="absolute -bottom-40 -left-40 w-[400px] h-[400px] bg-primary/3 rounded-full blur-[120px]" />
 
       {/* Background logo grid */}
-      <div className="pointer-events-none absolute inset-0 z-0 overflow-visible">
-        <HeroLogoGrid />
+      <div
+        className="pointer-events-none absolute inset-y-0 right-0 z-10 hidden w-[60%] overflow-visible lg:flex lg:items-center"
+        style={{
+          maskImage: "linear-gradient(to right, transparent 0%, black 24%, black 100%)",
+          WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 24%, black 100%)",
+        }}
+      >
+        <HeroLogoGrid className="h-full w-full" />
       </div>
 
       <div ref={ref} className="relative z-20 container mx-auto flex min-h-[calc(100vh-4rem)] items-center px-4 sm:px-6 lg:px-8">
-        <div className="max-w-xl lg:max-w-[45%] pb-8">
+        <div className="max-w-xl pb-10 lg:max-w-[48%]">
           {/* Mono label */}
           <div className="mb-8" style={staggerStyle(0, isVisible, { delay: 0.15, distance: 20 })}>
             <button
