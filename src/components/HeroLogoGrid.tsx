@@ -176,9 +176,9 @@ export const HeroLogoGrid = () => {
         <div
           className="relative grid z-[1]"
           style={{
-            gridTemplateColumns: `repeat(${COLS}, 88px)`,
-            gridTemplateRows: `repeat(${ROWS}, 88px)`,
-            gap: "12px",
+            gridTemplateColumns: `repeat(${COLS}, 80px)`,
+            gridTemplateRows: `repeat(${ROWS}, 80px)`,
+            gap: "24px",
           }}
         >
           {Array.from({ length: TOTAL_CELLS }).map((_, i) => {
