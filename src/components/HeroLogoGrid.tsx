@@ -47,7 +47,11 @@ const ROWS = 6;
 const TOTAL_CELLS = COLS * ROWS;
 const VISIBLE_COUNT = 7;
 
-export const HeroLogoGrid = () => {
+interface HeroLogoGridProps {
+  className?: string;
+}
+
+export const HeroLogoGrid = ({ className = "" }: HeroLogoGridProps) => {
   const [filledCells, setFilledCells] = useState<Map<number, LogoDef>>(new Map());
 
   const pickLogos = useCallback(() => {
@@ -86,12 +90,11 @@ export const HeroLogoGrid = () => {
   }, []);
 
   return (
-    <div className="absolute right-0 top-0 bottom-0 w-[55%] hidden lg:flex items-center justify-center pointer-events-none select-none">
+    <div className={`relative hidden h-full w-full items-center justify-start overflow-visible pl-6 pointer-events-none select-none lg:flex xl:pl-10 ${className}`}>
       {/* Fade edges into background */}
       <div className="absolute inset-0 z-10 pointer-events-none"
         style={{
           background: `
-            linear-gradient(to right, hsl(var(--section-1)) 0%, hsl(var(--section-1) / 0.9) 8%, transparent 35%),
             linear-gradient(to bottom, hsl(var(--section-1)) 0%, transparent 15%),
             linear-gradient(to top, hsl(var(--section-1)) 0%, transparent 15%)
           `,
