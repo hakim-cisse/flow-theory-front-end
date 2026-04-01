@@ -86,14 +86,14 @@ export const HeroLogoGrid = () => {
   }, []);
 
   return (
-    <div className="absolute right-0 top-0 bottom-0 w-[60%] hidden lg:flex items-center justify-center pointer-events-none select-none">
-      {/* Fade edges — strong left fade so text is never obscured */}
+    <div className="absolute right-0 top-0 bottom-0 w-[55%] hidden lg:flex items-center justify-center pointer-events-none select-none">
+      {/* Fade edges into background */}
       <div className="absolute inset-0 z-10 pointer-events-none"
         style={{
           background: `
-            linear-gradient(to right, hsl(var(--section-1)) 0%, hsl(var(--section-1) / 0.95) 15%, hsl(var(--section-1) / 0.6) 35%, transparent 55%),
-            linear-gradient(to bottom, hsl(var(--section-1)) 0%, transparent 12%),
-            linear-gradient(to top, hsl(var(--section-1)) 0%, transparent 12%)
+            linear-gradient(to right, hsl(var(--section-1)) 0%, hsl(var(--section-1) / 0.9) 8%, transparent 35%),
+            linear-gradient(to bottom, hsl(var(--section-1)) 0%, transparent 15%),
+            linear-gradient(to top, hsl(var(--section-1)) 0%, transparent 15%)
           `,
         }}
       />
@@ -102,8 +102,8 @@ export const HeroLogoGrid = () => {
       <div
         className="relative z-0 grid"
         style={{
-          gridTemplateColumns: `repeat(${COLS}, 100px)`,
-          gridTemplateRows: `repeat(${ROWS}, 100px)`,
+          gridTemplateColumns: `repeat(${COLS}, 90px)`,
+          gridTemplateRows: `repeat(${ROWS}, 90px)`,
           gap: "20px",
         }}
       >
