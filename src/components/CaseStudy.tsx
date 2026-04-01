@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Clock, DollarSign, Building2, PhoneOff, Zap, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { Clock, DollarSign, Building2, PhoneOff, Zap, ArrowRight, ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
+import { Link } from "react-router-dom";
 import aptLocatorLogo from "@/assets/apt-locator-logo.png";
 import eenLogo from "@/assets/een-logo.png";
 import { cn } from "@/lib/utils";
@@ -23,6 +24,7 @@ interface CaseStudyData {
   company: string;
   logo: string;
   tagline: string;
+  slug: string;
   metrics: MetricItem[];
   timeline: TimelineStep[];
 }
@@ -33,6 +35,7 @@ const caseStudies: CaseStudyData[] = [
     company: "APT Locator",
     logo: aptLocatorLogo,
     tagline: "Leading Apartment Locating Company",
+    slug: "apt-locator-case-study",
     metrics: [
       { icon: <DollarSign className="w-4 h-4" />, value: "$72K–$120K", label: "Yearly Savings" },
       { icon: <Clock className="w-4 h-4" />, value: "~55 hrs", label: "Saved Weekly" },
@@ -60,6 +63,7 @@ const caseStudies: CaseStudyData[] = [
     company: "Empower Estates Network",
     logo: eenLogo,
     tagline: "Real Estate Wholesaling Network",
+    slug: "empower-estates-network-case-study",
     metrics: [
       { icon: <PhoneOff className="w-4 h-4" />, value: "0 duplicates", label: "Seller Call Overlap" },
       { icon: <Zap className="w-4 h-4" />, value: "3–5× faster", label: "Buyer Outreach" },
@@ -255,34 +259,44 @@ export const CaseStudy = () => {
 
                 {/* Navigation */}
                 <div className="flex items-center justify-between mt-6 pt-4 border-t border-border/15">
-                  <button
-                    onClick={() => setActiveStep(Math.max(0, activeStep - 1))}
-                    disabled={activeStep === 0}
-                    className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
-                  >
-                    <ChevronLeft className="w-3.5 h-3.5" />
-                    Previous
-                  </button>
-                  <div className="flex gap-1.5">
-                    {active.timeline.map((_, i) => (
-                      <button
-                        key={i}
-                        onClick={() => setActiveStep(i)}
-                        className={cn(
-                          "w-1.5 h-1.5 rounded-full transition-all duration-300",
-                          activeStep === i ? "bg-primary w-4" : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
-                        )}
-                      />
-                    ))}
+                  <div className="flex items-center gap-4">
+                    <button
+                      onClick={() => setActiveStep(Math.max(0, activeStep - 1))}
+                      disabled={activeStep === 0}
+                      className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+                    >
+                      <ChevronLeft className="w-3.5 h-3.5" />
+                      Previous
+                    </button>
+                    <div className="flex gap-1.5">
+                      {active.timeline.map((_, i) => (
+                        <button
+                          key={i}
+                          onClick={() => setActiveStep(i)}
+                          className={cn(
+                            "w-1.5 h-1.5 rounded-full transition-all duration-300",
+                            activeStep === i ? "bg-primary w-4" : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
+                          )}
+                        />
+                      ))}
+                    </div>
+                    <button
+                      onClick={() => setActiveStep(Math.min(active.timeline.length - 1, activeStep + 1))}
+                      disabled={activeStep === active.timeline.length - 1}
+                      className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+                    >
+                      Next
+                      <ChevronRight className="w-3.5 h-3.5" />
+                    </button>
                   </div>
-                  <button
-                    onClick={() => setActiveStep(Math.min(active.timeline.length - 1, activeStep + 1))}
-                    disabled={activeStep === active.timeline.length - 1}
-                    className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+
+                  <Link
+                    to={`/blog/${active.slug}`}
+                    className="flex items-center gap-1.5 text-xs font-medium text-primary hover:text-primary/80 transition-colors group"
                   >
-                    Next
-                    <ChevronRight className="w-3.5 h-3.5" />
-                  </button>
+                    Read Full Case Study
+                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                  </Link>
                 </div>
               </div>
             </motion.div>
