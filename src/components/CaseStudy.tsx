@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Clock, DollarSign, Building2, PhoneOff, Zap, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { Clock, DollarSign, Building2, PhoneOff, Zap, ArrowRight, ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
+import { Link } from "react-router-dom";
 import aptLocatorLogo from "@/assets/apt-locator-logo.png";
 import eenLogo from "@/assets/een-logo.png";
 import { cn } from "@/lib/utils";
