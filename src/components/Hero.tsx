@@ -23,7 +23,7 @@ export const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden section-1 pt-20 md:pt-0">
+    <section className="relative min-h-screen flex items-center overflow-visible section-1 pt-24 md:pt-0">
       {/* Vertical accent line */}
       <div className="absolute left-8 md:left-16 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-primary/20 to-transparent" />
       
