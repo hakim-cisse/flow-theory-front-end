@@ -102,8 +102,8 @@ export const HeroLogoGrid = () => {
       <div
         className="relative z-0 grid"
         style={{
-          gridTemplateColumns: `repeat(${COLS}, 90px)`,
-          gridTemplateRows: `repeat(${ROWS}, 90px)`,
+          gridTemplateColumns: `repeat(${COLS}, 100px)`,
+          gridTemplateRows: `repeat(${ROWS}, 100px)`,
           gap: "20px",
         }}
       >
