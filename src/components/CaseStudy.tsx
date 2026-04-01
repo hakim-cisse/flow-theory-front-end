@@ -24,6 +24,7 @@ interface CaseStudyData {
   company: string;
   logo: string;
   tagline: string;
+  slug: string;
   metrics: MetricItem[];
   timeline: TimelineStep[];
 }
