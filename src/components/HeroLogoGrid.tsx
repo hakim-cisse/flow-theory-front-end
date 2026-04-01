@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef, useLayoutEffect, useCallback } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface LogoDef {
@@ -42,56 +42,14 @@ const ALL_LOGOS: LogoDef[] = [
   { name: "Microsoft Teams", color: "#6264A7", icon: "https://cdn.simpleicons.org/microsoftteams/6264A7" },
 ];
 
-const COLS = 5;
-const ROWS = 7;
+const COLS = 4;
+const ROWS = 6;
 const TOTAL_CELLS = COLS * ROWS;
-const VISIBLE_COUNT = 5;
-
-// Circuit-board style connections — vertical and horizontal between adjacent cells
-const CONNECTIONS: [number, number][] = [];
-// Vertical connections (cell to cell below)
-for (let r = 0; r < ROWS - 1; r++) {
-  for (let c = 0; c < COLS; c++) {
-    // Only add some connections to keep it sparse like the reference
-    if ((r + c) % 2 === 0) {
-      CONNECTIONS.push([r * COLS + c, (r + 1) * COLS + c]);
-    }
-  }
-}
-// Horizontal connections
-for (let r = 0; r < ROWS; r++) {
-  for (let c = 0; c < COLS - 1; c++) {
-    if ((r + c) % 3 === 0) {
-      CONNECTIONS.push([r * COLS + c, r * COLS + c + 1]);
-    }
-  }
-}
+const VISIBLE_COUNT = 7;
 
 export const HeroLogoGrid = () => {
-  const wrapRef = useRef<HTMLDivElement>(null);
-  const cellRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const [centers, setCenters] = useState<{ x: number; y: number }[]>([]);
   const [filledCells, setFilledCells] = useState<Map<number, LogoDef>>(new Map());
 
-  // Measure real cell positions
-  useLayoutEffect(() => {
-    const measure = () => {
-      if (!wrapRef.current) return;
-      const wr = wrapRef.current.getBoundingClientRect();
-      setCenters(
-        cellRefs.current.map((el) => {
-          if (!el) return { x: 0, y: 0 };
-          const r = el.getBoundingClientRect();
-          return { x: r.left - wr.left + r.width / 2, y: r.top - wr.top + r.height / 2 };
-        })
-      );
-    };
-    const raf = requestAnimationFrame(() => setTimeout(measure, 80));
-    window.addEventListener("resize", measure);
-    return () => { cancelAnimationFrame(raf); window.removeEventListener("resize", measure); };
-  }, []);
-
-  // Initial logos
   const pickLogos = useCallback(() => {
     const cells = Array.from({ length: TOTAL_CELLS }, (_, i) => i)
       .sort(() => Math.random() - 0.5)
@@ -104,16 +62,14 @@ export const HeroLogoGrid = () => {
 
   useEffect(() => { setFilledCells(pickLogos()); }, [pickLogos]);
 
-  // Swap one logo at a time every 2.5s for smooth continuous rotation
+  // Rotate one logo every 2.5s
   useEffect(() => {
     const interval = setInterval(() => {
       setFilledCells((prev) => {
         const newMap = new Map(prev);
         const keys = Array.from(newMap.keys());
-        // Remove one random
         const removeIdx = keys[Math.floor(Math.random() * keys.length)];
         newMap.delete(removeIdx);
-        // Add one in a new random empty cell
         const empty = Array.from({ length: TOTAL_CELLS }, (_, i) => i)
           .filter((i) => !newMap.has(i))
           .sort(() => Math.random() - 0.5);
@@ -129,94 +85,62 @@ export const HeroLogoGrid = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const hasCenters = centers.length === TOTAL_CELLS && centers.some((c) => c.x > 0);
-
   return (
-    <div className="absolute right-0 top-0 bottom-0 w-[58%] hidden lg:flex items-center justify-center pointer-events-none">
-      {/* Left fade into section background */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[hsl(var(--section-1))] via-[hsl(var(--section-1)/0.85)] to-transparent z-10" />
+    <div className="absolute right-0 top-0 bottom-0 w-[55%] hidden lg:flex items-center justify-center pointer-events-none select-none">
+      {/* Fade edges into background */}
+      <div className="absolute inset-0 z-10 pointer-events-none"
+        style={{
+          background: `
+            linear-gradient(to right, hsl(var(--section-1)) 0%, hsl(var(--section-1) / 0.9) 8%, transparent 35%),
+            linear-gradient(to bottom, hsl(var(--section-1)) 0%, transparent 15%),
+            linear-gradient(to top, hsl(var(--section-1)) 0%, transparent 15%)
+          `,
+        }}
+      />
 
+      {/* Grid */}
       <div
-        ref={wrapRef}
-        className="relative z-0 h-full flex items-center"
+        className="relative z-0 grid"
+        style={{
+          gridTemplateColumns: `repeat(${COLS}, 90px)`,
+          gridTemplateRows: `repeat(${ROWS}, 90px)`,
+          gap: "20px",
+        }}
       >
-        {/* Always-visible circuit-board lines */}
-        {hasCenters && (
-          <svg className="absolute inset-0 z-0 overflow-visible w-full h-full">
-            {CONNECTIONS.map(([from, to], i) => {
-              if (from >= TOTAL_CELLS || to >= TOTAL_CELLS) return null;
-              const s = centers[from];
-              const e = centers[to];
-              if (!s || !e || (s.x === 0 && s.y === 0)) return null;
-              return (
-                <line
-                  key={i}
-                  x1={s.x} y1={s.y} x2={e.x} y2={e.y}
-                  stroke="hsl(var(--border))"
-                  strokeWidth="1"
-                  opacity="0.15"
-                />
-              );
-            })}
-            {/* Small dots at each cell center */}
-            {centers.map((c, i) => (
-              c.x > 0 && (
-                <circle
-                  key={`dot-${i}`}
-                  cx={c.x} cy={c.y} r="2"
-                  fill="hsl(var(--border))"
-                  opacity="0.2"
-                />
-              )
-            ))}
-          </svg>
-        )}
-
-        {/* Cell grid */}
-        <div
-          className="relative grid z-[1]"
-          style={{
-            gridTemplateColumns: `repeat(${COLS}, 80px)`,
-            gridTemplateRows: `repeat(${ROWS}, 80px)`,
-            gap: "24px",
-          }}
-        >
-          {Array.from({ length: TOTAL_CELLS }).map((_, i) => {
-            const logo = filledCells.get(i);
-            return (
-              <div
-                key={i}
-                ref={(el) => { cellRefs.current[i] = el; }}
-                className="relative rounded-2xl border transition-all duration-700"
-                style={{
-                  borderColor: logo ? `${logo.color}25` : "hsl(var(--border) / 0.08)",
-                  backgroundColor: logo ? `${logo.color}05` : "transparent",
-                }}
-              >
-                <AnimatePresence mode="wait">
-                  {logo && (
-                    <motion.div
-                      key={logo.name}
-                      initial={{ opacity: 0, scale: 0.5, filter: "blur(4px)" }}
-                      animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-                      exit={{ opacity: 0, scale: 0.5, filter: "blur(4px)" }}
-                      transition={{ duration: 0.8, ease: "easeOut" }}
-                      className="absolute inset-0 flex items-center justify-center"
-                    >
-                      <img
-                        src={logo.icon}
-                        alt={logo.name}
-                        className="w-9 h-9"
-                        style={{ filter: `drop-shadow(0 0 12px ${logo.color}50)` }}
-                        loading="lazy"
-                      />
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-            );
-          })}
-        </div>
+        {Array.from({ length: TOTAL_CELLS }).map((_, i) => {
+          const logo = filledCells.get(i);
+          return (
+            <div
+              key={i}
+              className="relative rounded-2xl transition-all duration-700"
+              style={{
+                border: `1px solid ${logo ? `${logo.color}30` : "hsl(var(--border) / 0.12)"}`,
+                backgroundColor: logo ? `${logo.color}08` : "transparent",
+              }}
+            >
+              <AnimatePresence mode="wait">
+                {logo && (
+                  <motion.div
+                    key={logo.name}
+                    initial={{ opacity: 0, scale: 0.6 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.6 }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                    className="absolute inset-0 flex items-center justify-center"
+                  >
+                    <img
+                      src={logo.icon}
+                      alt={logo.name}
+                      className="w-8 h-8"
+                      style={{ filter: `drop-shadow(0 0 10px ${logo.color}40)` }}
+                      loading="lazy"
+                    />
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
