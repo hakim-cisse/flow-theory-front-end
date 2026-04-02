@@ -2,7 +2,7 @@ import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 
 const SITE_URL = "https://www.flowtheoryai.com";
 const API_BASE_URL = "https://taetntekartazcxgrawh.supabase.co/functions/v1/get-posts";
-const DEFAULT_OG_IMAGE = "https://lh3.googleusercontent.com/d/1gObthFq6tfJDZLDv4KjJ65UxB2pBN8Qn";
+const DEFAULT_OG_IMAGE = "https://www.flowtheoryai.com/og-image.jpg";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
