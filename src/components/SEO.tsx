@@ -21,7 +21,7 @@ interface SEOProps {
 const SITE_NAME = "Flow Theory AI";
 const DEFAULT_TITLE = "Flow Theory AI - Become an AI-First Business";
 const DEFAULT_DESCRIPTION = "Flow Theory AI helps businesses become AI-first. Explore our team, AI automation services, case studies, and book an intro call to start your transformation.";
-const DEFAULT_OG_IMAGE = "https://lh3.googleusercontent.com/d/1gObthFq6tfJDZLDv4KjJ65UxB2pBN8Qn";
+const DEFAULT_OG_IMAGE = "https://www.flowtheoryai.com/og-image.jpg";
 const SITE_URL = "https://www.flowtheoryai.com";
 
 export const SEO = ({
