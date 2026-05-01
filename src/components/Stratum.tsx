@@ -30,7 +30,7 @@ const layers = [
     icon: BrainCircuit,
     title: "Stratum Brain",
     description:
-      'The centrepiece. Query your business in plain English: "What\'s our cash runway?", "Which clients haven\'t had contact in 30 days?", "Which proposals are stalled?" Instant answers from live data. No analysts. No dashboards to learn.',
+      'The centerpiece. Query your business in plain English: "What\'s our cash runway?", "Which clients haven\'t had contact in 30 days?", "Which proposals are stalled?" Instant answers from live data. No analysts. No dashboards to learn.',
     highlight: true,
   },
   {
@@ -162,7 +162,7 @@ export const Stratum = () => {
                           </h3>
                           {layer.highlight && (
                             <span className="text-mono text-[10px] px-2 py-0.5 bg-primary/10 text-primary border border-primary/20">
-                              The centrepiece
+                              The centerpiece
                             </span>
                           )}
                         </div>
