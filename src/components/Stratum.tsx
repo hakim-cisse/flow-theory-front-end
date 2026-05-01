@@ -1,6 +1,7 @@
-import { Plug, BookOpen, Network, BrainCircuit, Bot, Infinity as InfinityIcon, ServerOff, Rocket, KeyRound, ArrowRight } from "lucide-react";
+import { Plug, BookOpen, Network, BrainCircuit, Bot, Infinity as InfinityIcon, ServerOff, Rocket, KeyRound, ArrowRight, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useScrollReveal, staggerStyle } from "@/hooks/useScrollReveal";
+import stratumBrainScreenshot from "@/assets/stratum-brain-screenshot.png";
 
 const layers = [
   {
@@ -72,6 +73,7 @@ const benefits = [
 export const Stratum = () => {
   const { ref: headerRef, isVisible: headerVisible } = useScrollReveal();
   const { ref: stackRef, isVisible: stackVisible } = useScrollReveal({ threshold: 0.05 });
+  const { ref: showcaseRef, isVisible: showcaseVisible } = useScrollReveal({ threshold: 0.15 });
   const { ref: benefitsRef, isVisible: benefitsVisible } = useScrollReveal({ threshold: 0.2 });
 
   return (
@@ -179,6 +181,87 @@ export const Stratum = () => {
                   </div>
                 );
               })}
+            </div>
+          </div>
+
+          {/* Stratum Brain in action — screenshot showcase */}
+          <div ref={showcaseRef} className="mt-28 sm:mt-32">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+              {/* Left: copy */}
+              <div className="lg:col-span-4 order-2 lg:order-1">
+                <div
+                  className="inline-flex items-center gap-2 text-mono text-xs text-primary/80 border border-primary/20 bg-primary/5 px-3 py-1.5 mb-6"
+                  style={staggerStyle(0, showcaseVisible)}
+                >
+                  <Sparkles className="w-3.5 h-3.5" strokeWidth={2} />
+                  Live demo
+                </div>
+                <h3
+                  className="text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight mb-5"
+                  style={staggerStyle(1, showcaseVisible)}
+                >
+                  Ask your business <span className="text-gradient">anything</span>.
+                </h3>
+                <p
+                  className="text-base text-muted-foreground leading-relaxed mb-6"
+                  style={staggerStyle(2, showcaseVisible)}
+                >
+                  This is the Stratum Brain — querying live ClickUp CRM data in plain English.
+                  No dashboards. No analysts. No exports. Just answers, with the receipts.
+                </p>
+                <ul className="space-y-3" style={staggerStyle(3, showcaseVisible)}>
+                  {[
+                    "Reads directly from your connected tools",
+                    "Shows confidence + reasoning, not just numbers",
+                    "Trained on your business — not a generic LLM",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-3 text-sm text-foreground/80">
+                      <span className="mt-2 w-1.5 h-1.5 bg-primary shrink-0" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Right: screenshot frame */}
+              <div
+                className="lg:col-span-8 order-1 lg:order-2 relative group"
+                style={staggerStyle(2, showcaseVisible, { delay: 0.15, distance: 40 })}
+              >
+                {/* Glow */}
+                <div className="absolute -inset-6 bg-gradient-to-tr from-primary/20 via-primary/5 to-accent/20 blur-3xl opacity-60 group-hover:opacity-90 transition-opacity duration-700 pointer-events-none" />
+
+                {/* Frame */}
+                <div className="relative border border-primary/20 bg-card/60 backdrop-blur-sm p-2 sm:p-3 shadow-[0_30px_80px_-30px_hsl(var(--primary)/0.5)]">
+                  {/* Faux browser chrome */}
+                  <div className="flex items-center justify-between px-3 py-2 border-b border-border/40 bg-background/60">
+                    <div className="flex items-center gap-1.5">
+                      <span className="w-2.5 h-2.5 rounded-full bg-foreground/20" />
+                      <span className="w-2.5 h-2.5 rounded-full bg-foreground/20" />
+                      <span className="w-2.5 h-2.5 rounded-full bg-foreground/20" />
+                    </div>
+                    <div className="text-mono text-[10px] sm:text-xs text-muted-foreground truncate px-3">
+                      stratum.flowtheoryai.com
+                    </div>
+                    <div className="text-mono text-[10px] text-primary/60 hidden sm:block">LIVE</div>
+                  </div>
+
+                  {/* Screenshot */}
+                  <div className="relative overflow-hidden bg-background">
+                    <img
+                      src={stratumBrainScreenshot}
+                      alt="Stratum Brain interface showing a live query against ClickUp CRM data with answer, confidence rating, and reasoning."
+                      className="w-full h-auto block"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 pointer-events-none ring-1 ring-inset ring-primary/10" />
+                  </div>
+                </div>
+
+                {/* Corner accents */}
+                <div className="absolute -top-px -left-px w-6 h-6 border-t-2 border-l-2 border-primary/60 pointer-events-none" />
+                <div className="absolute -bottom-px -right-px w-6 h-6 border-b-2 border-r-2 border-primary/60 pointer-events-none" />
+              </div>
             </div>
           </div>
 
