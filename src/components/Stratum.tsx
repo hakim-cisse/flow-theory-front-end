@@ -162,7 +162,7 @@ export const Stratum = () => {
                           </h3>
                           {layer.highlight && (
                             <span className="text-mono text-[10px] px-2 py-0.5 bg-primary/10 text-primary border border-primary/20">
-                              The centrepiece
+                              The centerpiece
                             </span>
                           )}
                         </div>
