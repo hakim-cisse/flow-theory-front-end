@@ -1,6 +1,7 @@
-import { Plug, BookOpen, Network, BrainCircuit, Bot, Infinity as InfinityIcon, ServerOff, Rocket, KeyRound, ArrowRight } from "lucide-react";
+import { Plug, BookOpen, Network, BrainCircuit, Bot, Infinity as InfinityIcon, ServerOff, Rocket, KeyRound, ArrowRight, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useScrollReveal, staggerStyle } from "@/hooks/useScrollReveal";
+import stratumBrainScreenshot from "@/assets/stratum-brain-screenshot.png";
 
 const layers = [
   {
