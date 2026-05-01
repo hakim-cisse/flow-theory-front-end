@@ -73,6 +73,7 @@ const benefits = [
 export const Stratum = () => {
   const { ref: headerRef, isVisible: headerVisible } = useScrollReveal();
   const { ref: stackRef, isVisible: stackVisible } = useScrollReveal({ threshold: 0.05 });
+  const { ref: showcaseRef, isVisible: showcaseVisible } = useScrollReveal({ threshold: 0.15 });
   const { ref: benefitsRef, isVisible: benefitsVisible } = useScrollReveal({ threshold: 0.2 });
 
   return (
