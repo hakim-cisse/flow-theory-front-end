@@ -41,14 +41,17 @@ export const About = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Left — editorial text */}
             <div className="space-y-8">
-              <span className="text-mono text-primary/70" style={staggerStyle(0, isVisible)}>Why founders choose us</span>
+              <span className="text-mono text-primary/70" style={staggerStyle(0, isVisible)}>Built for startups & SMBs</span>
               <h2 className="text-heading" style={staggerStyle(1, isVisible)}>
-                You don't need <span className="text-gradient">more tools.</span><br />
-                You need the right systems.
+                Fragmented tools. Manual reporting.<br />
+                <span className="text-gradient">No time to build anything.</span>
               </h2>
               <div className="accent-bar" style={staggerStyle(2, isVisible)} />
               <p className="text-subheading text-muted-foreground leading-relaxed" style={staggerStyle(3, isVisible)}>
-                We help businesses reclaim time and scale faster by turning everyday operations into intelligent systems. From workflow automation to AI integration, we build the foundation for long-term leverage and growth.
+                Most startups and SMBs don't have a dedicated AI team — and don't have the bandwidth to become one. You're stitching together spreadsheets, copy-pasting between tools, and reporting on numbers that should report themselves.
+              </p>
+              <p className="text-base text-muted-foreground/80 leading-relaxed" style={staggerStyle(3, isVisible)}>
+                Flow Theory AI is the partner that brings structured, compounding AI transformation — without requiring technical expertise on your side. We design the system. You run the business.
               </p>
               <div className="flex flex-col sm:flex-row items-start gap-4 pt-4" style={staggerStyle(4, isVisible)}>
                 <Button asChild size="lg" className="group px-8 py-6 font-semibold glow">
