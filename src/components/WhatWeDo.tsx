@@ -58,17 +58,10 @@ export const WhatWeDo = () => {
               What we do
             </span>
             <h2 className="text-heading" style={staggerStyle(1, headerVisible)}>
-              Three ways we move<br />
-              <span className="text-gradient">your business forward.</span>
+              Three ways forward.<br />
+              <span className="text-gradient">One clear starting point.</span>
             </h2>
             <div className="accent-bar mt-6" style={staggerStyle(2, headerVisible)} />
-            <p
-              className="text-subheading text-muted-foreground leading-relaxed mt-8"
-              style={staggerStyle(3, headerVisible)}
-            >
-              Pick the entry point that fits where you are. Most engagements blend all three
-              over time — but every relationship starts with one clear step.
-            </p>
           </div>
 
           {/* Tab bar */}
