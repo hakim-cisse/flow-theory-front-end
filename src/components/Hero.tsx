@@ -51,7 +51,7 @@ export const Hero = () => {
           >
             <div className="accent-bar mb-5" />
             <p className="text-italic-accent text-lg md:text-xl leading-snug text-foreground/85">
-              We design, build, and scale AI systems that move the bottom line.
+              We design, build, and scale systems that move the bottom line.
             </p>
           </aside>
         </div>
