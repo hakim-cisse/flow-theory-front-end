@@ -6,61 +6,61 @@
 
 @layer base {
   :root {
-    /* === EDITORIAL LUXE PALETTE (light) === */
-    /* Cream/ivory paper background */
-    --background: 36 33% 95%;             /* #F5F1EA */
-    --foreground: 30 8% 12%;              /* deep charcoal-ink */
+    /* === DARK EDITORIAL PALETTE === */
+    /* Deep warm oxblood-charcoal background */
+    --background: 350 18% 8%;             /* #1A1115 */
+    --foreground: 36 30% 92%;             /* warm cream */
 
-    --card: 36 28% 97%;
-    --card-foreground: 30 8% 12%;
+    --card: 350 16% 11%;
+    --card-foreground: 36 30% 92%;
 
-    --popover: 36 28% 97%;
-    --popover-foreground: 30 8% 12%;
+    --popover: 350 16% 11%;
+    --popover-foreground: 36 30% 92%;
 
-    /* Muted oxblood accent */
-    --primary: 358 52% 38%;               /* #94353A oxblood */
-    --primary-foreground: 36 33% 96%;
-    --primary-glow: 358 60% 48%;
+    /* Champagne gold accent */
+    --primary: 41 45% 60%;                /* #C9A961 champagne */
+    --primary-foreground: 350 18% 8%;
+    --primary-glow: 41 55% 68%;
 
-    --secondary: 36 22% 90%;
-    --secondary-foreground: 30 8% 12%;
+    --secondary: 350 14% 14%;
+    --secondary-foreground: 36 30% 92%;
 
-    --muted: 36 18% 88%;
-    --muted-foreground: 30 8% 38%;
+    --muted: 350 12% 16%;
+    --muted-foreground: 36 18% 68%;
 
-    --accent: 358 52% 38%;
-    --accent-foreground: 36 33% 96%;
+    --accent: 41 45% 60%;
+    --accent-foreground: 350 18% 8%;
 
-    --destructive: 0 70% 45%;
-    --destructive-foreground: 36 33% 96%;
+    --destructive: 0 65% 50%;
+    --destructive-foreground: 36 30% 92%;
 
-    --border: 30 12% 80%;                 /* hairline */
-    --input: 36 22% 92%;
-    --ring: 358 52% 38%;
+    --border: 36 14% 24%;                 /* warm hairline */
+    --input: 350 14% 14%;
+    --ring: 41 45% 60%;
 
-    --radius: 0.25rem;                    /* tighter, more editorial */
+    --radius: 0.25rem;
 
-    /* Section palette — subtle paper-tone shifts */
-    --section-1: 36 33% 95%;
-    --section-2: 36 28% 92%;
-    --section-3: 36 33% 95%;
-    --section-4: 36 25% 90%;
-    --section-5: 36 33% 95%;
-    --section-6: 36 28% 92%;
-    --section-7: 36 33% 95%;
-    --section-8: 36 25% 90%;
-    --section-9: 36 33% 95%;
+    /* Section palette — subtle warm-dark shifts */
+    --section-1: 350 18% 8%;
+    --section-2: 350 16% 10%;
+    --section-3: 350 18% 8%;
+    --section-4: 350 14% 12%;
+    --section-5: 350 18% 8%;
+    --section-6: 350 16% 10%;
+    --section-7: 350 18% 8%;
+    --section-8: 350 14% 12%;
+    --section-9: 350 18% 8%;
 
-    /* Shadows — soft, like printed material */
-    --shadow-soft: 0 1px 2px hsl(30 8% 12% / 0.06);
-    --shadow-medium: 0 4px 16px -4px hsl(30 8% 12% / 0.08);
-    --shadow-strong: 0 12px 40px -10px hsl(30 8% 12% / 0.12);
-    --shadow-glow: none;
-    --shadow-card: 0 2px 12px hsl(30 8% 12% / 0.06);
+    /* Shadows — depth on dark */
+    --shadow-soft: 0 1px 2px hsl(0 0% 0% / 0.3);
+    --shadow-medium: 0 8px 24px -6px hsl(0 0% 0% / 0.5);
+    --shadow-strong: 0 20px 60px -12px hsl(0 0% 0% / 0.7);
+    --shadow-glow: 0 0 40px hsl(41 45% 60% / 0.15);
+    --shadow-card: 0 4px 20px hsl(0 0% 0% / 0.4);
 
-    /* Glass — barely there */
-    --glass-bg: hsl(36 33% 95% / 0.8);
-    --glass-border: hsl(30 12% 80% / 0.6);
+    /* Glass — warm dark */
+    --glass-bg: hsl(350 18% 8% / 0.7);
+    --glass-border: hsl(36 14% 24% / 0.6);
   }
 }
 
