@@ -2,7 +2,8 @@ import { useState } from "react";
 import { Hero } from "@/components/Hero";
 import { LogoCatalog } from "@/components/LogoCatalog";
 import { About } from "@/components/About";
-import { WhatWeDo } from "@/components/WhatWeDo";
+import { Stratum } from "@/components/Stratum";
+import { AIProductDevelopment } from "@/components/AIProductDevelopment";
 import { Founders } from "@/components/Founders";
 import { CaseStudy } from "@/components/CaseStudy";
 import { Testimonials } from "@/components/Testimonials";
@@ -13,6 +14,31 @@ import { ContactDialog } from "@/components/ContactDialog";
 import { SEO } from "@/components/SEO";
 import { OrganizationSchema, WebsiteSchema } from "@/components/StructuredData";
 import { BlogPreview } from "@/components/BlogPreview";
+import { useScrollReveal, staggerStyle } from "@/hooks/useScrollReveal";
+
+const ProofIntro = () => {
+  const { ref, isVisible } = useScrollReveal();
+  return (
+    <section className="pt-24 sm:pt-32 pb-0 relative">
+      <div ref={ref} className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto">
+          <span className="text-mono text-primary/70 block mb-6" style={staggerStyle(0, isVisible)}>
+            Proof
+          </span>
+          <h2 className="text-heading" style={staggerStyle(1, isVisible)}>
+            Outcomes, not<br />
+            <span className="text-gradient">slide decks.</span>
+          </h2>
+          <div className="accent-bar mt-6" style={staggerStyle(2, isVisible)} />
+          <p className="text-subheading text-muted-foreground leading-relaxed mt-8" style={staggerStyle(3, isVisible)}>
+            Hours given back, dollars saved, deals closed faster. Here's what's happened
+            inside the businesses we've worked with — in their numbers and their words.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+};
 
 const Index = () => {
   const [contactOpen, setContactOpen] = useState(false);
@@ -32,7 +58,9 @@ const Index = () => {
       <Hero />
       <LogoCatalog />
       <About />
-      <WhatWeDo />
+      <Stratum />
+      <AIProductDevelopment />
+      <ProofIntro />
       <CaseStudy />
       <Testimonials />
       <Founders />
