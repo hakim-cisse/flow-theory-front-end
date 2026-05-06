@@ -2,7 +2,6 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import logo from "@/assets/flow-theory-logo.png";
 
 const navLinks = [
   { label: "About", href: "#about" },
@@ -56,12 +55,12 @@ export const Header = ({ onContactClick }: HeaderProps) => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
-      <div className={`border-b transition-all duration-300 ${
-        scrolled 
-          ? 'bg-background/90 backdrop-blur-xl border-border/30' 
-          : 'bg-transparent border-transparent'
+      <div className={`transition-all duration-300 ${
+        scrolled
+          ? 'bg-background/85 backdrop-blur-xl border-b border-foreground/15'
+          : 'bg-transparent border-b border-transparent'
       }`}>
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+        <div className="container mx-auto px-6 md:px-20 lg:px-28 max-w-[1600px]">
           <div className="flex items-center justify-between h-16">
             <button
               onClick={handleLogoClick}
@@ -71,19 +70,19 @@ export const Header = ({ onContactClick }: HeaderProps) => {
               FLOW THEORY <span className="text-primary">AI</span>
             </button>
 
-            <nav className="hidden md:flex items-center gap-1">
+            <nav className="hidden md:flex items-center gap-8">
               {navLinks.map((link) => (
                 <button
                   key={link.href}
                   onClick={() => handleNavClick(link)}
-                  className="px-3 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  className="text-mono text-foreground/65 hover:text-foreground transition-colors story-link"
                 >
                   {link.label}
                 </button>
               ))}
               <button
                 onClick={onContactClick}
-                className="px-3 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                className="text-mono text-foreground/65 hover:text-foreground transition-colors story-link"
               >
                 Contact
               </button>
@@ -92,11 +91,11 @@ export const Header = ({ onContactClick }: HeaderProps) => {
             <div className="flex items-center gap-3">
               <Button
                 onClick={() => handleNavClick({ href: "#cta" })}
-                className="gap-2 text-xs md:text-sm px-4"
+                className="hidden md:inline-flex gap-2 text-mono rounded-none px-5"
                 size="sm"
               >
-                Book an intro
-                <ArrowRight className="w-3 h-3 md:w-4 md:h-4" />
+                Book intro
+                <ArrowRight className="w-3 h-3" />
               </Button>
 
               <button
