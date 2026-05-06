@@ -15,7 +15,7 @@ export const CTA = () => {
             </h2>
             <div className="accent-bar mt-6" style={staggerStyle(2, isVisible)} />
             <p className="text-subheading text-muted-foreground max-w-2xl mt-8" style={staggerStyle(3, isVisible)}>
-              Book a 30-minute alignment call. We'll identify how AI can create real leverage in your business — no pitch, just clarity.
+              Book a 30-minute alignment call. We'll identify how AI can create real leverage in your business. No pitch, just clarity.
             </p>
           </div>
 
