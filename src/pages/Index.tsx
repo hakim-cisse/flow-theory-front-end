@@ -39,7 +39,6 @@ const Index = () => {
       <Stratum />
       <Services />
       <AIProductDevelopment />
-      <Industries />
       <CaseStudy />
       <Testimonials />
       <Founders />
