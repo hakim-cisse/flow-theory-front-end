@@ -15,14 +15,14 @@ const stages = [
     icon: Code2,
     title: "Design & Development",
     description:
-      "We build it. Full AI products, standalone features, integrations, interfaces, and infrastructure — handled by a team that specializes in AI, not a generalist agency learning on your budget.",
+      "We build it. Full AI products, standalone features, integrations, interfaces, and infrastructure, handled by a team that specializes in AI, not a generalist agency learning on your budget.",
   },
   {
     n: "03",
     icon: Puzzle,
     title: "AI Feature Integration",
     description:
-      "Already have a product? We identify where AI creates the most value and build those features directly into your existing platform — smarter search, intelligent recommendations, automated workflows, natural language interfaces.",
+      "Already have a product? We identify where AI creates the most value and build those features directly into your existing platform: smarter search, intelligent recommendations, automated workflows, natural language interfaces.",
   },
   {
     n: "04",
@@ -57,10 +57,10 @@ export const AIProductDevelopment = () => {
             </h2>
             <div className="accent-bar mt-6" style={staggerStyle(2, headerVisible)} />
             <p className="text-subheading text-muted-foreground leading-relaxed mt-8" style={staggerStyle(3, headerVisible)}>
-              Whether you're starting from a blank page or making an existing product smarter, we build it. Early-stage startups validating their first AI product, growing companies adding AI features, and established businesses launching standalone AI products — no idea is too early, no scope is too large.
+              Whether you're starting from a blank page or making an existing product smarter, we build it. Early-stage startups validating their first AI product, growing companies adding AI features, and established businesses launching standalone AI products. No idea is too early, no scope is too large.
             </p>
             <p className="text-base text-muted-foreground/80 leading-relaxed mt-6 max-w-3xl" style={staggerStyle(4, headerVisible)}>
-              One accountable partner across the entire journey — concept, feasibility, design, development, testing, and launch. No stitching together agencies, freelancers, and internal teams.
+              One accountable partner across the entire journey: concept, feasibility, design, development, testing, and launch. No stitching together agencies, freelancers, and internal teams.
             </p>
           </div>
 

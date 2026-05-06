@@ -40,7 +40,7 @@ export const About = () => {
           >
             We build the AI systems that{" "}
             <span className="italic text-primary font-light">run your business</span>
-            {" "}— so you don't have to.
+            {" "}so you don't have to.
           </p>
 
           {/* Stat strip */}

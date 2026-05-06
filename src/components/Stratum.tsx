@@ -9,21 +9,21 @@ const layers = [
     icon: Plug,
     title: "Data Connections",
     description:
-      "Stratum connects directly to the tools you already use — calendars, project management, banking, CRM. No migration. No new database. Your data stays where it lives.",
+      "Stratum connects directly to the tools you already use: calendars, project management, banking, CRM. No migration. No new database. Your data stays where it lives.",
   },
   {
     n: "02",
     icon: BookOpen,
     title: "Business Intelligence Layer",
     description:
-      "A living knowledge base that learns your business: your rules, your context, your language. This is what makes Stratum understand your business — not just any business.",
+      "A living knowledge base that learns your business: your rules, your context, your language. This is what makes Stratum understand your business, not just any business.",
   },
   {
     n: "03",
     icon: Network,
     title: "Unified Automation Ecosystem",
     description:
-      "A connected ecosystem of automations that share context with each other. Every workflow knows what the others are doing — eliminating conflicts, duplication, and the chaos of isolated tools.",
+      "A connected ecosystem of automations that share context with each other. Every workflow knows what the others are doing, eliminating conflicts, duplication, and the chaos of isolated tools.",
   },
   {
     n: "04",
@@ -38,7 +38,7 @@ const layers = [
     icon: Bot,
     title: "Agents",
     description:
-      "Autonomous processes that take action across your connected tools on behalf of your business. Not just answers — outcomes.",
+      "Autonomous processes that take action across your connected tools on behalf of your business. Not just answers. Outcomes.",
   },
   {
     n: "06",
@@ -206,14 +206,14 @@ export const Stratum = () => {
                   className="text-base text-muted-foreground leading-relaxed mb-6"
                   style={staggerStyle(2, showcaseVisible)}
                 >
-                  This is the Stratum Brain — querying live ClickUp CRM data in plain English.
+                  This is the Stratum Brain, querying live ClickUp CRM data in plain English.
                   No dashboards. No analysts. No exports. Just answers, with the receipts.
                 </p>
                 <ul className="space-y-3" style={staggerStyle(3, showcaseVisible)}>
                   {[
                     "Reads directly from your connected tools",
                     "Shows confidence + reasoning, not just numbers",
-                    "Trained on your business — not a generic LLM",
+                    "Trained on your business, not a generic LLM",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-3 text-sm text-foreground/80">
                       <span className="mt-2 w-1.5 h-1.5 bg-primary shrink-0" />

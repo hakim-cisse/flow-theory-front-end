@@ -40,7 +40,7 @@ const services = [
   {
     icon: Code,
     title: "Development",
-    description: "Custom AI-powered applications built for your specific business problems — not generic templates.",
+    description: "Custom AI-powered applications built for your specific business problems, not generic templates.",
   },
   {
     icon: Dumbbell,
@@ -177,7 +177,7 @@ export const Services = () => {
                     Custom SaaS Development
                   </h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">
-                    From concept to launch — we design, build, and deploy scalable SaaS platforms tailored to your market and growth goals.
+                    From concept to launch. We design, build, and deploy scalable SaaS platforms tailored to your market and growth goals.
                   </p>
                 </div>
                 <Button asChild size="lg" className="gap-2 rounded-none uppercase text-xs tracking-wider px-6 py-5 self-start lg:self-end shrink-0">
