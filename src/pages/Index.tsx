@@ -2,11 +2,13 @@ import { useState } from "react";
 import { Hero } from "@/components/Hero";
 import { LogoCatalog } from "@/components/LogoCatalog";
 import { About } from "@/components/About";
+import { HowItWorks } from "@/components/HowItWorks";
 import { Stratum } from "@/components/Stratum";
+import { Services } from "@/components/Services";
 import { AIProductDevelopment } from "@/components/AIProductDevelopment";
-import { Founders } from "@/components/Founders";
 import { CaseStudy } from "@/components/CaseStudy";
 import { Testimonials } from "@/components/Testimonials";
+import { Founders } from "@/components/Founders";
 import { CTA } from "@/components/CTA";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
@@ -16,6 +18,7 @@ import { OrganizationSchema, WebsiteSchema } from "@/components/StructuredData";
 import { BlogPreview } from "@/components/BlogPreview";
 import { useScrollReveal, staggerStyle } from "@/hooks/useScrollReveal";
 
+// Light "Proof" intro that ties Case Study + Testimonials into one block
 const ProofIntro = () => {
   const { ref, isVisible } = useScrollReveal();
   return (
@@ -31,8 +34,8 @@ const ProofIntro = () => {
           </h2>
           <div className="accent-bar mt-6" style={staggerStyle(2, isVisible)} />
           <p className="text-subheading text-muted-foreground leading-relaxed mt-8" style={staggerStyle(3, isVisible)}>
-            Hours given back, dollars saved, deals closed faster. Here's what's happened
-            inside the businesses we've worked with — in their numbers and their words.
+            Hours given back, dollars saved, deals closed faster — in our clients'
+            numbers and in their own words.
           </p>
         </div>
       </div>
@@ -58,7 +61,9 @@ const Index = () => {
       <Hero />
       <LogoCatalog />
       <About />
+      <HowItWorks />
       <Stratum />
+      <Services />
       <AIProductDevelopment />
       <ProofIntro />
       <CaseStudy />
