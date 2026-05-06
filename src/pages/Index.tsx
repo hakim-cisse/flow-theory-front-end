@@ -23,7 +23,7 @@ const Index = () => {
     <div className="min-h-screen pt-16 relative">
       <AmbientBackground />
       <ScrollProgress />
-      <div className="relative z-10">
+      <SEO
         title="AI Transformation Built on Strategy and ROI"
         description="Flow Theory AI helps businesses cut through the noise, build a clear AI roadmap, and execute only what delivers measurable business value. AI automation, consulting & custom SaaS."
         canonicalUrl="https://www.flowtheoryai.com/"
@@ -32,17 +32,19 @@ const Index = () => {
       />
       <OrganizationSchema />
       <WebsiteSchema />
-      <Header onContactClick={() => setContactOpen(true)} />
-      <Hero />
-      <LogoCatalog />
-      <About />
-      <WhatWeDo />
-      <CaseStudy />
-      <Testimonials />
-      <Founders />
-      <BlogPreview />
-      <CTA />
-      <Footer onContactClick={() => setContactOpen(true)} />
+      <div className="relative z-10">
+        <Header onContactClick={() => setContactOpen(true)} />
+        <Hero />
+        <LogoCatalog />
+        <About />
+        <WhatWeDo />
+        <CaseStudy />
+        <Testimonials />
+        <Founders />
+        <BlogPreview />
+        <CTA />
+        <Footer onContactClick={() => setContactOpen(true)} />
+      </div>
       <ContactDialog open={contactOpen} onOpenChange={setContactOpen} />
     </div>
   );
