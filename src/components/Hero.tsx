@@ -60,7 +60,7 @@ export const Hero = () => {
           >
             <div className="accent-bar mb-5" />
             <p className="text-italic-accent text-lg md:text-xl leading-snug text-foreground/85">
-              We partner with ambitious organizations to design, build, and scale AI systems that drive measurable business impact.
+              We design, build, and scale AI systems that move the bottom line.
             </p>
           </aside>
         </div>
@@ -69,9 +69,7 @@ export const Hero = () => {
         <div className="grid grid-cols-12 gap-6 md:gap-10 mt-16 md:mt-24 items-end">
           <div className="col-span-12 md:col-span-7" style={staggerStyle(3, isVisible, { delay: 0.3, distance: 20 })}>
             <p className="text-base md:text-lg text-foreground/70 max-w-xl leading-relaxed">
-              You don't need more AI hype. You need a partner who discovers what
-              actually matters, equips your team to own it, and delivers results
-              you can measure on the bottom line.
+              Less hype. More measurable outcomes.
             </p>
           </div>
 
