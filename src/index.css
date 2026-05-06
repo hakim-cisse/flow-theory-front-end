@@ -6,57 +6,126 @@
 
 @layer base {
   :root {
-    /* === LIGHT EDITORIAL — warm sand + ink-blue === */
-    --background: 38 35% 90%;             /* #EFE8DD warm sand */
-    --foreground: 222 25% 10%;            /* near-black ink */
+    /* === EDITORIAL LUXE — light (default) === */
+    --background: 36 33% 95%;             /* #F5F1EA cream ivory */
+    --foreground: 30 8% 12%;              /* deep charcoal-ink */
 
-    --card: 38 30% 93%;
-    --card-foreground: 222 25% 10%;
+    --card: 36 28% 97%;
+    --card-foreground: 30 8% 12%;
 
-    --popover: 38 30% 93%;
-    --popover-foreground: 222 25% 10%;
+    --popover: 36 28% 97%;
+    --popover-foreground: 30 8% 12%;
 
-    /* Bold ink-blue accent */
-    --primary: 226 55% 24%;               /* #1E2A5E ink blue */
-    --primary-foreground: 38 35% 92%;
-    --primary-glow: 226 60% 34%;
+    /* Muted oxblood */
+    --primary: 358 52% 38%;               /* #94353A */
+    --primary-foreground: 36 33% 96%;
+    --primary-glow: 358 60% 48%;
 
-    --secondary: 38 22% 85%;
-    --secondary-foreground: 222 25% 10%;
+    --secondary: 36 22% 90%;
+    --secondary-foreground: 30 8% 12%;
 
-    --muted: 38 18% 82%;
-    --muted-foreground: 222 12% 32%;
+    --muted: 36 18% 88%;
+    --muted-foreground: 30 8% 38%;
 
-    --accent: 226 55% 24%;
-    --accent-foreground: 38 35% 92%;
+    --accent: 358 52% 38%;
+    --accent-foreground: 36 33% 96%;
 
-    --destructive: 0 65% 42%;
-    --destructive-foreground: 38 35% 92%;
+    --destructive: 0 70% 45%;
+    --destructive-foreground: 36 33% 96%;
 
-    --border: 30 14% 72%;
-    --input: 38 22% 88%;
-    --ring: 226 55% 24%;
+    --border: 30 12% 80%;
+    --input: 36 22% 92%;
+    --ring: 358 52% 38%;
 
     --radius: 0.25rem;
 
-    --section-1: 38 35% 90%;
-    --section-2: 38 28% 86%;
-    --section-3: 38 35% 90%;
-    --section-4: 38 25% 84%;
-    --section-5: 38 35% 90%;
-    --section-6: 38 28% 86%;
-    --section-7: 38 35% 90%;
-    --section-8: 38 25% 84%;
-    --section-9: 38 35% 90%;
+    --section-1: 36 33% 95%;
+    --section-2: 36 28% 92%;
+    --section-3: 36 33% 95%;
+    --section-4: 36 25% 90%;
+    --section-5: 36 33% 95%;
+    --section-6: 36 28% 92%;
+    --section-7: 36 33% 95%;
+    --section-8: 36 25% 90%;
+    --section-9: 36 33% 95%;
 
-    --shadow-soft: 0 1px 2px hsl(222 25% 10% / 0.08);
-    --shadow-medium: 0 4px 16px -4px hsl(222 25% 10% / 0.10);
-    --shadow-strong: 0 12px 40px -10px hsl(222 25% 10% / 0.14);
+    --shadow-soft: 0 1px 2px hsl(30 8% 12% / 0.06);
+    --shadow-medium: 0 4px 16px -4px hsl(30 8% 12% / 0.08);
+    --shadow-strong: 0 12px 40px -10px hsl(30 8% 12% / 0.12);
     --shadow-glow: none;
-    --shadow-card: 0 2px 12px hsl(222 25% 10% / 0.08);
+    --shadow-card: 0 2px 12px hsl(30 8% 12% / 0.06);
 
-    --glass-bg: hsl(38 35% 90% / 0.8);
-    --glass-border: hsl(30 14% 72% / 0.6);
+    --glass-bg: hsl(36 33% 95% / 0.8);
+    --glass-border: hsl(30 12% 80% / 0.6);
+
+    /* Ambient — light */
+    --ambient-vignette: hsl(36 35% 88% / 0.6);
+    --ambient-grid: 30 8% 12%;
+    --ambient-grain-color: 0.18 0.13 0.09;   /* RGB normalized for SVG */
+    --ambient-grain-opacity: 0.18;
+    --ambient-grain-blend: multiply;
+    --ambient-corner: hsl(358 45% 70% / 0.10);
+  }
+
+  .dark {
+    /* === EDITORIAL LUXE — dark companion === */
+    /* Same brand: oxblood accent + Fraunces serif, but on warm ink */
+    --background: 30 12% 8%;              /* deep warm ink */
+    --foreground: 36 28% 92%;             /* warm cream */
+
+    --card: 30 10% 11%;
+    --card-foreground: 36 28% 92%;
+
+    --popover: 30 10% 11%;
+    --popover-foreground: 36 28% 92%;
+
+    /* Slightly brighter oxblood for legibility on dark */
+    --primary: 358 65% 58%;               /* #C75058 */
+    --primary-foreground: 30 12% 8%;
+    --primary-glow: 358 70% 65%;
+
+    --secondary: 30 10% 14%;
+    --secondary-foreground: 36 28% 92%;
+
+    --muted: 30 8% 16%;
+    --muted-foreground: 36 14% 68%;
+
+    --accent: 358 65% 58%;
+    --accent-foreground: 30 12% 8%;
+
+    --destructive: 0 65% 50%;
+    --destructive-foreground: 36 28% 92%;
+
+    --border: 30 10% 22%;
+    --input: 30 10% 14%;
+    --ring: 358 65% 58%;
+
+    --section-1: 30 12% 8%;
+    --section-2: 30 10% 10%;
+    --section-3: 30 12% 8%;
+    --section-4: 30 8% 12%;
+    --section-5: 30 12% 8%;
+    --section-6: 30 10% 10%;
+    --section-7: 30 12% 8%;
+    --section-8: 30 8% 12%;
+    --section-9: 30 12% 8%;
+
+    --shadow-soft: 0 1px 2px hsl(0 0% 0% / 0.3);
+    --shadow-medium: 0 8px 24px -6px hsl(0 0% 0% / 0.5);
+    --shadow-strong: 0 20px 60px -12px hsl(0 0% 0% / 0.7);
+    --shadow-glow: 0 0 40px hsl(358 65% 58% / 0.18);
+    --shadow-card: 0 4px 20px hsl(0 0% 0% / 0.4);
+
+    --glass-bg: hsl(30 12% 8% / 0.7);
+    --glass-border: hsl(30 10% 22% / 0.6);
+
+    /* Ambient — dark */
+    --ambient-vignette: hsl(358 65% 30% / 0.18);
+    --ambient-grid: 36 28% 92%;
+    --ambient-grain-color: 1 0.95 0.85;
+    --ambient-grain-opacity: 0.10;
+    --ambient-grain-blend: overlay;
+    --ambient-corner: hsl(358 50% 30% / 0.30);
   }
 }
 

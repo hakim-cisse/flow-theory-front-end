@@ -1,7 +1,8 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Menu, X } from "lucide-react";
+import { ArrowRight, Menu, X, Sun, Moon } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import { useTheme } from "./ThemeProvider";
 
 const navLinks = [
   { label: "About", href: "#about" },
@@ -20,6 +21,7 @@ export const Header = ({ onContactClick }: HeaderProps) => {
   const [scrolled, setScrolled] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+  const { theme, toggle } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 40);
@@ -88,7 +90,16 @@ export const Header = ({ onContactClick }: HeaderProps) => {
               </button>
             </nav>
 
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 md:gap-3">
+              <button
+                onClick={toggle}
+                className="p-2 text-foreground/70 hover:text-foreground transition-colors"
+                aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+                title={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+              >
+                {theme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+              </button>
+
               <Button
                 onClick={() => handleNavClick({ href: "#cta" })}
                 className="hidden md:inline-flex gap-2 text-mono rounded-none px-5"
