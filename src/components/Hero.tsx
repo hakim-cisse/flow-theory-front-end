@@ -1,17 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, FileText } from "lucide-react";
-import { TypewriterText } from "./TypewriterText";
 import { useScrollReveal, staggerStyle } from "@/hooks/useScrollReveal";
-
-const animatedPhrases = [
-  "AI Transformation",
-  "Automations/Integrations",
-  "Custom AI Systems",
-  "AI-First Deployment",
-  "AI Training for Teams",
-  "Ongoing Optimizations",
-  "Custom SaaS Development",
-];
 
 export const Hero = () => {
   const { ref, isVisible } = useScrollReveal({ threshold: 0.1 });
@@ -22,69 +11,100 @@ export const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden section-1 pt-20 md:pt-0">
-      {/* Vertical accent line */}
-      <div className="absolute left-8 md:left-16 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-primary/20 to-transparent" />
-      
-      {/* Corner glow */}
-      <div className="absolute -top-40 -right-40 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[150px] animate-glow-pulse" />
-      <div className="absolute -bottom-40 -left-40 w-[400px] h-[400px] bg-primary/3 rounded-full blur-[120px]" />
+    <section className="relative min-h-screen flex items-center overflow-hidden section-1 pt-24 md:pt-20 pb-16">
+      {/* Vertical hairline */}
+      <div className="hidden md:block absolute left-12 lg:left-20 top-24 bottom-16 w-px bg-foreground/15" />
+      <div className="hidden md:block absolute right-12 lg:right-20 top-24 bottom-16 w-px bg-foreground/15" />
 
-      <div ref={ref} className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
-          {/* Mono label */}
-          <div className="mb-8" style={staggerStyle(0, isVisible, { delay: 0.15, distance: 20 })}>
+      <div ref={ref} className="relative z-10 container mx-auto px-6 md:px-20 lg:px-28 max-w-[1600px]">
+        {/* Top meta row */}
+        <div
+          className="grid grid-cols-12 gap-6 mb-12 md:mb-20 items-end"
+          style={staggerStyle(0, isVisible, { delay: 0.1, distance: 16 })}
+        >
+          <div className="col-span-12 md:col-span-4">
+            <div className="text-mono text-foreground/50">№ 01 — Practice</div>
+            <div className="text-mono text-foreground mt-2">AI Transformation &amp; Consulting</div>
+          </div>
+          <div className="hidden md:block col-span-4 text-mono text-foreground/50 text-center">
+            Est. 2024 · London / Casablanca
+          </div>
+          <div className="col-span-12 md:col-span-4 md:text-right">
             <button
               onClick={scrollToCaseStudy}
-              className="group inline-flex items-center gap-3 text-mono text-primary/70 hover:text-primary transition-colors duration-300"
+              className="group inline-flex items-center gap-2 text-mono text-primary story-link"
             >
-              <FileText className="w-3.5 h-3.5" />
-              <span>We saved a top apartment locator $96K/year</span>
-              <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform duration-300" />
+              <FileText className="w-3 h-3" />
+              <span>Featured: $96K saved · APT Locator</span>
+              <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
             </button>
           </div>
+        </div>
 
-          {/* Main headline */}
-          <div className="space-y-2 sm:space-y-4 mb-8 sm:mb-12" style={staggerStyle(1, isVisible, { delay: 0.15, duration: 0.8, distance: 40 })}>
-            <h1 className="text-hero-fit">
-              <span className="block text-foreground">Your business runs</span>
-              <span className="block text-foreground">on decisions.</span>
-              <span className="block text-foreground mt-1 sm:mt-2">We deliver</span>
-              <span className="block mt-1 sm:mt-2 min-h-[1.2em] whitespace-nowrap overflow-hidden text-[0.75em] sm:text-[1em]">
-                <TypewriterText phrases={animatedPhrases} className="text-gradient" />
+        {/* Editorial main grid */}
+        <div className="grid grid-cols-12 gap-6 md:gap-10 items-start">
+          {/* Headline */}
+          <div className="col-span-12 lg:col-span-9" style={staggerStyle(1, isVisible, { delay: 0.15, duration: 0.9, distance: 40 })}>
+            <h1 className="text-display text-foreground">
+              <span className="block">AI transformation,</span>
+              <span className="block italic text-primary" style={{ fontWeight: 300 }}>
+                engineered.
               </span>
-              <span className="block text-foreground text-[0.35em] sm:text-[0.45em] mt-1 opacity-70">that make them smarter</span>
             </h1>
           </div>
 
-          <div className="accent-bar mb-6 sm:mb-8" style={staggerStyle(2, isVisible, { delay: 0.15 })} />
+          {/* Right rail — editorial side note */}
+          <aside
+            className="col-span-12 lg:col-span-3 lg:pt-6"
+            style={staggerStyle(2, isVisible, { delay: 0.25, distance: 20 })}
+          >
+            <div className="accent-bar mb-5" />
+            <p className="text-italic-accent text-lg md:text-xl leading-snug text-foreground/85">
+              We partner with ambitious organizations to design, build, and scale AI systems that drive measurable business impact.
+            </p>
+          </aside>
+        </div>
 
-          <p className="text-base sm:text-subheading text-muted-foreground max-w-2xl mb-8 sm:mb-12" style={staggerStyle(3, isVisible, { delay: 0.15, distance: 20 })}>
-            You don't need more AI hype. You need a partner who discovers what actually matters, trains your team to own it, and delivers results you can measure.
-          </p>
+        {/* Bottom meta + CTAs */}
+        <div className="grid grid-cols-12 gap-6 md:gap-10 mt-16 md:mt-24 items-end">
+          <div className="col-span-12 md:col-span-7" style={staggerStyle(3, isVisible, { delay: 0.3, distance: 20 })}>
+            <p className="text-base md:text-lg text-foreground/70 max-w-xl leading-relaxed">
+              You don't need more AI hype. You need a partner who discovers what
+              actually matters, equips your team to own it, and delivers results
+              you can measure on the bottom line.
+            </p>
+          </div>
 
-          <div className="flex flex-col sm:flex-row items-start gap-4" style={staggerStyle(4, isVisible, { delay: 0.15, distance: 20 })}>
-            <Button 
-              size="lg" 
-              className="group font-semibold px-8 py-6 text-base glow transition-all duration-300"
+          <div
+            className="col-span-12 md:col-span-5 flex flex-col sm:flex-row md:justify-end items-start sm:items-center gap-5"
+            style={staggerStyle(4, isVisible, { delay: 0.35, distance: 20 })}
+          >
+            <Button
+              size="lg"
+              className="group rounded-none font-medium tracking-wide px-8 py-6 text-sm uppercase"
               asChild
             >
               <a href="https://cal.com/flow-theory-ai/alignment-call" target="_blank" rel="noopener noreferrer">
-                Book Your Discovery Call
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                Book a discovery call
+                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </a>
             </Button>
             <button
               onClick={scrollToCaseStudy}
-              className="text-muted-foreground hover:text-primary transition-colors duration-300 text-sm font-medium underline underline-offset-4 py-3"
+              className="text-mono text-foreground/70 hover:text-primary transition-colors story-link"
             >
-              See founder results →
+              Explore our work →
             </button>
           </div>
         </div>
-      </div>
 
-      <div className="absolute bottom-0 left-0 right-0 section-divider" />
+        {/* Footer of hero */}
+        <div className="mt-20 md:mt-28 pt-6 border-t border-foreground/15 flex items-center justify-between text-mono text-foreground/45">
+          <span>Strategy / Systems / Impact</span>
+          <span className="hidden md:inline">Scroll ↓</span>
+          <span>v.2026</span>
+        </div>
+      </div>
     </section>
   );
 };
