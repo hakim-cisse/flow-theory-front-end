@@ -101,16 +101,17 @@
     background-clip: text;
   }
 
-  /* Section backgrounds */
-  .section-1 { background-color: hsl(var(--section-1)); }
-  .section-2 { background-color: hsl(var(--section-2)); }
-  .section-3 { background-color: hsl(var(--section-3)); }
-  .section-4 { background-color: hsl(var(--section-4)); }
-  .section-5 { background-color: hsl(var(--section-5)); }
-  .section-6 { background-color: hsl(var(--section-6)); }
-  .section-7 { background-color: hsl(var(--section-7)); }
-  .section-8 { background-color: hsl(var(--section-8)); }
-  .section-9 { background-color: hsl(var(--section-9)); }
+  /* Section backgrounds — now mostly transparent so the global AmbientBackground shows through.
+     Each section keeps a faint tint for separation. */
+  .section-1 { background-color: hsl(var(--section-1) / 0.4); }
+  .section-2 { background-color: hsl(var(--section-2) / 0.5); }
+  .section-3 { background-color: hsl(var(--section-3) / 0.45); }
+  .section-4 { background-color: hsl(var(--section-4) / 0.55); }
+  .section-5 { background-color: hsl(var(--section-5) / 0.4); }
+  .section-6 { background-color: hsl(var(--section-6) / 0.5); }
+  .section-7 { background-color: hsl(var(--section-7) / 0.45); }
+  .section-8 { background-color: hsl(var(--section-8) / 0.55); }
+  .section-9 { background-color: hsl(var(--section-9) / 0.4); }
 
   /* Fluid type */
   .text-display {
@@ -195,6 +196,59 @@
 
   .animate-glow-pulse {
     animation: glow-pulse 4s ease-in-out infinite;
+  }
+
+  /* Ambient drifting orbs */
+  @keyframes drift-1 {
+    0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+    50% { transform: translate3d(8vw, 6vh, 0) scale(1.15); }
+  }
+  @keyframes drift-2 {
+    0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+    50% { transform: translate3d(-10vw, -4vh, 0) scale(0.9); }
+  }
+  @keyframes drift-3 {
+    0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+    50% { transform: translate3d(-6vw, 8vh, 0) scale(1.1); }
+  }
+  .animate-drift-1 { animation: drift-1 22s ease-in-out infinite; }
+  .animate-drift-2 { animation: drift-2 28s ease-in-out infinite; }
+  .animate-drift-3 { animation: drift-3 34s ease-in-out infinite; }
+
+  /* Magnetic / lift hover for cards */
+  .card-lift {
+    transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
+                box-shadow 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
+                border-color 0.4s ease;
+  }
+  .card-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 24px 60px -20px hsl(193 100% 50% / 0.25),
+                0 0 0 1px hsl(193 100% 50% / 0.3) inset;
+  }
+
+  /* Animated section divider */
+  .section-edge {
+    position: relative;
+  }
+  .section-edge::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg,
+      transparent 0%,
+      hsl(193 100% 50% / 0.4) 30%,
+      hsl(193 100% 50% / 0.4) 70%,
+      transparent 100%);
+  }
+
+  /* Scrim helpers — let ambient bg show through with controlled darkness */
+  .scrim-soft {
+    background: linear-gradient(180deg,
+      hsl(var(--background) / 0) 0%,
+      hsl(var(--background) / 0.4) 50%,
+      hsl(var(--background) / 0) 100%);
   }
 }
 
