@@ -2,13 +2,10 @@ import { useState } from "react";
 import { Hero } from "@/components/Hero";
 import { LogoCatalog } from "@/components/LogoCatalog";
 import { About } from "@/components/About";
-import { HowItWorks } from "@/components/HowItWorks";
-import { Stratum } from "@/components/Stratum";
-import { Services } from "@/components/Services";
-import { AIProductDevelopment } from "@/components/AIProductDevelopment";
+import { WhatWeDo } from "@/components/WhatWeDo";
+import { Founders } from "@/components/Founders";
 import { CaseStudy } from "@/components/CaseStudy";
 import { Testimonials } from "@/components/Testimonials";
-import { Founders } from "@/components/Founders";
 import { CTA } from "@/components/CTA";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
@@ -16,32 +13,6 @@ import { ContactDialog } from "@/components/ContactDialog";
 import { SEO } from "@/components/SEO";
 import { OrganizationSchema, WebsiteSchema } from "@/components/StructuredData";
 import { BlogPreview } from "@/components/BlogPreview";
-import { useScrollReveal, staggerStyle } from "@/hooks/useScrollReveal";
-
-// Light "Proof" intro that ties Case Study + Testimonials into one block
-const ProofIntro = () => {
-  const { ref, isVisible } = useScrollReveal();
-  return (
-    <section className="pt-24 sm:pt-32 pb-0 relative">
-      <div ref={ref} className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          <span className="text-mono text-primary/70 block mb-6" style={staggerStyle(0, isVisible)}>
-            Proof
-          </span>
-          <h2 className="text-heading" style={staggerStyle(1, isVisible)}>
-            Outcomes, not<br />
-            <span className="text-gradient">slide decks.</span>
-          </h2>
-          <div className="accent-bar mt-6" style={staggerStyle(2, isVisible)} />
-          <p className="text-subheading text-muted-foreground leading-relaxed mt-8" style={staggerStyle(3, isVisible)}>
-            Hours given back, dollars saved, deals closed faster — in our clients'
-            numbers and in their own words.
-          </p>
-        </div>
-      </div>
-    </section>
-  );
-};
 
 const Index = () => {
   const [contactOpen, setContactOpen] = useState(false);
@@ -61,11 +32,7 @@ const Index = () => {
       <Hero />
       <LogoCatalog />
       <About />
-      <HowItWorks />
-      <Stratum />
-      <Services />
-      <AIProductDevelopment />
-      <ProofIntro />
+      <WhatWeDo />
       <CaseStudy />
       <Testimonials />
       <Founders />
