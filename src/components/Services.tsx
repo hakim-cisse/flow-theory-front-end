@@ -128,24 +128,25 @@ export const Services = () => {
     <section id="services" className="py-24 sm:py-32 relative overflow-hidden section-5">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-6xl mx-auto">
-          {/* Editorial header */}
-          <div ref={headerRef} className="mb-16 md:mb-24 max-w-4xl">
-            <span className="text-mono text-foreground/50 block mb-8" style={staggerStyle(0, headerVisible)}>
+          {/* Editorial header — matches site pattern */}
+          <div ref={headerRef} className="mb-12 max-w-4xl">
+            <span
+              className="text-mono text-primary/70 block mb-6"
+              style={staggerStyle(0, headerVisible)}
+            >
               Services
             </span>
-            <h2
-              className="font-display text-5xl sm:text-6xl md:text-7xl leading-[0.95] tracking-tight text-foreground"
-              style={staggerStyle(1, headerVisible)}
-            >
+            <h2 className="text-heading" style={staggerStyle(1, headerVisible)}>
               Your trusted partner<br />
-              for <span className="italic text-primary font-light">AI transformation.</span>
+              <span className="text-gradient">for AI transformation.</span>
             </h2>
+            <div className="accent-bar mt-6" style={staggerStyle(2, headerVisible)} />
           </div>
 
           {/* Services grid — bordered editorial cells */}
           <div
             ref={gridRef}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 border-t border-l border-border/60"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 border-t border-l border-border/60 mt-16 sm:mt-20"
           >
             {services.map((service, i) => (
               <div
