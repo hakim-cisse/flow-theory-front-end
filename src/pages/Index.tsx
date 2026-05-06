@@ -7,7 +7,6 @@ import { Stratum } from "@/components/Stratum";
 import { Founders } from "@/components/Founders";
 import { Services } from "@/components/Services";
 import { AIProductDevelopment } from "@/components/AIProductDevelopment";
-import { Industries } from "@/components/Industries";
 import { CaseStudy } from "@/components/CaseStudy";
 import { Testimonials } from "@/components/Testimonials";
 import { CTA } from "@/components/CTA";
@@ -40,7 +39,6 @@ const Index = () => {
       <Stratum />
       <Services />
       <AIProductDevelopment />
-      <Industries />
       <CaseStudy />
       <Testimonials />
       <Founders />
