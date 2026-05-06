@@ -6,126 +6,123 @@
 
 @layer base {
   :root {
-    /* === EDITORIAL LUXE — light (default) === */
-    --background: 36 33% 95%;             /* #F5F1EA cream ivory */
-    --foreground: 30 8% 12%;              /* deep charcoal-ink */
+    /* === LIGHT — matches logo: clean white/cream + sky-cyan accent === */
+    --background: 0 0% 99%;               /* near-white paper */
+    --foreground: 0 0% 8%;                /* near-black ink (logo black) */
 
-    --card: 36 28% 97%;
-    --card-foreground: 30 8% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 8%;
 
-    --popover: 36 28% 97%;
-    --popover-foreground: 30 8% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 8%;
 
-    /* Muted oxblood */
-    --primary: 358 52% 38%;               /* #94353A */
-    --primary-foreground: 36 33% 96%;
-    --primary-glow: 358 60% 48%;
+    /* Logo cyan #00BFFF */
+    --primary: 195 100% 50%;
+    --primary-foreground: 0 0% 8%;
+    --primary-glow: 195 100% 60%;
 
-    --secondary: 36 22% 90%;
-    --secondary-foreground: 30 8% 12%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 8%;
 
-    --muted: 36 18% 88%;
-    --muted-foreground: 30 8% 38%;
+    --muted: 0 0% 94%;
+    --muted-foreground: 0 0% 38%;
 
-    --accent: 358 52% 38%;
-    --accent-foreground: 36 33% 96%;
+    --accent: 195 100% 50%;
+    --accent-foreground: 0 0% 8%;
 
     --destructive: 0 70% 45%;
-    --destructive-foreground: 36 33% 96%;
+    --destructive-foreground: 0 0% 99%;
 
-    --border: 30 12% 80%;
-    --input: 36 22% 92%;
-    --ring: 358 52% 38%;
+    --border: 0 0% 88%;
+    --input: 0 0% 96%;
+    --ring: 195 100% 50%;
 
     --radius: 0.25rem;
 
-    --section-1: 36 33% 95%;
-    --section-2: 36 28% 92%;
-    --section-3: 36 33% 95%;
-    --section-4: 36 25% 90%;
-    --section-5: 36 33% 95%;
-    --section-6: 36 28% 92%;
-    --section-7: 36 33% 95%;
-    --section-8: 36 25% 90%;
-    --section-9: 36 33% 95%;
+    --section-1: 0 0% 99%;
+    --section-2: 0 0% 96%;
+    --section-3: 0 0% 99%;
+    --section-4: 0 0% 94%;
+    --section-5: 0 0% 99%;
+    --section-6: 0 0% 96%;
+    --section-7: 0 0% 99%;
+    --section-8: 0 0% 94%;
+    --section-9: 0 0% 99%;
 
-    --shadow-soft: 0 1px 2px hsl(30 8% 12% / 0.06);
-    --shadow-medium: 0 4px 16px -4px hsl(30 8% 12% / 0.08);
-    --shadow-strong: 0 12px 40px -10px hsl(30 8% 12% / 0.12);
-    --shadow-glow: none;
-    --shadow-card: 0 2px 12px hsl(30 8% 12% / 0.06);
+    --shadow-soft: 0 1px 2px hsl(0 0% 8% / 0.06);
+    --shadow-medium: 0 4px 16px -4px hsl(0 0% 8% / 0.08);
+    --shadow-strong: 0 12px 40px -10px hsl(0 0% 8% / 0.12);
+    --shadow-glow: 0 0 32px hsl(195 100% 50% / 0.20);
+    --shadow-card: 0 2px 12px hsl(0 0% 8% / 0.06);
 
-    --glass-bg: hsl(36 33% 95% / 0.8);
-    --glass-border: hsl(30 12% 80% / 0.6);
+    --glass-bg: hsl(0 0% 99% / 0.8);
+    --glass-border: hsl(0 0% 88% / 0.6);
 
-    /* Ambient — light */
-    --ambient-vignette: hsl(36 35% 88% / 0.6);
-    --ambient-grid: 30 8% 12%;
-    --ambient-grain-color: 0.18 0.13 0.09;   /* RGB normalized for SVG */
-    --ambient-grain-opacity: 0.18;
+    --ambient-vignette: hsl(195 100% 70% / 0.10);
+    --ambient-grid: 0 0% 8%;
+    --ambient-grain-color: 0.18 0.13 0.09;
+    --ambient-grain-opacity: 0.08;
     --ambient-grain-blend: multiply;
-    --ambient-corner: hsl(358 45% 70% / 0.10);
+    --ambient-corner: hsl(195 100% 60% / 0.10);
   }
 
   .dark {
-    /* === EDITORIAL LUXE — dark companion === */
-    /* Same brand: oxblood accent + Fraunces serif, but on warm ink */
-    --background: 30 12% 8%;              /* deep warm ink */
-    --foreground: 36 28% 92%;             /* warm cream */
+    /* === DARK — matches logo: pure black + sky-cyan accent === */
+    --background: 0 0% 6%;                /* logo black */
+    --foreground: 0 0% 98%;               /* logo white */
 
-    --card: 30 10% 11%;
-    --card-foreground: 36 28% 92%;
+    --card: 0 0% 9%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 30 10% 11%;
-    --popover-foreground: 36 28% 92%;
+    --popover: 0 0% 9%;
+    --popover-foreground: 0 0% 98%;
 
-    /* Slightly brighter oxblood for legibility on dark */
-    --primary: 358 65% 58%;               /* #C75058 */
-    --primary-foreground: 30 12% 8%;
-    --primary-glow: 358 70% 65%;
+    /* Logo cyan, slightly lifted for contrast on black */
+    --primary: 195 100% 55%;
+    --primary-foreground: 0 0% 6%;
+    --primary-glow: 195 100% 65%;
 
-    --secondary: 30 10% 14%;
-    --secondary-foreground: 36 28% 92%;
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 98%;
 
-    --muted: 30 8% 16%;
-    --muted-foreground: 36 14% 68%;
+    --muted: 0 0% 14%;
+    --muted-foreground: 0 0% 65%;
 
-    --accent: 358 65% 58%;
-    --accent-foreground: 30 12% 8%;
+    --accent: 195 100% 55%;
+    --accent-foreground: 0 0% 6%;
 
-    --destructive: 0 65% 50%;
-    --destructive-foreground: 36 28% 92%;
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 30 10% 22%;
-    --input: 30 10% 14%;
-    --ring: 358 65% 58%;
+    --border: 0 0% 20%;
+    --input: 0 0% 12%;
+    --ring: 195 100% 55%;
 
-    --section-1: 30 12% 8%;
-    --section-2: 30 10% 10%;
-    --section-3: 30 12% 8%;
-    --section-4: 30 8% 12%;
-    --section-5: 30 12% 8%;
-    --section-6: 30 10% 10%;
-    --section-7: 30 12% 8%;
-    --section-8: 30 8% 12%;
-    --section-9: 30 12% 8%;
+    --section-1: 0 0% 6%;
+    --section-2: 0 0% 8%;
+    --section-3: 0 0% 6%;
+    --section-4: 0 0% 10%;
+    --section-5: 0 0% 6%;
+    --section-6: 0 0% 8%;
+    --section-7: 0 0% 6%;
+    --section-8: 0 0% 10%;
+    --section-9: 0 0% 6%;
 
-    --shadow-soft: 0 1px 2px hsl(0 0% 0% / 0.3);
-    --shadow-medium: 0 8px 24px -6px hsl(0 0% 0% / 0.5);
-    --shadow-strong: 0 20px 60px -12px hsl(0 0% 0% / 0.7);
-    --shadow-glow: 0 0 40px hsl(358 65% 58% / 0.18);
-    --shadow-card: 0 4px 20px hsl(0 0% 0% / 0.4);
+    --shadow-soft: 0 1px 2px hsl(0 0% 0% / 0.4);
+    --shadow-medium: 0 8px 24px -6px hsl(0 0% 0% / 0.55);
+    --shadow-strong: 0 20px 60px -12px hsl(0 0% 0% / 0.75);
+    --shadow-glow: 0 0 40px hsl(195 100% 55% / 0.25);
+    --shadow-card: 0 4px 20px hsl(0 0% 0% / 0.5);
 
-    --glass-bg: hsl(30 12% 8% / 0.7);
-    --glass-border: hsl(30 10% 22% / 0.6);
+    --glass-bg: hsl(0 0% 6% / 0.7);
+    --glass-border: hsl(0 0% 20% / 0.6);
 
-    /* Ambient — dark */
-    --ambient-vignette: hsl(358 65% 30% / 0.18);
-    --ambient-grid: 36 28% 92%;
+    --ambient-vignette: hsl(195 100% 50% / 0.10);
+    --ambient-grid: 0 0% 98%;
     --ambient-grain-color: 1 0.95 0.85;
-    --ambient-grain-opacity: 0.10;
+    --ambient-grain-opacity: 0.08;
     --ambient-grain-blend: overlay;
-    --ambient-corner: hsl(358 50% 30% / 0.30);
+    --ambient-corner: hsl(195 100% 50% / 0.18);
   }
 }
 
