@@ -21,6 +21,7 @@ export const Header = ({ onContactClick }: HeaderProps) => {
   const [scrolled, setScrolled] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+  const { theme, toggle } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 40);
