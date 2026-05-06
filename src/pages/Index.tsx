@@ -2,11 +2,8 @@ import { useState } from "react";
 import { Hero } from "@/components/Hero";
 import { LogoCatalog } from "@/components/LogoCatalog";
 import { About } from "@/components/About";
-import { HowItWorks } from "@/components/HowItWorks";
-import { Stratum } from "@/components/Stratum";
+import { WhatWeDo } from "@/components/WhatWeDo";
 import { Founders } from "@/components/Founders";
-import { Services } from "@/components/Services";
-import { AIProductDevelopment } from "@/components/AIProductDevelopment";
 import { CaseStudy } from "@/components/CaseStudy";
 import { Testimonials } from "@/components/Testimonials";
 import { CTA } from "@/components/CTA";
@@ -35,10 +32,7 @@ const Index = () => {
       <Hero />
       <LogoCatalog />
       <About />
-      <HowItWorks />
-      <Stratum />
-      <Services />
-      <AIProductDevelopment />
+      <WhatWeDo />
       <CaseStudy />
       <Testimonials />
       <Founders />
