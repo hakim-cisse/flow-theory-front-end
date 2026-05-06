@@ -13,13 +13,17 @@ import { ContactDialog } from "@/components/ContactDialog";
 import { SEO } from "@/components/SEO";
 import { OrganizationSchema, WebsiteSchema } from "@/components/StructuredData";
 import { BlogPreview } from "@/components/BlogPreview";
+import { AmbientBackground } from "@/components/AmbientBackground";
+import { ScrollProgress } from "@/components/ScrollProgress";
 
 const Index = () => {
   const [contactOpen, setContactOpen] = useState(false);
 
   return (
-    <div className="min-h-screen pt-16">
-      <SEO
+    <div className="min-h-screen pt-16 relative">
+      <AmbientBackground />
+      <ScrollProgress />
+      <div className="relative z-10">
         title="AI Transformation Built on Strategy and ROI"
         description="Flow Theory AI helps businesses cut through the noise, build a clear AI roadmap, and execute only what delivers measurable business value. AI automation, consulting & custom SaaS."
         canonicalUrl="https://www.flowtheoryai.com/"
