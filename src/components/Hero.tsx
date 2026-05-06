@@ -17,28 +17,19 @@ export const Hero = () => {
       <div className="hidden md:block absolute right-12 lg:right-20 top-24 bottom-16 w-px bg-foreground/15" />
 
       <div ref={ref} className="relative z-10 container mx-auto px-6 md:px-20 lg:px-28 max-w-[1600px]">
-        {/* Top meta row */}
+        {/* Top meta row — featured case study only */}
         <div
-          className="grid grid-cols-12 gap-6 mb-12 md:mb-20 items-end"
+          className="flex justify-end mb-12 md:mb-20"
           style={staggerStyle(0, isVisible, { delay: 0.1, distance: 16 })}
         >
-          <div className="col-span-12 md:col-span-4">
-            <div className="text-mono text-foreground/50">№ 01 — Practice</div>
-            <div className="text-mono text-foreground mt-2">AI Transformation &amp; Consulting</div>
-          </div>
-          <div className="hidden md:block col-span-4 text-mono text-foreground/50 text-center">
-            Est. 2024 · London / Casablanca
-          </div>
-          <div className="col-span-12 md:col-span-4 md:text-right">
-            <button
-              onClick={scrollToCaseStudy}
-              className="group inline-flex items-center gap-2 text-mono text-primary story-link"
-            >
-              <FileText className="w-3 h-3" />
-              <span>Featured: $96K saved · APT Locator</span>
-              <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
-            </button>
-          </div>
+          <button
+            onClick={scrollToCaseStudy}
+            className="group inline-flex items-center gap-2 text-mono text-primary story-link"
+          >
+            <FileText className="w-3 h-3" />
+            <span>Featured: $96K saved · APT Locator</span>
+            <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+          </button>
         </div>
 
         {/* Editorial main grid */}
