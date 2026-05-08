@@ -5,9 +5,9 @@ import { cn } from "@/lib/utils";
 const steps = [
   { phase: "01", title: "Discovery Call", blurb: "Listen to the founder, understand how the business operates today, and identify the highest-leverage opportunities.", icon: Search },
   { phase: "02", title: "Deep-Dive Session", blurb: "Go deeper with your team to map workflows, validate insights, and agree on the priorities that matter most.", icon: Target },
-  { phase: "03", title: "Proposal & Alignment", blurb: "Present a clear plan with defined deliverables, quick wins, and projected ROI — no vague consulting speak.", icon: PenTool },
-  { phase: "04", title: "Pilot & Build", blurb: "Move fast and measure everything. A short pilot lets you see results before we scale the full system.", icon: Rocket },
-  { phase: "05", title: "Scale & Grow", blurb: "Review results, capture learnings, and hand you a roadmap for sustainable growth — with your team in the driver's seat.", icon: TrendingUp },
+  { phase: "03", title: "Proposal and Alignment", blurb: "Present a clear plan with defined deliverables, quick wins, and projected ROI. No vague consulting speak.", icon: PenTool },
+  { phase: "04", title: "Pilot and Build", blurb: "Move fast and measure everything. A short pilot lets you see results before we scale the full system.", icon: Rocket },
+  { phase: "05", title: "Scale and Grow", blurb: "Review results, capture learnings, and hand you a roadmap for sustainable growth. Your team fully in the driver's seat.", icon: TrendingUp },
 ];
 
 export const HowItWorks = () => {
