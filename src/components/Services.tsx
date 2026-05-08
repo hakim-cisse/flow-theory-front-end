@@ -124,6 +124,131 @@ const ToolsStrip = ({ isVisible }: { isVisible: boolean }) => {
   );
 };
 
+
+const ServicesSplit = ({
+  gridRef,
+  gridVisible,
+}: {
+  gridRef: React.RefObject<HTMLDivElement>;
+  gridVisible: boolean;
+}) => {
+  const [active, setActive] = useState(0);
+  const current = services[active];
+  const Icon = current.icon;
+
+  return (
+    <div
+      ref={gridRef}
+      className="mt-16 sm:mt-20 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16"
+    >
+      {/* Left — list */}
+      <div className="lg:col-span-7 border-t border-border/60">
+        {services.map((service, i) => {
+          const isActive = i === active;
+          return (
+            <button
+              key={service.title}
+              type="button"
+              onMouseEnter={() => setActive(i)}
+              onFocus={() => setActive(i)}
+              onClick={() => setActive(i)}
+              className="group relative w-full text-left border-b border-border/60 overflow-hidden block"
+              style={staggerStyle(i, gridVisible, { delay: 0.06 })}
+              aria-pressed={isActive}
+            >
+              {/* Sweep fill */}
+              <span
+                className={`pointer-events-none absolute inset-0 origin-left bg-gradient-to-r from-primary/10 via-primary/5 to-transparent transition-transform duration-700 ease-out ${
+                  isActive ? "scale-x-100" : "scale-x-0"
+                }`}
+              />
+              <div className="relative grid grid-cols-12 items-center gap-4 py-6 sm:py-7 px-1 sm:px-2">
+                <span
+                  className={`col-span-2 sm:col-span-1 text-mono text-xs transition-colors duration-300 ${
+                    isActive ? "text-primary" : "text-foreground/40"
+                  }`}
+                >
+                  0{i + 1}
+                </span>
+                <h3
+                  className={`col-span-9 sm:col-span-10 font-display text-2xl sm:text-3xl md:text-4xl tracking-tight transition-all duration-500 ${
+                    isActive
+                      ? "text-foreground translate-x-2"
+                      : "text-foreground/60 translate-x-0"
+                  }`}
+                >
+                  {service.title}
+                </h3>
+                <div className="col-span-1 flex justify-end">
+                  <ArrowRight
+                    className={`w-4 h-4 transition-all duration-500 ${
+                      isActive
+                        ? "text-primary opacity-100 translate-x-0"
+                        : "text-foreground/30 opacity-0 -translate-x-2"
+                    }`}
+                  />
+                </div>
+              </div>
+            </button>
+          );
+        })}
+      </div>
+
+      {/* Right — sticky highlight panel */}
+      <div className="lg:col-span-5">
+        <div className="lg:sticky lg:top-28">
+          <div
+            key={active}
+            className="relative border border-border/60 bg-background p-8 md:p-10 overflow-hidden animate-fade-in"
+          >
+            {/* Decorative corner mark */}
+            <span className="absolute top-0 left-0 h-px w-full bg-gradient-to-r from-primary/60 via-primary/20 to-transparent" />
+
+            <div className="flex items-center justify-between mb-8">
+              <span className="text-mono text-xs text-primary">
+                {current.kicker}
+              </span>
+              <span className="text-mono text-xs text-foreground/40">
+                0{active + 1} / 0{services.length}
+              </span>
+            </div>
+
+            {/* Big illustration: icon framed by hairline lines */}
+            <div className="relative aspect-[4/3] mb-8 border border-border/60 flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary/5 via-transparent to-transparent">
+              <div className="absolute inset-0 opacity-40 [background-image:linear-gradient(to_right,hsl(var(--border))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border))_1px,transparent_1px)] [background-size:32px_32px]" />
+              <div className="relative">
+                <Icon
+                  className="h-20 w-20 md:h-24 md:w-24 text-primary"
+                  strokeWidth={1}
+                />
+              </div>
+            </div>
+
+            <h4 className="font-display text-2xl text-foreground mb-3 tracking-tight">
+              {current.title}
+            </h4>
+            <p className="text-sm text-muted-foreground leading-relaxed mb-6">
+              {current.description}
+            </p>
+
+            <ul className="space-y-2 border-t border-border/60 pt-6">
+              {current.highlights.map((h) => (
+                <li
+                  key={h}
+                  className="flex items-center gap-3 text-sm text-foreground/80"
+                >
+                  <span className="h-px w-6 bg-primary" />
+                  {h}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 export const Services = () => {
   const { ref: headerRef, isVisible: headerVisible } = useScrollReveal();
   const { ref: gridRef, isVisible: gridVisible } = useScrollReveal({ threshold: 0.1 });
