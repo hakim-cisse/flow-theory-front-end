@@ -111,10 +111,174 @@ const ToolsStrip = ({ isVisible }: { isVisible: boolean }) => {
   );
 };
 
+const ServicesGallery = () => {
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
+  const [progress, setProgress] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const panels = [
+    ...services.map((s) => ({ ...s, featured: false as const })),
+    {
+      icon: Layers,
+      title: "Custom SaaS Development",
+      description:
+        "From concept to launch. We design, build, and deploy scalable SaaS platforms tailored to your market and growth goals.",
+      featured: true as const,
+    },
+  ];
+
+  useEffect(() => {
+    const wrapper = wrapperRef.current;
+    const track = trackRef.current;
+    if (!wrapper || !track) return;
+
+    const onScroll = () => {
+      const rect = wrapper.getBoundingClientRect();
+      const vh = window.innerHeight;
+      const total = wrapper.offsetHeight - vh;
+      const scrolled = Math.min(Math.max(-rect.top, 0), total);
+      const p = total > 0 ? scrolled / total : 0;
+      setProgress(p);
+      setActiveIndex(Math.min(panels.length - 1, Math.floor(p * panels.length + 0.001)));
+    };
+
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, [panels.length]);
+
+  // Each panel is ~80vw on desktop, 90vw mobile. Track scrolls (panels-1) widths.
+  const translate = `calc(${-progress} * (100% - 100vw))`;
+
+  return (
+    <div ref={wrapperRef} className="relative" style={{ height: `${panels.length * 90}vh` }}>
+      <div className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden">
+        {/* Counter & progress */}
+        <div className="absolute top-8 left-0 right-0 flex items-center justify-between px-6 sm:px-10 z-10">
+          <span className="text-mono text-xs text-foreground/50">
+            <span className="text-primary">{String(activeIndex + 1).padStart(2, "0")}</span>
+            <span className="mx-2 text-foreground/30">/</span>
+            {String(panels.length).padStart(2, "0")}
+          </span>
+          <span className="text-mono text-[10px] text-foreground/40 hidden sm:flex items-center gap-3">
+            Scroll <span className="block w-8 h-px bg-foreground/30" /> Explore
+          </span>
+        </div>
+
+        {/* Track */}
+        <div
+          ref={trackRef}
+          className="flex items-center h-[70vh] will-change-transform"
+          style={{
+            width: `${panels.length * 80}vw`,
+            transform: `translate3d(${translate}, 0, 0)`,
+            transition: "transform 0.1s linear",
+          }}
+        >
+          {panels.map((panel, i) => {
+            const isActive = i === activeIndex;
+            const Icon = panel.icon;
+            return (
+              <div
+                key={panel.title}
+                className="shrink-0 h-full px-4 sm:px-8"
+                style={{ width: "80vw" }}
+              >
+                <div
+                  className={`relative h-full border border-border/60 p-8 sm:p-12 md:p-16 flex flex-col justify-between overflow-hidden bg-background transition-all duration-700 ${
+                    isActive ? "opacity-100 scale-100" : "opacity-40 scale-[0.96]"
+                  }`}
+                >
+                  {/* Background wash */}
+                  <span
+                    className={`pointer-events-none absolute inset-0 bg-gradient-to-br from-primary/10 via-primary/5 to-transparent transition-opacity duration-700 ${
+                      isActive ? "opacity-100" : "opacity-0"
+                    }`}
+                  />
+                  {/* Massive number */}
+                  <span
+                    className="pointer-events-none absolute -top-8 -right-4 sm:-right-8 font-display italic text-[clamp(8rem,22vw,22rem)] leading-none text-primary/5 select-none"
+                    aria-hidden
+                  >
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+
+                  {/* Top */}
+                  <div className="relative flex items-start justify-between">
+                    <div className="flex items-center gap-4">
+                      <Icon className="h-8 w-8 sm:h-10 sm:w-10 text-primary" strokeWidth={1.4} />
+                      <span className="text-mono text-[10px] text-foreground/40">
+                        {panel.featured ? "FEATURED" : `SERVICE 0${i + 1}`}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Middle */}
+                  <div className="relative max-w-3xl">
+                    <h3 className="font-display text-4xl sm:text-6xl md:text-7xl text-foreground tracking-tight leading-[1.05] mb-6">
+                      {panel.title.split(" ").map((w, idx, arr) =>
+                        idx === arr.length - 1 ? (
+                          <span key={idx} className="text-gradient italic">
+                            {w}
+                          </span>
+                        ) : (
+                          <span key={idx}>{w} </span>
+                        )
+                      )}
+                    </h3>
+                    <p className="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-2xl">
+                      {panel.description}
+                    </p>
+
+                    {panel.featured && (
+                      <Button
+                        asChild
+                        size="lg"
+                        className="mt-8 gap-2 rounded-none uppercase text-xs tracking-wider px-6 py-5 group/btn"
+                      >
+                        <a
+                          href="https://cal.com/flow-theory-ai/alignment-call"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Let's talk
+                          <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
+                        </a>
+                      </Button>
+                    )}
+                  </div>
+
+                  {/* Bottom hairline */}
+                  <div className="relative flex items-center justify-between text-mono text-[10px] text-foreground/40">
+                    <span>Flow Theory AI</span>
+                    <span className="h-px flex-1 mx-4 bg-border/60" />
+                    <span>{String(i + 1).padStart(2, "0")} / {String(panels.length).padStart(2, "0")}</span>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Progress bar */}
+        <div className="absolute bottom-8 left-6 right-6 sm:left-10 sm:right-10 h-px bg-border/60 z-10">
+          <div
+            className="h-full bg-primary origin-left"
+            style={{ transform: `scaleX(${progress})`, transition: "transform 0.1s linear" }}
+          />
+        </div>
+      </div>
+    </div>
+  );
+};
+
 export const Services = () => {
   const { ref: headerRef, isVisible: headerVisible } = useScrollReveal();
-  const { ref: gridRef, isVisible: gridVisible } = useScrollReveal({ threshold: 0.1 });
-  const { ref: saasRef, isVisible: saasVisible } = useScrollReveal();
 
   return (
     <section id="services" className="py-24 sm:py-32 relative overflow-hidden section-5">
