@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, FileText } from "lucide-react";
 import { useScrollReveal, staggerStyle } from "@/hooks/useScrollReveal";
-import { MetricsTicker } from "@/components/MetricsTicker";
+import { MorphingWord } from "@/components/MorphingWord";
 
 export const Hero = () => {
   const { ref, isVisible } = useScrollReveal({ threshold: 0.1 });
