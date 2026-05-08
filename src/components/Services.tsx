@@ -136,10 +136,7 @@ export const Services = () => {
           </div>
 
           {/* Editorial index — vertical list of services */}
-          <ul
-            ref={gridRef}
-            className="mt-16 sm:mt-20 border-t border-border/60"
-          >
+          <div ref={gridRef} className="mt-16 sm:mt-20 border-t border-border/60">
             {services.map((service, i) => (
               <li
                 key={service.title}
