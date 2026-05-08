@@ -126,124 +126,163 @@ const ToolsStrip = ({ isVisible }: { isVisible: boolean }) => {
 };
 
 
-const ServicesSplit = ({
+const ServicesShuffle = ({
   gridRef,
   gridVisible,
 }: {
   gridRef: React.RefObject<HTMLDivElement>;
   gridVisible: boolean;
 }) => {
-  const [active, setActive] = useState(0);
-  const current = services[active];
-  const Icon = current.icon;
+  const [index, setIndex] = useState(0);
+  const [direction, setDirection] = useState<1 | -1>(1);
+  const total = services.length;
+
+  const go = (dir: 1 | -1) => {
+    setDirection(dir);
+    setIndex((i) => (i + dir + total) % total);
+  };
+
+  // Build a stack of the next 3 cards for depth
+  const stack = [0, 1, 2].map((offset) => {
+    const i = (index + offset) % total;
+    return { ...services[i], i, offset };
+  });
 
   return (
     <div
       ref={gridRef}
-      className="mt-16 sm:mt-20 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16"
+      className="mt-16 sm:mt-20 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center"
+      style={staggerStyle(0, gridVisible, { distance: 20 })}
     >
-      {/* Left — list */}
-      <div className="lg:col-span-7 border-t border-border/60">
-        {services.map((service, i) => {
-          const isActive = i === active;
-          return (
-            <button
-              key={service.title}
-              type="button"
-              onMouseEnter={() => setActive(i)}
-              onFocus={() => setActive(i)}
-              onClick={() => setActive(i)}
-              className="group relative w-full text-left border-b border-border/60 overflow-hidden block"
-              style={staggerStyle(i, gridVisible, { delay: 0.06 })}
-              aria-pressed={isActive}
-            >
-              {/* Sweep fill */}
-              <span
-                className={`pointer-events-none absolute inset-0 origin-left bg-gradient-to-r from-primary/10 via-primary/5 to-transparent transition-transform duration-700 ease-out ${
-                  isActive ? "scale-x-100" : "scale-x-0"
-                }`}
-              />
-              <div className="relative grid grid-cols-12 items-center gap-4 py-6 sm:py-7 px-1 sm:px-2">
-                <span
-                  className={`col-span-2 sm:col-span-1 text-mono text-xs transition-colors duration-300 ${
-                    isActive ? "text-primary" : "text-foreground/40"
+      {/* Left — controls + counter */}
+      <div className="lg:col-span-4 order-2 lg:order-1">
+        <div className="flex items-center gap-4 mb-8">
+          <span className="text-mono text-xs text-primary">
+            0{index + 1} <span className="text-foreground/30">/ 0{total}</span>
+          </span>
+          <span className="h-px flex-1 bg-border/60" />
+        </div>
+        <h3 className="font-display text-3xl md:text-4xl lg:text-5xl tracking-tight text-foreground mb-4">
+          Shuffle through what we do.
+        </h3>
+        <p className="text-sm md:text-base text-muted-foreground leading-relaxed mb-10 max-w-md">
+          Six disciplines, one accountable partner. Flip through the stack — or jump straight to the one you need.
+        </p>
+
+        {/* Nav buttons */}
+        <div className="flex items-center gap-3 mb-10">
+          <button
+            type="button"
+            onClick={() => go(-1)}
+            aria-label="Previous service"
+            className="w-12 h-12 border border-border/60 flex items-center justify-center text-foreground/70 hover:text-primary hover:border-primary transition-colors"
+          >
+            <ArrowLeft className="w-4 h-4" />
+          </button>
+          <button
+            type="button"
+            onClick={() => go(1)}
+            aria-label="Next service"
+            className="w-12 h-12 border border-border/60 flex items-center justify-center text-foreground/70 hover:text-primary hover:border-primary transition-colors"
+          >
+            <ArrowRight className="w-4 h-4" />
+          </button>
+          <span className="text-mono text-xs text-foreground/40 ml-2">
+            Drag · click · or shuffle
+          </span>
+        </div>
+
+        {/* Direct jump list */}
+        <ul className="space-y-1 border-t border-border/60 pt-4">
+          {services.map((s, i) => {
+            const active = i === index;
+            return (
+              <li key={s.title}>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setDirection(i > index ? 1 : -1);
+                    setIndex(i);
+                  }}
+                  className={`w-full text-left flex items-center gap-3 py-2 group transition-colors ${
+                    active ? "text-primary" : "text-foreground/50 hover:text-foreground"
                   }`}
                 >
-                  0{i + 1}
-                </span>
-                <h3
-                  className={`col-span-9 sm:col-span-10 font-display text-2xl sm:text-3xl md:text-4xl tracking-tight transition-all duration-500 ${
-                    isActive
-                      ? "text-foreground translate-x-2"
-                      : "text-foreground/60 translate-x-0"
-                  }`}
-                >
-                  {service.title}
-                </h3>
-                <div className="col-span-1 flex justify-end">
-                  <ArrowRight
-                    className={`w-4 h-4 transition-all duration-500 ${
-                      isActive
-                        ? "text-primary opacity-100 translate-x-0"
-                        : "text-foreground/30 opacity-0 -translate-x-2"
-                    }`}
-                  />
-                </div>
-              </div>
-            </button>
-          );
-        })}
+                  <span className="text-mono text-[10px] w-6">0{i + 1}</span>
+                  <span className={`h-px transition-all duration-500 ${active ? "w-10 bg-primary" : "w-4 bg-border group-hover:w-8"}`} />
+                  <span className="font-display text-base tracking-tight">{s.title}</span>
+                </button>
+              </li>
+            );
+          })}
+        </ul>
       </div>
 
-      {/* Right — sticky highlight panel */}
-      <div className="lg:col-span-5">
-        <div className="lg:sticky lg:top-28">
-          <div
-            key={active}
-            className="relative border border-border/60 bg-background p-8 md:p-10 overflow-hidden animate-fade-in"
-          >
-            {/* Decorative corner mark */}
-            <span className="absolute top-0 left-0 h-px w-full bg-gradient-to-r from-primary/60 via-primary/20 to-transparent" />
+      {/* Right — card stack */}
+      <div className="lg:col-span-8 order-1 lg:order-2">
+        <div className="relative h-[460px] sm:h-[500px] md:h-[540px] select-none">
+          {stack
+            .slice()
+            .reverse()
+            .map(({ offset, i, ...service }) => {
+              const Icon = service.icon;
+              const isTop = offset === 0;
+              const translate = offset * 18;
+              const scale = 1 - offset * 0.04;
+              const rotate = offset * 1.5;
+              const opacity = 1 - offset * 0.25;
 
-            <div className="flex items-center justify-between mb-8">
-              <span className="text-mono text-xs text-primary">
-                {current.kicker}
-              </span>
-              <span className="text-mono text-xs text-foreground/40">
-                0{active + 1} / 0{services.length}
-              </span>
-            </div>
-
-            {/* Big illustration: icon framed by hairline lines */}
-            <div className="relative aspect-[4/3] mb-8 border border-border/60 flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary/5 via-transparent to-transparent">
-              <div className="absolute inset-0 opacity-40 [background-image:linear-gradient(to_right,hsl(var(--border))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border))_1px,transparent_1px)] [background-size:32px_32px]" />
-              <div className="relative">
-                <Icon
-                  className="h-20 w-20 md:h-24 md:w-24 text-primary"
-                  strokeWidth={1}
-                />
-              </div>
-            </div>
-
-            <h4 className="font-display text-2xl text-foreground mb-3 tracking-tight">
-              {current.title}
-            </h4>
-            <p className="text-sm text-muted-foreground leading-relaxed mb-6">
-              {current.description}
-            </p>
-
-            <ul className="space-y-2 border-t border-border/60 pt-6">
-              {current.highlights.map((h) => (
-                <li
-                  key={h}
-                  className="flex items-center gap-3 text-sm text-foreground/80"
+              return (
+                <article
+                  key={`${i}-${offset}`}
+                  className={`absolute inset-0 border border-border/60 bg-background overflow-hidden ${
+                    isTop ? "shadow-[0_30px_60px_-30px_hsl(var(--primary)/0.25)]" : ""
+                  }`}
+                  style={{
+                    transform: `translate(${translate}px, ${translate}px) scale(${scale}) rotate(${rotate}deg)`,
+                    opacity,
+                    zIndex: 10 - offset,
+                    transition: "transform 0.55s cubic-bezier(0.22,1,0.36,1), opacity 0.4s ease",
+                    animation: isTop
+                      ? `${direction === 1 ? "card-in-right" : "card-in-left"} 0.55s cubic-bezier(0.22,1,0.36,1)`
+                      : undefined,
+                  }}
                 >
-                  <span className="h-px w-6 bg-primary" />
-                  {h}
-                </li>
-              ))}
-            </ul>
-          </div>
+                  {/* top hairline */}
+                  <span className="absolute top-0 left-0 h-px w-full bg-gradient-to-r from-primary/60 via-primary/20 to-transparent" />
+
+                  <div className="h-full p-8 md:p-12 flex flex-col">
+                    <div className="flex items-center justify-between mb-8">
+                      <span className="text-mono text-xs text-primary">{service.kicker}</span>
+                      <span className="text-mono text-xs text-foreground/40">
+                        0{i + 1} / 0{total}
+                      </span>
+                    </div>
+
+                    <div className="relative flex-1 mb-8 border border-border/60 overflow-hidden bg-gradient-to-br from-primary/5 via-transparent to-transparent flex items-center justify-center min-h-[160px]">
+                      <div className="absolute inset-0 opacity-40 [background-image:linear-gradient(to_right,hsl(var(--border))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border))_1px,transparent_1px)] [background-size:32px_32px]" />
+                      <Icon className="relative h-24 w-24 md:h-28 md:w-28 text-primary" strokeWidth={1} />
+                    </div>
+
+                    <h4 className="font-display text-2xl md:text-3xl text-foreground mb-3 tracking-tight">
+                      {service.title}
+                    </h4>
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-5">
+                      {service.description}
+                    </p>
+
+                    <ul className="flex flex-wrap gap-x-5 gap-y-2 border-t border-border/60 pt-4">
+                      {service.highlights.map((h) => (
+                        <li key={h} className="flex items-center gap-2 text-xs text-foreground/70">
+                          <span className="h-px w-4 bg-primary" />
+                          {h}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </article>
+              );
+            })}
         </div>
       </div>
     </div>
