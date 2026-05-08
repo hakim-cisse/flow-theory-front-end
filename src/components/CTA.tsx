@@ -11,7 +11,7 @@ export const CTA = () => {
             <span className="text-mono text-primary/70 block mb-6" style={staggerStyle(0, isVisible)}>Let's talk</span>
             <h2 className="text-heading" style={staggerStyle(1, isVisible)}>
               Not sure where to start?<br />
-              <span className="text-gradient">That's exactly what we're here for.</span>
+              <span className="text-gradient">That is exactly what we are here for.</span>
             </h2>
             <div className="accent-bar mt-6" style={staggerStyle(2, isVisible)} />
             <p className="text-subheading text-muted-foreground max-w-2xl mt-8" style={staggerStyle(3, isVisible)}>
