@@ -138,7 +138,7 @@ export const Services = () => {
           {/* Editorial index — vertical list of services */}
           <div ref={gridRef} className="mt-16 sm:mt-20 border-t border-border/60">
             {services.map((service, i) => (
-              <li
+              <div
                 key={service.title}
                 className="group relative border-b border-border/60 overflow-hidden"
                 style={staggerStyle(i, gridVisible, { delay: 0.08 })}
