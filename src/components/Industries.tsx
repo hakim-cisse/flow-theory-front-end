@@ -114,7 +114,7 @@ export const Industries = () => {
   return (
     <section className="py-24 sm:py-32 relative overflow-hidden section-7">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-screen-2xl mx-auto">
           {/* Header */}
           <div ref={headerRef} className="mb-16">
             <span className="text-mono text-primary/70 block mb-6" style={staggerStyle(0, headerVisible)}>

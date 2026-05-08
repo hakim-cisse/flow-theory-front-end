@@ -31,7 +31,7 @@ export const Founders = () => {
   return (
     <section id="founders" className="py-24 sm:py-32 relative section-8">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-screen-2xl mx-auto">
           <div ref={headerRef} className="mb-20">
             <span className="text-mono text-primary/70 block mb-6" style={staggerStyle(0, headerVisible)}>Our team</span>
             <h2 className="text-heading" style={staggerStyle(1, headerVisible)}>

@@ -258,7 +258,7 @@ export const Services = () => {
   return (
     <section id="services" className="py-24 sm:py-32 relative overflow-hidden section-5">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-screen-2xl mx-auto">
           {/* Editorial header — matches site pattern */}
           <div ref={headerRef} className="mb-12 max-w-4xl">
             <span

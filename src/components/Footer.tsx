@@ -18,7 +18,7 @@ export const Footer = ({ onContactClick }: FooterProps) => {
   return (
     <footer className="relative border-t border-border/20 section-9">
       <div ref={ref} className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-screen-2xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
             <div style={staggerStyle(0, isVisible)}>
               <img src={logo} alt="Flow Theory AI" className="h-10 w-auto mb-4 opacity-70" />

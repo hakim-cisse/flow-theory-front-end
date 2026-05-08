@@ -75,7 +75,7 @@ export const BlogPreview = () => {
       <div className="absolute -bottom-40 -left-40 w-[400px] h-[400px] bg-primary/3 rounded-full blur-[120px]" />
 
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-screen-2xl mx-auto">
           {/* Header */}
           <div ref={headerRef} className="mb-12 sm:mb-16">
             <span className="text-mono text-primary/70 block mb-4" style={staggerStyle(0, headerVisible)}>// INSIGHTS</span>

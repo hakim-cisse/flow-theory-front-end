@@ -6,7 +6,7 @@ export const CTA = () => {
   return (
     <section id="cta" className="py-24 sm:py-32 relative overflow-hidden section-9">
       <div ref={ref} className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-screen-2xl mx-auto">
           <div className="mb-16">
             <span className="text-mono text-primary/70 block mb-6" style={staggerStyle(0, isVisible)}>Let's talk</span>
             <h2 className="text-heading" style={staggerStyle(1, isVisible)}>

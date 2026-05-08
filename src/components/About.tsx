@@ -32,7 +32,7 @@ export const About = () => {
   return (
     <section id="about" className="py-24 sm:py-32 relative overflow-hidden section-3">
       <div ref={ref} className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-screen-2xl mx-auto">
           {/* Single statement */}
           <p
             className="font-display text-4xl sm:text-5xl md:text-6xl leading-[1.05] tracking-tight text-foreground/85"
