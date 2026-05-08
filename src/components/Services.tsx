@@ -169,9 +169,9 @@ export const Services = () => {
                     </div>
                   </div>
                 </div>
-              </li>
+              </div>
             ))}
-          </ul>
+          </div>
 
           {/* Custom SaaS — featured block */}
           <div
