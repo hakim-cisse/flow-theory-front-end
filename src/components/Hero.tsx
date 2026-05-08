@@ -39,9 +39,10 @@ export const Hero = () => {
           <div className="col-span-12 lg:col-span-9" style={staggerStyle(1, isVisible, { delay: 0.15, duration: 0.9, distance: 40 })}>
             <h1 className="text-display text-foreground">
               <span className="block">AI transformation,</span>
-              <span className="block italic text-primary" style={{ fontWeight: 300 }}>
-                engineered.
-              </span>
+              <MorphingWord
+                words={["engineered.", "deployed.", "measured.", "compounding."]}
+                className="block italic text-primary"
+              />
             </h1>
           </div>
 
