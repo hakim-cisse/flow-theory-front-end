@@ -37,9 +37,9 @@ export const Hero = () => {
           {/* Headline */}
           <div className="col-span-12 lg:col-span-9" style={staggerStyle(1, isVisible, { delay: 0.15, duration: 0.9, distance: 40 })}>
             <h1 className="text-display text-foreground">
-              <span className="block">Your operations,</span>
+              <span className="block">AI transformation,</span>
               <span className="block italic text-primary" style={{ fontWeight: 300 }}>
-                engineered to flow.
+                engineered.
               </span>
             </h1>
           </div>
@@ -60,7 +60,7 @@ export const Hero = () => {
         <div className="grid grid-cols-12 gap-6 md:gap-10 mt-16 md:mt-24 items-end">
           <div className="col-span-12 md:col-span-7" style={staggerStyle(3, isVisible, { delay: 0.3, distance: 20 })}>
             <p className="text-base md:text-lg text-foreground/70 max-w-xl leading-relaxed">
-              We analyze how your business runs today, identify exactly where automation creates leverage, and build systems your team will actually use.
+              Less hype. More measurable outcomes.
             </p>
           </div>
 
@@ -74,7 +74,7 @@ export const Hero = () => {
               asChild
             >
               <a href="https://cal.com/flow-theory-ai/alignment-call" target="_blank" rel="noopener noreferrer">
-                Book a Discovery Call
+                Book a discovery call
                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </a>
             </Button>
@@ -82,13 +82,13 @@ export const Hero = () => {
               onClick={scrollToCaseStudy}
               className="text-mono text-foreground/70 hover:text-primary transition-colors story-link"
             >
-              Explore Our Work →
+              Explore our work →
             </button>
           </div>
         </div>
 
         {/* Footer of hero */}
-        <div className="mt-12 md:mt-16 pt-6 border-t border-foreground/15 flex items-center justify-between text-mono text-foreground/45">
+        <div className="mt-20 md:mt-28 pt-6 border-t border-foreground/15 flex items-center justify-between text-mono text-foreground/45">
           <span>Strategy / Systems / Impact</span>
           <span className="hidden md:inline">Scroll ↓</span>
           <span>v.2026</span>

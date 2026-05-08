@@ -1,13 +1,19 @@
 import { useState } from "react";
 import { Hero } from "@/components/Hero";
+import { LogoCatalog } from "@/components/LogoCatalog";
+import { About } from "@/components/About";
+import { WhatWeDo } from "@/components/WhatWeDo";
 import { Services } from "@/components/Services";
-import { HowItWorks } from "@/components/HowItWorks";
+import { Founders } from "@/components/Founders";
+import { CaseStudy } from "@/components/CaseStudy";
+import { Testimonials } from "@/components/Testimonials";
 import { CTA } from "@/components/CTA";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { ContactDialog } from "@/components/ContactDialog";
 import { SEO } from "@/components/SEO";
 import { OrganizationSchema, WebsiteSchema } from "@/components/StructuredData";
+import { BlogPreview } from "@/components/BlogPreview";
 import { AmbientBackground } from "@/components/AmbientBackground";
 import { ScrollProgress } from "@/components/ScrollProgress";
 
@@ -31,7 +37,11 @@ const Index = () => {
         <Header onContactClick={() => setContactOpen(true)} />
         <Hero />
         <Services />
-        <HowItWorks />
+        <WhatWeDo />
+        <CaseStudy />
+        <Testimonials />
+        <Founders />
+        <BlogPreview />
         <CTA />
         <Footer onContactClick={() => setContactOpen(true)} />
       </div>

@@ -1,5 +1,7 @@
-import { Workflow, Puzzle, GraduationCap } from "lucide-react";
+import { Search, Workflow, Puzzle, GraduationCap, Code, Dumbbell, Layers, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { useScrollReveal, staggerStyle } from "@/hooks/useScrollReveal";
+import { useEffect, useRef } from "react";
 
 const toolLogos = [
   { name: "n8n", color: "#EA4B71", svg: '<svg viewBox="0 0 24 24"><path d="M12.76 1.64C14.346.054 16.893.054 18.48 1.64l3.878 3.879c1.586 1.586 1.586 4.133 0 5.72l-3.879 3.878c-1.586 1.586-4.133 1.586-5.72 0L8.883 11.24c-1.586-1.586-1.586-4.133 0-5.72zm-1.52 8.96l3.878 3.878c1.586 1.586 1.586 4.134 0 5.72l-3.879 3.879c-1.586 1.586-4.133 1.586-5.72 0L1.643 20.2c-1.586-1.587-1.586-4.134 0-5.72L5.52 10.6c1.586-1.586 4.133-1.586 5.72 0z"/></svg>' },
@@ -21,29 +23,98 @@ const toolLogos = [
 
 const services = [
   {
+    icon: Search,
+    title: "AI Audits",
+    description: "We identify what's costing you time and money before writing a single line of code.",
+  },
+  {
     icon: Workflow,
-    title: "Optimize your operations",
-    description:
-      "We find where your team is losing time and fix it — through smarter workflows, targeted automation, and systems that scale as you do.",
+    title: "Custom Workflows",
+    description: "Tailored automation systems that eliminate repetitive work your team shouldn't be doing.",
   },
   {
     icon: Puzzle,
-    title: "Build intelligent systems",
-    description:
-      "We design and deploy custom-built solutions that connect your team and tools into one ecosystem — tailored to your business, not off the shelf.",
+    title: "AI Integrations",
+    description: "Connect your tools into one intelligent ecosystem that learns and adapts with your business.",
+  },
+  {
+    icon: Code,
+    title: "Development",
+    description: "Custom AI-powered applications built for your specific business problems, not generic templates.",
+  },
+  {
+    icon: Dumbbell,
+    title: "Training",
+    description: "Hands-on training so your team owns the AI systems we build. No vendor lock-in.",
   },
   {
     icon: GraduationCap,
-    title: "Empower your people",
-    description:
-      "We train your team to use and own what we build, so the transformation sticks long after we're done.",
+    title: "Education",
+    description: "Empower your people with AI knowledge and best practices for lasting transformation.",
   },
 ];
 
+const ToolsStrip = ({ isVisible }: { isVisible: boolean }) => {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const container = scrollRef.current;
+    if (!container) return;
+
+    let animationId: number;
+    let pos = 0;
+    const speed = 0.4;
+
+    const animate = () => {
+      pos += speed;
+      if (pos >= container.scrollWidth / 2) pos = 0;
+      container.scrollLeft = pos;
+      animationId = requestAnimationFrame(animate);
+    };
+
+    animationId = requestAnimationFrame(animate);
+
+    return () => {
+      cancelAnimationFrame(animationId);
+    };
+  }, []);
+
+  const allLogos = [...toolLogos, ...toolLogos];
+
+  return (
+    <div
+      className="mb-16 overflow-hidden"
+      style={{
+        opacity: isVisible ? 1 : 0,
+        transform: isVisible ? "translateY(0)" : "translateY(20px)",
+        transition: "opacity 0.6s ease-out 0.3s, transform 0.6s ease-out 0.3s",
+      }}
+    >
+      <div className="relative">
+        <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
+        <div
+          ref={scrollRef}
+          className="flex items-center gap-8 overflow-x-hidden py-4"
+          style={{ scrollBehavior: "auto" }}
+        >
+          {allLogos.map((logo, i) => (
+            <div
+              key={`${logo.name}-${i}`}
+              className="flex-shrink-0 w-10 h-10 flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity duration-300 cursor-pointer"
+              dangerouslySetInnerHTML={{ __html: logo.svg.replace('<svg ', `<svg fill="${logo.color}" `) }}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export const Services = () => {
   const { ref: headerRef, isVisible: headerVisible } = useScrollReveal();
   const { ref: gridRef, isVisible: gridVisible } = useScrollReveal({ threshold: 0.1 });
+  const { ref: saasRef, isVisible: saasVisible } = useScrollReveal();
 
   return (
     <section id="services" className="py-24 sm:py-32 relative overflow-hidden section-5">
@@ -55,10 +126,11 @@ export const Services = () => {
               className="text-mono text-primary/70 block mb-6"
               style={staggerStyle(0, headerVisible)}
             >
-              What we do
+              Services
             </span>
             <h2 className="text-heading" style={staggerStyle(1, headerVisible)}>
-              <span className="text-gradient">What we do.</span>
+              Your trusted partner<br />
+              <span className="text-gradient">for AI transformation.</span>
             </h2>
             <div className="accent-bar mt-6" style={staggerStyle(2, headerVisible)} />
           </div>
@@ -66,7 +138,7 @@ export const Services = () => {
           {/* Services grid — bordered editorial cells */}
           <div
             ref={gridRef}
-            className="grid grid-cols-1 md:grid-cols-3 border-t border-l border-border/60 mt-16 sm:mt-20"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 border-t border-l border-border/60 mt-16 sm:mt-20"
           >
             {services.map((service, i) => (
               <div
@@ -83,6 +155,39 @@ export const Services = () => {
                 </p>
               </div>
             ))}
+
+            {/* Custom SaaS — spans full width as last cell */}
+            <div
+              ref={saasRef}
+              className="group p-8 md:p-10 border-r border-b border-border/60 bg-background hover:bg-primary/5 transition-colors duration-500 sm:col-span-2 lg:col-span-3"
+              style={staggerStyle(0, saasVisible, { distance: 20 })}
+            >
+              <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+                <div className="max-w-2xl">
+                  <Layers className="h-7 w-7 text-primary mb-8" strokeWidth={1.5} />
+                  <h3 className="font-display text-2xl md:text-3xl text-foreground mb-3 tracking-tight">
+                    Custom SaaS Development
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    From concept to launch. We design, build, and deploy scalable SaaS platforms tailored to your market and growth goals.
+                  </p>
+                </div>
+                <Button asChild size="lg" className="gap-2 rounded-none uppercase text-xs tracking-wider px-6 py-5 self-start lg:self-end shrink-0">
+                  <a href="https://cal.com/flow-theory-ai/alignment-call" target="_blank" rel="noopener noreferrer">
+                    Let's talk
+                    <ArrowRight className="w-4 h-4" />
+                  </a>
+                </Button>
+              </div>
+            </div>
+          </div>
+
+          {/* Tools strip — reframed */}
+          <div className="mt-20 md:mt-24 text-center">
+            <p className="text-mono text-foreground/50 mb-10">
+              Built on the tools your team already uses
+            </p>
+            <ToolsStrip isVisible={headerVisible} />
           </div>
         </div>
       </div>

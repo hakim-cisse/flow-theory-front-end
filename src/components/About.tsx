@@ -33,18 +33,14 @@ export const About = () => {
     <section id="about" className="py-24 sm:py-32 relative overflow-hidden section-3">
       <div ref={ref} className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-5xl mx-auto">
-          {/* Mission statement */}
-          <span className="text-mono text-primary/70 block mb-6">Our mission</span>
+          {/* Single statement */}
           <p
             className="font-display text-4xl sm:text-5xl md:text-6xl leading-[1.05] tracking-tight text-foreground/85"
             style={staggerStyle(0, isVisible)}
           >
-            We transform how businesses operate —{" "}
-            <span className="italic text-primary font-light">starting with an honest look</span>
-            {" "}at how they work today.
-          </p>
-          <p className="mt-8 max-w-3xl text-base md:text-lg text-muted-foreground leading-relaxed" style={staggerStyle(1, isVisible)}>
-            Most consultants start by selling you tools. We start by understanding your operations. That means sitting with your team, mapping your workflows, and finding where time and money are quietly leaking — before we ever recommend a solution.
+            We build the AI systems that{" "}
+            <span className="italic text-primary font-light">run your business</span>
+            {" "}so you don't have to.
           </p>
 
           {/* Stat strip */}
