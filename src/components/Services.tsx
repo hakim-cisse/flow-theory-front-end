@@ -135,12 +135,23 @@ const ServicesShuffle = ({
 }) => {
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState<1 | -1>(1);
+  const [paused, setPaused] = useState(false);
   const total = services.length;
 
   const go = (dir: 1 | -1) => {
     setDirection(dir);
     setIndex((i) => (i + dir + total) % total);
   };
+
+  // Autoscroll — pauses on hover/focus
+  useEffect(() => {
+    if (paused) return;
+    const id = setInterval(() => {
+      setDirection(1);
+      setIndex((i) => (i + 1) % total);
+    }, 3500);
+    return () => clearInterval(id);
+  }, [paused, total]);
 
   // Build a stack of the next 3 cards for depth
   const stack = [0, 1, 2].map((offset) => {
@@ -153,6 +164,10 @@ const ServicesShuffle = ({
       ref={gridRef}
       className="mt-16 sm:mt-20 max-w-4xl mx-auto"
       style={staggerStyle(0, gridVisible, { distance: 20 })}
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+      onFocus={() => setPaused(true)}
+      onBlur={() => setPaused(false)}
     >
       <div className="relative h-[420px] sm:h-[440px] md:h-[460px] select-none">
         {stack

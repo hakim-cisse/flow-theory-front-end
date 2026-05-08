@@ -69,11 +69,11 @@ export const EducationIcon = (props: IconProps) => (
   </svg>
 );
 
-/** Custom SaaS — upward triangle stacked on a square base, geometric "rocket" */
+/** Custom SaaS — stacked platform layers in isometric view */
 export const SaaSIcon = (props: IconProps) => (
   <svg {...base(props)}>
-    <path d="M12 2l8 11H4L12 2z" />
-    <rect x="6" y="13" width="12" height="8" />
-    <path d="M9 21v-4M15 21v-4M12 13v8" />
+    <path d="M12 3l9 4.5-9 4.5-9-4.5L12 3z" />
+    <path d="M3 12l9 4.5 9-4.5" />
+    <path d="M3 16.5l9 4.5 9-4.5" />
   </svg>
 );
