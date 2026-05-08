@@ -298,10 +298,14 @@ export const Services = () => {
             </h2>
             <div className="accent-bar mt-6" style={staggerStyle(2, headerVisible)} />
           </div>
+        </div>
+      </div>
 
-          {/* Horizontal scroll gallery */}
-          <ServicesGallery />
+      {/* Horizontal scroll gallery — full bleed */}
+      <ServicesGallery />
 
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-6xl mx-auto">
           {/* Tools strip — reframed */}
           <div className="mt-20 md:mt-24 text-center">
             <p className="text-mono text-foreground/50 mb-10">
