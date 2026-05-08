@@ -37,9 +37,9 @@ export const Hero = () => {
           {/* Headline */}
           <div className="col-span-12 lg:col-span-9" style={staggerStyle(1, isVisible, { delay: 0.15, duration: 0.9, distance: 40 })}>
             <h1 className="text-display text-foreground">
-              <span className="block">AI transformation,</span>
+              <span className="block">Your operations,</span>
               <span className="block italic text-primary" style={{ fontWeight: 300 }}>
-                engineered.
+                engineered to flow.
               </span>
             </h1>
           </div>
@@ -51,7 +51,7 @@ export const Hero = () => {
           >
             <div className="accent-bar mb-5" />
             <p className="text-italic-accent text-lg md:text-xl leading-snug text-foreground/85">
-              We design, build, and scale systems that move the bottom line.
+              We analyze how your business runs today, identify exactly where automation creates leverage, and build systems your team will actually use.
             </p>
           </aside>
         </div>
