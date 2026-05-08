@@ -27,31 +27,43 @@ const services = [
     icon: Search,
     title: "AI Audits",
     description: "We identify what's costing you time and money before writing a single line of code.",
+    kicker: "Diagnose",
+    highlights: ["Workflow mapping", "ROI modeling", "Opportunity scorecard"],
   },
   {
     icon: Workflow,
     title: "Custom Workflows",
     description: "Tailored automation systems that eliminate repetitive work your team shouldn't be doing.",
+    kicker: "Automate",
+    highlights: ["End-to-end orchestration", "Human-in-the-loop", "Built to scale"],
   },
   {
     icon: Puzzle,
     title: "AI Integrations",
     description: "Connect your tools into one intelligent ecosystem that learns and adapts with your business.",
+    kicker: "Connect",
+    highlights: ["CRM, ERP, comms", "Real-time data sync", "Unified context"],
   },
   {
     icon: Code,
     title: "Development",
     description: "Custom AI-powered applications built for your specific business problems, not generic templates.",
+    kicker: "Build",
+    highlights: ["Production-grade code", "Modern stack", "Owned by you"],
   },
   {
     icon: Dumbbell,
     title: "Training",
     description: "Hands-on training so your team owns the AI systems we build. No vendor lock-in.",
+    kicker: "Enable",
+    highlights: ["Live workshops", "Internal playbooks", "Ongoing support"],
   },
   {
     icon: GraduationCap,
     title: "Education",
     description: "Empower your people with AI knowledge and best practices for lasting transformation.",
+    kicker: "Educate",
+    highlights: ["Executive briefings", "Team curriculum", "AI literacy at scale"],
   },
 ];
 
