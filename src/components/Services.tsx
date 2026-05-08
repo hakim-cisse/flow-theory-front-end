@@ -117,8 +117,7 @@ export const Services = () => {
               What we do
             </span>
             <h2 className="text-heading" style={staggerStyle(1, headerVisible)}>
-              Three ways we create<br />
-              <span className="text-gradient">measurable leverage.</span>
+              <span className="text-gradient">What we do.</span>
             </h2>
             <div className="accent-bar mt-6" style={staggerStyle(2, headerVisible)} />
           </div>
@@ -126,7 +125,7 @@ export const Services = () => {
           {/* Services grid — bordered editorial cells */}
           <div
             ref={gridRef}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 border-t border-l border-border/60 mt-16 sm:mt-20"
+            className="grid grid-cols-1 md:grid-cols-3 border-t border-l border-border/60 mt-16 sm:mt-20"
           >
             {services.map((service, i) => (
               <div
@@ -143,39 +142,6 @@ export const Services = () => {
                 </p>
               </div>
             ))}
-
-            {/* Custom SaaS — spans full width as last cell */}
-            <div
-              ref={saasRef}
-              className="group p-8 md:p-10 border-r border-b border-border/60 bg-background hover:bg-primary/5 transition-colors duration-500 sm:col-span-2 lg:col-span-3"
-              style={staggerStyle(0, saasVisible, { distance: 20 })}
-            >
-              <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
-                <div className="max-w-2xl">
-                  <Layers className="h-7 w-7 text-primary mb-8" strokeWidth={1.5} />
-                  <h3 className="font-display text-2xl md:text-3xl text-foreground mb-3 tracking-tight">
-                    Custom SaaS Development
-                  </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    From concept to launch. We design, build, and deploy scalable SaaS platforms tailored to your market and growth goals.
-                  </p>
-                </div>
-                <Button asChild size="lg" className="gap-2 rounded-none uppercase text-xs tracking-wider px-6 py-5 self-start lg:self-end shrink-0">
-                  <a href="https://cal.com/flow-theory-ai/alignment-call" target="_blank" rel="noopener noreferrer">
-                    Let's talk
-                    <ArrowRight className="w-4 h-4" />
-                  </a>
-                </Button>
-              </div>
-            </div>
-          </div>
-
-          {/* Tools strip — reframed */}
-          <div className="mt-20 md:mt-24 text-center">
-            <p className="text-mono text-foreground/50 mb-10">
-              Built on the tools your team already uses
-            </p>
-            <ToolsStrip isVisible={headerVisible} />
           </div>
         </div>
       </div>

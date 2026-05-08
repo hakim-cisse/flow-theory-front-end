@@ -37,9 +37,9 @@ export const Hero = () => {
           {/* Headline */}
           <div className="col-span-12 lg:col-span-9" style={staggerStyle(1, isVisible, { delay: 0.15, duration: 0.9, distance: 40 })}>
             <h1 className="text-display text-foreground">
-              <span className="block">Smarter operations.</span>
+              <span className="block">Your operations,</span>
               <span className="block italic text-primary" style={{ fontWeight: 300 }}>
-                Built around you.
+                engineered to flow.
               </span>
             </h1>
           </div>
