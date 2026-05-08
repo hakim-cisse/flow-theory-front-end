@@ -88,16 +88,16 @@ export const Hero = () => {
           </div>
         </div>
 
-        {/* Animated system diagram */}
+        {/* Metrics ticker */}
         <div
           className="mt-16 md:mt-24 pt-8 border-t border-foreground/15"
           style={staggerStyle(5, isVisible, { delay: 0.4, distance: 20 })}
         >
           <div className="flex items-center justify-between mb-6 text-mono text-foreground/45">
-            <span>Fig. 01 / Anatomy of an AI system</span>
-            <span className="hidden sm:inline">Inputs → Logic → Outcome</span>
+            <span>Outcomes / Selected</span>
+            <span className="hidden sm:inline">Live ledger</span>
           </div>
-          <SystemDiagram className="w-full h-auto max-h-[220px]" />
+          <MetricsTicker />
         </div>
 
         {/* Footer of hero */}
