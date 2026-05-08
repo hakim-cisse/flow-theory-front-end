@@ -1,4 +1,4 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ArrowLeft } from "lucide-react";
 import { AuditIcon, WorkflowIcon, IntegrationIcon, DevelopmentIcon, TrainingIcon, EducationIcon, SaaSIcon } from "@/components/icons/FlowIcons";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
