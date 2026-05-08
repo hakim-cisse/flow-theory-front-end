@@ -74,16 +74,8 @@ const ToolsStrip = ({ isVisible }: { isVisible: boolean }) => {
 
     animationId = requestAnimationFrame(animate);
 
-    const pause = () => cancelAnimationFrame(animationId);
-    const resume = () => { animationId = requestAnimationFrame(animate); };
-
-    container.addEventListener("mouseenter", pause);
-    container.addEventListener("mouseleave", resume);
-
     return () => {
       cancelAnimationFrame(animationId);
-      container.removeEventListener("mouseenter", pause);
-      container.removeEventListener("mouseleave", resume);
     };
   }, []);
 
