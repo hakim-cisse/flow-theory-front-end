@@ -1,4 +1,5 @@
-import { Radar, Waypoints, Network, Braces, Compass, Brain, Rocket, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { AuditIcon, WorkflowIcon, IntegrationIcon, DevelopmentIcon, TrainingIcon, EducationIcon, SaaSIcon } from "@/components/icons/FlowIcons";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { useScrollReveal, staggerStyle } from "@/hooks/useScrollReveal";
@@ -24,42 +25,42 @@ const toolLogos = [
 
 const services = [
   {
-    icon: Radar,
+    icon: AuditIcon,
     title: "AI Audits",
     description: "We identify what's costing you time and money before writing a single line of code.",
     kicker: "Diagnose",
     highlights: ["Workflow mapping", "ROI modeling", "Opportunity scorecard"],
   },
   {
-    icon: Waypoints,
+    icon: WorkflowIcon,
     title: "Custom Workflows",
     description: "Tailored automation systems that eliminate repetitive work your team shouldn't be doing.",
     kicker: "Automate",
     highlights: ["End-to-end orchestration", "Human-in-the-loop", "Built to scale"],
   },
   {
-    icon: Network,
+    icon: IntegrationIcon,
     title: "AI Integrations",
     description: "Connect your tools into one intelligent ecosystem that learns and adapts with your business.",
     kicker: "Connect",
     highlights: ["CRM, ERP, comms", "Real-time data sync", "Unified context"],
   },
   {
-    icon: Braces,
+    icon: DevelopmentIcon,
     title: "Development",
     description: "Custom AI-powered applications built for your specific business problems, not generic templates.",
     kicker: "Build",
     highlights: ["Production-grade code", "Modern stack", "Owned by you"],
   },
   {
-    icon: Compass,
+    icon: TrainingIcon,
     title: "Training",
     description: "Hands-on training so your team owns the AI systems we build. No vendor lock-in.",
     kicker: "Enable",
     highlights: ["Live workshops", "Internal playbooks", "Ongoing support"],
   },
   {
-    icon: Brain,
+    icon: EducationIcon,
     title: "Education",
     description: "Empower your people with AI knowledge and best practices for lasting transformation.",
     kicker: "Educate",
@@ -292,7 +293,7 @@ export const Services = () => {
                   <span className="h-px w-10 bg-primary/50" />
                 </div>
                 <div className="mb-6 inline-flex items-center justify-center transition-transform duration-500 group-hover:-translate-y-1 group-hover:rotate-[-6deg]">
-                  <Rocket className="h-8 w-8 text-primary" strokeWidth={1.5} />
+                  <SaaSIcon className="h-8 w-8 text-primary" strokeWidth={1.5} />
                 </div>
                 <h3 className="font-display text-3xl md:text-4xl lg:text-5xl text-foreground mb-4 tracking-tight">
                   Custom SaaS Development
