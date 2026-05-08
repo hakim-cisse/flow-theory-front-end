@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, FileText } from "lucide-react";
 import { useScrollReveal, staggerStyle } from "@/hooks/useScrollReveal";
-import { TypewriterText } from "@/components/TypewriterText";
 
 export const Hero = () => {
   const { ref, isVisible } = useScrollReveal({ threshold: 0.1 });
@@ -38,23 +37,11 @@ export const Hero = () => {
           {/* Headline */}
           <div className="col-span-12 lg:col-span-9" style={staggerStyle(1, isVisible, { delay: 0.15, duration: 0.9, distance: 40 })}>
             <h1 className="text-display text-foreground">
-              <span className="block">AI transformation,</span>
+              <span className="block">Smarter operations.</span>
               <span className="block italic text-primary" style={{ fontWeight: 300 }}>
-                engineered.
+                Built around you.
               </span>
             </h1>
-            <div className="mt-6 md:mt-8 text-mono text-foreground/55 min-h-[1.5em]">
-              <span className="text-foreground/35 mr-3">→</span>
-              <TypewriterText
-                phrases={[
-                  "engineered for revenue.",
-                  "engineered for operations.",
-                  "engineered for scale.",
-                  "engineered for ROI.",
-                ]}
-                className="text-primary/90"
-              />
-            </div>
           </div>
 
           {/* Right rail — editorial side note */}
@@ -73,7 +60,7 @@ export const Hero = () => {
         <div className="grid grid-cols-12 gap-6 md:gap-10 mt-16 md:mt-24 items-end">
           <div className="col-span-12 md:col-span-7" style={staggerStyle(3, isVisible, { delay: 0.3, distance: 20 })}>
             <p className="text-base md:text-lg text-foreground/70 max-w-xl leading-relaxed">
-              Less hype. More measurable outcomes.
+              We analyze how your business runs today, identify exactly where automation creates leverage, and build systems your team will actually use.
             </p>
           </div>
 
@@ -87,7 +74,7 @@ export const Hero = () => {
               asChild
             >
               <a href="https://cal.com/flow-theory-ai/alignment-call" target="_blank" rel="noopener noreferrer">
-                Book a discovery call
+                Book a Discovery Call
                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </a>
             </Button>
@@ -95,7 +82,7 @@ export const Hero = () => {
               onClick={scrollToCaseStudy}
               className="text-mono text-foreground/70 hover:text-primary transition-colors story-link"
             >
-              Explore our work →
+              Explore Our Work →
             </button>
           </div>
         </div>

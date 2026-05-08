@@ -1,4 +1,4 @@
-import { Search, Workflow, Puzzle, GraduationCap, Code, Dumbbell, Layers, ArrowRight } from "lucide-react";
+import { Workflow, Puzzle, GraduationCap, Layers, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useScrollReveal, staggerStyle } from "@/hooks/useScrollReveal";
 import { useEffect, useRef } from "react";
@@ -23,34 +23,22 @@ const toolLogos = [
 
 const services = [
   {
-    icon: Search,
-    title: "AI Audits",
-    description: "We identify what's costing you time and money before writing a single line of code.",
-  },
-  {
     icon: Workflow,
-    title: "Custom Workflows",
-    description: "Tailored automation systems that eliminate repetitive work your team shouldn't be doing.",
+    title: "Optimize your operations",
+    description:
+      "We find where your team is losing time and fix it — through smarter workflows, targeted automation, and systems that scale as you do.",
   },
   {
     icon: Puzzle,
-    title: "AI Integrations",
-    description: "Connect your tools into one intelligent ecosystem that learns and adapts with your business.",
-  },
-  {
-    icon: Code,
-    title: "Development",
-    description: "Custom AI-powered applications built for your specific business problems, not generic templates.",
-  },
-  {
-    icon: Dumbbell,
-    title: "Training",
-    description: "Hands-on training so your team owns the AI systems we build. No vendor lock-in.",
+    title: "Build intelligent systems",
+    description:
+      "We design and deploy custom-built solutions that connect your team and tools into one ecosystem — tailored to your business, not off the shelf.",
   },
   {
     icon: GraduationCap,
-    title: "Education",
-    description: "Empower your people with AI knowledge and best practices for lasting transformation.",
+    title: "Empower your people",
+    description:
+      "We train your team to use and own what we build, so the transformation sticks long after we're done.",
   },
 ];
 
@@ -126,11 +114,11 @@ export const Services = () => {
               className="text-mono text-primary/70 block mb-6"
               style={staggerStyle(0, headerVisible)}
             >
-              Services
+              What we do
             </span>
             <h2 className="text-heading" style={staggerStyle(1, headerVisible)}>
-              Your trusted partner<br />
-              <span className="text-gradient">for AI transformation.</span>
+              Three ways we create<br />
+              <span className="text-gradient">measurable leverage.</span>
             </h2>
             <div className="accent-bar mt-6" style={staggerStyle(2, headerVisible)} />
           </div>
