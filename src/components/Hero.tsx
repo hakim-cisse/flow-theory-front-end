@@ -89,18 +89,6 @@ export const Hero = () => {
           </div>
         </div>
 
-        {/* Metrics ticker */}
-        <div
-          className="mt-16 md:mt-24 pt-8 border-t border-foreground/15"
-          style={staggerStyle(5, isVisible, { delay: 0.4, distance: 20 })}
-        >
-          <div className="flex items-center justify-between mb-6 text-mono text-foreground/45">
-            <span>Outcomes / Selected</span>
-            <span className="hidden sm:inline">Live ledger</span>
-          </div>
-          <MetricsTicker />
-        </div>
-
         {/* Footer of hero */}
         <div className="mt-12 md:mt-16 pt-6 border-t border-foreground/15 flex items-center justify-between text-mono text-foreground/45">
           <span>Strategy / Systems / Impact</span>
