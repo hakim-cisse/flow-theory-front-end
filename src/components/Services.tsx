@@ -1,7 +1,7 @@
 import { Search, Workflow, Puzzle, GraduationCap, Code, Dumbbell, Layers, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useScrollReveal, staggerStyle } from "@/hooks/useScrollReveal";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const toolLogos = [
   { name: "n8n", color: "#EA4B71", svg: '<svg viewBox="0 0 24 24"><path d="M12.76 1.64C14.346.054 16.893.054 18.48 1.64l3.878 3.879c1.586 1.586 1.586 4.133 0 5.72l-3.879 3.878c-1.586 1.586-4.133 1.586-5.72 0L8.883 11.24c-1.586-1.586-1.586-4.133 0-5.72zm-1.52 8.96l3.878 3.878c1.586 1.586 1.586 4.134 0 5.72l-3.879 3.879c-1.586 1.586-4.133 1.586-5.72 0L1.643 20.2c-1.586-1.587-1.586-4.134 0-5.72L5.52 10.6c1.586-1.586 4.133-1.586 5.72 0z"/></svg>' },
