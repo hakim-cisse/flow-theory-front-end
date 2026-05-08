@@ -148,43 +148,8 @@ export const Services = () => {
             <div className="accent-bar mt-6" style={staggerStyle(2, headerVisible)} />
           </div>
 
-          {/* Editorial index — vertical list of services */}
-          <div ref={gridRef} className="mt-16 sm:mt-20 border-t border-border/60">
-            {services.map((service, i) => (
-              <div
-                key={service.title}
-                className="group relative border-b border-border/60 overflow-hidden"
-                style={staggerStyle(i, gridVisible, { delay: 0.08 })}
-              >
-                {/* Sweep fill on hover */}
-                <span className="pointer-events-none absolute inset-0 origin-left scale-x-0 group-hover:scale-x-100 bg-gradient-to-r from-primary/10 via-primary/5 to-transparent transition-transform duration-700 ease-out" />
-
-                <div className="relative grid grid-cols-12 items-center gap-4 sm:gap-6 py-7 sm:py-9 px-1 sm:px-2">
-                  {/* Number */}
-                  <span className="col-span-2 sm:col-span-1 text-mono text-xs text-foreground/40 group-hover:text-primary transition-colors duration-500">
-                    0{i + 1}
-                  </span>
-
-                  {/* Title */}
-                  <h3 className="col-span-10 sm:col-span-4 font-display text-2xl sm:text-3xl md:text-4xl text-foreground tracking-tight transition-transform duration-500 group-hover:translate-x-2">
-                    {service.title}
-                  </h3>
-
-                  {/* Description — fades in on hover (desktop), always visible on mobile */}
-                  <p className="col-span-12 sm:col-span-6 text-sm text-muted-foreground leading-relaxed sm:opacity-60 sm:group-hover:opacity-100 transition-opacity duration-500">
-                    {service.description}
-                  </p>
-
-                  {/* Icon */}
-                  <div className="hidden sm:flex sm:col-span-1 justify-end">
-                    <div className="relative w-10 h-10 flex items-center justify-center transition-transform duration-500 group-hover:rotate-[-8deg] group-hover:scale-110">
-                      <service.icon className="h-5 w-5 text-primary" strokeWidth={1.5} />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+          {/* Sticky split — list on left, live highlight panel on right */}
+          <ServicesSplit gridRef={gridRef} gridVisible={gridVisible} />
 
           {/* Custom SaaS — featured block */}
           <div
