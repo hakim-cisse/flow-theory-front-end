@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, FileText } from "lucide-react";
 import { useScrollReveal, staggerStyle } from "@/hooks/useScrollReveal";
-import { MorphingWord } from "@/components/MorphingWord";
+import { TypewriterText } from "@/components/TypewriterText";
 
 export const Hero = () => {
   const { ref, isVisible } = useScrollReveal({ threshold: 0.1 });
@@ -39,11 +39,22 @@ export const Hero = () => {
           <div className="col-span-12 lg:col-span-9" style={staggerStyle(1, isVisible, { delay: 0.15, duration: 0.9, distance: 40 })}>
             <h1 className="text-display text-foreground">
               <span className="block">AI transformation,</span>
-              <MorphingWord
-                words={["engineered.", "deployed.", "measured.", "compounding."]}
-                className="block italic text-primary"
-              />
+              <span className="block italic text-primary" style={{ fontWeight: 300 }}>
+                engineered.
+              </span>
             </h1>
+            <div className="mt-6 md:mt-8 text-mono text-foreground/55 min-h-[1.5em]">
+              <span className="text-foreground/35 mr-3">→</span>
+              <TypewriterText
+                phrases={[
+                  "engineered for revenue.",
+                  "engineered for operations.",
+                  "engineered for scale.",
+                  "engineered for ROI.",
+                ]}
+                className="text-primary/90"
+              />
+            </div>
           </div>
 
           {/* Right rail — editorial side note */}
