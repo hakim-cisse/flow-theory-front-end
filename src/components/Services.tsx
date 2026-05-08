@@ -143,28 +143,52 @@ export const Services = () => {
             {services.map((service, i) => (
               <div
                 key={service.title}
-                className="group p-8 md:p-10 border-r border-b border-border/60 bg-background hover:bg-primary/5 transition-colors duration-500"
+                className="group relative p-8 md:p-10 border-r border-b border-border/60 bg-background overflow-hidden transition-all duration-500 hover:z-10"
                 style={staggerStyle(i, gridVisible, { delay: 0.06 })}
               >
-                <service.icon className="h-7 w-7 text-primary mb-8" strokeWidth={1.5} />
-                <h3 className="font-display text-2xl text-foreground mb-3 tracking-tight">
-                  {service.title}
-                </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  {service.description}
-                </p>
+                {/* Sweep fill on hover */}
+                <span className="pointer-events-none absolute inset-0 bg-gradient-to-br from-primary/10 via-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                {/* Top accent line */}
+                <span className="pointer-events-none absolute top-0 left-0 h-px bg-primary w-0 group-hover:w-full transition-[width] duration-700 ease-out" />
+                {/* Index number */}
+                <span className="absolute top-6 right-6 text-mono text-[10px] text-foreground/30 group-hover:text-primary/70 transition-colors duration-500">
+                  0{i + 1}
+                </span>
+
+                <div className="relative">
+                  <div className="mb-8 inline-flex items-center justify-center transition-transform duration-500 group-hover:-translate-y-1 group-hover:rotate-[-4deg]">
+                    <service.icon className="h-7 w-7 text-primary" strokeWidth={1.5} />
+                  </div>
+                  <h3 className="font-display text-2xl text-foreground mb-3 tracking-tight">
+                    {service.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {service.description}
+                  </p>
+                  <div className="mt-6 flex items-center gap-2 text-mono text-[10px] text-primary opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500">
+                    Learn more
+                    <ArrowRight className="w-3 h-3" />
+                  </div>
+                </div>
               </div>
             ))}
 
             {/* Custom SaaS — spans full width as last cell */}
             <div
               ref={saasRef}
-              className="group p-8 md:p-10 border-r border-b border-border/60 bg-background hover:bg-primary/5 transition-colors duration-500 sm:col-span-2 lg:col-span-3"
+              className="group relative p-8 md:p-10 border-r border-b border-border/60 bg-background overflow-hidden transition-all duration-500 sm:col-span-2 lg:col-span-3"
               style={staggerStyle(0, saasVisible, { distance: 20 })}
             >
-              <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+              <span className="pointer-events-none absolute inset-0 bg-gradient-to-r from-primary/10 via-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+              <span className="pointer-events-none absolute top-0 left-0 h-px bg-primary w-0 group-hover:w-full transition-[width] duration-700 ease-out" />
+              <span className="absolute top-6 right-6 text-mono text-[10px] text-foreground/30 group-hover:text-primary/70 transition-colors duration-500">
+                07
+              </span>
+              <div className="relative flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
                 <div className="max-w-2xl">
-                  <Layers className="h-7 w-7 text-primary mb-8" strokeWidth={1.5} />
+                  <div className="mb-8 inline-flex items-center justify-center transition-transform duration-500 group-hover:-translate-y-1 group-hover:rotate-[-4deg]">
+                    <Layers className="h-7 w-7 text-primary" strokeWidth={1.5} />
+                  </div>
                   <h3 className="font-display text-2xl md:text-3xl text-foreground mb-3 tracking-tight">
                     Custom SaaS Development
                   </h3>
@@ -172,10 +196,10 @@ export const Services = () => {
                     From concept to launch. We design, build, and deploy scalable SaaS platforms tailored to your market and growth goals.
                   </p>
                 </div>
-                <Button asChild size="lg" className="gap-2 rounded-none uppercase text-xs tracking-wider px-6 py-5 self-start lg:self-end shrink-0">
+                <Button asChild size="lg" className="gap-2 rounded-none uppercase text-xs tracking-wider px-6 py-5 self-start lg:self-end shrink-0 group/btn">
                   <a href="https://cal.com/flow-theory-ai/alignment-call" target="_blank" rel="noopener noreferrer">
                     Let's talk
-                    <ArrowRight className="w-4 h-4" />
+                    <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
                   </a>
                 </Button>
               </div>
