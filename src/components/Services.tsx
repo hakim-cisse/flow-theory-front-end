@@ -40,62 +40,6 @@ const services = [
   },
 ];
 
-const ToolsStrip = ({ isVisible }: { isVisible: boolean }) => {
-  const scrollRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const container = scrollRef.current;
-    if (!container) return;
-
-    let animationId: number;
-    let pos = 0;
-    const speed = 0.4;
-
-    const animate = () => {
-      pos += speed;
-      if (pos >= container.scrollWidth / 2) pos = 0;
-      container.scrollLeft = pos;
-      animationId = requestAnimationFrame(animate);
-    };
-
-    animationId = requestAnimationFrame(animate);
-
-    return () => {
-      cancelAnimationFrame(animationId);
-    };
-  }, []);
-
-  const allLogos = [...toolLogos, ...toolLogos];
-
-  return (
-    <div
-      className="mb-16 overflow-hidden"
-      style={{
-        opacity: isVisible ? 1 : 0,
-        transform: isVisible ? "translateY(0)" : "translateY(20px)",
-        transition: "opacity 0.6s ease-out 0.3s, transform 0.6s ease-out 0.3s",
-      }}
-    >
-      <div className="relative">
-        <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
-        <div
-          ref={scrollRef}
-          className="flex items-center gap-8 overflow-x-hidden py-4"
-          style={{ scrollBehavior: "auto" }}
-        >
-          {allLogos.map((logo, i) => (
-            <div
-              key={`${logo.name}-${i}`}
-              className="flex-shrink-0 w-10 h-10 flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity duration-300 cursor-pointer"
-              dangerouslySetInnerHTML={{ __html: logo.svg.replace('<svg ', `<svg fill="${logo.color}" `) }}
-            />
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-};
 
 export const Services = () => {
   const { ref: headerRef, isVisible: headerVisible } = useScrollReveal();
