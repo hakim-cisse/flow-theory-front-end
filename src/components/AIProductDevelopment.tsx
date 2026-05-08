@@ -45,7 +45,7 @@ export const AIProductDevelopment = () => {
       <div className="absolute bottom-1/4 left-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-screen-2xl mx-auto">
           {/* Header */}
           <div ref={headerRef} className="mb-20 max-w-4xl">
             <span className="text-mono text-primary/70 block mb-6" style={staggerStyle(0, headerVisible)}>
@@ -101,7 +101,7 @@ export const AIProductDevelopment = () => {
           </div>
 
           {/* Strong callout */}
-          <div ref={ctaRef} className="mt-24 text-center max-w-5xl mx-auto">
+          <div ref={ctaRef} className="mt-24 text-center max-w-screen-2xl mx-auto">
             <p
               className="text-heading leading-tight"
               style={staggerStyle(0, ctaVisible)}

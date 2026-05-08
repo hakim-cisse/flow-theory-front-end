@@ -47,7 +47,7 @@ export const LogoCatalog = () => {
 
   return (
     <section className="py-10 md:py-14 section-2 border-y border-border/20 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
         <p className="text-mono text-muted-foreground text-center mb-8">
           Trusted by businesses building the future
         </p>

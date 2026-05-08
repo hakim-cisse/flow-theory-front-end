@@ -16,7 +16,7 @@ export const HowItWorks = () => {
   return (
     <section id="how-it-works" className="py-20 sm:py-28 relative overflow-hidden section-4">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-screen-2xl mx-auto">
           {/* Header */}
           <div className="mb-14 max-w-3xl">
             <span className="text-mono text-primary/70 block mb-6">Our process</span>
