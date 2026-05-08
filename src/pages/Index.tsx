@@ -5,6 +5,8 @@ import { About } from "@/components/About";
 import { WhatWeDo } from "@/components/WhatWeDo";
 import { Services } from "@/components/Services";
 import { Founders } from "@/components/Founders";
+import { Values } from "@/components/Values";
+import { Philosophy } from "@/components/Philosophy";
 import { CaseStudy } from "@/components/CaseStudy";
 import { Testimonials } from "@/components/Testimonials";
 import { CTA } from "@/components/CTA";
@@ -40,7 +42,9 @@ const Index = () => {
         <WhatWeDo />
         <CaseStudy />
         <Testimonials />
+        <Values />
         <Founders />
+        <Philosophy />
         <BlogPreview />
         <CTA />
         <Footer onContactClick={() => setContactOpen(true)} />
