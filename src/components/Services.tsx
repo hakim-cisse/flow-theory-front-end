@@ -168,9 +168,9 @@ const ServicesBelt = ({
       style={staggerStyle(0, gridVisible, { distance: 20 })}
     >
       <div className="relative overflow-hidden">
-        {/* Edge fades */}
-        <div className="absolute left-0 top-0 bottom-0 w-24 md:w-48 bg-gradient-to-r from-background via-background/90 to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-24 md:w-48 bg-gradient-to-l from-background via-background/90 to-transparent z-10 pointer-events-none" />
+        {/* Edge fades — subtle */}
+        <div className="absolute left-0 top-0 bottom-0 w-10 md:w-16 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-10 md:w-16 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
 
         <div
           ref={trackRef}
@@ -180,23 +180,13 @@ const ServicesBelt = ({
           {belt.map((service, i) => {
             const Icon = service.icon;
             const idx = (i % services.length) + 1;
-            // Alternate dark/light cards for rhythm
-            const dark = idx % 2 === 0;
             return (
               <article
                 key={`${service.title}-${i}`}
-                className={`group relative w-[340px] sm:w-[380px] md:w-[420px] h-[440px] md:h-[480px] shrink-0 overflow-hidden border transition-all duration-500 ${
-                  dark
-                    ? "bg-foreground text-background border-foreground"
-                    : "bg-background text-foreground border-border/60 hover:border-primary"
-                }`}
+                className="group relative w-[340px] sm:w-[380px] md:w-[420px] h-[440px] md:h-[480px] shrink-0 overflow-hidden border border-border/60 bg-background text-foreground hover:border-primary transition-colors duration-500"
               >
                 {/* Big watermark number */}
-                <span
-                  className={`pointer-events-none absolute -top-6 -right-3 font-display text-[180px] md:text-[220px] leading-none tracking-tighter select-none ${
-                    dark ? "text-background/[0.06]" : "text-foreground/[0.04]"
-                  }`}
-                >
+                <span className="pointer-events-none absolute -top-6 -right-3 font-display text-[180px] md:text-[220px] leading-none tracking-tighter select-none text-foreground/[0.04]">
                   {String(idx).padStart(2, "0")}
                 </span>
 
@@ -208,22 +198,12 @@ const ServicesBelt = ({
                 <div className="relative h-full p-8 md:p-10 flex flex-col">
                   {/* Icon block */}
                   <div className="mb-8 flex items-center justify-between">
-                    <div
-                      className={`relative w-14 h-14 flex items-center justify-center border ${
-                        dark
-                          ? "border-background/20 bg-background/5"
-                          : "border-border bg-primary/5"
-                      }`}
-                    >
+                    <div className="relative w-14 h-14 flex items-center justify-center border border-border bg-primary/5">
                       <Icon className="w-7 h-7 text-primary" strokeWidth={1.25} />
                       <span className="absolute -top-px -left-px w-2 h-2 border-l border-t border-primary" />
                       <span className="absolute -bottom-px -right-px w-2 h-2 border-r border-b border-primary" />
                     </div>
-                    <span
-                      className={`text-mono text-[10px] tracking-widest ${
-                        dark ? "text-background/50" : "text-foreground/40"
-                      }`}
-                    >
+                    <span className="text-mono text-[10px] tracking-widest text-foreground/40">
                       / {service.kicker}
                     </span>
                   </div>
@@ -231,25 +211,15 @@ const ServicesBelt = ({
                   <h4 className="font-display text-3xl md:text-4xl tracking-tight leading-[1.05] mb-4">
                     {service.title}
                   </h4>
-                  <p
-                    className={`text-sm leading-relaxed mb-6 ${
-                      dark ? "text-background/70" : "text-muted-foreground"
-                    }`}
-                  >
+                  <p className="text-sm leading-relaxed mb-6 text-muted-foreground">
                     {service.description}
                   </p>
 
-                  <ul
-                    className={`mt-auto space-y-2 border-t pt-4 ${
-                      dark ? "border-background/15" : "border-border/60"
-                    }`}
-                  >
+                  <ul className="mt-auto space-y-2 border-t border-border/60 pt-4">
                     {service.highlights.map((h) => (
                       <li
                         key={h}
-                        className={`flex items-center gap-3 text-xs ${
-                          dark ? "text-background/80" : "text-foreground/75"
-                        }`}
+                        className="flex items-center gap-3 text-xs text-foreground/75"
                       >
                         <span className="h-px w-5 bg-primary" />
                         {h}
