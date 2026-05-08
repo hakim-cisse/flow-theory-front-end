@@ -164,6 +164,10 @@ const ServicesShuffle = ({
       ref={gridRef}
       className="mt-16 sm:mt-20 max-w-4xl mx-auto"
       style={staggerStyle(0, gridVisible, { distance: 20 })}
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+      onFocus={() => setPaused(true)}
+      onBlur={() => setPaused(false)}
     >
       <div className="relative h-[420px] sm:h-[440px] md:h-[460px] select-none">
         {stack
