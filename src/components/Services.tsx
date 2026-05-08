@@ -151,26 +151,73 @@ const ServicesShuffle = ({
   return (
     <div
       ref={gridRef}
-      className="mt-16 sm:mt-20 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center"
+      className="mt-16 sm:mt-20 max-w-4xl mx-auto"
       style={staggerStyle(0, gridVisible, { distance: 20 })}
     >
-      {/* Left — controls + counter */}
-      <div className="lg:col-span-4 order-2 lg:order-1">
-        <div className="flex items-center gap-4 mb-8">
-          <span className="text-mono text-xs text-primary">
-            0{index + 1} <span className="text-foreground/30">/ 0{total}</span>
-          </span>
-          <span className="h-px flex-1 bg-border/60" />
-        </div>
-        <h3 className="font-display text-3xl md:text-4xl lg:text-5xl tracking-tight text-foreground mb-4">
-          Shuffle through what we do.
-        </h3>
-        <p className="text-sm md:text-base text-muted-foreground leading-relaxed mb-10 max-w-md">
-          Six disciplines, one accountable partner. Flip through the stack — or jump straight to the one you need.
-        </p>
+      <div className="relative h-[420px] sm:h-[440px] md:h-[460px] select-none">
+        {stack
+          .slice()
+          .reverse()
+          .map(({ offset, i, ...service }) => {
+            const isTop = offset === 0;
+            const translate = offset * 18;
+            const scale = 1 - offset * 0.04;
+            const rotate = offset * 1.5;
+            const opacity = 1 - offset * 0.25;
 
-        {/* Nav buttons */}
-        <div className="flex items-center gap-3 mb-10">
+            return (
+              <article
+                key={`${i}-${offset}`}
+                className={`absolute inset-0 border border-border/60 bg-background overflow-hidden ${
+                  isTop ? "shadow-[0_30px_60px_-30px_hsl(var(--primary)/0.25)]" : ""
+                }`}
+                style={{
+                  transform: `translate(${translate}px, ${translate}px) scale(${scale}) rotate(${rotate}deg)`,
+                  opacity,
+                  zIndex: 10 - offset,
+                  transition: "transform 0.55s cubic-bezier(0.22,1,0.36,1), opacity 0.4s ease",
+                  animation: isTop
+                    ? `${direction === 1 ? "card-in-right" : "card-in-left"} 0.55s cubic-bezier(0.22,1,0.36,1)`
+                    : undefined,
+                }}
+              >
+                <span className="absolute top-0 left-0 h-px w-full bg-gradient-to-r from-primary/60 via-primary/20 to-transparent" />
+
+                <div className="h-full p-8 md:p-12 flex flex-col">
+                  <div className="flex items-center justify-between mb-10">
+                    <span className="text-mono text-xs text-primary">{service.kicker}</span>
+                    <span className="text-mono text-xs text-foreground/40">
+                      0{i + 1} / 0{total}
+                    </span>
+                  </div>
+
+                  <h4 className="font-display text-3xl md:text-4xl lg:text-5xl text-foreground mb-5 tracking-tight">
+                    {service.title}
+                  </h4>
+                  <p className="text-base text-muted-foreground leading-relaxed mb-8 max-w-xl">
+                    {service.description}
+                  </p>
+
+                  <ul className="mt-auto flex flex-wrap gap-x-6 gap-y-2 border-t border-border/60 pt-5">
+                    {service.highlights.map((h) => (
+                      <li key={h} className="flex items-center gap-2 text-sm text-foreground/70">
+                        <span className="h-px w-4 bg-primary" />
+                        {h}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </article>
+            );
+          })}
+      </div>
+
+      {/* Controls below the stack */}
+      <div className="mt-10 flex items-center justify-between gap-4">
+        <span className="text-mono text-xs text-foreground/40">
+          0{index + 1} <span className="text-foreground/20">/ 0{total}</span>
+        </span>
+        <div className="flex items-center gap-3">
           <button
             type="button"
             onClick={() => go(-1)}
@@ -187,102 +234,6 @@ const ServicesShuffle = ({
           >
             <ArrowRight className="w-4 h-4" />
           </button>
-          <span className="text-mono text-xs text-foreground/40 ml-2">
-            Drag · click · or shuffle
-          </span>
-        </div>
-
-        {/* Direct jump list */}
-        <ul className="space-y-1 border-t border-border/60 pt-4">
-          {services.map((s, i) => {
-            const active = i === index;
-            return (
-              <li key={s.title}>
-                <button
-                  type="button"
-                  onClick={() => {
-                    setDirection(i > index ? 1 : -1);
-                    setIndex(i);
-                  }}
-                  className={`w-full text-left flex items-center gap-3 py-2 group transition-colors ${
-                    active ? "text-primary" : "text-foreground/50 hover:text-foreground"
-                  }`}
-                >
-                  <span className="text-mono text-[10px] w-6">0{i + 1}</span>
-                  <span className={`h-px transition-all duration-500 ${active ? "w-10 bg-primary" : "w-4 bg-border group-hover:w-8"}`} />
-                  <span className="font-display text-base tracking-tight">{s.title}</span>
-                </button>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
-
-      {/* Right — card stack */}
-      <div className="lg:col-span-8 order-1 lg:order-2">
-        <div className="relative h-[460px] sm:h-[500px] md:h-[540px] select-none">
-          {stack
-            .slice()
-            .reverse()
-            .map(({ offset, i, ...service }) => {
-              const Icon = service.icon;
-              const isTop = offset === 0;
-              const translate = offset * 18;
-              const scale = 1 - offset * 0.04;
-              const rotate = offset * 1.5;
-              const opacity = 1 - offset * 0.25;
-
-              return (
-                <article
-                  key={`${i}-${offset}`}
-                  className={`absolute inset-0 border border-border/60 bg-background overflow-hidden ${
-                    isTop ? "shadow-[0_30px_60px_-30px_hsl(var(--primary)/0.25)]" : ""
-                  }`}
-                  style={{
-                    transform: `translate(${translate}px, ${translate}px) scale(${scale}) rotate(${rotate}deg)`,
-                    opacity,
-                    zIndex: 10 - offset,
-                    transition: "transform 0.55s cubic-bezier(0.22,1,0.36,1), opacity 0.4s ease",
-                    animation: isTop
-                      ? `${direction === 1 ? "card-in-right" : "card-in-left"} 0.55s cubic-bezier(0.22,1,0.36,1)`
-                      : undefined,
-                  }}
-                >
-                  {/* top hairline */}
-                  <span className="absolute top-0 left-0 h-px w-full bg-gradient-to-r from-primary/60 via-primary/20 to-transparent" />
-
-                  <div className="h-full p-8 md:p-12 flex flex-col">
-                    <div className="flex items-center justify-between mb-8">
-                      <span className="text-mono text-xs text-primary">{service.kicker}</span>
-                      <span className="text-mono text-xs text-foreground/40">
-                        0{i + 1} / 0{total}
-                      </span>
-                    </div>
-
-                    <div className="relative flex-1 mb-8 border border-border/60 overflow-hidden bg-gradient-to-br from-primary/5 via-transparent to-transparent flex items-center justify-center min-h-[160px]">
-                      <div className="absolute inset-0 opacity-40 [background-image:linear-gradient(to_right,hsl(var(--border))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border))_1px,transparent_1px)] [background-size:32px_32px]" />
-                      <Icon className="relative h-24 w-24 md:h-28 md:w-28 text-primary" strokeWidth={1} />
-                    </div>
-
-                    <h4 className="font-display text-2xl md:text-3xl text-foreground mb-3 tracking-tight">
-                      {service.title}
-                    </h4>
-                    <p className="text-sm text-muted-foreground leading-relaxed mb-5">
-                      {service.description}
-                    </p>
-
-                    <ul className="flex flex-wrap gap-x-5 gap-y-2 border-t border-border/60 pt-4">
-                      {service.highlights.map((h) => (
-                        <li key={h} className="flex items-center gap-2 text-xs text-foreground/70">
-                          <span className="h-px w-4 bg-primary" />
-                          {h}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </article>
-              );
-            })}
         </div>
       </div>
     </div>
