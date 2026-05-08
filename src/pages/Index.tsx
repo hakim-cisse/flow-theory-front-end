@@ -1,21 +1,13 @@
 import { useState } from "react";
 import { Hero } from "@/components/Hero";
-import { LogoCatalog } from "@/components/LogoCatalog";
-import { About } from "@/components/About";
-import { WhatWeDo } from "@/components/WhatWeDo";
 import { Services } from "@/components/Services";
-import { Founders } from "@/components/Founders";
-import { Values } from "@/components/Values";
-import { Philosophy } from "@/components/Philosophy";
-import { CaseStudy } from "@/components/CaseStudy";
-import { Testimonials } from "@/components/Testimonials";
+import { HowItWorks } from "@/components/HowItWorks";
 import { CTA } from "@/components/CTA";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { ContactDialog } from "@/components/ContactDialog";
 import { SEO } from "@/components/SEO";
 import { OrganizationSchema, WebsiteSchema } from "@/components/StructuredData";
-import { BlogPreview } from "@/components/BlogPreview";
 import { AmbientBackground } from "@/components/AmbientBackground";
 import { ScrollProgress } from "@/components/ScrollProgress";
 
@@ -38,15 +30,8 @@ const Index = () => {
       <div className="relative z-10">
         <Header onContactClick={() => setContactOpen(true)} />
         <Hero />
-        <About />
         <Services />
-        <WhatWeDo />
-        <CaseStudy />
-        <Testimonials />
-        <Values />
-        <Founders />
-        <Philosophy />
-        <BlogPreview />
+        <HowItWorks />
         <CTA />
         <Footer onContactClick={() => setContactOpen(true)} />
       </div>
