@@ -126,96 +126,89 @@ const ToolsStrip = ({ isVisible }: { isVisible: boolean }) => {
 };
 
 
-const ServicesShuffle = ({
+const ServicesBelt = ({
   gridRef,
   gridVisible,
 }: {
   gridRef: React.RefObject<HTMLDivElement>;
   gridVisible: boolean;
 }) => {
-  const [index, setIndex] = useState(0);
-  const [direction, setDirection] = useState<1 | -1>(1);
+  const trackRef = useRef<HTMLDivElement>(null);
   const [paused, setPaused] = useState(false);
-  const total = services.length;
 
-  const go = (dir: 1 | -1) => {
-    setDirection(dir);
-    setIndex((i) => (i + dir + total) % total);
-  };
+  // Triple the list so the loop never visibly seams
+  const belt = [...services, ...services, ...services];
 
-  // Autoscroll — pauses on hover/focus
   useEffect(() => {
-    if (paused) return;
-    const id = setInterval(() => {
-      setDirection(1);
-      setIndex((i) => (i + 1) % total);
-    }, 3500);
-    return () => clearInterval(id);
-  }, [paused, total]);
+    const track = trackRef.current;
+    if (!track) return;
 
-  // Build a stack of the next 3 cards for depth
-  const stack = [0, 1, 2].map((offset) => {
-    const i = (index + offset) % total;
-    return { ...services[i], i, offset };
-  });
+    let raf = 0;
+    let pos = 0;
+    const speed = 0.6; // px per frame
+    let lastTs = performance.now();
+
+    const tick = (ts: number) => {
+      const delta = ts - lastTs;
+      lastTs = ts;
+      if (!paused) {
+        pos += speed * (delta / 16.67);
+        const oneSet = track.scrollWidth / 3;
+        if (pos >= oneSet) pos -= oneSet;
+        track.style.transform = `translate3d(${-pos}px, 0, 0)`;
+      }
+      raf = requestAnimationFrame(tick);
+    };
+
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [paused]);
 
   return (
     <div
       ref={gridRef}
-      className="mt-16 sm:mt-20 max-w-4xl mx-auto"
+      className="mt-16 sm:mt-20 -mx-4 sm:-mx-6 lg:-mx-8"
       style={staggerStyle(0, gridVisible, { distance: 20 })}
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
-      onFocus={() => setPaused(true)}
-      onBlur={() => setPaused(false)}
     >
-      <div className="relative h-[420px] sm:h-[440px] md:h-[460px] select-none">
-        {stack
-          .slice()
-          .reverse()
-          .map(({ offset, i, ...service }) => {
-            const isTop = offset === 0;
-            const translate = offset * 18;
-            const scale = 1 - offset * 0.04;
-            const rotate = offset * 1.5;
-            const opacity = 1 - offset * 0.25;
+      <div className="relative overflow-hidden">
+        {/* Edge fades */}
+        <div className="absolute left-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
 
+        <div
+          ref={trackRef}
+          className="flex gap-6 md:gap-8 will-change-transform py-6"
+          style={{ width: "max-content" }}
+        >
+          {belt.map((service, i) => {
+            const idx = (i % services.length) + 1;
             return (
               <article
-                key={`${i}-${offset}`}
-                className={`absolute inset-0 border border-border/60 bg-background overflow-hidden ${
-                  isTop ? "shadow-[0_30px_60px_-30px_hsl(var(--primary)/0.25)]" : ""
-                }`}
-                style={{
-                  transform: `translate(${translate}px, ${translate}px) scale(${scale}) rotate(${rotate}deg)`,
-                  opacity,
-                  zIndex: 10 - offset,
-                  transition: "transform 0.55s cubic-bezier(0.22,1,0.36,1), opacity 0.4s ease",
-                  animation: isTop
-                    ? `${direction === 1 ? "card-in-right" : "card-in-left"} 0.55s cubic-bezier(0.22,1,0.36,1)`
-                    : undefined,
-                }}
+                key={`${service.title}-${i}`}
+                className="group relative w-[320px] sm:w-[360px] md:w-[400px] h-[380px] md:h-[420px] shrink-0 border border-border/60 bg-background overflow-hidden hover:border-primary/60 transition-colors"
               >
                 <span className="absolute top-0 left-0 h-px w-full bg-gradient-to-r from-primary/60 via-primary/20 to-transparent" />
 
-                <div className="h-full p-8 md:p-12 flex flex-col">
+                <div className="h-full p-8 md:p-10 flex flex-col">
                   <div className="flex items-center justify-between mb-10">
                     <span className="text-mono text-xs text-primary">{service.kicker}</span>
                     <span className="text-mono text-xs text-foreground/40">
-                      0{i + 1} / 0{total}
+                      0{idx}
                     </span>
                   </div>
 
-                  <h4 className="font-display text-3xl md:text-4xl lg:text-5xl text-foreground mb-5 tracking-tight">
+                  <h4 className="font-display text-2xl md:text-3xl text-foreground mb-4 tracking-tight">
                     {service.title}
                   </h4>
-                  <p className="text-base text-muted-foreground leading-relaxed mb-8 max-w-xl">
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-6">
                     {service.description}
                   </p>
 
-                  <ul className="mt-auto flex flex-wrap gap-x-6 gap-y-2 border-t border-border/60 pt-5">
+                  <ul className="mt-auto space-y-2 border-t border-border/60 pt-4">
                     {service.highlights.map((h) => (
-                      <li key={h} className="flex items-center gap-2 text-sm text-foreground/70">
+                      <li key={h} className="flex items-center gap-2 text-xs text-foreground/70">
                         <span className="h-px w-4 bg-primary" />
                         {h}
                       </li>
@@ -225,30 +218,6 @@ const ServicesShuffle = ({
               </article>
             );
           })}
-      </div>
-
-      {/* Controls below the stack */}
-      <div className="mt-10 flex items-center justify-between gap-4">
-        <span className="text-mono text-xs text-foreground/40">
-          0{index + 1} <span className="text-foreground/20">/ 0{total}</span>
-        </span>
-        <div className="flex items-center gap-3">
-          <button
-            type="button"
-            onClick={() => go(-1)}
-            aria-label="Previous service"
-            className="w-12 h-12 border border-border/60 flex items-center justify-center text-foreground/70 hover:text-primary hover:border-primary transition-colors"
-          >
-            <ArrowLeft className="w-4 h-4" />
-          </button>
-          <button
-            type="button"
-            onClick={() => go(1)}
-            aria-label="Next service"
-            className="w-12 h-12 border border-border/60 flex items-center justify-center text-foreground/70 hover:text-primary hover:border-primary transition-colors"
-          >
-            <ArrowRight className="w-4 h-4" />
-          </button>
         </div>
       </div>
     </div>
