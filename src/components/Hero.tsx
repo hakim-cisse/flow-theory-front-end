@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, FileText } from "lucide-react";
 import { useScrollReveal, staggerStyle } from "@/hooks/useScrollReveal";
-import { MetricsTicker } from "@/components/MetricsTicker";
+import { MorphingWord } from "@/components/MorphingWord";
 
 export const Hero = () => {
   const { ref, isVisible } = useScrollReveal({ threshold: 0.1 });
@@ -39,9 +39,10 @@ export const Hero = () => {
           <div className="col-span-12 lg:col-span-9" style={staggerStyle(1, isVisible, { delay: 0.15, duration: 0.9, distance: 40 })}>
             <h1 className="text-display text-foreground">
               <span className="block">AI transformation,</span>
-              <span className="block italic text-primary" style={{ fontWeight: 300 }}>
-                engineered.
-              </span>
+              <MorphingWord
+                words={["engineered.", "deployed.", "measured.", "compounding."]}
+                className="block italic text-primary"
+              />
             </h1>
           </div>
 
@@ -86,18 +87,6 @@ export const Hero = () => {
               Explore our work →
             </button>
           </div>
-        </div>
-
-        {/* Metrics ticker */}
-        <div
-          className="mt-16 md:mt-24 pt-8 border-t border-foreground/15"
-          style={staggerStyle(5, isVisible, { delay: 0.4, distance: 20 })}
-        >
-          <div className="flex items-center justify-between mb-6 text-mono text-foreground/45">
-            <span>Outcomes / Selected</span>
-            <span className="hidden sm:inline">Live ledger</span>
-          </div>
-          <MetricsTicker />
         </div>
 
         {/* Footer of hero */}
