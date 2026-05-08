@@ -10,12 +10,12 @@ export const CTA = () => {
           <div className="mb-16">
             <span className="text-mono text-primary/70 block mb-6" style={staggerStyle(0, isVisible)}>Let's talk</span>
             <h2 className="text-heading" style={staggerStyle(1, isVisible)}>
-              Ready to stop guessing<br />
-              <span className="text-gradient">and start building?</span>
+              Not sure where to start?<br />
+              <span className="text-gradient">That's exactly what we're here for.</span>
             </h2>
             <div className="accent-bar mt-6" style={staggerStyle(2, isVisible)} />
             <p className="text-subheading text-muted-foreground max-w-2xl mt-8" style={staggerStyle(3, isVisible)}>
-              Book a 30-minute alignment call. We'll identify how AI can create real leverage in your business. No pitch, just clarity.
+              Book a discovery call and we'll walk through your operations together. No pressure, no pitch — just a clear-eyed look at where your business can move faster.
             </p>
           </div>
 
