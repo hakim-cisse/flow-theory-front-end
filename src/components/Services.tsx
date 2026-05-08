@@ -249,7 +249,7 @@ export const Services = () => {
           </div>
 
           {/* Sticky split — list on left, live highlight panel on right */}
-          <ServicesShuffle gridRef={gridRef} gridVisible={gridVisible} />
+          <ServicesBelt gridRef={gridRef} gridVisible={gridVisible} />
 
           {/* Custom SaaS — featured block */}
           <div
