@@ -134,7 +134,6 @@ const ServicesBelt = ({
   gridVisible: boolean;
 }) => {
   const trackRef = useRef<HTMLDivElement>(null);
-  const [paused, setPaused] = useState(false);
 
   // Triple the list so the loop never visibly seams
   const belt = [...services, ...services, ...services];
@@ -145,71 +144,114 @@ const ServicesBelt = ({
 
     let raf = 0;
     let pos = 0;
-    const speed = 0.6; // px per frame
+    const speed = 1.1; // px per frame — punchier
     let lastTs = performance.now();
 
     const tick = (ts: number) => {
       const delta = ts - lastTs;
       lastTs = ts;
-      if (!paused) {
-        pos += speed * (delta / 16.67);
-        const oneSet = track.scrollWidth / 3;
-        if (pos >= oneSet) pos -= oneSet;
-        track.style.transform = `translate3d(${-pos}px, 0, 0)`;
-      }
+      pos += speed * (delta / 16.67);
+      const oneSet = track.scrollWidth / 3;
+      if (pos >= oneSet) pos -= oneSet;
+      track.style.transform = `translate3d(${-pos}px, 0, 0)`;
       raf = requestAnimationFrame(tick);
     };
 
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
-  }, [paused]);
+  }, []);
 
   return (
     <div
       ref={gridRef}
       className="mt-16 sm:mt-20 -mx-4 sm:-mx-6 lg:-mx-8"
       style={staggerStyle(0, gridVisible, { distance: 20 })}
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
     >
       <div className="relative overflow-hidden">
         {/* Edge fades */}
-        <div className="absolute left-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
+        <div className="absolute left-0 top-0 bottom-0 w-24 md:w-48 bg-gradient-to-r from-background via-background/90 to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-24 md:w-48 bg-gradient-to-l from-background via-background/90 to-transparent z-10 pointer-events-none" />
 
         <div
           ref={trackRef}
-          className="flex gap-6 md:gap-8 will-change-transform py-6"
+          className="flex gap-5 md:gap-6 will-change-transform py-8"
           style={{ width: "max-content" }}
         >
           {belt.map((service, i) => {
+            const Icon = service.icon;
             const idx = (i % services.length) + 1;
+            // Alternate dark/light cards for rhythm
+            const dark = idx % 2 === 0;
             return (
               <article
                 key={`${service.title}-${i}`}
-                className="group relative w-[320px] sm:w-[360px] md:w-[400px] h-[380px] md:h-[420px] shrink-0 border border-border/60 bg-background overflow-hidden hover:border-primary/60 transition-colors"
+                className={`group relative w-[340px] sm:w-[380px] md:w-[420px] h-[440px] md:h-[480px] shrink-0 overflow-hidden border transition-all duration-500 ${
+                  dark
+                    ? "bg-foreground text-background border-foreground"
+                    : "bg-background text-foreground border-border/60 hover:border-primary"
+                }`}
               >
-                <span className="absolute top-0 left-0 h-px w-full bg-gradient-to-r from-primary/60 via-primary/20 to-transparent" />
+                {/* Big watermark number */}
+                <span
+                  className={`pointer-events-none absolute -top-6 -right-3 font-display text-[180px] md:text-[220px] leading-none tracking-tighter select-none ${
+                    dark ? "text-background/[0.06]" : "text-foreground/[0.04]"
+                  }`}
+                >
+                  {String(idx).padStart(2, "0")}
+                </span>
 
-                <div className="h-full p-8 md:p-10 flex flex-col">
-                  <div className="flex items-center justify-between mb-10">
-                    <span className="text-mono text-xs text-primary">{service.kicker}</span>
-                    <span className="text-mono text-xs text-foreground/40">
-                      0{idx}
+                {/* Top accent bar */}
+                <span className="absolute top-0 left-0 h-[2px] w-full bg-primary" />
+                {/* Bottom shimmer line */}
+                <span className="absolute bottom-0 left-0 h-px w-full bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+
+                <div className="relative h-full p-8 md:p-10 flex flex-col">
+                  {/* Icon block */}
+                  <div className="mb-8 flex items-center justify-between">
+                    <div
+                      className={`relative w-14 h-14 flex items-center justify-center border ${
+                        dark
+                          ? "border-background/20 bg-background/5"
+                          : "border-border bg-primary/5"
+                      }`}
+                    >
+                      <Icon className="w-7 h-7 text-primary" strokeWidth={1.25} />
+                      <span className="absolute -top-px -left-px w-2 h-2 border-l border-t border-primary" />
+                      <span className="absolute -bottom-px -right-px w-2 h-2 border-r border-b border-primary" />
+                    </div>
+                    <span
+                      className={`text-mono text-[10px] tracking-widest ${
+                        dark ? "text-background/50" : "text-foreground/40"
+                      }`}
+                    >
+                      / {service.kicker}
                     </span>
                   </div>
 
-                  <h4 className="font-display text-2xl md:text-3xl text-foreground mb-4 tracking-tight">
+                  <h4 className="font-display text-3xl md:text-4xl tracking-tight leading-[1.05] mb-4">
                     {service.title}
                   </h4>
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-6">
+                  <p
+                    className={`text-sm leading-relaxed mb-6 ${
+                      dark ? "text-background/70" : "text-muted-foreground"
+                    }`}
+                  >
                     {service.description}
                   </p>
 
-                  <ul className="mt-auto space-y-2 border-t border-border/60 pt-4">
+                  <ul
+                    className={`mt-auto space-y-2 border-t pt-4 ${
+                      dark ? "border-background/15" : "border-border/60"
+                    }`}
+                  >
                     {service.highlights.map((h) => (
-                      <li key={h} className="flex items-center gap-2 text-xs text-foreground/70">
-                        <span className="h-px w-4 bg-primary" />
+                      <li
+                        key={h}
+                        className={`flex items-center gap-3 text-xs ${
+                          dark ? "text-background/80" : "text-foreground/75"
+                        }`}
+                      >
+                        <span className="h-px w-5 bg-primary" />
                         {h}
                       </li>
                     ))}
