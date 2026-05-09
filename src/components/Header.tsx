@@ -73,7 +73,7 @@ export const Header = ({ onContactClick }: HeaderProps) => {
               <img
                 src={logoSrc}
                 alt=""
-                className="h-7 w-auto object-contain"
+                className="h-11 md:h-12 w-auto object-contain"
               />
               <span>FLOW THEORY <span className="text-primary">AI</span></span>
             </button>
