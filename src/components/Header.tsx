@@ -3,7 +3,7 @@ import { ArrowRight, Menu, X, Sun, Moon } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useTheme } from "./ThemeProvider";
-import logoSrc from "@/assets/logo.png";
+import logoSrc from "@/assets/flow-theory-logo.png";
 
 const navLinks = [
   { label: "About", href: "#about" },
