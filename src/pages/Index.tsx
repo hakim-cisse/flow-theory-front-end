@@ -37,12 +37,12 @@ const Index = () => {
         <Header onContactClick={() => setContactOpen(true)} />
         <Hero />
         <Services />
+        <Founders />
         <WhatWeDo />
         <CaseStudy />
         <Testimonials />
-        <Founders />
-        <BlogPreview />
         <CTA />
+        <BlogPreview />
         <Footer onContactClick={() => setContactOpen(true)} />
       </div>
       <ContactDialog open={contactOpen} onOpenChange={setContactOpen} />
