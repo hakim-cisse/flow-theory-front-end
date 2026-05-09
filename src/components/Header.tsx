@@ -67,10 +67,15 @@ export const Header = ({ onContactClick }: HeaderProps) => {
           <div className="flex items-center justify-between h-16">
             <button
               onClick={handleLogoClick}
-              className="text-mono text-foreground hover:text-primary transition-colors"
+              className="flex items-center gap-2 text-mono text-foreground hover:text-primary transition-colors"
               aria-label="Flow Theory AI — home"
             >
-              FLOW THEORY <span className="text-primary">AI</span>
+              <img
+                src={logoSrc}
+                alt=""
+                className="h-7 w-auto object-contain"
+              />
+              <span>FLOW THEORY <span className="text-primary">AI</span></span>
             </button>
 
             <nav className="hidden md:flex items-center gap-8">
