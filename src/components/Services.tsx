@@ -289,7 +289,7 @@ export const Services = () => {
                 </p>
               </div>
               <Button asChild size="lg" className="gap-2 rounded-none uppercase text-xs tracking-wider px-6 py-5 self-start lg:self-end shrink-0 group/btn">
-                <a href="https://cal.com/flow-theory-ai/alignment-call" target="_blank" rel="noopener noreferrer">
+                <a href="#cta">
                   Let's talk
                   <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
                 </a>
