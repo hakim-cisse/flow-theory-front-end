@@ -96,15 +96,15 @@ export const CTA = () => {
               Let's talk
             </span>
             <h2 className="text-heading" style={staggerStyle(1, isVisible)}>
-              Ready to stop guessing<br />
-              <span className="text-gradient italic font-light">and start building?</span>
+              Get in touch with<br />
+              <span className="text-gradient italic font-light">the Flow Theory team.</span>
             </h2>
             <div className="accent-bar mt-6" style={staggerStyle(2, isVisible)} />
             <p
               className="text-subheading text-muted-foreground max-w-md mt-8"
               style={staggerStyle(3, isVisible)}
             >
-              Tell us about your business. We'll identify where AI creates real leverage and reply within 24 hours. No pitch, just clarity.
+              Whether you're exploring our services, interested in a career, looking to partner, or just want to say hello — drop us a note and we'll reply within 24 hours.
             </p>
 
             <div
