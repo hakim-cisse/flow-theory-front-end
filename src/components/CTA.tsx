@@ -74,7 +74,7 @@ export const CTA = () => {
         body: JSON.stringify({ ...result.data, timestamp: new Date().toISOString() }),
       });
       toast({ title: "Message sent.", description: "We'll be in touch within 24 hours." });
-      setFormData({ name: "", email: "", company: "", website: "", message: "" });
+      setFormData({ firstName: "", lastName: "", email: "", company: "", website: "", reason: "" as ContactFormData["reason"], message: "" });
     } catch (error) {
       console.error(error);
       toast({ title: "Error", description: "Failed to send. Please try again.", variant: "destructive" });
