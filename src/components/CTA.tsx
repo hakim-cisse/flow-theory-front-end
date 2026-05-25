@@ -184,7 +184,7 @@ export const CTA = () => {
                   }}
                 >
                   <SelectTrigger
-                    className={`w-full bg-transparent border-0 border-b border-foreground/20 rounded-none px-1 py-4 h-auto text-lg md:text-xl text-foreground focus:ring- clinically-offset-0 focus:ring-0 focus:border-primary transition-colors ${!formData.reason ? "text-foreground/30" : ""} ${errors.reason ? "border-destructive" : ""}`}
+                    className={`w-full bg-transparent border-0 border-b border-foreground/20 rounded-none px-0 py-4 h-auto text-lg md:text-xl text-foreground focus:ring-0 focus:ring-offset-0 focus:border-primary transition-colors ${!formData.reason ? "text-foreground/30" : ""} ${errors.reason ? "border-destructive" : ""}`}
                   >
                     <SelectValue placeholder="Select one…" />
                   </SelectTrigger>
