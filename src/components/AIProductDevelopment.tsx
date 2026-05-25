@@ -113,7 +113,7 @@ export const AIProductDevelopment = () => {
 
             <div className="mt-12 flex justify-center" style={staggerStyle(2, ctaVisible)}>
               <Button asChild size="lg" className="group px-8 py-6 font-semibold glow">
-                <a href="https://cal.com/flow-theory-ai/alignment-call" target="_blank" rel="noopener noreferrer">
+                <a href="#cta">
                   Start Building With Us
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </a>

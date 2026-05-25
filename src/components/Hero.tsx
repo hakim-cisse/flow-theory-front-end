@@ -71,12 +71,10 @@ export const Hero = () => {
             <Button
               size="lg"
               className="group rounded-none font-medium tracking-wide px-8 py-6 text-sm uppercase"
-              asChild
+              onClick={() => document.querySelector("#cta")?.scrollIntoView({ behavior: "smooth" })}
             >
-              <a href="https://cal.com/flow-theory-ai/alignment-call" target="_blank" rel="noopener noreferrer">
-                Book a discovery call
-                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-              </a>
+              Get in touch
+              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </Button>
             <button
               onClick={scrollToCaseStudy}
