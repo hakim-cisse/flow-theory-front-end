@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { z } from "zod";
-import { Loader2, ArrowRight, ChevronDown } from "lucide-react";
+import { Loader2, ArrowRight } from "lucide-react";
 import { useScrollReveal, staggerStyle } from "@/hooks/useScrollReveal";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
