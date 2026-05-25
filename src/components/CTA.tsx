@@ -171,23 +171,35 @@ export const CTA = () => {
               </div>
 
               <div className="md:col-span-1 mt-8">
-                <label htmlFor="reason" className="text-mono text-foreground/50 block">
+                <label className="text-mono text-foreground/50 block">
                   04 / Reason for reaching out
                 </label>
-                <select
-                  id="reason"
-                  name="reason"
+                <Select
                   value={formData.reason}
-                  onChange={handleChange}
-                  className={`${inputClass} appearance-none cursor-pointer ${errors.reason ? "border-destructive" : ""} ${!formData.reason ? "text-foreground/30" : ""}`}
+                  onValueChange={(value) => {
+                    setFormData((prev) => ({ ...prev, reason: value as ContactFormData["reason"] }));
+                    if (errors.reason) {
+                      setErrors((prev) => ({ ...prev, reason: undefined }));
+                    }
+                  }}
                 >
-                  <option value="" disabled>Select one…</option>
-                  {REASONS.map((r) => (
-                    <option key={r.value} value={r.value} className="bg-background text-foreground">
-                      {r.label}
-                    </option>
-                  ))}
-                </select>
+                  <SelectTrigger
+                    className={`w-full bg-transparent border-0 border-b border-foreground/20 rounded-none px-1 py-4 h-auto text-lg md:text-xl text-foreground focus:ring- clinically-offset-0 focus:ring-0 focus:border-primary transition-colors ${!formData.reason ? "text-foreground/30" : ""} ${errors.reason ? "border-destructive" : ""}`}
+                  >
+                    <SelectValue placeholder="Select one…" />
+                  </SelectTrigger>
+                  <SelectContent className="bg-background border border-foreground/20 rounded-none">
+                    {REASONS.map((r) => (
+                      <SelectItem
+                        key={r.value}
+                        value={r.value}
+                        className="text-lg text-foreground focus:bg-accent focus:text-accent-foreground cursor-pointer"
+                      >
+                        {r.label}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
                 {errors.reason && <p className="text-xs text-destructive mt-2">{errors.reason}</p>}
               </div>
 
