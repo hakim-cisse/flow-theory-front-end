@@ -1,17 +1,26 @@
 import { useState } from "react";
 import { z } from "zod";
-import { Send, Loader2, ArrowRight } from "lucide-react";
+import { Loader2, ArrowRight } from "lucide-react";
 import { useScrollReveal, staggerStyle } from "@/hooks/useScrollReveal";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 
+const REASONS = [
+  { value: "services", label: "Interest in services" },
+  { value: "careers", label: "Career opportunities" },
+  { value: "partnership", label: "Partnering with us" },
+  { value: "other", label: "Something else" },
+] as const;
+
 const contactSchema = z.object({
-  name: z.string().trim().min(1, "Name is required").max(100),
+  firstName: z.string().trim().min(1, "First name is required").max(50),
+  lastName: z.string().trim().min(1, "Last name is required").max(50),
   email: z.string().trim().email("Invalid email address").max(255),
-  company: z.string().trim().min(1, "Company is required").max(100),
+  company: z.string().trim().max(100).optional().or(z.literal("")),
   website: z.string().trim().url("Invalid URL").max(255).optional().or(z.literal("")),
+  reason: z.enum(["services", "careers", "partnership", "other"], {
+    errorMap: () => ({ message: "Please select a reason" }),
+  }),
   message: z.string().trim().min(1, "Message is required").max(1000),
 });
 
@@ -22,15 +31,19 @@ export const CTA = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState<ContactFormData>({
-    name: "",
+    firstName: "",
+    lastName: "",
     email: "",
     company: "",
     website: "",
+    reason: "" as ContactFormData["reason"],
     message: "",
   });
   const [errors, setErrors] = useState<Partial<Record<keyof ContactFormData, string>>>({});
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
+  ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
     if (errors[name as keyof ContactFormData]) {
