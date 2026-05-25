@@ -1,17 +1,26 @@
 import { useState } from "react";
 import { z } from "zod";
-import { Send, Loader2, ArrowRight } from "lucide-react";
+import { Loader2, ArrowRight } from "lucide-react";
 import { useScrollReveal, staggerStyle } from "@/hooks/useScrollReveal";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 
+const REASONS = [
+  { value: "services", label: "Interest in services" },
+  { value: "careers", label: "Career opportunities" },
+  { value: "partnership", label: "Partnering with us" },
+  { value: "other", label: "Something else" },
+] as const;
+
 const contactSchema = z.object({
-  name: z.string().trim().min(1, "Name is required").max(100),
+  firstName: z.string().trim().min(1, "First name is required").max(50),
+  lastName: z.string().trim().min(1, "Last name is required").max(50),
   email: z.string().trim().email("Invalid email address").max(255),
-  company: z.string().trim().min(1, "Company is required").max(100),
+  company: z.string().trim().max(100).optional().or(z.literal("")),
   website: z.string().trim().url("Invalid URL").max(255).optional().or(z.literal("")),
+  reason: z.enum(["services", "careers", "partnership", "other"], {
+    errorMap: () => ({ message: "Please select a reason" }),
+  }),
   message: z.string().trim().min(1, "Message is required").max(1000),
 });
 
@@ -22,15 +31,19 @@ export const CTA = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState<ContactFormData>({
-    name: "",
+    firstName: "",
+    lastName: "",
     email: "",
     company: "",
     website: "",
+    reason: "" as ContactFormData["reason"],
     message: "",
   });
   const [errors, setErrors] = useState<Partial<Record<keyof ContactFormData, string>>>({});
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
+  ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
     if (errors[name as keyof ContactFormData]) {
@@ -61,7 +74,7 @@ export const CTA = () => {
         body: JSON.stringify({ ...result.data, timestamp: new Date().toISOString() }),
       });
       toast({ title: "Message sent.", description: "We'll be in touch within 24 hours." });
-      setFormData({ name: "", email: "", company: "", website: "", message: "" });
+      setFormData({ firstName: "", lastName: "", email: "", company: "", website: "", reason: "" as ContactFormData["reason"], message: "" });
     } catch (error) {
       console.error(error);
       toast({ title: "Error", description: "Failed to send. Please try again.", variant: "destructive" });
@@ -83,15 +96,15 @@ export const CTA = () => {
               Let's talk
             </span>
             <h2 className="text-heading" style={staggerStyle(1, isVisible)}>
-              Ready to stop guessing<br />
-              <span className="text-gradient italic font-light">and start building?</span>
+              Get in touch with<br />
+              <span className="text-gradient italic font-light">the Flow Theory team.</span>
             </h2>
             <div className="accent-bar mt-6" style={staggerStyle(2, isVisible)} />
             <p
               className="text-subheading text-muted-foreground max-w-md mt-8"
               style={staggerStyle(3, isVisible)}
             >
-              Tell us about your business. We'll identify where AI creates real leverage and reply within 24 hours. No pitch, just clarity.
+              Whether you're exploring our services, interested in a career, looking to partner, or just want to say hello — drop us a note and we'll reply within 24 hours.
             </p>
 
             <div
@@ -111,23 +124,38 @@ export const CTA = () => {
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8">
               <div className="md:col-span-1">
-                <label htmlFor="name" className="text-mono text-foreground/50 block">
-                  01 / Name
+                <label htmlFor="firstName" className="text-mono text-foreground/50 block">
+                  01 / First name
                 </label>
                 <input
-                  id="name"
-                  name="name"
-                  value={formData.name}
+                  id="firstName"
+                  name="firstName"
+                  value={formData.firstName}
                   onChange={handleChange}
-                  placeholder="Your full name"
-                  className={`${inputClass} ${errors.name ? "border-destructive" : ""}`}
+                  placeholder="Jane"
+                  className={`${inputClass} ${errors.firstName ? "border-destructive" : ""}`}
                 />
-                {errors.name && <p className="text-xs text-destructive mt-2">{errors.name}</p>}
+                {errors.firstName && <p className="text-xs text-destructive mt-2">{errors.firstName}</p>}
               </div>
 
               <div className="md:col-span-1 mt-8 md:mt-0">
+                <label htmlFor="lastName" className="text-mono text-foreground/50 block">
+                  02 / Last name
+                </label>
+                <input
+                  id="lastName"
+                  name="lastName"
+                  value={formData.lastName}
+                  onChange={handleChange}
+                  placeholder="Doe"
+                  className={`${inputClass} ${errors.lastName ? "border-destructive" : ""}`}
+                />
+                {errors.lastName && <p className="text-xs text-destructive mt-2">{errors.lastName}</p>}
+              </div>
+
+              <div className="md:col-span-1 mt-8">
                 <label htmlFor="email" className="text-mono text-foreground/50 block">
-                  02 / Email
+                  03 / Email
                 </label>
                 <input
                   id="email"
@@ -142,15 +170,36 @@ export const CTA = () => {
               </div>
 
               <div className="md:col-span-1 mt-8">
+                <label htmlFor="reason" className="text-mono text-foreground/50 block">
+                  04 / Reason for reaching out
+                </label>
+                <select
+                  id="reason"
+                  name="reason"
+                  value={formData.reason}
+                  onChange={handleChange}
+                  className={`${inputClass} appearance-none cursor-pointer ${errors.reason ? "border-destructive" : ""} ${!formData.reason ? "text-foreground/30" : ""}`}
+                >
+                  <option value="" disabled>Select one…</option>
+                  {REASONS.map((r) => (
+                    <option key={r.value} value={r.value} className="bg-background text-foreground">
+                      {r.label}
+                    </option>
+                  ))}
+                </select>
+                {errors.reason && <p className="text-xs text-destructive mt-2">{errors.reason}</p>}
+              </div>
+
+              <div className="md:col-span-1 mt-8">
                 <label htmlFor="company" className="text-mono text-foreground/50 block">
-                  03 / Company
+                  05 / Company <span className="text-foreground/30">(optional)</span>
                 </label>
                 <input
                   id="company"
                   name="company"
                   value={formData.company}
                   onChange={handleChange}
-                  placeholder="Your company"
+                  placeholder="Your company or organization"
                   className={`${inputClass} ${errors.company ? "border-destructive" : ""}`}
                 />
                 {errors.company && <p className="text-xs text-destructive mt-2">{errors.company}</p>}
@@ -158,7 +207,7 @@ export const CTA = () => {
 
               <div className="md:col-span-1 mt-8">
                 <label htmlFor="website" className="text-mono text-foreground/50 block">
-                  04 / Website <span className="text-foreground/30">(optional)</span>
+                  06 / Website <span className="text-foreground/30">(optional)</span>
                 </label>
                 <input
                   id="website"
@@ -173,14 +222,14 @@ export const CTA = () => {
 
               <div className="md:col-span-2 mt-8">
                 <label htmlFor="message" className="text-mono text-foreground/50 block">
-                  05 / What are you trying to solve?
+                  07 / Your message
                 </label>
                 <textarea
                   id="message"
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  placeholder="Briefly describe your business and the operational friction you're feeling..."
+                  placeholder="Tell us a bit more about what brought you here…"
                   rows={5}
                   className={`${inputClass} resize-none ${errors.message ? "border-destructive" : ""}`}
                 />
