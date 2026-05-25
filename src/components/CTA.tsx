@@ -124,23 +124,38 @@ export const CTA = () => {
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8">
               <div className="md:col-span-1">
-                <label htmlFor="name" className="text-mono text-foreground/50 block">
-                  01 / Name
+                <label htmlFor="firstName" className="text-mono text-foreground/50 block">
+                  01 / First name
                 </label>
                 <input
-                  id="name"
-                  name="name"
-                  value={formData.name}
+                  id="firstName"
+                  name="firstName"
+                  value={formData.firstName}
                   onChange={handleChange}
-                  placeholder="Your full name"
-                  className={`${inputClass} ${errors.name ? "border-destructive" : ""}`}
+                  placeholder="Jane"
+                  className={`${inputClass} ${errors.firstName ? "border-destructive" : ""}`}
                 />
-                {errors.name && <p className="text-xs text-destructive mt-2">{errors.name}</p>}
+                {errors.firstName && <p className="text-xs text-destructive mt-2">{errors.firstName}</p>}
               </div>
 
               <div className="md:col-span-1 mt-8 md:mt-0">
+                <label htmlFor="lastName" className="text-mono text-foreground/50 block">
+                  02 / Last name
+                </label>
+                <input
+                  id="lastName"
+                  name="lastName"
+                  value={formData.lastName}
+                  onChange={handleChange}
+                  placeholder="Doe"
+                  className={`${inputClass} ${errors.lastName ? "border-destructive" : ""}`}
+                />
+                {errors.lastName && <p className="text-xs text-destructive mt-2">{errors.lastName}</p>}
+              </div>
+
+              <div className="md:col-span-1 mt-8">
                 <label htmlFor="email" className="text-mono text-foreground/50 block">
-                  02 / Email
+                  03 / Email
                 </label>
                 <input
                   id="email"
@@ -155,15 +170,36 @@ export const CTA = () => {
               </div>
 
               <div className="md:col-span-1 mt-8">
+                <label htmlFor="reason" className="text-mono text-foreground/50 block">
+                  04 / Reason for reaching out
+                </label>
+                <select
+                  id="reason"
+                  name="reason"
+                  value={formData.reason}
+                  onChange={handleChange}
+                  className={`${inputClass} appearance-none cursor-pointer ${errors.reason ? "border-destructive" : ""} ${!formData.reason ? "text-foreground/30" : ""}`}
+                >
+                  <option value="" disabled>Select one…</option>
+                  {REASONS.map((r) => (
+                    <option key={r.value} value={r.value} className="bg-background text-foreground">
+                      {r.label}
+                    </option>
+                  ))}
+                </select>
+                {errors.reason && <p className="text-xs text-destructive mt-2">{errors.reason}</p>}
+              </div>
+
+              <div className="md:col-span-1 mt-8">
                 <label htmlFor="company" className="text-mono text-foreground/50 block">
-                  03 / Company
+                  05 / Company <span className="text-foreground/30">(optional)</span>
                 </label>
                 <input
                   id="company"
                   name="company"
                   value={formData.company}
                   onChange={handleChange}
-                  placeholder="Your company"
+                  placeholder="Your company or organization"
                   className={`${inputClass} ${errors.company ? "border-destructive" : ""}`}
                 />
                 {errors.company && <p className="text-xs text-destructive mt-2">{errors.company}</p>}
@@ -171,7 +207,7 @@ export const CTA = () => {
 
               <div className="md:col-span-1 mt-8">
                 <label htmlFor="website" className="text-mono text-foreground/50 block">
-                  04 / Website <span className="text-foreground/30">(optional)</span>
+                  06 / Website <span className="text-foreground/30">(optional)</span>
                 </label>
                 <input
                   id="website"
@@ -186,14 +222,14 @@ export const CTA = () => {
 
               <div className="md:col-span-2 mt-8">
                 <label htmlFor="message" className="text-mono text-foreground/50 block">
-                  05 / What are you trying to solve?
+                  07 / Your message
                 </label>
                 <textarea
                   id="message"
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  placeholder="Briefly describe your business and the operational friction you're feeling..."
+                  placeholder="Tell us a bit more about what brought you here…"
                   rows={5}
                   className={`${inputClass} resize-none ${errors.message ? "border-destructive" : ""}`}
                 />
