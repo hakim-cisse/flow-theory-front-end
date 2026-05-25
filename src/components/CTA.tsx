@@ -250,10 +250,7 @@ export const CTA = () => {
               </div>
             </div>
 
-            <div className="mt-12 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
-              <p className="text-mono text-foreground/50">
-                By submitting you'll hear back from a founder, not a bot.
-              </p>
+            <div className="mt-12 flex justify-end">
               <Button
                 type="submit"
                 size="lg"
