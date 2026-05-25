@@ -112,8 +112,7 @@ export const CTA = () => {
               className="hidden lg:block mt-12 pt-8 border-t border-foreground/15 text-mono text-foreground/50"
               style={staggerStyle(4, isVisible)}
             >
-              <p>Reply within 24 hours</p>
-              <p className="mt-2">No obligation · No sales pressure</p>
+              <p>No obligation · No sales pressure</p>
             </div>
           </div>
 
