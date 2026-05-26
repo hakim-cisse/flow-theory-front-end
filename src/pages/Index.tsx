@@ -36,6 +36,8 @@ const Index = () => {
       <div className="relative z-10">
         <Header onContactClick={() => setContactOpen(true)} />
         <Hero />
+        <About />
+
         <Services />
         <Founders />
         <WhatWeDo />
