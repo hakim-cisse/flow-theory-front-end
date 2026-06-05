@@ -42,12 +42,11 @@ export const Founders = () => {
             <div className="accent-bar mt-6" style={staggerStyle(2, headerVisible)} />
           </div>
 
-          <div className="mb-16 overflow-hidden border border-border/40 shadow-lg" style={staggerStyle(3, headerVisible)}>
+          <div className="mb-16 overflow-hidden border border-border/40 shadow-lg">
             <img
               src={teamPhoto.url}
               alt="Flow Theory AI founding team — Hakim Cisse, Yassine Diallo, and Yunus Kounkourou"
               className="w-full h-auto object-cover grayscale hover:grayscale-0 transition-all duration-700"
-              loading="lazy"
             />
           </div>
 
