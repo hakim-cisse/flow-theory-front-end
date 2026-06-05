@@ -34,17 +34,9 @@ export const Header = ({ onContactClick }: HeaderProps) => {
     if (link.isRoute) {
       navigate(link.href);
     } else {
-      if (location.pathname !== "/") {
-        navigate("/");
-        setTimeout(() => {
-          const element = document.querySelector(link.href);
-          if (element) element.scrollIntoView({ behavior: "smooth" });
-        }, 100);
-      } else {
-        const element = document.querySelector(link.href);
-        if (element) element.scrollIntoView({ behavior: "smooth" });
-      }
+      navigate({ pathname: "/", hash: link.href });
     }
+
     setIsOpen(false);
   };
 
