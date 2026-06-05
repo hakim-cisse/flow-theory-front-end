@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Clock, DollarSign, Building2, PhoneOff, Zap, ArrowRight, ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
+import { Clock, DollarSign, Building2, PhoneOff, Zap, ArrowRight, ChevronLeft, ChevronRight, ExternalLink, Car, TrendingUp } from "lucide-react";
 import { Link } from "react-router-dom";
 import aptLocatorLogo from "@/assets/apt-locator-logo.png";
 import eenLogo from "@/assets/een-logo.png";
+import eliteAutoLogo from "@/assets/elite-auto-logo.png.asset.json";
 import { cn } from "@/lib/utils";
 import { useScrollReveal, staggerStyle } from "@/hooks/useScrollReveal";
 
