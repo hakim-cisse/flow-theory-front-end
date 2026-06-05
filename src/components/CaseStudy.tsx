@@ -91,7 +91,7 @@ const caseStudies: CaseStudyData[] = [
     id: "elite-auto-plus",
     company: "Elite Auto Plus",
     logo: eliteAutoLogo.url,
-    tagline: "Car Rental & Fleet Management — Niger",
+    tagline: "Car Rental & Fleet Management, Niger",
     slug: "#",
     metrics: [
       { icon: <TrendingUp className="w-4 h-4" />, value: "+23%", label: "Fleet Utilization" },
@@ -106,7 +106,7 @@ const caseStudies: CaseStudyData[] = [
       {
         phase: "Solution",
         title: "STRATUM Brain deployment",
-        description: "Deployed an agentic intelligence layer with four core agents — Fleet, Revenue & Bookings, Payments, and Operations — unified under a central registry with confidence-tiered autonomy and on-demand plain-English querying.",
+        description: "Deployed an agentic intelligence layer with four core agents (Fleet, Revenue & Bookings, Payments, and Operations) unified under a central registry with confidence-tiered autonomy and on-demand plain-English querying.",
       },
       {
         phase: "Results",
