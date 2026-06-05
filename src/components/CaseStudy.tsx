@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Clock, DollarSign, Building2, PhoneOff, Zap, ArrowRight, ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
+import { Clock, DollarSign, Building2, PhoneOff, Zap, ArrowRight, ChevronLeft, ChevronRight, ExternalLink, Car, TrendingUp } from "lucide-react";
 import { Link } from "react-router-dom";
 import aptLocatorLogo from "@/assets/apt-locator-logo.png";
 import eenLogo from "@/assets/een-logo.png";
+import eliteAutoLogo from "@/assets/elite-auto-logo.png.asset.json";
 import { cn } from "@/lib/utils";
 import { useScrollReveal, staggerStyle } from "@/hooks/useScrollReveal";
 
@@ -83,6 +84,34 @@ const caseStudies: CaseStudyData[] = [
         phase: "Results",
         title: "Streamlined deal flow",
         description: "Duplicate seller calls reduced to near zero, buyer outreach 60–75% faster, and founders gained immediate visibility into high-intent leads.",
+      },
+    ],
+  },
+  {
+    id: "elite-auto-plus",
+    company: "Elite Auto Plus",
+    logo: eliteAutoLogo.url,
+    tagline: "Car Rental & Fleet Management — Niger",
+    slug: "#",
+    metrics: [
+      { icon: <TrendingUp className="w-4 h-4" />, value: "+23%", label: "Fleet Utilization" },
+      { icon: <Clock className="w-4 h-4" />, value: "60%", label: "Admin Hours Cut" },
+    ],
+    timeline: [
+      {
+        phase: "Problem",
+        title: "Infrastructure, not effort",
+        description: "Tools didn't talk to each other and data lived in silos. Founders spent their days chasing updates, vehicles sat idle without visibility, invoices aged for weeks, and 3–4 hours daily were lost to manual logging and reporting.",
+      },
+      {
+        phase: "Solution",
+        title: "STRATUM Brain deployment",
+        description: "Deployed an agentic intelligence layer with four core agents — Fleet, Revenue & Bookings, Payments, and Operations — unified under a central registry with confidence-tiered autonomy and on-demand plain-English querying.",
+      },
+      {
+        phase: "Results",
+        title: "From operators to executives",
+        description: "+23% fleet utilization, 60% reduction in daily admin hours, 18-day cut in payment collection cycle, 2 hours/day reclaimed for founders, and zero additional hires needed to absorb the scale-up.",
       },
     ],
   },
@@ -290,13 +319,15 @@ export const CaseStudy = () => {
                     </button>
                   </div>
 
-                  <Link
-                    to={`/blog/${active.slug}`}
-                    className="flex items-center gap-1.5 text-xs font-medium text-primary hover:text-primary/80 transition-colors group"
-                  >
-                    Read Full Case Study
-                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-                  </Link>
+                  {active.slug && active.slug !== "#" && (
+                    <Link
+                      to={`/blog/${active.slug}`}
+                      className="flex items-center gap-1.5 text-xs font-medium text-primary hover:text-primary/80 transition-colors group"
+                    >
+                      Read Full Case Study
+                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                    </Link>
+                  )}
                 </div>
               </div>
             </motion.div>
