@@ -105,7 +105,7 @@ export const CTA = () => {
               className="text-subheading text-muted-foreground max-w-md mt-8"
               style={staggerStyle(3, isVisible)}
             >
-              Whether you're exploring our services, interested in a career, looking to partner, or just want to say hello — drop us a note and we'll reply within 24 hours.
+              Whether you're exploring our services, interested in a career, looking to partner, or just want to say hello, drop us a note and we'll reply within 24 hours.
             </p>
 
             <div
