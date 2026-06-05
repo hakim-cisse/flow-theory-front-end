@@ -2,9 +2,9 @@ import { useScrollReveal, staggerStyle } from "@/hooks/useScrollReveal";
 import aptLocatorLogo from "@/assets/apt-locator-logo.png";
 import eenLogo from "@/assets/een-logo.png";
 import formabuildLogo from "@/assets/formabuild-logo.png";
-import eliteAutoLogo from "@/assets/elite-auto-logo.jpg.asset.json";
-import fintekinLogo from "@/assets/fintekin-logo.jpg.asset.json";
-import deepwellLogo from "@/assets/deepwell-logo.jpg.asset.json";
+import eliteAutoLogo from "@/assets/elite-auto-logo.png.asset.json";
+import fintekinLogo from "@/assets/fintekin-logo.png.asset.json";
+import deepwellLogo from "@/assets/deepwell-logo.png.asset.json";
 
 const logos = [
   { src: aptLocatorLogo, alt: "APT Locator" },
