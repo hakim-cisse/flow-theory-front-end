@@ -108,12 +108,6 @@ export const CTA = () => {
               Whether you're exploring our services, interested in a career, looking to partner, or just want to say hello, drop us a note and we'll reply within 24 hours.
             </p>
 
-            <div
-              className="hidden lg:block mt-12 pt-8 border-t border-foreground/15 text-mono text-foreground/50"
-              style={staggerStyle(4, isVisible)}
-            >
-              <p>No obligation · No sales pressure</p>
-            </div>
           </div>
 
           {/* Right column — form */}
