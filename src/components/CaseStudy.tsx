@@ -115,8 +115,6 @@ const caseStudies: CaseStudyData[] = [
       },
     ],
   },
-    ],
-  },
 ];
 
 const phaseColors: Record<string, string> = {
