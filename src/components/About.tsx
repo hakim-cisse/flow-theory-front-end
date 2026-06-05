@@ -23,7 +23,7 @@ export const About = () => {
 
 
   return (
-    <section id="about" className="py-24 sm:py-32 relative overflow-hidden section-3">
+    <section id="about" className="pt-4 sm:pt-6 pb-24 sm:pb-32 relative overflow-hidden section-3">
       <div ref={ref} className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-screen-2xl mx-auto">
           <div className="mb-16" style={staggerStyle(0, isVisible)}>
