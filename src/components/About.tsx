@@ -1,62 +1,70 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
 import { useScrollReveal, staggerStyle } from "@/hooks/useScrollReveal";
+import aptLocatorLogo from "@/assets/apt-locator-logo.png";
+import eenLogo from "@/assets/een-logo.png";
+import formabuildLogo from "@/assets/formabuild-logo.png";
+import eliteAutoLogo from "@/assets/elite-auto-logo.jpg.asset.json";
+import fintekinLogo from "@/assets/fintekin-logo.jpg.asset.json";
 
-const stats = [
-  { value: 47, suffix: "+", label: "Hours saved / week" },
-  { value: 3,  suffix: "x", label: "Average ROI in 90 days" },
-  { value: 90, suffix: "d", label: "To first measurable result" },
+const logos = [
+  { src: aptLocatorLogo, alt: "APT Locator" },
+  { src: eenLogo, alt: "EEN" },
+  { src: formabuildLogo, alt: "Formabuild" },
+  { src: eliteAutoLogo.url, alt: "Elite Auto+" },
+  { src: fintekinLogo.url, alt: "Fintekin" },
 ];
-
-const CountUp = ({ end, suffix, duration }: { end: number; suffix: string; duration: number }) => {
-  const [count, setCount] = useState(0);
-  useEffect(() => {
-    let start = 0;
-    const increment = end / (duration * 60);
-    const timer = setInterval(() => {
-      start += increment;
-      if (start >= end) {
-        setCount(end);
-        clearInterval(timer);
-      } else {
-        setCount(Math.floor(start));
-      }
-    }, 1000 / 60);
-    return () => clearInterval(timer);
-  }, [end, duration]);
-  return <span>{count}{suffix}</span>;
-};
 
 export const About = () => {
   const { ref, isVisible } = useScrollReveal({ threshold: 0.2 });
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    let raf = 0;
+    let pos = 0;
+    const speed = 0.5;
+    const tick = () => {
+      pos += speed;
+      if (pos >= el.scrollWidth / 2) pos = 0;
+      el.scrollLeft = pos;
+      raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    const stop = () => cancelAnimationFrame(raf);
+    const start = () => { raf = requestAnimationFrame(tick); };
+    el.addEventListener("mouseenter", stop);
+    el.addEventListener("mouseleave", start);
+    return () => {
+      cancelAnimationFrame(raf);
+      el.removeEventListener("mouseenter", stop);
+      el.removeEventListener("mouseleave", start);
+    };
+  }, []);
 
   return (
     <section id="about" className="py-24 sm:py-32 relative overflow-hidden section-3">
       <div ref={ref} className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-screen-2xl mx-auto">
-          {/* Single statement */}
-          <p
-            className="font-display text-4xl sm:text-5xl md:text-6xl leading-[1.05] tracking-tight text-foreground/85"
-            style={staggerStyle(0, isVisible)}
-          >
-            We build the AI systems that{" "}
-            <span className="italic text-primary font-light">run your business</span>
-            {" "}so you don't have to.
-          </p>
+          <div className="mb-12" style={staggerStyle(0, isVisible)}>
+            <span className="text-mono text-primary/70 block mb-6">Our clients</span>
+            <h2 className="text-heading">
+              Trusted by<br />
+              <span className="text-gradient italic font-light">innovative companies.</span>
+            </h2>
+            <div className="accent-bar mt-6" />
+          </div>
 
-          {/* Stat strip */}
           <div
-            className="grid grid-cols-1 md:grid-cols-3 border-t border-border/60 mt-20 md:mt-28"
-            style={staggerStyle(1, isVisible)}
+            ref={scrollRef}
+            className="flex items-center gap-14 md:gap-24 overflow-x-hidden mt-16"
+            style={{ ...staggerStyle(1, isVisible), scrollBehavior: "auto" }}
           >
-            {stats.map((stat, i) => (
-              <div
-                key={stat.label}
-                className={`py-8 md:py-10 ${i > 0 ? "md:border-l border-border/60 md:pl-8" : "md:pr-8"} ${i < stats.length - 1 ? "border-b md:border-b-0 border-border/60" : ""}`}
-              >
-                <div className="font-display text-5xl md:text-6xl text-foreground tracking-tight leading-none mb-3">
-                  {isVisible && <CountUp end={stat.value} suffix={stat.suffix} duration={1.6} />}
+            {[...logos, ...logos].map((logo, i) => (
+              <div key={i} className="flex-shrink-0">
+                <div className="relative h-14 md:h-20 w-32 md:w-44 flex items-center justify-center grayscale hover:grayscale-0 opacity-50 hover:opacity-100 transition-all duration-500">
+                  <img src={logo.src} alt={logo.alt} className="max-h-full max-w-full object-contain" />
                 </div>
-                <div className="text-sm text-muted-foreground">{stat.label}</div>
               </div>
             ))}
           </div>
