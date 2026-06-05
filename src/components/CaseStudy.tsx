@@ -74,6 +74,18 @@ const caseStudies: CaseStudyData[] = [
         phase: "Problem",
         title: "Operational chaos",
         description: "Multiple contacts tied to a single property caused repeated calls. Buyer outreach was delayed by manual processes, and founders lacked hot lead visibility.",
+      },
+      {
+        phase: "Solution",
+        title: "Intelligent systems",
+        description: "Built a deduplication system for the dialer queue, automated buyer outreach triggered on contract, and implemented real-time hot lead notifications.",
+      },
+      {
+        phase: "Results",
+        title: "Streamlined deal flow",
+        description: "Duplicate seller calls reduced to near zero, buyer outreach 60–75% faster, and founders gained immediate visibility into high-intent leads.",
+      },
+    ],
   },
   {
     id: "elite-auto-plus",
@@ -103,16 +115,6 @@ const caseStudies: CaseStudyData[] = [
       },
     ],
   },
-      {
-        phase: "Solution",
-        title: "Intelligent systems",
-        description: "Built a deduplication system for the dialer queue, automated buyer outreach triggered on contract, and implemented real-time hot lead notifications.",
-      },
-      {
-        phase: "Results",
-        title: "Streamlined deal flow",
-        description: "Duplicate seller calls reduced to near zero, buyer outreach 60–75% faster, and founders gained immediate visibility into high-intent leads.",
-      },
     ],
   },
 ];
