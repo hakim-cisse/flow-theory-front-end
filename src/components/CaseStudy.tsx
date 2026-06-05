@@ -4,7 +4,7 @@ import { Clock, DollarSign, Building2, PhoneOff, Zap, ArrowRight, ChevronLeft, C
 import { Link } from "react-router-dom";
 import aptLocatorLogo from "@/assets/apt-locator-logo.png";
 import eenLogo from "@/assets/een-logo.png";
-import eliteAutoLogo from "@/assets/elite-auto-logo.png.asset.json";
+import eliteAutoLogo from "@/assets/elite-auto-logo.png";
 import { cn } from "@/lib/utils";
 import { useScrollReveal, staggerStyle } from "@/hooks/useScrollReveal";
 
