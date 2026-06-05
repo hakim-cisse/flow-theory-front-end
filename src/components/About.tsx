@@ -3,10 +3,10 @@ import { useTheme } from "@/components/ThemeProvider";
 import aptLocatorLogo from "@/assets/apt-locator-logo.png";
 import eenLogo from "@/assets/een-logo.png";
 import formabuildLogo from "@/assets/formabuild-logo.png";
-import eliteAutoLogo from "@/assets/elite-auto-logo.png.asset.json";
-import fintekinLogoLight from "@/assets/fintekin-logo-light.png.asset.json";
-import fintekinLogoDark from "@/assets/fintekin-logo-dark.png.asset.json";
-import deepwellLogo from "@/assets/deepwell-logo.png.asset.json";
+import eliteAutoLogo from "@/assets/elite-auto-logo.png";
+import fintekinLogoLight from "@/assets/fintekin-logo-light.png";
+import fintekinLogoDark from "@/assets/fintekin-logo-dark.png";
+import deepwellLogo from "@/assets/deepwell-logo.png";
 
 export const About = () => {
   const { ref, isVisible } = useScrollReveal({ threshold: 0.15 });
@@ -16,9 +16,9 @@ export const About = () => {
     { src: aptLocatorLogo, alt: "APT Locator" },
     { src: eenLogo, alt: "EEN" },
     { src: formabuildLogo, alt: "Formabuild" },
-    { src: eliteAutoLogo.url, alt: "Elite Auto+" },
-    { src: theme === "dark" ? fintekinLogoDark.url : fintekinLogoLight.url, alt: "Fintekin" },
-    { src: deepwellLogo.url, alt: "Deepwell" },
+    { src: eliteAutoLogo, alt: "Elite Auto+" },
+    { src: theme === "dark" ? fintekinLogoDark : fintekinLogoLight, alt: "Fintekin" },
+    { src: deepwellLogo, alt: "Deepwell" },
   ];
 
 
