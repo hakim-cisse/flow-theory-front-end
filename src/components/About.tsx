@@ -1,19 +1,12 @@
 import { useScrollReveal, staggerStyle } from "@/hooks/useScrollReveal";
+import { useTheme } from "@/components/ThemeProvider";
 import aptLocatorLogo from "@/assets/apt-locator-logo.png";
 import eenLogo from "@/assets/een-logo.png";
 import formabuildLogo from "@/assets/formabuild-logo.png";
 import eliteAutoLogo from "@/assets/elite-auto-logo.png.asset.json";
-import fintekinLogo from "@/assets/fintekin-logo.png.asset.json";
+import fintekinLogoLight from "@/assets/fintekin-logo-light.png.asset.json";
+import fintekinLogoDark from "@/assets/fintekin-logo-dark.png.asset.json";
 import deepwellLogo from "@/assets/deepwell-logo.png.asset.json";
-
-const logos = [
-  { src: aptLocatorLogo, alt: "APT Locator" },
-  { src: eenLogo, alt: "EEN" },
-  { src: formabuildLogo, alt: "Formabuild" },
-  { src: eliteAutoLogo.url, alt: "Elite Auto+" },
-  { src: fintekinLogo.url, alt: "Fintekin" },
-  { src: deepwellLogo.url, alt: "Deepwell" },
-];
 
 export const About = () => {
   const { ref, isVisible } = useScrollReveal({ threshold: 0.15 });
