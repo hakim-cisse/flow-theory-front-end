@@ -1,7 +1,6 @@
 import hakimImage from "@/assets/hakim.jpg";
 import yassineImage from "@/assets/yassine.png";
 import yunusImage from "@/assets/yunus.jpg";
-import teamPhoto from "@/assets/team-photo.png";
 import { useScrollReveal, staggerStyle } from "@/hooks/useScrollReveal";
 
 
@@ -43,6 +42,9 @@ export const Founders = () => {
             <div className="accent-bar mt-6" style={staggerStyle(2, headerVisible)} />
           </div>
 
+
+
+
           <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-3 gap-px bg-border/30">
             {founders.map((founder, i) => (
               <div
@@ -70,21 +72,6 @@ export const Founders = () => {
               </div>
             ))}
           </div>
-
-          <figure className="mt-16 sm:mt-20 max-w-4xl mx-auto" style={staggerStyle(3, gridVisible, { delay: 0.15 })}>
-            <div className="overflow-hidden">
-              <img
-                src={teamPhoto}
-                alt="The Flow Theory AI founding team"
-                className="w-full h-auto object-cover grayscale hover:grayscale-0 transition-all duration-700"
-                style={{ clipPath: 'polygon(0 0, 100% 0, 100% 95%, 95% 100%, 0 100%)' }}
-              />
-            </div>
-            <figcaption className="text-mono text-xs text-muted-foreground/80 text-center mt-4 tracking-wider uppercase">
-              The Flow Theory AI founding team
-            </figcaption>
-          </figure>
-
         </div>
       </div>
 
