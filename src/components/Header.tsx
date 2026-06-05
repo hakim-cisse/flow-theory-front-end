@@ -6,7 +6,7 @@ import { useTheme } from "./ThemeProvider";
 import logoSrc from "@/assets/flow-theory-logo.png";
 
 const navLinks = [
-  { label: "About", href: "#about" },
+  { label: "About", href: "#what-we-do" },
   { label: "Team", href: "#founders" },
   { label: "Services", href: "#services" },
   { label: "Case Studies", href: "#case-studies" },
