@@ -2,9 +2,9 @@ import { useScrollReveal, staggerStyle } from "@/hooks/useScrollReveal";
 import aptLocatorLogo from "@/assets/apt-locator-logo.png";
 import eenLogo from "@/assets/een-logo.png";
 import formabuildLogo from "@/assets/formabuild-logo.png";
-import eliteAutoLogo from "@/assets/elite-auto-logo.jpg.asset.json";
-import fintekinLogo from "@/assets/fintekin-logo.jpg.asset.json";
-import deepwellLogo from "@/assets/deepwell-logo.jpg.asset.json";
+import eliteAutoLogo from "@/assets/elite-auto-logo.png.asset.json";
+import fintekinLogo from "@/assets/fintekin-logo.png.asset.json";
+import deepwellLogo from "@/assets/deepwell-logo.png.asset.json";
 
 const logos = [
   { src: aptLocatorLogo, alt: "APT Locator" },
@@ -41,7 +41,7 @@ export const About = () => {
                   key={i}
                   src={logo.src}
                   alt={logo.alt}
-                  className="max-h-12 md:max-h-16 max-w-[140px] md:max-w-[180px] object-contain grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-500"
+                  className="max-h-20 md:max-h-28 max-w-[200px] md:max-w-[280px] object-contain grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-500"
                 />
               ))}
             </div>
@@ -51,7 +51,7 @@ export const About = () => {
                   key={i}
                   src={logo.src}
                   alt={logo.alt}
-                  className="max-h-12 md:max-h-16 max-w-[140px] md:max-w-[180px] object-contain grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-500"
+                  className="max-h-20 md:max-h-28 max-w-[200px] md:max-w-[280px] object-contain grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-500"
                 />
               ))}
             </div>
