@@ -106,7 +106,7 @@ const caseStudies: CaseStudyData[] = [
       {
         phase: "Solution",
         title: "STRATUM Brain deployment",
-        description: "Deployed an agentic intelligence layer with four core agents — Fleet, Revenue & Bookings, Payments, and Operations — unified under a central registry with confidence-tiered autonomy and on-demand plain-English querying.",
+        description: "Deployed an agentic intelligence layer with four core agents (Fleet, Revenue & Bookings, Payments, and Operations) unified under a central registry with confidence-tiered autonomy and on-demand plain-English querying.",
       },
       {
         phase: "Results",
