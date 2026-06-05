@@ -74,7 +74,35 @@ const caseStudies: CaseStudyData[] = [
         phase: "Problem",
         title: "Operational chaos",
         description: "Multiple contacts tied to a single property caused repeated calls. Buyer outreach was delayed by manual processes, and founders lacked hot lead visibility.",
+  },
+  {
+    id: "elite-auto-plus",
+    company: "Elite Auto Plus",
+    logo: eliteAutoLogo.url,
+    tagline: "Car Rental & Fleet Management — Niger",
+    slug: "#",
+    metrics: [
+      { icon: <TrendingUp className="w-4 h-4" />, value: "+23%", label: "Fleet Utilization" },
+      { icon: <Clock className="w-4 h-4" />, value: "60%", label: "Admin Hours Cut" },
+    ],
+    timeline: [
+      {
+        phase: "Problem",
+        title: "Infrastructure, not effort",
+        description: "Tools didn't talk to each other and data lived in silos. Founders spent their days chasing updates, vehicles sat idle without visibility, invoices aged for weeks, and 3–4 hours daily were lost to manual logging and reporting.",
       },
+      {
+        phase: "Solution",
+        title: "STRATUM Brain deployment",
+        description: "Deployed an agentic intelligence layer with four core agents — Fleet, Revenue & Bookings, Payments, and Operations — unified under a central registry with confidence-tiered autonomy and on-demand plain-English querying.",
+      },
+      {
+        phase: "Results",
+        title: "From operators to executives",
+        description: "+23% fleet utilization, 60% reduction in daily admin hours, 18-day cut in payment collection cycle, 2 hours/day reclaimed for founders, and zero additional hires needed to absorb the scale-up.",
+      },
+    ],
+  },
       {
         phase: "Solution",
         title: "Intelligent systems",
