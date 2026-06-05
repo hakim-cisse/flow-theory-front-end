@@ -32,17 +32,29 @@ export const About = () => {
           </div>
 
           <div
-            className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-x-12 gap-y-16 md:gap-x-20 md:gap-y-24 items-center justify-items-center py-8"
+            className="flex flex-col gap-y-16 md:gap-y-24 py-8"
             style={staggerStyle(1, isVisible)}
           >
-            {logos.map((logo, i) => (
-              <img
-                key={i}
-                src={logo.src}
-                alt={logo.alt}
-                className="max-h-12 md:max-h-16 max-w-[140px] md:max-w-[180px] object-contain grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-500"
-              />
-            ))}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-x-12 md:gap-x-20 gap-y-16 items-center justify-items-center">
+              {logos.slice(0, 4).map((logo, i) => (
+                <img
+                  key={i}
+                  src={logo.src}
+                  alt={logo.alt}
+                  className="max-h-12 md:max-h-16 max-w-[140px] md:max-w-[180px] object-contain grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-500"
+                />
+              ))}
+            </div>
+            <div className="grid grid-cols-2 gap-x-12 md:gap-x-20 items-center justify-items-center max-w-2xl mx-auto w-full">
+              {logos.slice(4, 6).map((logo, i) => (
+                <img
+                  key={i}
+                  src={logo.src}
+                  alt={logo.alt}
+                  className="max-h-12 md:max-h-16 max-w-[140px] md:max-w-[180px] object-contain grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-500"
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>
