@@ -1,8 +1,8 @@
 import hakimImage from "@/assets/hakim.jpg";
 import yassineImage from "@/assets/yassine.png";
 import yunusImage from "@/assets/yunus.jpg";
-import teamPhoto from "@/assets/team.png.asset.json";
 import { useScrollReveal, staggerStyle } from "@/hooks/useScrollReveal";
+
 
 const founders = [
   {
@@ -42,13 +42,8 @@ export const Founders = () => {
             <div className="accent-bar mt-6" style={staggerStyle(2, headerVisible)} />
           </div>
 
-          <div className="mb-12 sm:mb-14 overflow-hidden border border-border/40 bg-muted/20 shadow-lg">
-            <img
-              src={teamPhoto.url}
-              alt="Flow Theory AI founding team — Hakim Cisse, Yassine Diallo, and Yunus Kounkourou"
-              className="block h-auto w-full object-contain grayscale transition-all duration-700 hover:grayscale-0"
-            />
-          </div>
+
+
 
           <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-3 gap-px bg-border/30">
             {founders.map((founder, i) => (
