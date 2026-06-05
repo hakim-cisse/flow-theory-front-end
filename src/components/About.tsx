@@ -32,20 +32,16 @@ export const About = () => {
           </div>
 
           <div
-            className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-px bg-border/30 border border-border/30"
+            className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-x-12 gap-y-16 md:gap-x-20 md:gap-y-24 items-center justify-items-center py-8"
             style={staggerStyle(1, isVisible)}
           >
             {logos.map((logo, i) => (
-              <div
+              <img
                 key={i}
-                className="group bg-background hover:bg-primary/5 transition-colors duration-500 aspect-[4/3] flex items-center justify-center p-6"
-              >
-                <img
-                  src={logo.src}
-                  alt={logo.alt}
-                  className="max-h-16 md:max-h-20 max-w-full object-contain grayscale group-hover:grayscale-0 opacity-60 group-hover:opacity-100 transition-all duration-500"
-                />
-              </div>
+                src={logo.src}
+                alt={logo.alt}
+                className="max-h-12 md:max-h-16 max-w-[140px] md:max-w-[180px] object-contain grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-500"
+              />
             ))}
           </div>
         </div>
