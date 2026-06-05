@@ -91,7 +91,7 @@ const caseStudies: CaseStudyData[] = [
     id: "elite-auto-plus",
     company: "Elite Auto Plus",
     logo: eliteAutoLogo.url,
-    tagline: "Car Rental & Fleet Management — Niger",
+    tagline: "Car Rental & Fleet Management, Niger",
     slug: "#",
     metrics: [
       { icon: <TrendingUp className="w-4 h-4" />, value: "+23%", label: "Fleet Utilization" },
