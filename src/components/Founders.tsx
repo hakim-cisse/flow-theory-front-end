@@ -43,6 +43,17 @@ export const Founders = () => {
             <div className="accent-bar mt-6" style={staggerStyle(2, headerVisible)} />
           </div>
 
+          <div className="mb-12 sm:mb-16 overflow-hidden" style={staggerStyle(3, headerVisible)}>
+            <img
+              src={teamPhoto}
+              alt="The Flow Theory AI founding team"
+              className="w-full h-auto object-cover grayscale hover:grayscale-0 transition-all duration-700"
+              style={{ clipPath: 'polygon(0 0, 100% 0, 100% 95%, 95% 100%, 0 100%)' }}
+            />
+          </div>
+
+
+
 
 
 
