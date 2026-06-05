@@ -10,6 +10,17 @@ import deepwellLogo from "@/assets/deepwell-logo.png.asset.json";
 
 export const About = () => {
   const { ref, isVisible } = useScrollReveal({ threshold: 0.15 });
+  const { theme } = useTheme();
+
+  const logos = [
+    { src: aptLocatorLogo, alt: "APT Locator" },
+    { src: eenLogo, alt: "EEN" },
+    { src: formabuildLogo, alt: "Formabuild" },
+    { src: eliteAutoLogo.url, alt: "Elite Auto+" },
+    { src: theme === "dark" ? fintekinLogoDark.url : fintekinLogoLight.url, alt: "Fintekin" },
+    { src: deepwellLogo.url, alt: "Deepwell" },
+  ];
+
 
   return (
     <section id="about" className="py-24 sm:py-32 relative overflow-hidden section-3">
