@@ -1,6 +1,7 @@
 import hakimImage from "@/assets/hakim.jpg";
 import yassineImage from "@/assets/yassine.png";
 import yunusImage from "@/assets/yunus.jpg";
+import teamPhoto from "@/assets/team-photo.png";
 import { useScrollReveal, staggerStyle } from "@/hooks/useScrollReveal";
 
 
@@ -41,8 +42,14 @@ export const Founders = () => {
             </h2>
             <div className="accent-bar mt-6" style={staggerStyle(2, headerVisible)} />
           </div>
-
-
+          <div className="mb-12 sm:mb-16 flex justify-center" style={staggerStyle(3, headerVisible)}>
+            <img
+              src={teamPhoto}
+              alt="Flow Theory AI team"
+              className="w-full max-w-2xl object-cover border border-border/30"
+              style={{ clipPath: 'polygon(0 0, 100% 0, 100% 92%, 96% 100%, 0 100%)' }}
+            />
+          </div>
 
 
           <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-3 gap-px bg-border/30">
