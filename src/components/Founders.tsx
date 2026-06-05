@@ -1,6 +1,7 @@
 import hakimImage from "@/assets/hakim.jpg";
 import yassineImage from "@/assets/yassine.png";
 import yunusImage from "@/assets/yunus.jpg";
+import teamPhoto from "@/assets/team-photo.png";
 import { useScrollReveal, staggerStyle } from "@/hooks/useScrollReveal";
 
 
