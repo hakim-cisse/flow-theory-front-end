@@ -34,22 +34,29 @@ export const Founders = () => {
     <section id="founders" className="py-24 sm:py-32 relative section-8">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-screen-2xl mx-auto">
-          <div ref={headerRef} className="mb-10 sm:mb-12">
-            <span className="text-mono text-primary/70 block mb-6" style={staggerStyle(0, headerVisible)}>Our team</span>
-            <h2 className="text-heading" style={staggerStyle(1, headerVisible)}>
-              Built by founders,<br />
-              <span className="text-gradient">for founders.</span>
-            </h2>
-            <div className="accent-bar mt-6" style={staggerStyle(2, headerVisible)} />
+          <div ref={headerRef} className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-end mb-16 sm:mb-20">
+            <div className="lg:col-span-5">
+              <span className="text-mono text-primary/70 block mb-6" style={staggerStyle(0, headerVisible)}>Our team</span>
+              <h2 className="text-heading" style={staggerStyle(1, headerVisible)}>
+                Built by founders,<br />
+                <span className="text-gradient">for founders.</span>
+              </h2>
+              <div className="accent-bar mt-6" style={staggerStyle(2, headerVisible)} />
+            </div>
+            <div className="lg:col-span-7" style={staggerStyle(3, headerVisible)}>
+              <div className="relative">
+                <img
+                  src={teamPhoto}
+                  alt="Flow Theory AI team"
+                  className="w-full aspect-[16/10] object-cover border border-border/30 shadow-[0_30px_80px_-30px_hsl(var(--foreground)/0.25)]"
+                  style={{ clipPath: 'polygon(0 0, 100% 0, 100% 94%, 94% 100%, 0 100%)' }}
+                />
+                <div className="absolute -bottom-3 -left-3 w-16 h-16 border-l border-b border-primary/40 pointer-events-none" />
+                <div className="absolute -top-3 -right-3 w-16 h-16 border-t border-r border-primary/40 pointer-events-none" />
+              </div>
+            </div>
           </div>
-          <div className="mb-12 sm:mb-16 flex justify-center" style={staggerStyle(3, headerVisible)}>
-            <img
-              src={teamPhoto}
-              alt="Flow Theory AI team"
-              className="w-full max-w-2xl object-cover border border-border/30"
-              style={{ clipPath: 'polygon(0 0, 100% 0, 100% 92%, 96% 100%, 0 100%)' }}
-            />
-          </div>
+
 
 
           <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-3 gap-px bg-border/30">
