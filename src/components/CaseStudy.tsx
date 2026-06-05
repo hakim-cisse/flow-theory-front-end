@@ -319,13 +319,15 @@ export const CaseStudy = () => {
                     </button>
                   </div>
 
-                  <Link
-                    to={`/blog/${active.slug}`}
-                    className="flex items-center gap-1.5 text-xs font-medium text-primary hover:text-primary/80 transition-colors group"
-                  >
-                    Read Full Case Study
-                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-                  </Link>
+                  {active.slug && active.slug !== "#" && (
+                    <Link
+                      to={`/blog/${active.slug}`}
+                      className="flex items-center gap-1.5 text-xs font-medium text-primary hover:text-primary/80 transition-colors group"
+                    >
+                      Read Full Case Study
+                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                    </Link>
+                  )}
                 </div>
               </div>
             </motion.div>
