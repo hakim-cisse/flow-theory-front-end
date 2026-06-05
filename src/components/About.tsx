@@ -45,7 +45,7 @@ export const About = () => {
                   key={i}
                   src={logo.src}
                   alt={logo.alt}
-                  className="max-h-20 md:max-h-28 max-w-[200px] md:max-w-[280px] object-contain grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-500"
+                  className="max-h-20 md:max-h-28 max-w-[200px] md:max-w-[280px] object-contain"
                 />
               ))}
             </div>
@@ -55,7 +55,7 @@ export const About = () => {
                   key={i}
                   src={logo.src}
                   alt={logo.alt}
-                  className="max-h-20 md:max-h-28 max-w-[200px] md:max-w-[280px] object-contain grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-500"
+                  className="max-h-20 md:max-h-28 max-w-[200px] md:max-w-[280px] object-contain"
                 />
               ))}
             </div>
