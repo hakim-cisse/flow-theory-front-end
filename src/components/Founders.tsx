@@ -33,7 +33,7 @@ export const Founders = () => {
     <section id="founders" className="py-24 sm:py-32 relative section-8">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-screen-2xl mx-auto">
-          <div ref={headerRef} className="mb-20">
+          <div ref={headerRef} className="mb-10 sm:mb-12">
             <span className="text-mono text-primary/70 block mb-6" style={staggerStyle(0, headerVisible)}>Our team</span>
             <h2 className="text-heading" style={staggerStyle(1, headerVisible)}>
               Built by founders,<br />
@@ -42,11 +42,11 @@ export const Founders = () => {
             <div className="accent-bar mt-6" style={staggerStyle(2, headerVisible)} />
           </div>
 
-          <div className="mb-16 overflow-hidden border border-border/40 shadow-lg">
+          <div className="mb-12 sm:mb-14 aspect-[16/8] sm:aspect-[16/7] overflow-hidden border border-border/40 bg-muted/20 shadow-lg">
             <img
               src={teamPhoto.url}
               alt="Flow Theory AI founding team — Hakim Cisse, Yassine Diallo, and Yunus Kounkourou"
-              className="w-full h-auto object-cover grayscale hover:grayscale-0 transition-all duration-700"
+              className="h-full w-full object-cover object-center grayscale transition-all duration-700 hover:grayscale-0"
             />
           </div>
 
