@@ -23,7 +23,7 @@ export const Footer = ({ onContactClick }: FooterProps) => {
             <div style={staggerStyle(0, isVisible)}>
               <img src={logo} alt="Flow Theory AI" className="h-10 w-auto mb-4 opacity-70" />
               <p className="text-sm text-muted-foreground leading-relaxed">
-                AI transformation built on strategy, discovery, and measurable results. By founders, for founders.
+                AI transformation built on strategy, discovery, and measurable results. Built by founders, for ambitious companies.
               </p>
             </div>
 
