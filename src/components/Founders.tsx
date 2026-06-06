@@ -37,7 +37,7 @@ export const Founders = () => {
             <span className="text-mono text-primary/70 block mb-6" style={staggerStyle(0, headerVisible)}>Our team</span>
             <h2 className="text-heading" style={staggerStyle(1, headerVisible)}>
               Built by founders,<br />
-              <span className="text-gradient">for founders.</span>
+              <span className="text-gradient">for ambitious companies.</span>
             </h2>
             <div className="accent-bar mt-6" style={staggerStyle(2, headerVisible)} />
           </div>
