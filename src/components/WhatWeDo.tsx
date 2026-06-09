@@ -26,7 +26,7 @@ const tabs: {
     key: "stratum",
     label: "Stratum Framework",
     eyebrow: "02 / Our proprietary system",
-    tagline: "A modular, compounding AI system built for startups and SMBs.",
+    tagline: "A modular, compounding AI system built for startups, scale-ups, and enterprises.",
     icon: Layers,
   },
   {
