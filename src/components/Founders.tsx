@@ -36,8 +36,8 @@ export const Founders = () => {
           <div ref={headerRef} className="mb-10 sm:mb-12">
             <span className="text-mono text-primary/70 block mb-6" style={staggerStyle(0, headerVisible)}>Our team</span>
             <h2 className="text-heading" style={staggerStyle(1, headerVisible)}>
-              Built by founders,<br />
-              <span className="text-gradient">for ambitious companies.</span>
+              The team behind<br />
+              <span className="text-gradient">the dream.</span>
             </h2>
             <div className="accent-bar mt-6" style={staggerStyle(2, headerVisible)} />
           </div>
