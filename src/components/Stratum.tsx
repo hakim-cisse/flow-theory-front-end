@@ -95,7 +95,7 @@ export const Stratum = () => {
             </h2>
             <div className="accent-bar mt-6" style={staggerStyle(2, headerVisible)} />
             <p className="text-subheading text-muted-foreground leading-relaxed mt-8" style={staggerStyle(3, headerVisible)}>
-              Stratum is Flow Theory AI's AI transformation framework, designed exclusively for startups and SMBs.
+              Stratum is Flow Theory AI's AI transformation framework, built for ambitious companies — from startups to enterprises.
               No complex infrastructure. No servers. No technical debt. Everything runs through one intelligent,
               modular system that grows with your business.
             </p>
