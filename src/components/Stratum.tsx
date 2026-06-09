@@ -241,7 +241,7 @@ export const Stratum = () => {
                       <span className="w-2.5 h-2.5 rounded-full bg-foreground/20" />
                     </div>
                     <div className="text-mono text-[10px] sm:text-xs text-muted-foreground truncate px-3">
-                      stratum.flowtheoryai.com
+                      stratum.yourcompany.com
                     </div>
                     <div className="text-mono text-[10px] text-primary/60 hidden sm:block">LIVE</div>
                   </div>
