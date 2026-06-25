@@ -120,7 +120,7 @@ export const WhatWeDo = () => {
       {/* Active panel */}
       <div key={active} className="animate-in fade-in slide-in-from-bottom-4 duration-700">
         {active === "process" && <HowItWorks />}
-        {active === "stratum" && <Stratum />}
+        
         {active === "build" && <AIProductDevelopment />}
       </div>
     </section>
