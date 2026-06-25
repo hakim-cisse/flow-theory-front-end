@@ -59,7 +59,7 @@ export const WhatWeDo = () => {
           {/* Tab bar */}
           <div
             ref={tabsRef}
-            className="grid grid-cols-1 md:grid-cols-3 gap-px bg-border/30 border border-border/40"
+            className="grid grid-cols-1 md:grid-cols-2 gap-px bg-border/30 border border-border/40"
             style={staggerStyle(0, tabsVisible)}
           >
             {tabs.map((tab, i) => {
