@@ -1,6 +1,7 @@
-import { Search, Target, ShieldCheck, Rocket, GraduationCap, LineChart, Infinity as InfinityIcon, ArrowRight } from "lucide-react";
+import { Search, Target, ShieldCheck, Rocket, GraduationCap, LineChart, Infinity as InfinityIcon, ArrowRight, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useScrollReveal, staggerStyle } from "@/hooks/useScrollReveal";
+import stratumBrainScreenshot from "@/assets/stratum-brain-screenshot.png";
 
 const layers = [
   {
