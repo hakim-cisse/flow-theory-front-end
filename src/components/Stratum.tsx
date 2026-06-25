@@ -77,6 +77,7 @@ export const Stratum = () => {
   const { ref: headerRef, isVisible: headerVisible } = useScrollReveal();
   const { ref: stackRef, isVisible: stackVisible } = useScrollReveal({ threshold: 0.05 });
   const { ref: principlesRef, isVisible: principlesVisible } = useScrollReveal({ threshold: 0.2 });
+  const { ref: showcaseRef, isVisible: showcaseVisible } = useScrollReveal({ threshold: 0.15 });
 
   return (
     <section id="stratum" className="py-24 sm:py-32 relative overflow-hidden section-6">
