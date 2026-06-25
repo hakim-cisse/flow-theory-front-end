@@ -1,12 +1,11 @@
 import { useState } from "react";
-import { Layers, Workflow, Boxes } from "lucide-react";
+import { Workflow, Boxes } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useScrollReveal, staggerStyle } from "@/hooks/useScrollReveal";
 import { HowItWorks } from "@/components/HowItWorks";
-import { Stratum } from "@/components/Stratum";
 import { AIProductDevelopment } from "@/components/AIProductDevelopment";
 
-type TabKey = "process" | "stratum" | "build";
+type TabKey = "process" | "build";
 
 const tabs: {
   key: TabKey;
