@@ -42,6 +42,7 @@ const Index = () => {
         <Services />
         <Founders />
         <WhatWeDo />
+        <Stratum />
         <CaseStudy />
         <Testimonials />
         <CTA />
