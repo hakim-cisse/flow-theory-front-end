@@ -26,7 +26,7 @@ const toolLogos = [
 const services = [
   {
     icon: AuditIcon,
-    title: "AI Audits",
+    title: "AI Exploratory Milestones",
     description: "We identify what's costing you time and money before writing a single line of code.",
     kicker: "Diagnose",
     highlights: ["Workflow mapping", "ROI modeling", "Opportunity scorecard"],
