@@ -12,7 +12,7 @@ const tabs: {
   label: string;
   eyebrow: string;
   tagline: string;
-  icon: typeof Layers;
+  icon: typeof Workflow;
 }[] = [
   {
     key: "process",
