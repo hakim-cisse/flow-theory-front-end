@@ -1,6 +1,7 @@
-import { Search, Target, ShieldCheck, Rocket, GraduationCap, LineChart, Infinity as InfinityIcon, ArrowRight } from "lucide-react";
+import { Search, Target, ShieldCheck, Rocket, GraduationCap, LineChart, Infinity as InfinityIcon, ArrowRight, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useScrollReveal, staggerStyle } from "@/hooks/useScrollReveal";
+import stratumBrainScreenshot from "@/assets/stratum-brain-screenshot.png";
 
 const layers = [
   {
@@ -76,6 +77,7 @@ export const Stratum = () => {
   const { ref: headerRef, isVisible: headerVisible } = useScrollReveal();
   const { ref: stackRef, isVisible: stackVisible } = useScrollReveal({ threshold: 0.05 });
   const { ref: principlesRef, isVisible: principlesVisible } = useScrollReveal({ threshold: 0.2 });
+  const { ref: showcaseRef, isVisible: showcaseVisible } = useScrollReveal({ threshold: 0.15 });
 
   return (
     <section id="stratum" className="py-24 sm:py-32 relative overflow-hidden section-6">
@@ -158,6 +160,83 @@ export const Stratum = () => {
                   </div>
                 );
               })}
+            </div>
+          </div>
+
+          {/* Showcase: Stratum Brain — simplify data access */}
+          <div ref={showcaseRef} className="mt-28 sm:mt-32">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+              {/* Left: copy */}
+              <div className="lg:col-span-4 order-2 lg:order-1">
+                <div
+                  className="inline-flex items-center gap-2 text-mono text-xs text-primary/80 border border-primary/20 bg-primary/5 px-3 py-1.5 mb-6"
+                  style={staggerStyle(0, showcaseVisible)}
+                >
+                  <Sparkles className="w-3.5 h-3.5" strokeWidth={2} />
+                  STRATUM in action
+                </div>
+                <h3
+                  className="text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight mb-5"
+                  style={staggerStyle(1, showcaseVisible)}
+                >
+                  Simplify data access. <span className="text-gradient">Ask your business anything.</span>
+                </h3>
+                <p
+                  className="text-base text-muted-foreground leading-relaxed mb-6"
+                  style={staggerStyle(2, showcaseVisible)}
+                >
+                  One of the outcomes STRATUM unlocks: instant, plain-English access to live data across
+                  the tools your teams already use. No dashboards to learn, no analysts in the loop, no
+                  exports. Just answers, with the reasoning attached.
+                </p>
+                <ul className="space-y-3" style={staggerStyle(3, showcaseVisible)}>
+                  {[
+                    "Reads directly from your connected systems",
+                    "Shows confidence and reasoning, not just numbers",
+                    "Defers to a human when the answer is unclear",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-3 text-sm text-foreground/80">
+                      <span className="mt-2 w-1.5 h-1.5 bg-primary shrink-0" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Right: screenshot frame */}
+              <div
+                className="lg:col-span-8 order-1 lg:order-2 relative group"
+                style={staggerStyle(2, showcaseVisible, { delay: 0.15, distance: 40 })}
+              >
+                <div className="absolute -inset-6 bg-gradient-to-tr from-primary/20 via-primary/5 to-accent/20 blur-3xl opacity-60 group-hover:opacity-90 transition-opacity duration-700 pointer-events-none" />
+
+                <div className="relative border border-primary/20 bg-card/60 backdrop-blur-sm p-2 sm:p-3 shadow-[0_30px_80px_-30px_hsl(var(--primary)/0.5)]">
+                  <div className="flex items-center justify-between px-3 py-2 border-b border-border/40 bg-background/60">
+                    <div className="flex items-center gap-1.5">
+                      <span className="w-2.5 h-2.5 rounded-full bg-foreground/20" />
+                      <span className="w-2.5 h-2.5 rounded-full bg-foreground/20" />
+                      <span className="w-2.5 h-2.5 rounded-full bg-foreground/20" />
+                    </div>
+                    <div className="text-mono text-[10px] sm:text-xs text-muted-foreground truncate px-3">
+                      stratum.yourcompany.com
+                    </div>
+                    <div className="text-mono text-[10px] text-primary/60 hidden sm:block">LIVE</div>
+                  </div>
+
+                  <div className="relative overflow-hidden bg-background">
+                    <img
+                      src={stratumBrainScreenshot}
+                      alt="STRATUM interface answering a plain-English query against live CRM data, with confidence and reasoning."
+                      className="w-full h-auto block"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 pointer-events-none ring-1 ring-inset ring-primary/10" />
+                  </div>
+                </div>
+
+                <div className="absolute -top-px -left-px w-6 h-6 border-t-2 border-l-2 border-primary/60 pointer-events-none" />
+                <div className="absolute -bottom-px -right-px w-6 h-6 border-b-2 border-r-2 border-primary/60 pointer-events-none" />
+              </div>
             </div>
           </div>
 
