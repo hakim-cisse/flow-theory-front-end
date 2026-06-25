@@ -1,19 +1,18 @@
 import { useState } from "react";
-import { Layers, Workflow, Boxes } from "lucide-react";
+import { Workflow, Boxes } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useScrollReveal, staggerStyle } from "@/hooks/useScrollReveal";
 import { HowItWorks } from "@/components/HowItWorks";
-import { Stratum } from "@/components/Stratum";
 import { AIProductDevelopment } from "@/components/AIProductDevelopment";
 
-type TabKey = "process" | "stratum" | "build";
+type TabKey = "process" | "build";
 
 const tabs: {
   key: TabKey;
   label: string;
   eyebrow: string;
   tagline: string;
-  icon: typeof Layers;
+  icon: typeof Workflow;
 }[] = [
   {
     key: "process",
@@ -23,16 +22,9 @@ const tabs: {
     icon: Workflow,
   },
   {
-    key: "stratum",
-    label: "Stratum Framework",
-    eyebrow: "02 / Our proprietary system",
-    tagline: "A modular, compounding AI system built for startups, scale-ups, and enterprises.",
-    icon: Layers,
-  },
-  {
     key: "build",
     label: "Build with AI",
-    eyebrow: "03 / Product & feature development",
+    eyebrow: "02 / Product & feature development",
     tagline: "Ship a new AI product, or add intelligence to one you already have.",
     icon: Boxes,
   },
@@ -67,7 +59,7 @@ export const WhatWeDo = () => {
           {/* Tab bar */}
           <div
             ref={tabsRef}
-            className="grid grid-cols-1 md:grid-cols-3 gap-px bg-border/30 border border-border/40"
+            className="grid grid-cols-1 md:grid-cols-2 gap-px bg-border/30 border border-border/40"
             style={staggerStyle(0, tabsVisible)}
           >
             {tabs.map((tab, i) => {
@@ -128,7 +120,7 @@ export const WhatWeDo = () => {
       {/* Active panel */}
       <div key={active} className="animate-in fade-in slide-in-from-bottom-4 duration-700">
         {active === "process" && <HowItWorks />}
-        {active === "stratum" && <Stratum />}
+        
         {active === "build" && <AIProductDevelopment />}
       </div>
     </section>
