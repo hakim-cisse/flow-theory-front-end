@@ -22,16 +22,9 @@ const tabs: {
     icon: Workflow,
   },
   {
-    key: "stratum",
-    label: "Stratum Framework",
-    eyebrow: "02 / Our proprietary system",
-    tagline: "A modular, compounding AI system built for startups, scale-ups, and enterprises.",
-    icon: Layers,
-  },
-  {
     key: "build",
     label: "Build with AI",
-    eyebrow: "03 / Product & feature development",
+    eyebrow: "02 / Product & feature development",
     tagline: "Ship a new AI product, or add intelligence to one you already have.",
     icon: Boxes,
   },
