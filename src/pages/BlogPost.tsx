@@ -1,5 +1,5 @@
 import { useState, useMemo, useEffect } from "react";
-import { useParams, Link, useLocation } from "react-router-dom";
+import { useParams, Link, useLocation, useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -78,6 +78,7 @@ interface BlogListResponse {
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -115,13 +116,13 @@ const BlogPost = () => {
     return null;
   }, [isFullUuid, embeddedId, slug, postsData]);
 
-  const shareUrl = typeof window !== "undefined" 
-    ? `${window.location.origin}${location.pathname}` 
-    : "";
-
   const handleShare = (platform: "twitter" | "linkedin" | "facebook") => {
     const title = blog?.title || "";
-    const encodedUrl = encodeURIComponent(shareUrl);
+    const encodedUrl = encodeURIComponent(
+      typeof window !== "undefined" && blog
+        ? `${window.location.origin}/blog/${generateSlug(blog.title)}`
+        : ""
+    );
     const encodedTitle = encodeURIComponent(title);
 
     const urls = {
@@ -162,6 +163,15 @@ const BlogPost = () => {
     }
   }, [blog?.content]);
 
+  useEffect(() => {
+    if (!blog || !slug) return;
+
+    const cleanPath = `/blog/${generateSlug(blog.title)}`;
+    if (location.pathname !== cleanPath) {
+      navigate(cleanPath, { replace: true });
+    }
+  }, [blog, slug, location.pathname, navigate]);
+
   // Generate breadcrumb data
   const breadcrumbItems = blog 
     ? [{ label: "Blog", href: "/blog" }, { label: blog.title }]
@@ -171,7 +181,7 @@ const BlogPost = () => {
     ? [
         { name: "Home", url: SITE_URL },
         { name: "Blog", url: `${SITE_URL}/blog` },
-        { name: blog.title, url: `${SITE_URL}${location.pathname}` },
+        { name: blog.title, url: `${SITE_URL}/blog/${generateSlug(blog.title)}` },
       ]
     : [
         { name: "Home", url: SITE_URL },
@@ -230,7 +240,8 @@ const BlogPost = () => {
     );
   }
 
-  const canonicalUrl = `${SITE_URL}${location.pathname}`;
+  const canonicalPath = `/blog/${generateSlug(blog.title)}`;
+  const canonicalUrl = `${SITE_URL}${canonicalPath}`;
   const authorName = blog.author?.display_name || "Flow Theory AI";
   const readingTime = calculateReadingTime(blog.content);
 

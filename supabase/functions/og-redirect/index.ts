@@ -18,14 +18,20 @@ function extractEmbeddedId(slug: string): string | null {
 }
 
 function generateSlug(title: string): string {
-  return title
+  const slug = title
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/&/g, " and ")
+    .replace(/\+/g, " plus ")
+    .replace(/[’']/g, "")
+    .replace(/[^a-zA-Z0-9\s-]/g, " ")
     .toLowerCase()
     .trim()
-    .replace(/[^\w\s-]/g, "")
     .replace(/\s+/g, "-")
     .replace(/-+/g, "-")
-    .replace(/^-|-$/g, "")
-    .substring(0, 80);
+    .replace(/^-|-$/g, "");
+
+  return slug || "post";
 }
 
 function escapeHtml(text: string): string {

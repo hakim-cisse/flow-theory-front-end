@@ -21,13 +21,20 @@ interface BlogListResponse {
 
 // Generate URL-friendly slug from title
 const generateSlug = (title: string): string => {
-  return title
+  const slug = title
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/&/g, " and ")
+    .replace(/\+/g, " plus ")
+    .replace(/[’']/g, "")
+    .replace(/[^a-zA-Z0-9\s-]/g, " ")
     .toLowerCase()
     .trim()
-    .replace(/[^\w\s-]/g, "")
     .replace(/\s+/g, "-")
     .replace(/-+/g, "-")
-    .substring(0, 60);
+    .replace(/^-|-$/g, "");
+
+  return slug || "post";
 };
 
 serve(async (req) => {
