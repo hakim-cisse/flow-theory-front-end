@@ -2,14 +2,20 @@
  * Generate a URL-friendly slug from a title
  */
 export const generateSlug = (title: string): string => {
-  return title
+  const slug = title
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/&/g, " and ")
+    .replace(/\+/g, " plus ")
+    .replace(/[’']/g, "")
+    .replace(/[^a-zA-Z0-9\s-]/g, " ")
     .toLowerCase()
     .trim()
-    .replace(/[^\w\s-]/g, "") // Remove special characters
-    .replace(/\s+/g, "-") // Replace spaces with hyphens
-    .replace(/-+/g, "-") // Replace multiple hyphens with single
-    .replace(/^-|-$/g, "") // Trim leading/trailing hyphens
-    .substring(0, 80); // Limit length
+    .replace(/\s+/g, "-")
+    .replace(/-+/g, "-")
+    .replace(/^-|-$/g, "");
+
+  return slug || "post";
 };
 
 /**

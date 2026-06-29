@@ -36,7 +36,7 @@ const caseStudies: CaseStudyData[] = [
     company: "APT Locator",
     logo: aptLocatorLogo,
     tagline: "Leading Apartment Locating Company",
-    slug: "69219a0c-d59b-449d-a342-7aa75e06316e-saving-120k-and-55-hours-a-week-how-apt-locator-automated-th",
+    slug: "saving-120k-and-55-hours-a-week-how-apt-locator-automated-the-future-of-apartment-finding",
     metrics: [
       { icon: <DollarSign className="w-4 h-4" />, value: "$72K–$120K", label: "Yearly Savings" },
       { icon: <Clock className="w-4 h-4" />, value: "~55 hrs", label: "Saved Weekly" },
@@ -64,7 +64,7 @@ const caseStudies: CaseStudyData[] = [
     company: "Empower Estates Network",
     logo: eenLogo,
     tagline: "Real Estate Wholesaling Network",
-    slug: "1dfcc5a9-37be-4f2b-8327-cbcbc932b828-rebuilding-the-engine-how-empower-estates-network-scaled-the",
+    slug: "rebuilding-the-engine-how-empower-estates-network-scaled-their-wholesaling-operations",
     metrics: [
       { icon: <PhoneOff className="w-4 h-4" />, value: "0 duplicates", label: "Seller Call Overlap" },
       { icon: <Zap className="w-4 h-4" />, value: "3–5× faster", label: "Buyer Outreach" },
@@ -92,7 +92,7 @@ const caseStudies: CaseStudyData[] = [
     company: "Elite Auto Plus",
     logo: eliteAutoLogo,
     tagline: "Car Rental & Fleet Management, Niger",
-    slug: "f27e9cf9-a1ee-4512-8c6a-fc0619b481c0-we-gave-a-car-rental-company-in-niger-an-intelligence-layer",
+    slug: "we-gave-a-car-rental-company-in-niger-an-intelligence-layer-heres-what-happened",
     metrics: [
       { icon: <TrendingUp className="w-4 h-4" />, value: "+23%", label: "Fleet Utilization" },
       { icon: <Clock className="w-4 h-4" />, value: "60%", label: "Admin Hours Cut" },

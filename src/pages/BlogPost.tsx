@@ -1,5 +1,5 @@
 import { useState, useMemo, useEffect } from "react";
-import { useParams, Link, useLocation } from "react-router-dom";
+import { useParams, Link, useLocation, useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -78,6 +78,7 @@ interface BlogListResponse {
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -162,6 +163,15 @@ const BlogPost = () => {
     }
   }, [blog?.content]);
 
+  useEffect(() => {
+    if (!blog || !slug) return;
+
+    const cleanPath = `/blog/${generateSlug(blog.title)}`;
+    if (location.pathname !== cleanPath) {
+      navigate(cleanPath, { replace: true });
+    }
+  }, [blog, slug, location.pathname, navigate]);
+
   // Generate breadcrumb data
   const breadcrumbItems = blog 
     ? [{ label: "Blog", href: "/blog" }, { label: blog.title }]
@@ -230,7 +240,8 @@ const BlogPost = () => {
     );
   }
 
-  const canonicalUrl = `${SITE_URL}${location.pathname}`;
+  const canonicalPath = `/blog/${generateSlug(blog.title)}`;
+  const canonicalUrl = `${SITE_URL}${canonicalPath}`;
   const authorName = blog.author?.display_name || "Flow Theory AI";
   const readingTime = calculateReadingTime(blog.content);
 
