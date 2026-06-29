@@ -116,13 +116,13 @@ const BlogPost = () => {
     return null;
   }, [isFullUuid, embeddedId, slug, postsData]);
 
-  const shareUrl = typeof window !== "undefined" 
-    ? `${window.location.origin}${location.pathname}` 
-    : "";
-
   const handleShare = (platform: "twitter" | "linkedin" | "facebook") => {
     const title = blog?.title || "";
-    const encodedUrl = encodeURIComponent(shareUrl);
+    const encodedUrl = encodeURIComponent(
+      typeof window !== "undefined" && blog
+        ? `${window.location.origin}/blog/${generateSlug(blog.title)}`
+        : ""
+    );
     const encodedTitle = encodeURIComponent(title);
 
     const urls = {
@@ -181,7 +181,7 @@ const BlogPost = () => {
     ? [
         { name: "Home", url: SITE_URL },
         { name: "Blog", url: `${SITE_URL}/blog` },
-        { name: blog.title, url: `${SITE_URL}${location.pathname}` },
+        { name: blog.title, url: `${SITE_URL}/blog/${generateSlug(blog.title)}` },
       ]
     : [
         { name: "Home", url: SITE_URL },
