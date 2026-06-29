@@ -72,7 +72,7 @@ serve(async (req) => {
       const lastmod = new Date(post.published_at).toISOString().split("T")[0];
       return `
   <url>
-    <loc>${SITE_URL}/blog/${post.id}-${slug}</loc>
+    <loc>${SITE_URL}/blog/${slug}</loc>
     <lastmod>${lastmod}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

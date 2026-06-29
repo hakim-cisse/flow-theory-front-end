@@ -9,24 +9,23 @@ const corsHeaders = {
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
 };
 
-// Extract the post ID from the slug (format: uuid-title-slug)
-function extractIdFromSlug(slug: string): string | null {
+const UUID_REGEX = /^([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})/i;
+
+function extractEmbeddedId(slug: string): string | null {
   if (!slug) return null;
-  
-  const uuidRegex = /^([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})/i;
-  const match = slug.match(uuidRegex);
-  
-  if (match) {
-    return match[1];
-  }
-  
-  // If it starts with a short ID, try to extract it
-  const parts = slug.split("-");
-  if (parts.length >= 1 && parts[0].length >= 8) {
-    return parts[0];
-  }
-  
-  return null;
+  const match = slug.match(UUID_REGEX);
+  return match ? match[1] : null;
+}
+
+function generateSlug(title: string): string {
+  return title
+    .toLowerCase()
+    .trim()
+    .replace(/[^\w\s-]/g, "")
+    .replace(/\s+/g, "-")
+    .replace(/-+/g, "-")
+    .replace(/^-|-$/g, "")
+    .substring(0, 80);
 }
 
 function escapeHtml(text: string): string {
@@ -38,8 +37,32 @@ function escapeHtml(text: string): string {
     .replace(/'/g, "&#039;");
 }
 
+interface ApiPost {
+  id: string;
+  title: string;
+  excerpt?: string | null;
+  cover_image_url?: string | null;
+  published_at?: string;
+  author?: { display_name?: string | null } | null;
+}
+
+async function resolvePostId(slug: string): Promise<string | null> {
+  const embedded = extractEmbeddedId(slug);
+  if (embedded) return embedded;
+
+  // Slug-only URL: look it up in the post list
+  try {
+    const res = await fetch(`${API_BASE_URL}?limit=200&offset=0`);
+    if (!res.ok) return null;
+    const data = (await res.json()) as { posts?: ApiPost[] };
+    const match = data.posts?.find((p) => generateSlug(p.title) === slug);
+    return match?.id ?? null;
+  } catch (_e) {
+    return null;
+  }
+}
+
 serve(async (req) => {
-  // Handle CORS preflight
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
   }
@@ -55,50 +78,47 @@ serve(async (req) => {
       });
     }
 
-    const postId = extractIdFromSlug(slug);
-    
-    if (!postId) {
-      return new Response(JSON.stringify({ error: "Invalid slug format" }), {
-        status: 400,
-        headers: { ...corsHeaders, "Content-Type": "application/json" },
-      });
-    }
+    const postId = await resolvePostId(slug);
 
-    // Fetch the blog post
-    const response = await fetch(`${API_BASE_URL}?id=${postId}`);
-    
-    if (!response.ok) {
-      // Return default OG tags for Flow Theory AI
-      const defaultHtml = generateHtml({
+    if (!postId) {
+      const fallback = generateHtml({
         title: "Flow Theory AI Blog",
         description: "Insights, strategies, and case studies from the Flow Theory AI team.",
         image: DEFAULT_OG_IMAGE,
         url: `${SITE_URL}/blog`,
         type: "website",
       });
-      
-      return new Response(defaultHtml, {
+      return new Response(fallback, {
         headers: { ...corsHeaders, "Content-Type": "text/html; charset=utf-8" },
       });
     }
 
-    const post = await response.json();
-    
-    const title = post.title || "Flow Theory AI Blog";
-    const description = post.excerpt || `Read ${post.title} on the Flow Theory AI blog.`;
-    const image = post.cover_image_url || DEFAULT_OG_IMAGE;
-    const canonicalUrl = `${SITE_URL}/blog/${slug}`;
-    const authorName = post.author?.display_name || "Flow Theory AI";
-    const publishedTime = post.published_at;
+    const response = await fetch(`${API_BASE_URL}?id=${postId}`);
+    if (!response.ok) {
+      const fallback = generateHtml({
+        title: "Flow Theory AI Blog",
+        description: "Insights, strategies, and case studies from the Flow Theory AI team.",
+        image: DEFAULT_OG_IMAGE,
+        url: `${SITE_URL}/blog`,
+        type: "website",
+      });
+      return new Response(fallback, {
+        headers: { ...corsHeaders, "Content-Type": "text/html; charset=utf-8" },
+      });
+    }
+
+    const post = (await response.json()) as ApiPost;
+    const cleanSlug = generateSlug(post.title);
+    const canonicalUrl = `${SITE_URL}/blog/${cleanSlug}`;
 
     const html = generateHtml({
-      title,
-      description,
-      image,
+      title: post.title || "Flow Theory AI Blog",
+      description: post.excerpt || `Read ${post.title} on the Flow Theory AI blog.`,
+      image: post.cover_image_url || DEFAULT_OG_IMAGE,
       url: canonicalUrl,
       type: "article",
-      authorName,
-      publishedTime,
+      authorName: post.author?.display_name || "Flow Theory AI",
+      publishedTime: post.published_at,
     });
 
     return new Response(html, {
@@ -125,7 +145,7 @@ interface OgParams {
 
 function generateHtml(params: OgParams): string {
   const { title, description, image, url, type, authorName, publishedTime } = params;
-  
+
   const safeTitle = escapeHtml(title);
   const safeDescription = escapeHtml(description);
   const fullTitle = `${safeTitle} | Flow Theory AI`;
@@ -146,16 +166,10 @@ function generateHtml(params: OgParams): string {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <!-- Primary Meta Tags -->
   <title>${fullTitle}</title>
   <meta name="title" content="${fullTitle}" />
   <meta name="description" content="${safeDescription}" />
-  
-  <!-- Canonical URL -->
   <link rel="canonical" href="${url}" />
-  
-  <!-- Open Graph / Facebook -->
   <meta property="og:type" content="${type}" />
   <meta property="og:url" content="${url}" />
   <meta property="og:title" content="${safeTitle}" />
@@ -163,20 +177,16 @@ function generateHtml(params: OgParams): string {
   <meta property="og:image" content="${image}" />
   <meta property="og:site_name" content="Flow Theory AI" />
   ${articleMeta}
-  
-  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:url" content="${url}" />
   <meta name="twitter:title" content="${safeTitle}" />
   <meta name="twitter:description" content="${safeDescription}" />
   <meta name="twitter:image" content="${image}" />
-  
-  <!-- Redirect to actual page -->
-  <meta http-equiv="refresh" content="0;url=${url}" />
-  <script>window.location.href = "${url}";</script>
 </head>
 <body>
-  <p>Redirecting to <a href="${url}">${safeTitle}</a>...</p>
+  <h1>${safeTitle}</h1>
+  <p>${safeDescription}</p>
+  <p><a href="${url}">Read the full article</a></p>
 </body>
 </html>`;
 }

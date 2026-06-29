@@ -15,7 +15,7 @@ import Link_ from "@tiptap/extension-link";
 import TextAlign from "@tiptap/extension-text-align";
 import Underline from "@tiptap/extension-underline";
 import { TextStyle } from "@tiptap/extension-text-style";
-import { extractIdFromSlug } from "@/lib/slug";
+import { extractIdFromSlug, generateSlug, isUuidLike } from "@/lib/slug";
 import { calculateReadingTime, formatReadingTime } from "@/lib/readingTime";
 import { SEO } from "@/components/SEO";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
@@ -84,30 +84,36 @@ const BlogPost = () => {
   }, [slug]);
   const [contactOpen, setContactOpen] = useState(false);
 
-  const extractedId = slug ? extractIdFromSlug(slug) : null;
-  
-  const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
-  const isFullUuid = extractedId ? uuidRegex.test(extractedId) : false;
+  // Legacy URLs may embed a full UUID (e.g. /blog/<uuid>-my-title or /blog/<uuid>).
+  // New URLs are slug-only (e.g. /blog/my-title). Try UUID first, fall back to slug lookup.
+  const embeddedId = slug ? extractIdFromSlug(slug) : null;
+  const isFullUuid = embeddedId ? isUuidLike(embeddedId) : false;
 
   const { data: postsData } = useQuery({
     queryKey: ["blog-list-lookup"],
     queryFn: async () => {
-      const response = await fetch(`${API_BASE_URL}?limit=100&offset=0`);
+      const response = await fetch(`${API_BASE_URL}?limit=200&offset=0`);
       if (!response.ok) throw new Error("Failed to fetch posts");
       return response.json() as Promise<BlogListResponse>;
     },
-    enabled: !isFullUuid && !!extractedId,
+    enabled: !isFullUuid && !!slug,
   });
 
   const postId = useMemo(() => {
-    if (isFullUuid) return extractedId;
-    if (!postsData?.posts || !extractedId) return null;
-    
-    const matchingPost = postsData.posts.find(post => 
-      post.id.startsWith(extractedId)
-    );
-    return matchingPost?.id || null;
-  }, [isFullUuid, extractedId, postsData]);
+    if (isFullUuid) return embeddedId;
+    if (!postsData?.posts || !slug) return null;
+
+    // Match by generated slug (new clean URLs)
+    const bySlug = postsData.posts.find((post) => generateSlug(post.title) === slug);
+    if (bySlug) return bySlug.id;
+
+    // Legacy short-id fallback (slugs starting with an 8+ char id prefix)
+    if (embeddedId) {
+      const byPrefix = postsData.posts.find((post) => post.id.startsWith(embeddedId));
+      if (byPrefix) return byPrefix.id;
+    }
+    return null;
+  }, [isFullUuid, embeddedId, slug, postsData]);
 
   const shareUrl = typeof window !== "undefined" 
     ? `${window.location.origin}${location.pathname}` 
