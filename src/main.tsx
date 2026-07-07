@@ -3,6 +3,7 @@ import App from "./App.tsx";
 import "./index.css";
 import "@fontsource/jetbrains-mono/400.css";
 import "@fontsource/jetbrains-mono/500.css";
+import "./i18n/config";
 import { ThemeProvider } from "./components/ThemeProvider";
 
 // Pre-paint theme application to avoid flash of incorrect theme
