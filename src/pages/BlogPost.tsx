@@ -21,6 +21,8 @@ import { SEO } from "@/components/SEO";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { ArticleSchema, BreadcrumbSchema } from "@/components/StructuredData";
 import { RelatedPosts } from "@/components/RelatedPosts";
+import { useTranslation } from "react-i18next";
+import { useTranslatedContent } from "@/hooks/useTranslatedContent";
 
 // Author images mapping
 import hakimImage from "@/assets/hakim.jpg";
