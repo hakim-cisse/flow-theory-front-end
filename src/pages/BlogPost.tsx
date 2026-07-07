@@ -380,7 +380,7 @@ const BlogPost = () => {
 
           <section
             className="prose prose-sm sm:prose-base lg:prose-lg dark:prose-invert max-w-none"
-            dangerouslySetInnerHTML={{ __html: htmlContent }}
+            dangerouslySetInnerHTML={{ __html: displayBody }}
           />
 
           <RelatedPosts currentPostId={postId!} />
