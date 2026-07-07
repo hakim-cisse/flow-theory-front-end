@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import aptLocatorLogo from "@/assets/apt-locator-logo.png";
 import eenLogo from "@/assets/een-logo.png";
 import formabuildLogo from "@/assets/formabuild-logo.png";
@@ -14,6 +15,7 @@ const logos = [
 
 export const LogoCatalog = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const scrollContainer = scrollRef.current;
@@ -49,7 +51,7 @@ export const LogoCatalog = () => {
     <section className="py-10 md:py-14 section-2 border-y border-border/20 overflow-hidden">
       <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
         <p className="text-mono text-muted-foreground text-center mb-8">
-          Trusted by businesses building the future
+          {t("clientsStrip.trustedBy")}
         </p>
         
         <div 

@@ -8,6 +8,7 @@ import { Clock, ArrowRight } from "lucide-react";
 import { createBlogPath } from "@/lib/slug";
 import { calculateReadingTime, formatReadingTime } from "@/lib/readingTime";
 import { useScrollReveal, staggerStyle } from "@/hooks/useScrollReveal";
+import { useTranslation } from "react-i18next";
 
 import hakimImage from "@/assets/hakim.jpg";
 import yassineImage from "@/assets/yassine.png";
@@ -54,6 +55,7 @@ const getAuthorImage = (author: BlogPost["author"]): string | undefined => {
 export const BlogPreview = () => {
   const { ref: headerRef, isVisible: headerVisible } = useScrollReveal();
   const { ref: gridRef, isVisible: gridVisible } = useScrollReveal({ threshold: 0.1 });
+  const { t } = useTranslation();
 
   const { data, isLoading } = useQuery({
     queryKey: ["blogs-preview"],
@@ -78,10 +80,10 @@ export const BlogPreview = () => {
         <div className="max-w-screen-2xl mx-auto">
           {/* Header */}
           <div ref={headerRef} className="mb-12 sm:mb-16">
-            <span className="text-mono text-primary/70 block mb-4" style={staggerStyle(0, headerVisible)}>// INSIGHTS</span>
+            <span className="text-mono text-primary/70 block mb-4" style={staggerStyle(0, headerVisible)}>{t("blogPreview.eyebrow")}</span>
             <h2 className="text-heading max-w-3xl" style={staggerStyle(1, headerVisible)}>
-              Latest from<br />
-              <span className="text-gradient">our blog.</span>
+              {t("blogPreview.titleA")}<br />
+              <span className="text-gradient">{t("blogPreview.titleB")}</span>
             </h2>
             <div className="accent-bar mt-6" style={staggerStyle(2, headerVisible)} />
           </div>
@@ -141,7 +143,7 @@ export const BlogPreview = () => {
                         </Avatar>
                         <div>
                           <p className="text-xs sm:text-sm font-medium text-foreground">
-                            {post.author?.display_name || "Anonymous"}
+                            {post.author?.display_name || t("blogPreview.anonymous")}
                           </p>
                           <p className="text-[10px] sm:text-xs text-muted-foreground flex items-center gap-1 sm:gap-2 flex-wrap">
                             <time dateTime={post.published_at}>
@@ -178,7 +180,7 @@ export const BlogPreview = () => {
           <div className="mt-10 sm:mt-12 text-center">
             <Button variant="outline" size="lg" className="group" asChild>
               <Link to="/blog">
-                View all posts
+                {t("blogPreview.viewAll")}
                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </Button>

@@ -13,6 +13,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { Send, Loader2 } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100, "Name must be less than 100 characters"),
@@ -31,6 +32,7 @@ interface ContactDialogProps {
 
 export const ContactDialog = ({ open, onOpenChange }: ContactDialogProps) => {
   const { toast } = useToast();
+  const { t } = useTranslation();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState<ContactFormData>({
     name: "",
@@ -82,14 +84,14 @@ export const ContactDialog = ({ open, onOpenChange }: ContactDialogProps) => {
       });
 
       toast({
-        title: "Message sent!",
-        description: "We'll get back to you within 24 hours.",
+        title: t("contactDialog.toastSuccessTitle"),
+        description: t("contactDialog.toastSuccessDesc"),
       });
     } catch (error) {
       console.error("Error sending message:", error);
       toast({
-        title: "Error",
-        description: "Failed to send message. Please try again.",
+        title: t("contactDialog.toastErrorTitle"),
+        description: t("contactDialog.toastErrorDesc"),
         variant: "destructive",
       });
       setIsSubmitting(false);
@@ -105,74 +107,74 @@ export const ContactDialog = ({ open, onOpenChange }: ContactDialogProps) => {
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
-          <DialogTitle className="text-2xl">Get in Touch</DialogTitle>
+          <DialogTitle className="text-2xl">{t("contactDialog.title")}</DialogTitle>
           <DialogDescription>
-            Tell us about your project and we'll reach out within 24 hours.
+            {t("contactDialog.description")}
           </DialogDescription>
         </DialogHeader>
 
         <form onSubmit={handleSubmit} className="space-y-4 mt-4">
           <div className="space-y-2">
-            <Label htmlFor="name">Name *</Label>
+            <Label htmlFor="name">{t("contactDialog.name")} *</Label>
             <Input
               id="name"
               name="name"
               value={formData.name}
               onChange={handleChange}
-              placeholder="Your name"
+              placeholder={t("contactDialog.placeholders.name")}
               className={errors.name ? "border-destructive" : ""}
             />
             {errors.name && <p className="text-sm text-destructive">{errors.name}</p>}
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="email">Email *</Label>
+            <Label htmlFor="email">{t("contactDialog.email")} *</Label>
             <Input
               id="email"
               name="email"
               type="email"
               value={formData.email}
               onChange={handleChange}
-              placeholder="your@email.com"
+              placeholder={t("contactDialog.placeholders.email")}
               className={errors.email ? "border-destructive" : ""}
             />
             {errors.email && <p className="text-sm text-destructive">{errors.email}</p>}
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="company">Company *</Label>
+            <Label htmlFor="company">{t("contactDialog.company")} *</Label>
             <Input
               id="company"
               name="company"
               value={formData.company}
               onChange={handleChange}
-              placeholder="Your company"
+              placeholder={t("contactDialog.placeholders.company")}
               className={errors.company ? "border-destructive" : ""}
             />
             {errors.company && <p className="text-sm text-destructive">{errors.company}</p>}
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="website">Website</Label>
+            <Label htmlFor="website">{t("contactDialog.website")}</Label>
             <Input
               id="website"
               name="website"
               value={formData.website}
               onChange={handleChange}
-              placeholder="https://yourwebsite.com (optional)"
+              placeholder={t("contactDialog.placeholders.website")}
               className={errors.website ? "border-destructive" : ""}
             />
             {errors.website && <p className="text-sm text-destructive">{errors.website}</p>}
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="message">Message *</Label>
+            <Label htmlFor="message">{t("contactDialog.message")} *</Label>
             <Textarea
               id="message"
               name="message"
               value={formData.message}
               onChange={handleChange}
-              placeholder="Tell us about your project..."
+              placeholder={t("contactDialog.placeholders.message")}
               rows={4}
               className={errors.message ? "border-destructive" : ""}
             />
@@ -183,12 +185,12 @@ export const ContactDialog = ({ open, onOpenChange }: ContactDialogProps) => {
             {isSubmitting ? (
               <>
                 <Loader2 className="w-4 h-4 animate-spin" />
-                Sending...
+                {t("contactDialog.sending")}
               </>
             ) : (
               <>
                 <Send className="w-4 h-4" />
-                Send Message
+                {t("contactDialog.submit")}
               </>
             )}
           </Button>
