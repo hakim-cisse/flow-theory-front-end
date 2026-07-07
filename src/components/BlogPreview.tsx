@@ -143,7 +143,7 @@ export const BlogPreview = () => {
                         </Avatar>
                         <div>
                           <p className="text-xs sm:text-sm font-medium text-foreground">
-                            {post.author?.display_name || "Anonymous"}
+                            {post.author?.display_name || t("blogPreview.anonymous")}
                           </p>
                           <p className="text-[10px] sm:text-xs text-muted-foreground flex items-center gap-1 sm:gap-2 flex-wrap">
                             <time dateTime={post.published_at}>
@@ -180,7 +180,7 @@ export const BlogPreview = () => {
           <div className="mt-10 sm:mt-12 text-center">
             <Button variant="outline" size="lg" className="group" asChild>
               <Link to="/blog">
-                View all posts
+                {t("blogPreview.viewAll")}
                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </Button>

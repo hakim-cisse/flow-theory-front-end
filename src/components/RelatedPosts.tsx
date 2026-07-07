@@ -6,6 +6,7 @@ import { format } from "date-fns";
 import { Clock } from "lucide-react";
 import { createBlogPath } from "@/lib/slug";
 import { calculateReadingTime, formatReadingTime } from "@/lib/readingTime";
+import { useTranslation } from "react-i18next";
 
 // Import author images
 import hakimImage from "@/assets/hakim.jpg";
@@ -58,6 +59,7 @@ const getAuthorImage = (author: BlogPost["author"]): string | undefined => {
 };
 
 export const RelatedPosts = ({ currentPostId, maxPosts = 3 }: RelatedPostsProps) => {
+  const { t } = useTranslation();
   const { data, isLoading } = useQuery({
     queryKey: ["related-posts", currentPostId],
     queryFn: async () => {
@@ -77,7 +79,7 @@ export const RelatedPosts = ({ currentPostId, maxPosts = 3 }: RelatedPostsProps)
   if (isLoading) {
     return (
       <section className="mt-16 pt-12 border-t border-border">
-        <h2 className="text-2xl font-bold text-foreground mb-8">Related Posts</h2>
+        <h2 className="text-2xl font-bold text-foreground mb-8">{t("related.heading")}</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {[...Array(3)].map((_, i) => (
             <Card key={i} className="animate-pulse">
@@ -101,7 +103,7 @@ export const RelatedPosts = ({ currentPostId, maxPosts = 3 }: RelatedPostsProps)
 
   return (
     <section className="mt-16 pt-12 border-t border-border">
-      <h2 className="text-2xl font-bold text-foreground mb-8">Related Posts</h2>
+      <h2 className="text-2xl font-bold text-foreground mb-8">{t("related.heading")}</h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {relatedPosts.map((post) => (
           <Link
