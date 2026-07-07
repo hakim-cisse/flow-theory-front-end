@@ -5,13 +5,9 @@ import { useScrollReveal, staggerStyle } from "@/hooks/useScrollReveal";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { useTranslation } from "react-i18next";
 
-const REASONS = [
-  { value: "services", label: "Interest in services" },
-  { value: "careers", label: "Career opportunities" },
-  { value: "partnership", label: "Partnering with us" },
-  { value: "other", label: "Something else" },
-] as const;
+const REASON_KEYS = ["services", "careers", "partnership", "other"] as const;
 
 const contactSchema = z.object({
   firstName: z.string().trim().min(1, "First name is required").max(50),
@@ -19,7 +15,7 @@ const contactSchema = z.object({
   email: z.string().trim().email("Invalid email address").max(255),
   company: z.string().trim().max(100).optional().or(z.literal("")),
   website: z.string().trim().url("Invalid URL").max(255).optional().or(z.literal("")),
-  reason: z.enum(["services", "careers", "partnership", "other"], {
+  reason: z.enum(REASON_KEYS, {
     errorMap: () => ({ message: "Please select a reason" }),
   }),
   message: z.string().trim().min(1, "Message is required").max(1000),
@@ -30,6 +26,7 @@ type ContactFormData = z.infer<typeof contactSchema>;
 export const CTA = () => {
   const { ref, isVisible } = useScrollReveal();
   const { toast } = useToast();
+  const { t } = useTranslation();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState<ContactFormData>({
     firstName: "",
@@ -74,11 +71,11 @@ export const CTA = () => {
         mode: "no-cors",
         body: JSON.stringify({ ...result.data, timestamp: new Date().toISOString() }),
       });
-      toast({ title: "Message sent.", description: "We'll be in touch within 24 hours." });
+      toast({ title: t("cta.toastSuccessTitle"), description: t("cta.toastSuccessDesc") });
       setFormData({ firstName: "", lastName: "", email: "", company: "", website: "", reason: "" as ContactFormData["reason"], message: "" });
     } catch (error) {
       console.error(error);
-      toast({ title: "Error", description: "Failed to send. Please try again.", variant: "destructive" });
+      toast({ title: t("cta.toastErrorTitle"), description: t("cta.toastErrorDesc"), variant: "destructive" });
     } finally {
       setIsSubmitting(false);
     }
@@ -91,26 +88,23 @@ export const CTA = () => {
     <section id="cta" className="py-24 sm:py-32 relative overflow-hidden section-9">
       <div ref={ref} className="container mx-auto px-6 md:px-20 lg:px-28 max-w-[1600px]">
         <div className="grid grid-cols-12 gap-6 md:gap-10">
-          {/* Left column — editorial intro */}
           <div className="col-span-12 lg:col-span-5 lg:sticky lg:top-32 lg:self-start">
             <span className="text-mono text-primary/70 block mb-6" style={staggerStyle(0, isVisible)}>
-              Let's talk
+              {t("cta.eyebrow")}
             </span>
             <h2 className="text-heading" style={staggerStyle(1, isVisible)}>
-              Get in touch with<br />
-              <span className="text-gradient italic font-light">the Flow Theory team.</span>
+              {t("cta.titleA")}<br />
+              <span className="text-gradient italic font-light">{t("cta.titleB")}</span>
             </h2>
             <div className="accent-bar mt-6" style={staggerStyle(2, isVisible)} />
             <p
               className="text-subheading text-muted-foreground max-w-md mt-8"
               style={staggerStyle(3, isVisible)}
             >
-              Whether you're exploring our services, interested in a career, looking to partner, or just want to say hello, drop us a note and we'll reply within 24 hours.
+              {t("cta.intro")}
             </p>
-
           </div>
 
-          {/* Right column — form */}
           <form
             onSubmit={handleSubmit}
             className="col-span-12 lg:col-span-7 lg:pl-10 xl:pl-20"
@@ -119,14 +113,14 @@ export const CTA = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8">
               <div className="md:col-span-1">
                 <label htmlFor="firstName" className="text-mono text-foreground/50 block">
-                  01 / First name
+                  {t("cta.labels.firstName")}
                 </label>
                 <input
                   id="firstName"
                   name="firstName"
                   value={formData.firstName}
                   onChange={handleChange}
-                  placeholder="Jane"
+                  placeholder={t("cta.placeholders.firstName")}
                   className={`${inputClass} ${errors.firstName ? "border-destructive" : ""}`}
                 />
                 {errors.firstName && <p className="text-xs text-destructive mt-2">{errors.firstName}</p>}
@@ -134,14 +128,14 @@ export const CTA = () => {
 
               <div className="md:col-span-1 mt-8 md:mt-0">
                 <label htmlFor="lastName" className="text-mono text-foreground/50 block">
-                  02 / Last name
+                  {t("cta.labels.lastName")}
                 </label>
                 <input
                   id="lastName"
                   name="lastName"
                   value={formData.lastName}
                   onChange={handleChange}
-                  placeholder="Doe"
+                  placeholder={t("cta.placeholders.lastName")}
                   className={`${inputClass} ${errors.lastName ? "border-destructive" : ""}`}
                 />
                 {errors.lastName && <p className="text-xs text-destructive mt-2">{errors.lastName}</p>}
@@ -149,7 +143,7 @@ export const CTA = () => {
 
               <div className="md:col-span-1 mt-8">
                 <label htmlFor="email" className="text-mono text-foreground/50 block">
-                  03 / Email
+                  {t("cta.labels.email")}
                 </label>
                 <input
                   id="email"
@@ -157,7 +151,7 @@ export const CTA = () => {
                   type="email"
                   value={formData.email}
                   onChange={handleChange}
-                  placeholder="you@company.com"
+                  placeholder={t("cta.placeholders.email")}
                   className={`${inputClass} ${errors.email ? "border-destructive" : ""}`}
                 />
                 {errors.email && <p className="text-xs text-destructive mt-2">{errors.email}</p>}
@@ -165,7 +159,7 @@ export const CTA = () => {
 
               <div className="md:col-span-1 mt-8">
                 <label className="text-mono text-foreground/50 block">
-                  04 / Reason for reaching out
+                  {t("cta.labels.reason")}
                 </label>
                 <Select
                   value={formData.reason}
@@ -179,16 +173,16 @@ export const CTA = () => {
                   <SelectTrigger
                     className={`w-full bg-transparent border-0 border-b border-foreground/20 rounded-none px-0 py-4 h-auto text-lg md:text-xl text-foreground focus:ring-0 focus:ring-offset-0 focus:border-primary transition-colors ${!formData.reason ? "text-foreground/30" : ""} ${errors.reason ? "border-destructive" : ""}`}
                   >
-                    <SelectValue placeholder="Select one…" />
+                    <SelectValue placeholder={t("cta.placeholders.reason")} />
                   </SelectTrigger>
                   <SelectContent className="bg-background border border-foreground/20 rounded-none">
-                    {REASONS.map((r) => (
+                    {REASON_KEYS.map((key) => (
                       <SelectItem
-                        key={r.value}
-                        value={r.value}
+                        key={key}
+                        value={key}
                         className="text-lg text-foreground focus:bg-accent focus:text-accent-foreground cursor-pointer"
                       >
-                        {r.label}
+                        {t(`cta.reasons.${key}`)}
                       </SelectItem>
                     ))}
                   </SelectContent>
@@ -198,14 +192,14 @@ export const CTA = () => {
 
               <div className="md:col-span-1 mt-8">
                 <label htmlFor="company" className="text-mono text-foreground/50 block">
-                  05 / Company <span className="text-foreground/30">(optional)</span>
+                  {t("cta.labels.company")} <span className="text-foreground/30">{t("cta.labels.optional")}</span>
                 </label>
                 <input
                   id="company"
                   name="company"
                   value={formData.company}
                   onChange={handleChange}
-                  placeholder="Your company or organization"
+                  placeholder={t("cta.placeholders.company")}
                   className={`${inputClass} ${errors.company ? "border-destructive" : ""}`}
                 />
                 {errors.company && <p className="text-xs text-destructive mt-2">{errors.company}</p>}
@@ -213,14 +207,14 @@ export const CTA = () => {
 
               <div className="md:col-span-1 mt-8">
                 <label htmlFor="website" className="text-mono text-foreground/50 block">
-                  06 / Website <span className="text-foreground/30">(optional)</span>
+                  {t("cta.labels.website")} <span className="text-foreground/30">{t("cta.labels.optional")}</span>
                 </label>
                 <input
                   id="website"
                   name="website"
                   value={formData.website}
                   onChange={handleChange}
-                  placeholder="https://"
+                  placeholder={t("cta.placeholders.website")}
                   className={`${inputClass} ${errors.website ? "border-destructive" : ""}`}
                 />
                 {errors.website && <p className="text-xs text-destructive mt-2">{errors.website}</p>}
@@ -228,14 +222,14 @@ export const CTA = () => {
 
               <div className="md:col-span-2 mt-8">
                 <label htmlFor="message" className="text-mono text-foreground/50 block">
-                  07 / Your message
+                  {t("cta.labels.message")}
                 </label>
                 <textarea
                   id="message"
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  placeholder="Tell us a bit more about what brought you here…"
+                  placeholder={t("cta.placeholders.message")}
                   rows={5}
                   className={`${inputClass} resize-none ${errors.message ? "border-destructive" : ""}`}
                 />
@@ -253,11 +247,11 @@ export const CTA = () => {
                 {isSubmitting ? (
                   <>
                     <Loader2 className="w-4 h-4 animate-spin" />
-                    Sending
+                    {t("cta.sending")}
                   </>
                 ) : (
                   <>
-                    Send message
+                    {t("cta.submit")}
                     <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </>
                 )}
