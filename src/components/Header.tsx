@@ -3,15 +3,9 @@ import { ArrowRight, Menu, X, Sun, Moon } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useTheme } from "./ThemeProvider";
+import { useTranslation } from "react-i18next";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 import logoSrc from "@/assets/flow-theory-logo.png";
-
-const navLinks = [
-  { label: "About", href: "#what-we-do" },
-  { label: "Team", href: "#founders" },
-  { label: "Services", href: "#services" },
-  { label: "Case Studies", href: "#case-studies" },
-  { label: "Blog", href: "/blog", isRoute: true },
-];
 
 interface HeaderProps {
   onContactClick: () => void;
@@ -23,6 +17,15 @@ export const Header = ({ onContactClick }: HeaderProps) => {
   const navigate = useNavigate();
   const location = useLocation();
   const { theme, toggle } = useTheme();
+  const { t } = useTranslation();
+
+  const navLinks = [
+    { label: t("nav.about"), href: "#what-we-do" },
+    { label: t("nav.team"), href: "#founders" },
+    { label: t("nav.services"), href: "#services" },
+    { label: t("nav.caseStudies"), href: "#case-studies" },
+    { label: t("nav.blog"), href: "/blog", isRoute: true },
+  ];
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 40);
@@ -84,11 +87,12 @@ export const Header = ({ onContactClick }: HeaderProps) => {
                 onClick={onContactClick}
                 className="text-mono text-foreground/65 hover:text-foreground transition-colors story-link"
               >
-                Contact
+                {t("nav.contact")}
               </button>
             </nav>
 
-            <div className="flex items-center gap-2 md:gap-3">
+            <div className="flex items-center gap-1 md:gap-2">
+              <LanguageSwitcher />
               <button
                 onClick={toggle}
                 className="p-2 text-foreground/70 hover:text-foreground transition-colors"
@@ -103,7 +107,7 @@ export const Header = ({ onContactClick }: HeaderProps) => {
                 className="hidden md:inline-flex gap-2 text-mono rounded-none px-5"
                 size="sm"
               >
-                Book intro
+                {t("nav.bookIntro")}
                 <ArrowRight className="w-3 h-3" />
               </Button>
 
@@ -135,7 +139,7 @@ export const Header = ({ onContactClick }: HeaderProps) => {
               onClick={() => { onContactClick(); setIsOpen(false); }}
               className="px-4 py-3 text-sm text-muted-foreground hover:text-foreground transition-colors text-left"
             >
-              Contact
+              {t("nav.contact")}
             </button>
           </nav>
         </div>

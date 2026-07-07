@@ -1,9 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, FileText } from "lucide-react";
 import { useScrollReveal, staggerStyle } from "@/hooks/useScrollReveal";
+import { useTranslation } from "react-i18next";
 
 export const Hero = () => {
   const { ref, isVisible } = useScrollReveal({ threshold: 0.1 });
+  const { t } = useTranslation();
 
   const scrollToCaseStudy = () => {
     const element = document.querySelector("#case-studies");
