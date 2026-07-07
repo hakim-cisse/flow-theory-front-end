@@ -29,7 +29,7 @@ export const Hero = () => {
             className="group inline-flex items-center gap-2 text-mono text-primary story-link"
           >
             <FileText className="w-3 h-3" />
-            <span>Featured: $96K saved · APT Locator</span>
+            <span>{t("hero.featured")}</span>
             <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
           </button>
         </div>
@@ -39,9 +39,9 @@ export const Hero = () => {
           {/* Headline */}
           <div className="col-span-12 lg:col-span-9" style={staggerStyle(1, isVisible, { delay: 0.15, duration: 0.9, distance: 40 })}>
             <h1 className="text-display text-foreground">
-              <span className="block">Your operations,</span>
+              <span className="block">{t("hero.title1")}</span>
               <span className="block italic text-primary" style={{ fontWeight: 300 }}>
-                engineered to flow.
+                {t("hero.title2")}
               </span>
             </h1>
           </div>
@@ -53,7 +53,7 @@ export const Hero = () => {
           >
             <div className="accent-bar mb-5" />
             <p className="text-italic-accent text-lg md:text-xl leading-snug text-foreground/85">
-              We analyze how your business runs today, identify exactly where automation creates leverage, and build systems your team will actually use.
+              {t("hero.sideNote")}
             </p>
           </aside>
         </div>
@@ -62,7 +62,7 @@ export const Hero = () => {
         <div className="grid grid-cols-12 gap-6 md:gap-10 mt-16 md:mt-24 items-end">
           <div className="col-span-12 md:col-span-7" style={staggerStyle(3, isVisible, { delay: 0.3, distance: 20 })}>
             <p className="text-base md:text-lg text-foreground/70 max-w-xl leading-relaxed">
-              Less hype. More measurable outcomes.
+              {t("hero.tagline")}
             </p>
           </div>
 
@@ -75,22 +75,22 @@ export const Hero = () => {
               className="group rounded-none font-medium tracking-wide px-8 py-6 text-sm uppercase"
               onClick={() => document.querySelector("#cta")?.scrollIntoView({ behavior: "smooth" })}
             >
-              Get in touch
+              {t("hero.cta")}
               <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </Button>
             <button
               onClick={scrollToCaseStudy}
               className="text-mono text-foreground/70 hover:text-primary transition-colors story-link"
             >
-              Explore our work →
+              {t("hero.explore")}
             </button>
           </div>
         </div>
 
         {/* Footer of hero */}
         <div className="mt-20 md:mt-28 pt-6 border-t border-foreground/15 flex items-center justify-between text-mono text-foreground/45">
-          <span>Strategy / Systems / Impact</span>
-          <span className="hidden md:inline">Scroll ↓</span>
+          <span>{t("hero.footerLeft")}</span>
+          <span className="hidden md:inline">{t("hero.scroll")}</span>
           <span>v.2026</span>
         </div>
       </div>
