@@ -8,6 +8,14 @@
     "contact": "Contact",
     "bookIntro": "Book intro"
   },
+  "common": {
+    "getInTouch": "Get in touch",
+    "letsTalk": "Let's talk",
+    "readMore": "Read more",
+    "previous": "Previous",
+    "next": "Next",
+    "home": "Home"
+  },
   "hero": {
     "featured": "Featured: $96K saved · APT Locator",
     "title1": "Your operations,",
@@ -18,6 +26,279 @@
     "explore": "Explore our work →",
     "footerLeft": "Strategy / Systems / Impact",
     "scroll": "Scroll ↓"
+  },
+  "clientsStrip": {
+    "trustedBy": "Trusted by businesses building the future"
+  },
+  "about": {
+    "eyebrow": "Our clients",
+    "titleA": "Trusted by",
+    "titleB": "innovative companies."
+  },
+  "whatWeDo": {
+    "eyebrow": "What we do",
+    "titleA": "Three ways forward.",
+    "titleB": "One clear starting point.",
+    "tabs": {
+      "process": {
+        "label": "The Process",
+        "eyebrow": "01 / How we engage",
+        "tagline": "A five-phase model for any AI transformation, framework or not."
+      },
+      "build": {
+        "label": "Build with AI",
+        "eyebrow": "02 / Product & feature development",
+        "tagline": "Ship a new AI product, or add intelligence to one you already have."
+      }
+    }
+  },
+  "howItWorks": {
+    "eyebrow": "Our process",
+    "titleA": "Discovery first.",
+    "titleB": "Results always.",
+    "steps": {
+      "discover": { "title": "Discover", "blurb": "Map workflows. Surface real bottlenecks." },
+      "diagnose": { "title": "Diagnose", "blurb": "Score opportunities by ROI and effort." },
+      "design": { "title": "Design", "blurb": "Build the roadmap. Set the metrics." },
+      "deploy": { "title": "Deploy", "blurb": "Ship fast. Train your team to own it." },
+      "scale": { "title": "Scale", "blurb": "Expand wins across the business." }
+    }
+  },
+  "aiProduct": {
+    "eyebrow": "AI Product & Feature Development",
+    "titleA": "From zero, or",
+    "titleB": "adding AI to what you have.",
+    "intro": "Whether you're starting from a blank page or making an existing product smarter, we build it. Early-stage startups validating their first AI product, growing companies adding AI features, and established businesses launching standalone AI products. No idea is too early, no scope is too large.",
+    "intro2": "One accountable partner across the entire journey: concept, feasibility, design, development, testing, and launch. No stitching together agencies, freelancers, and internal teams.",
+    "stages": {
+      "concept": {
+        "title": "Concept & Strategy",
+        "description": "We define what the product or feature is, who it's for, and what it needs to do. Feasibility, scoping, and a clear roadmap before a single line of code is written."
+      },
+      "design": {
+        "title": "Design & Development",
+        "description": "We build it. Full AI products, standalone features, integrations, interfaces, and infrastructure, handled by a team that specializes in AI, not a generalist agency learning on your budget."
+      },
+      "integration": {
+        "title": "AI Feature Integration",
+        "description": "Already have a product? We identify where AI creates the most value and build those features directly into your existing platform: smarter search, intelligent recommendations, automated workflows, natural language interfaces."
+      },
+      "launch": {
+        "title": "Launch & Beyond",
+        "description": "We take the product to market with you and stay on to iterate, optimize, and scale. Launch is the beginning of the engagement, not the end."
+      }
+    },
+    "calloutA": "From the first conversation to",
+    "calloutHighlight": "your first customer",
+    "calloutB": "we're with you the entire way.",
+    "cta": "Start Building With Us"
+  },
+  "services": {
+    "eyebrow": "Services",
+    "titleA": "Your trusted partner",
+    "titleB": "for AI transformation.",
+    "items": {
+      "audits": {
+        "title": "AI Exploratory Milestones",
+        "description": "We identify what's costing you time and money before writing a single line of code.",
+        "kicker": "Diagnose",
+        "h1": "Workflow mapping",
+        "h2": "ROI modeling",
+        "h3": "Opportunity scorecard"
+      },
+      "workflows": {
+        "title": "Custom Workflows",
+        "description": "Tailored automation systems that eliminate repetitive work your team shouldn't be doing.",
+        "kicker": "Automate",
+        "h1": "End-to-end orchestration",
+        "h2": "Human-in-the-loop",
+        "h3": "Built to scale"
+      },
+      "integrations": {
+        "title": "AI Integrations",
+        "description": "Connect your tools into one intelligent ecosystem that learns and adapts with your business.",
+        "kicker": "Connect",
+        "h1": "CRM, ERP, comms",
+        "h2": "Real-time data sync",
+        "h3": "Unified context"
+      },
+      "development": {
+        "title": "Development",
+        "description": "Custom AI-powered applications built for your specific business problems, not generic templates.",
+        "kicker": "Build",
+        "h1": "Production-grade code",
+        "h2": "Modern stack",
+        "h3": "Owned by you"
+      },
+      "training": {
+        "title": "Training",
+        "description": "Hands-on training so your team owns the AI systems we build. No vendor lock-in.",
+        "kicker": "Enable",
+        "h1": "Live workshops",
+        "h2": "Internal playbooks",
+        "h3": "Ongoing support"
+      },
+      "education": {
+        "title": "Education",
+        "description": "Empower your people with AI knowledge and best practices for lasting transformation.",
+        "kicker": "Educate",
+        "h1": "Executive briefings",
+        "h2": "Team curriculum",
+        "h3": "AI literacy at scale"
+      }
+    },
+    "featured": "Featured",
+    "saasTitle": "Custom SaaS Development",
+    "saasDescription": "From concept to launch. We design, build, and deploy scalable SaaS platforms tailored to your market and growth goals.",
+    "saasCta": "Let's talk",
+    "toolsCaption": "Built on the tools your team already uses"
+  },
+  "founders": {
+    "eyebrow": "Our team",
+    "titleA": "The team behind",
+    "titleB": "the dream.",
+    "members": {
+      "hakim": { "title": "Co-Founder & CEO", "description": "Visionary entrepreneur leading Flow Theory AI's mission to help companies scale intelligently through automation and AI systems." },
+      "yassine": { "title": "Co-Founder & CTO", "description": "Technical leader and automation architect focused on building stable, high-performance AI ecosystems for clients." },
+      "yunus": { "title": "Co-Founder & COO", "description": "Operations leader with technical experience enabling scalable execution and efficiency." }
+    }
+  },
+  "stratum": {
+    "eyebrow": "The STRATUM Methodology",
+    "titleA": "Why 80% of AI projects fail,",
+    "titleB": "and how we fix it.",
+    "intro": "Most AI transformations fail not because of the technology, but because of human and organizational factors: solutions designed without the people doing the work, built without IT involvement, and deployed without any way to measure what changed. STRATUM is our answer to that. It is a seven-layer AI transformation methodology that addresses every failure mode, in sequence, with nothing skipped.",
+    "layerLabel": "LAYER",
+    "layers": {
+      "scan": "Multi-level discovery across leadership and knowledge workers, not just the top.",
+      "target": "User-centered solution design with confidence and irreversibility gating.",
+      "resolve": "IT as a co-designer in every solution, with a formal AI Governance milestone after Quick Wins.",
+      "activate": "Phased deployment inside the tools teams already use. Quick Wins first.",
+      "transfer": "Role-specific AI fluency so teams own their AI, not just use it.",
+      "uplift": "ROI measured against baselines set at the start, not estimated after.",
+      "multiply": "Long-horizon strategic bets built on a proven foundation."
+    },
+    "showcase": {
+      "badge": "STRATUM in action",
+      "titleA": "Simplify data access.",
+      "titleB": "Ask your business anything.",
+      "body": "One of the outcomes STRATUM unlocks: instant, plain-English access to live data across the tools your teams already use. No dashboards to learn, no analysts in the loop, no exports. Just answers, with the reasoning attached.",
+      "b1": "Reads directly from your connected systems",
+      "b2": "Shows confidence and reasoning, not just numbers",
+      "b3": "Defers to a human when the answer is unclear"
+    },
+    "principlesEyebrow": "Principles we hold to",
+    "principles": {
+      "quickWins": { "title": "Quick Wins first", "description": "We start with high-confidence, high-reversibility value in 60 to 90 days. That credibility funds everything that comes after." },
+      "builtIn": { "title": "Built into your tools", "description": "Every solution runs inside the platforms your teams already use. No new tool unless it is clearly the best path, and no adoption barrier from day one." },
+      "limits": { "title": "AI that knows its limits", "description": "Every system we build has a confidence threshold. When the data is insufficient or the right action is unclear, it defers to a human instead of guessing." }
+    },
+    "ctaLine": "See how STRATUM applies to your organization.",
+    "ctaButton": "Get in touch"
+  },
+  "caseStudy": {
+    "eyebrow": "Case Studies",
+    "titleA": "Real businesses.",
+    "titleB": "Real results.",
+    "phases": { "problem": "Problem", "solution": "Solution", "results": "Results" },
+    "readFull": "Read Full Case Study",
+    "companies": {
+      "apt": {
+        "tagline": "Leading Apartment Locating Company",
+        "metrics": { "m1": "Yearly Savings", "m2": "Saved Weekly" },
+        "steps": {
+          "problem": { "title": "Scaling bottlenecks", "description": "ISAs spent too much time qualifying leads and manually compiling apartment suggestions. Invoicing and follow-up consumed hours of founder time monthly." },
+          "solution": { "title": "End-to-end automation", "description": "Automated core ISA tasks, built an AI-powered apartment suggestion bot, streamlined invoicing workflows, and trained founders on AI integration." },
+          "results": { "title": "Operational transformation", "description": "Dramatically reduced ISA friction, near-instant apartment recommendations, fully automated invoicing, and a stronger operational backbone." }
+        }
+      },
+      "een": {
+        "tagline": "Real Estate Wholesaling Network",
+        "metrics": { "m1": "Seller Call Overlap", "m2": "Buyer Outreach" },
+        "steps": {
+          "problem": { "title": "Operational chaos", "description": "Multiple contacts tied to a single property caused repeated calls. Buyer outreach was delayed by manual processes, and founders lacked hot lead visibility." },
+          "solution": { "title": "Intelligent systems", "description": "Built a deduplication system for the dialer queue, automated buyer outreach triggered on contract, and implemented real-time hot lead notifications." },
+          "results": { "title": "Streamlined deal flow", "description": "Duplicate seller calls reduced to near zero, buyer outreach 60–75% faster, and founders gained immediate visibility into high-intent leads." }
+        }
+      },
+      "elite": {
+        "tagline": "Car Rental & Fleet Management, Niger",
+        "metrics": { "m1": "Fleet Utilization", "m2": "Admin Hours Cut" },
+        "steps": {
+          "problem": { "title": "Infrastructure, not effort", "description": "Tools didn't talk to each other and data lived in silos. Founders spent their days chasing updates, vehicles sat idle without visibility, invoices aged for weeks, and 3–4 hours daily were lost to manual logging and reporting." },
+          "solution": { "title": "STRATUM Brain deployment", "description": "Deployed an agentic intelligence layer with four core agents (Fleet, Revenue & Bookings, Payments, and Operations) unified under a central registry with confidence-tiered autonomy and on-demand plain-English querying." },
+          "results": { "title": "From operators to executives", "description": "+23% fleet utilization, 60% reduction in daily admin hours, 18-day cut in payment collection cycle, 2 hours/day reclaimed for founders, and zero additional hires needed to absorb the scale-up." }
+        }
+      }
+    }
+  },
+  "testimonials": {
+    "eyebrow": "Client Testimonial",
+    "titleA": "Founders",
+    "titleB": "talk back.",
+    "intro": "Real results from real businesses. See how Flow Theory AI transformed operations for our partners.",
+    "quote": "Flow Theory AI did a great job helping us integrate our CRM and improve our overall business efficiency. We would definitely recommend them to other tech-oriented businesses.",
+    "quoteAuthor": "Empower Estates Network"
+  },
+  "industries": {
+    "eyebrow": "Where we operate",
+    "titleA": "Industries We",
+    "titleB": "Specialize In",
+    "intro": "We design systems and automation tailored to how each industry actually operates.",
+    "closingNote": "Don't see your industry? We focus on operational complexity, not labels.",
+    "items": {
+      "realEstate": {
+        "title": "Real Estate",
+        "problem": "Automating deal flow, underwriting, and investor operations.",
+        "statLabel": "Faster Deal Flow",
+        "h1": "Lead intake + deduplication systems",
+        "h2": "ARV / CMA tools and deal analysis workflows",
+        "h3": "Pipeline and disposition acceleration"
+      },
+      "healthcare": {
+        "title": "Healthcare",
+        "problem": "Reducing administrative burden and improving patient flow.",
+        "statLabel": "Less Admin Time",
+        "h1": "Intake + scheduling automation",
+        "h2": "Data organization and internal workflows",
+        "h3": "Compliance-ready reporting systems"
+      },
+      "ecommerce": {
+        "title": "E-Commerce",
+        "problem": "Scaling operations beyond manual processes.",
+        "statLabel": "Cost Reduction",
+        "h1": "Order and fulfillment automation",
+        "h2": "Customer lifecycle + retention systems",
+        "h3": "AI-powered support and routing"
+      },
+      "recruitment": {
+        "title": "Recruitment",
+        "problem": "Streamlining candidate pipelines and placements.",
+        "statLabel": "Placements / Month",
+        "h1": "Candidate screening + outreach automation",
+        "h2": "CRM and workflow optimization",
+        "h3": "Interview scheduling systems"
+      }
+    }
+  },
+  "blogPreview": {
+    "eyebrow": "// INSIGHTS",
+    "titleA": "Latest from",
+    "titleB": "our blog.",
+    "viewAll": "View all posts",
+    "anonymous": "Anonymous"
+  },
+  "blogPage": {
+    "title": "Blog",
+    "description": "Insights, strategies, and case studies from the Flow Theory AI team.",
+    "loadFailed": "Failed to load blog posts. Please try again later.",
+    "empty": "No blog posts yet. Check back soon!",
+    "previous": "Previous",
+    "next": "Next",
+    "anonymous": "Anonymous"
+  },
+  "related": {
+    "heading": "Related Posts"
   },
   "cta": {
     "eyebrow": "Let's talk",
@@ -55,6 +336,28 @@
     "toastSuccessDesc": "We'll be in touch within 24 hours.",
     "toastErrorTitle": "Error",
     "toastErrorDesc": "Failed to send. Please try again."
+  },
+  "contactDialog": {
+    "title": "Get in Touch",
+    "description": "Tell us about your project and we'll reach out within 24 hours.",
+    "name": "Name",
+    "email": "Email",
+    "company": "Company",
+    "website": "Website",
+    "message": "Message",
+    "placeholders": {
+      "name": "Your name",
+      "email": "your@email.com",
+      "company": "Your company",
+      "website": "https://yourwebsite.com (optional)",
+      "message": "Tell us about your project..."
+    },
+    "submit": "Send Message",
+    "sending": "Sending...",
+    "toastSuccessTitle": "Message sent!",
+    "toastSuccessDesc": "We'll get back to you within 24 hours.",
+    "toastErrorTitle": "Error",
+    "toastErrorDesc": "Failed to send message. Please try again."
   },
   "footer": {
     "tagline": "AI transformation built on strategy, discovery, and measurable results. Built by founders, for ambitious companies.",

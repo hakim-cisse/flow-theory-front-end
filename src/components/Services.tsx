@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { useScrollReveal, staggerStyle } from "@/hooks/useScrollReveal";
 import { useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
 
 const toolLogos = [
   { name: "n8n", color: "#EA4B71", svg: '<svg viewBox="0 0 24 24"><path d="M12.76 1.64C14.346.054 16.893.054 18.48 1.64l3.878 3.879c1.586 1.586 1.586 4.133 0 5.72l-3.879 3.878c-1.586 1.586-4.133 1.586-5.72 0L8.883 11.24c-1.586-1.586-1.586-4.133 0-5.72zm-1.52 8.96l3.878 3.878c1.586 1.586 1.586 4.134 0 5.72l-3.879 3.879c-1.586 1.586-4.133 1.586-5.72 0L1.643 20.2c-1.586-1.587-1.586-4.134 0-5.72L5.52 10.6c1.586-1.586 4.133-1.586 5.72 0z"/></svg>' },
@@ -23,50 +24,14 @@ const toolLogos = [
   { name: "Gmail", color: "#EA4335", svg: '<svg viewBox="0 0 24 24"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></svg>' },
 ];
 
-const services = [
-  {
-    icon: AuditIcon,
-    title: "AI Exploratory Milestones",
-    description: "We identify what's costing you time and money before writing a single line of code.",
-    kicker: "Diagnose",
-    highlights: ["Workflow mapping", "ROI modeling", "Opportunity scorecard"],
-  },
-  {
-    icon: WorkflowIcon,
-    title: "Custom Workflows",
-    description: "Tailored automation systems that eliminate repetitive work your team shouldn't be doing.",
-    kicker: "Automate",
-    highlights: ["End-to-end orchestration", "Human-in-the-loop", "Built to scale"],
-  },
-  {
-    icon: IntegrationIcon,
-    title: "AI Integrations",
-    description: "Connect your tools into one intelligent ecosystem that learns and adapts with your business.",
-    kicker: "Connect",
-    highlights: ["CRM, ERP, comms", "Real-time data sync", "Unified context"],
-  },
-  {
-    icon: DevelopmentIcon,
-    title: "Development",
-    description: "Custom AI-powered applications built for your specific business problems, not generic templates.",
-    kicker: "Build",
-    highlights: ["Production-grade code", "Modern stack", "Owned by you"],
-  },
-  {
-    icon: TrainingIcon,
-    title: "Training",
-    description: "Hands-on training so your team owns the AI systems we build. No vendor lock-in.",
-    kicker: "Enable",
-    highlights: ["Live workshops", "Internal playbooks", "Ongoing support"],
-  },
-  {
-    icon: EducationIcon,
-    title: "Education",
-    description: "Empower your people with AI knowledge and best practices for lasting transformation.",
-    kicker: "Educate",
-    highlights: ["Executive briefings", "Team curriculum", "AI literacy at scale"],
-  },
-];
+const serviceDefs = [
+  { key: "audits", icon: AuditIcon },
+  { key: "workflows", icon: WorkflowIcon },
+  { key: "integrations", icon: IntegrationIcon },
+  { key: "development", icon: DevelopmentIcon },
+  { key: "training", icon: TrainingIcon },
+  { key: "education", icon: EducationIcon },
+] as const;
 
 const ToolsStrip = ({ isVisible }: { isVisible: boolean }) => {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -134,9 +99,10 @@ const ServicesBelt = ({
   gridVisible: boolean;
 }) => {
   const trackRef = useRef<HTMLDivElement>(null);
+  const { t } = useTranslation();
 
   // Triple the list so the loop never visibly seams
-  const belt = [...services, ...services, ...services];
+  const belt = [...serviceDefs, ...serviceDefs, ...serviceDefs];
 
   useEffect(() => {
     const track = trackRef.current;
@@ -144,7 +110,7 @@ const ServicesBelt = ({
 
     let raf = 0;
     let pos = 0;
-    const speed = 1.1; // px per frame — punchier
+    const speed = 1.1;
     let lastTs = performance.now();
 
     const tick = (ts: number) => {
@@ -168,7 +134,6 @@ const ServicesBelt = ({
       style={staggerStyle(0, gridVisible, { distance: 20 })}
     >
       <div className="relative overflow-hidden">
-        {/* Edge fades — subtle */}
         <div className="absolute left-0 top-0 bottom-0 w-10 md:w-16 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
         <div className="absolute right-0 top-0 bottom-0 w-10 md:w-16 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
 
@@ -179,24 +144,21 @@ const ServicesBelt = ({
         >
           {belt.map((service, i) => {
             const Icon = service.icon;
-            const idx = (i % services.length) + 1;
+            const idx = (i % serviceDefs.length) + 1;
+            const title = t(`services.items.${service.key}.title`);
             return (
               <article
-                key={`${service.title}-${i}`}
+                key={`${service.key}-${i}`}
                 className="group relative w-[340px] sm:w-[380px] md:w-[420px] h-[440px] md:h-[480px] shrink-0 overflow-hidden border border-border/60 bg-background text-foreground hover:border-primary transition-colors duration-500"
               >
-                {/* Big watermark number */}
                 <span className="pointer-events-none absolute -top-6 -right-3 font-display text-[180px] md:text-[220px] leading-none tracking-tighter select-none text-foreground/[0.04]">
                   {String(idx).padStart(2, "0")}
                 </span>
 
-                {/* Top accent bar */}
                 <span className="absolute top-0 left-0 h-[2px] w-full bg-primary" />
-                {/* Bottom shimmer line */}
                 <span className="absolute bottom-0 left-0 h-px w-full bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
 
                 <div className="relative h-full p-8 md:p-10 flex flex-col">
-                  {/* Icon block */}
                   <div className="mb-8 flex items-center justify-between">
                     <div className="relative w-14 h-14 flex items-center justify-center border border-border bg-primary/5">
                       <Icon className="w-7 h-7 text-primary" strokeWidth={1.25} />
@@ -204,25 +166,22 @@ const ServicesBelt = ({
                       <span className="absolute -bottom-px -right-px w-2 h-2 border-r border-b border-primary" />
                     </div>
                     <span className="text-mono text-[10px] tracking-widest text-foreground/40">
-                      / {service.kicker}
+                      / {t(`services.items.${service.key}.kicker`)}
                     </span>
                   </div>
 
                   <h4 className="font-display text-3xl md:text-4xl tracking-tight leading-[1.05] mb-4">
-                    {service.title}
+                    {title}
                   </h4>
                   <p className="text-sm leading-relaxed mb-6 text-muted-foreground">
-                    {service.description}
+                    {t(`services.items.${service.key}.description`)}
                   </p>
 
                   <ul className="mt-auto space-y-2 border-t border-border/60 pt-4">
-                    {service.highlights.map((h) => (
-                      <li
-                        key={h}
-                        className="flex items-center gap-3 text-xs text-foreground/75"
-                      >
+                    {(["h1", "h2", "h3"] as const).map((h) => (
+                      <li key={h} className="flex items-center gap-3 text-xs text-foreground/75">
                         <span className="h-px w-5 bg-primary" />
-                        {h}
+                        {t(`services.items.${service.key}.${h}`)}
                       </li>
                     ))}
                   </ul>
@@ -240,6 +199,7 @@ export const Services = () => {
   const { ref: headerRef, isVisible: headerVisible } = useScrollReveal();
   const { ref: gridRef, isVisible: gridVisible } = useScrollReveal({ threshold: 0.1 });
   const { ref: saasRef, isVisible: saasVisible } = useScrollReveal();
+  const { t } = useTranslation();
 
   return (
     <section id="services" className="py-24 sm:py-32 relative overflow-hidden section-5">
@@ -251,11 +211,11 @@ export const Services = () => {
               className="text-mono text-primary/70 block mb-6"
               style={staggerStyle(0, headerVisible)}
             >
-              Services
+              {t("services.eyebrow")}
             </span>
             <h2 className="text-heading" style={staggerStyle(1, headerVisible)}>
-              Your trusted partner<br />
-              <span className="text-gradient">for AI transformation.</span>
+              {t("services.titleA")}<br />
+              <span className="text-gradient">{t("services.titleB")}</span>
             </h2>
             <div className="accent-bar mt-6" style={staggerStyle(2, headerVisible)} />
           </div>
@@ -275,22 +235,22 @@ export const Services = () => {
             <div className="relative p-8 md:p-12 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
               <div className="max-w-2xl">
                 <div className="flex items-center gap-3 mb-6">
-                  <span className="text-mono text-xs text-primary">Featured</span>
+                  <span className="text-mono text-xs text-primary">{t("services.featured")}</span>
                   <span className="h-px w-10 bg-primary/50" />
                 </div>
                 <div className="mb-6 inline-flex items-center justify-center transition-transform duration-500 group-hover:-translate-y-1 group-hover:rotate-[-6deg]">
                   <SaaSIcon className="h-8 w-8 text-primary" strokeWidth={1.5} />
                 </div>
                 <h3 className="font-display text-3xl md:text-4xl lg:text-5xl text-foreground mb-4 tracking-tight">
-                  Custom SaaS Development
+                  {t("services.saasTitle")}
                 </h3>
                 <p className="text-base text-muted-foreground leading-relaxed">
-                  From concept to launch. We design, build, and deploy scalable SaaS platforms tailored to your market and growth goals.
+                  {t("services.saasDescription")}
                 </p>
               </div>
               <Button asChild size="lg" className="gap-2 rounded-none uppercase text-xs tracking-wider px-6 py-5 self-start lg:self-end shrink-0 group/btn">
                 <a href="#cta">
-                  Let's talk
+                  {t("services.saasCta")}
                   <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
                 </a>
               </Button>
@@ -301,7 +261,7 @@ export const Services = () => {
           {/* Tools strip — reframed */}
           <div className="mt-20 md:mt-24 text-center">
             <p className="text-mono text-foreground/50 mb-10">
-              Built on the tools your team already uses
+              {t("services.toolsCaption")}
             </p>
             <ToolsStrip isVisible={headerVisible} />
           </div>

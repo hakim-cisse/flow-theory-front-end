@@ -8,6 +8,14 @@
     "contact": "Contact",
     "bookIntro": "Réserver un appel"
   },
+  "common": {
+    "getInTouch": "Nous contacter",
+    "letsTalk": "Discutons",
+    "readMore": "Lire la suite",
+    "previous": "Précédent",
+    "next": "Suivant",
+    "home": "Accueil"
+  },
   "hero": {
     "featured": "À la une : 96 000 $ économisés · APT Locator",
     "title1": "Vos opérations,",
@@ -18,6 +26,279 @@
     "explore": "Découvrir nos projets →",
     "footerLeft": "Stratégie / Systèmes / Impact",
     "scroll": "Défiler ↓"
+  },
+  "clientsStrip": {
+    "trustedBy": "La confiance des entreprises qui construisent l'avenir"
+  },
+  "about": {
+    "eyebrow": "Nos clients",
+    "titleA": "La confiance",
+    "titleB": "d'entreprises innovantes."
+  },
+  "whatWeDo": {
+    "eyebrow": "Ce que nous faisons",
+    "titleA": "Trois voies possibles.",
+    "titleB": "Un point de départ clair.",
+    "tabs": {
+      "process": {
+        "label": "Le Processus",
+        "eyebrow": "01 / Notre manière de collaborer",
+        "tagline": "Un modèle en cinq phases pour toute transformation IA, avec ou sans framework."
+      },
+      "build": {
+        "label": "Construire avec l'IA",
+        "eyebrow": "02 / Développement de produits et fonctionnalités",
+        "tagline": "Lancez un nouveau produit IA, ou ajoutez de l'intelligence à celui que vous avez déjà."
+      }
+    }
+  },
+  "howItWorks": {
+    "eyebrow": "Notre processus",
+    "titleA": "La découverte d'abord.",
+    "titleB": "Les résultats toujours.",
+    "steps": {
+      "discover": { "title": "Découvrir", "blurb": "Cartographier les flux. Identifier les vrais goulots." },
+      "diagnose": { "title": "Diagnostiquer", "blurb": "Prioriser les opportunités par ROI et effort." },
+      "design": { "title": "Concevoir", "blurb": "Bâtir la feuille de route. Définir les indicateurs." },
+      "deploy": { "title": "Déployer", "blurb": "Livrer vite. Former votre équipe à l'exploiter." },
+      "scale": { "title": "Scaler", "blurb": "Étendre les succès à toute l'entreprise." }
+    }
+  },
+  "aiProduct": {
+    "eyebrow": "Développement de produits et fonctionnalités IA",
+    "titleA": "Partir de zéro, ou",
+    "titleB": "ajouter de l'IA à l'existant.",
+    "intro": "Que vous partiez d'une page blanche ou que vous rendiez un produit existant plus intelligent, nous le construisons. Startups en phase de validation, entreprises en croissance ajoutant des fonctionnalités IA, ou sociétés établies lançant des produits IA autonomes : aucune idée n'est trop précoce, aucune envergure n'est trop grande.",
+    "intro2": "Un seul partenaire responsable sur tout le parcours : concept, faisabilité, design, développement, tests et lancement. Fini l'assemblage entre agences, freelances et équipes internes.",
+    "stages": {
+      "concept": {
+        "title": "Concept & Stratégie",
+        "description": "Nous définissons le produit ou la fonctionnalité, pour qui, et ce qu'il doit accomplir. Faisabilité, cadrage et feuille de route avant la première ligne de code."
+      },
+      "design": {
+        "title": "Design & Développement",
+        "description": "Nous construisons. Produits IA complets, fonctionnalités autonomes, intégrations, interfaces et infrastructure, pris en charge par une équipe spécialisée en IA, pas par une agence généraliste qui apprend à vos frais."
+      },
+      "integration": {
+        "title": "Intégration de fonctionnalités IA",
+        "description": "Vous avez déjà un produit ? Nous identifions où l'IA crée le plus de valeur et intégrons ces fonctionnalités directement dans votre plateforme : recherche plus intelligente, recommandations, workflows automatisés, interfaces en langage naturel."
+      },
+      "launch": {
+        "title": "Lancement & après",
+        "description": "Nous portons le produit sur le marché avec vous et restons pour itérer, optimiser et scaler. Le lancement marque le début de l'engagement, pas la fin."
+      }
+    },
+    "calloutA": "De la première conversation à",
+    "calloutHighlight": "votre premier client",
+    "calloutB": "nous vous accompagnons tout du long.",
+    "cta": "Commencer à construire avec nous"
+  },
+  "services": {
+    "eyebrow": "Services",
+    "titleA": "Votre partenaire de confiance",
+    "titleB": "pour la transformation IA.",
+    "items": {
+      "audits": {
+        "title": "Jalons Exploratoires IA",
+        "description": "Nous identifions ce qui vous coûte du temps et de l'argent avant d'écrire la moindre ligne de code.",
+        "kicker": "Diagnostiquer",
+        "h1": "Cartographie des flux",
+        "h2": "Modélisation du ROI",
+        "h3": "Grille d'opportunités"
+      },
+      "workflows": {
+        "title": "Workflows sur mesure",
+        "description": "Des systèmes d'automatisation taillés pour éliminer le travail répétitif que votre équipe ne devrait pas faire.",
+        "kicker": "Automatiser",
+        "h1": "Orchestration de bout en bout",
+        "h2": "Humain dans la boucle",
+        "h3": "Conçu pour scaler"
+      },
+      "integrations": {
+        "title": "Intégrations IA",
+        "description": "Connectez vos outils en un écosystème intelligent qui apprend et évolue avec votre entreprise.",
+        "kicker": "Connecter",
+        "h1": "CRM, ERP, communication",
+        "h2": "Synchro données en temps réel",
+        "h3": "Contexte unifié"
+      },
+      "development": {
+        "title": "Développement",
+        "description": "Applications IA sur mesure, construites pour vos vrais problèmes métier, pas des templates génériques.",
+        "kicker": "Construire",
+        "h1": "Code de production",
+        "h2": "Stack moderne",
+        "h3": "Vous êtes propriétaire"
+      },
+      "training": {
+        "title": "Formation",
+        "description": "Formations pratiques pour que votre équipe s'approprie les systèmes IA que nous construisons. Sans dépendance.",
+        "kicker": "Habiliter",
+        "h1": "Ateliers en direct",
+        "h2": "Playbooks internes",
+        "h3": "Support continu"
+      },
+      "education": {
+        "title": "Éducation",
+        "description": "Donnez à vos équipes les connaissances et bonnes pratiques IA pour une transformation durable.",
+        "kicker": "Éduquer",
+        "h1": "Briefings dirigeants",
+        "h2": "Programme d'équipe",
+        "h3": "Culture IA à grande échelle"
+      }
+    },
+    "featured": "À la une",
+    "saasTitle": "Développement SaaS sur mesure",
+    "saasDescription": "Du concept au lancement. Nous concevons, construisons et déployons des plateformes SaaS scalables, adaptées à votre marché et à vos objectifs de croissance.",
+    "saasCta": "Discutons",
+    "toolsCaption": "Construit sur les outils que votre équipe utilise déjà"
+  },
+  "founders": {
+    "eyebrow": "Notre équipe",
+    "titleA": "L'équipe derrière",
+    "titleB": "le projet.",
+    "members": {
+      "hakim": { "title": "Co-fondateur & CEO", "description": "Entrepreneur visionnaire à la tête de la mission de Flow Theory AI : aider les entreprises à scaler intelligemment grâce à l'automatisation et aux systèmes IA." },
+      "yassine": { "title": "Co-fondateur & CTO", "description": "Leader technique et architecte d'automatisation, concentré sur la construction d'écosystèmes IA stables et performants pour les clients." },
+      "yunus": { "title": "Co-fondateur & COO", "description": "Responsable des opérations avec une expérience technique, permettant une exécution scalable et une efficacité opérationnelle." }
+    }
+  },
+  "stratum": {
+    "eyebrow": "La méthodologie STRATUM",
+    "titleA": "Pourquoi 80 % des projets IA échouent,",
+    "titleB": "et comment nous y remédions.",
+    "intro": "La plupart des transformations IA échouent non pas à cause de la technologie, mais à cause de facteurs humains et organisationnels : des solutions conçues sans les personnes qui font le travail, construites sans l'IT, et déployées sans aucun moyen de mesurer ce qui a changé. STRATUM est notre réponse. C'est une méthodologie de transformation IA en sept couches qui traite chaque mode d'échec, dans l'ordre, sans rien sauter.",
+    "layerLabel": "COUCHE",
+    "layers": {
+      "scan": "Découverte multi-niveaux, auprès des dirigeants et des travailleurs du savoir, pas seulement du sommet.",
+      "target": "Conception de solutions centrées utilisateur, avec des jalons de confiance et de réversibilité.",
+      "resolve": "L'IT comme co-concepteur de chaque solution, avec un jalon formel de gouvernance IA après les Quick Wins.",
+      "activate": "Déploiement progressif à l'intérieur des outils que les équipes utilisent déjà. Les Quick Wins d'abord.",
+      "transfer": "Aisance IA spécifique à chaque rôle pour que les équipes possèdent leur IA, pas qu'elles s'en servent seulement.",
+      "uplift": "ROI mesuré par rapport à des références posées au démarrage, pas estimées après coup.",
+      "multiply": "Paris stratégiques de long terme, bâtis sur une fondation éprouvée."
+    },
+    "showcase": {
+      "badge": "STRATUM en action",
+      "titleA": "Simplifiez l'accès aux données.",
+      "titleB": "Posez toutes vos questions à votre entreprise.",
+      "body": "Un des résultats que STRATUM débloque : un accès instantané, en langage courant, aux données en direct de tous les outils que vos équipes utilisent déjà. Aucun dashboard à apprendre, aucun analyste à mobiliser, aucun export. Juste des réponses, avec le raisonnement associé.",
+      "b1": "Lit directement dans vos systèmes connectés",
+      "b2": "Montre la confiance et le raisonnement, pas seulement les chiffres",
+      "b3": "Fait appel à un humain quand la réponse n'est pas claire"
+    },
+    "principlesEyebrow": "Nos principes",
+    "principles": {
+      "quickWins": { "title": "Quick Wins d'abord", "description": "Nous commençons par de la valeur à haute confiance et haute réversibilité en 60 à 90 jours. Cette crédibilité finance tout ce qui suit." },
+      "builtIn": { "title": "Intégré à vos outils", "description": "Chaque solution s'exécute dans les plateformes que vos équipes utilisent déjà. Pas de nouvel outil sauf si c'est clairement la meilleure voie, et aucune barrière d'adoption dès le premier jour." },
+      "limits": { "title": "Une IA qui connaît ses limites", "description": "Chaque système que nous construisons a un seuil de confiance. Quand les données sont insuffisantes ou la bonne action peu claire, il défère à un humain plutôt que de deviner." }
+    },
+    "ctaLine": "Voyez comment STRATUM s'applique à votre organisation.",
+    "ctaButton": "Nous contacter"
+  },
+  "caseStudy": {
+    "eyebrow": "Études de cas",
+    "titleA": "De vraies entreprises.",
+    "titleB": "De vrais résultats.",
+    "phases": { "problem": "Problème", "solution": "Solution", "results": "Résultats" },
+    "readFull": "Lire l'étude complète",
+    "companies": {
+      "apt": {
+        "tagline": "Leader de la recherche d'appartements",
+        "metrics": { "m1": "Économies annuelles", "m2": "Économisées / semaine" },
+        "steps": {
+          "problem": { "title": "Goulots à l'échelle", "description": "Les ISA passaient trop de temps à qualifier des leads et à compiler manuellement des propositions d'appartements. La facturation et les relances consommaient des heures mensuelles des fondateurs." },
+          "solution": { "title": "Automatisation de bout en bout", "description": "Automatisation des tâches ISA clés, création d'un bot IA de suggestion d'appartements, refonte des workflows de facturation, et formation des fondateurs à l'intégration IA." },
+          "results": { "title": "Transformation opérationnelle", "description": "Friction ISA fortement réduite, recommandations d'appartements quasi instantanées, facturation entièrement automatisée et colonne vertébrale opérationnelle renforcée." }
+        }
+      },
+      "een": {
+        "tagline": "Réseau de wholesaling immobilier",
+        "metrics": { "m1": "Doublons d'appels vendeurs", "m2": "Contact acheteurs" },
+        "steps": {
+          "problem": { "title": "Chaos opérationnel", "description": "Plusieurs contacts liés à un même bien provoquaient des appels redondants. Le contact acheteurs était retardé par des processus manuels, et les fondateurs manquaient de visibilité sur les leads chauds." },
+          "solution": { "title": "Systèmes intelligents", "description": "Système de déduplication pour la file d'appel, contact acheteurs automatisé au signing, et notifications temps réel des leads chauds." },
+          "results": { "title": "Flux de deals fluidifié", "description": "Doublons d'appels vendeurs quasi éliminés, contact acheteurs 60 à 75 % plus rapide, et visibilité immédiate des fondateurs sur les leads à haute intention." }
+        }
+      },
+      "elite": {
+        "tagline": "Location de voitures & gestion de flotte, Niger",
+        "metrics": { "m1": "Utilisation de la flotte", "m2": "Heures administratives coupées" },
+        "steps": {
+          "problem": { "title": "Un problème d'infrastructure, pas d'effort", "description": "Les outils ne communiquaient pas et les données restaient en silos. Les fondateurs passaient leurs journées à courir après les mises à jour, des véhicules restaient inutilisés sans visibilité, les factures traînaient pendant des semaines, et 3 à 4 heures par jour se perdaient en saisie et reporting." },
+          "solution": { "title": "Déploiement du STRATUM Brain", "description": "Déploiement d'une couche d'intelligence agentique avec quatre agents (Flotte, Revenus & Réservations, Paiements, Opérations) unifiés dans un registre central, avec une autonomie graduée par confiance et des requêtes en langage courant à la demande." },
+          "results": { "title": "D'opérateurs à dirigeants", "description": "+23 % d'utilisation de la flotte, -60 % d'heures administratives quotidiennes, cycle d'encaissement raccourci de 18 jours, 2 h/jour rendues aux fondateurs, et aucune embauche supplémentaire nécessaire pour absorber la croissance." }
+        }
+      }
+    }
+  },
+  "testimonials": {
+    "eyebrow": "Témoignage client",
+    "titleA": "Les fondateurs",
+    "titleB": "prennent la parole.",
+    "intro": "De vrais résultats venant de vraies entreprises. Découvrez comment Flow Theory AI a transformé les opérations de nos partenaires.",
+    "quote": "Flow Theory AI a fait un excellent travail pour nous aider à intégrer notre CRM et améliorer l'efficacité globale de notre activité. Nous les recommandons sans hésiter à d'autres entreprises orientées tech.",
+    "quoteAuthor": "Empower Estates Network"
+  },
+  "industries": {
+    "eyebrow": "Où nous opérons",
+    "titleA": "Les secteurs dans",
+    "titleB": "lesquels nous excellons",
+    "intro": "Nous concevons des systèmes et de l'automatisation adaptés au fonctionnement réel de chaque secteur.",
+    "closingNote": "Vous ne voyez pas votre secteur ? Nous nous intéressons à la complexité opérationnelle, pas aux étiquettes.",
+    "items": {
+      "realEstate": {
+        "title": "Immobilier",
+        "problem": "Automatiser le flux d'opérations, l'analyse et les opérations investisseurs.",
+        "statLabel": "Flux d'opérations",
+        "h1": "Systèmes de collecte + déduplication de leads",
+        "h2": "Outils ARV / CMA et workflows d'analyse",
+        "h3": "Accélération du pipeline et de la disposition"
+      },
+      "healthcare": {
+        "title": "Santé",
+        "problem": "Réduire la charge administrative et fluidifier le parcours patient.",
+        "statLabel": "Temps admin réduit",
+        "h1": "Automatisation admission + planning",
+        "h2": "Organisation des données et workflows internes",
+        "h3": "Reporting conforme aux exigences"
+      },
+      "ecommerce": {
+        "title": "E-commerce",
+        "problem": "Passer à l'échelle au-delà des processus manuels.",
+        "statLabel": "Réduction des coûts",
+        "h1": "Automatisation commandes et fulfillment",
+        "h2": "Cycle client + rétention",
+        "h3": "Support et routage propulsés par IA"
+      },
+      "recruitment": {
+        "title": "Recrutement",
+        "problem": "Fluidifier les pipelines de candidats et les placements.",
+        "statLabel": "Placements / mois",
+        "h1": "Screening et outreach candidats automatisés",
+        "h2": "Optimisation CRM et workflows",
+        "h3": "Planification d'entretiens"
+      }
+    }
+  },
+  "blogPreview": {
+    "eyebrow": "// INSIGHTS",
+    "titleA": "Les derniers articles",
+    "titleB": "du blog.",
+    "viewAll": "Voir tous les articles",
+    "anonymous": "Anonyme"
+  },
+  "blogPage": {
+    "title": "Blog",
+    "description": "Analyses, stratégies et études de cas de l'équipe Flow Theory AI.",
+    "loadFailed": "Impossible de charger les articles. Veuillez réessayer plus tard.",
+    "empty": "Aucun article pour le moment. Revenez bientôt !",
+    "previous": "Précédent",
+    "next": "Suivant",
+    "anonymous": "Anonyme"
+  },
+  "related": {
+    "heading": "Articles liés"
   },
   "cta": {
     "eyebrow": "Discutons",
@@ -52,6 +333,28 @@
     "submit": "Envoyer le message",
     "sending": "Envoi",
     "toastSuccessTitle": "Message envoyé.",
+    "toastSuccessDesc": "Nous vous répondrons sous 24 heures.",
+    "toastErrorTitle": "Erreur",
+    "toastErrorDesc": "Échec de l'envoi. Veuillez réessayer."
+  },
+  "contactDialog": {
+    "title": "Nous contacter",
+    "description": "Parlez-nous de votre projet et nous vous répondrons sous 24 heures.",
+    "name": "Nom",
+    "email": "E-mail",
+    "company": "Entreprise",
+    "website": "Site web",
+    "message": "Message",
+    "placeholders": {
+      "name": "Votre nom",
+      "email": "vous@email.com",
+      "company": "Votre entreprise",
+      "website": "https://votresite.com (facultatif)",
+      "message": "Parlez-nous de votre projet..."
+    },
+    "submit": "Envoyer le message",
+    "sending": "Envoi...",
+    "toastSuccessTitle": "Message envoyé !",
     "toastSuccessDesc": "Nous vous répondrons sous 24 heures.",
     "toastErrorTitle": "Erreur",
     "toastErrorDesc": "Échec de l'envoi. Veuillez réessayer."

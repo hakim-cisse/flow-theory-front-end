@@ -2,48 +2,31 @@ import hakimImage from "@/assets/hakim.jpg";
 import yassineImage from "@/assets/yassine.png";
 import yunusImage from "@/assets/yunus.jpg";
 import { useScrollReveal, staggerStyle } from "@/hooks/useScrollReveal";
-
+import { useTranslation } from "react-i18next";
 
 const founders = [
-  {
-    name: "Hakim Cisse",
-    title: "Co-Founder & CEO",
-    image: hakimImage,
-    description: "Visionary entrepreneur leading Flow Theory AI's mission to help companies scale intelligently through automation and AI systems.",
-  },
-  {
-    name: "Yassine Diallo",
-    title: "Co-Founder & CTO",
-    image: yassineImage,
-    description: "Technical leader and automation architect focused on building stable, high-performance AI ecosystems for clients.",
-  },
-  {
-    name: "Yunus Kounkourou",
-    title: "Co-Founder & COO",
-    image: yunusImage,
-    description: "Operations leader with technical experience enabling scalable execution and efficiency.",
-  },
-];
+  { key: "hakim", name: "Hakim Cisse", image: hakimImage },
+  { key: "yassine", name: "Yassine Diallo", image: yassineImage },
+  { key: "yunus", name: "Yunus Kounkourou", image: yunusImage },
+] as const;
 
 export const Founders = () => {
   const { ref: headerRef, isVisible: headerVisible } = useScrollReveal();
   const { ref: gridRef, isVisible: gridVisible } = useScrollReveal({ threshold: 0.1 });
+  const { t } = useTranslation();
 
   return (
     <section id="founders" className="py-24 sm:py-32 relative section-8">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-screen-2xl mx-auto">
           <div ref={headerRef} className="mb-10 sm:mb-12">
-            <span className="text-mono text-primary/70 block mb-6" style={staggerStyle(0, headerVisible)}>Our team</span>
+            <span className="text-mono text-primary/70 block mb-6" style={staggerStyle(0, headerVisible)}>{t("founders.eyebrow")}</span>
             <h2 className="text-heading" style={staggerStyle(1, headerVisible)}>
-              The team behind<br />
-              <span className="text-gradient">the dream.</span>
+              {t("founders.titleA")}<br />
+              <span className="text-gradient">{t("founders.titleB")}</span>
             </h2>
             <div className="accent-bar mt-6" style={staggerStyle(2, headerVisible)} />
           </div>
-
-
-
 
           <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-3 gap-px bg-border/30">
             {founders.map((founder, i) => (
@@ -63,11 +46,11 @@ export const Founders = () => {
 
                 <div className="space-y-3">
                   <h3 className="text-xl font-bold text-foreground">{founder.name}</h3>
-                  <p className="text-mono text-primary">{founder.title}</p>
+                  <p className="text-mono text-primary">{t(`founders.members.${founder.key}.title`)}</p>
                 </div>
 
                 <p className="text-sm text-muted-foreground leading-relaxed mt-4 max-w-xs">
-                  {founder.description}
+                  {t(`founders.members.${founder.key}.description`)}
                 </p>
               </div>
             ))}
