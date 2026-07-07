@@ -14,6 +14,7 @@ import { SEO } from "@/components/SEO";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { BreadcrumbSchema, BlogListingSchema } from "@/components/StructuredData";
 import { Button } from "@/components/ui/button";
+import { useTranslation } from "react-i18next";
 
 // Import author images
 import hakimImage from "@/assets/hakim.jpg";
@@ -68,6 +69,7 @@ const getAuthorImage = (author: BlogPost["author"]): string | undefined => {
 const Blog = () => {
   const [contactOpen, setContactOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
+  const { t } = useTranslation();
 
   const { data, isLoading, error } = useQuery({
     queryKey: ["blogs"],
@@ -90,10 +92,10 @@ const Blog = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const breadcrumbItems = [{ label: "Blog" }];
+  const breadcrumbItems = [{ label: t("blogPage.title") }];
   const breadcrumbSchemaItems = [
-    { name: "Home", url: SITE_URL },
-    { name: "Blog", url: `${SITE_URL}/blog` },
+    { name: t("common.home"), url: SITE_URL },
+    { name: t("blogPage.title"), url: `${SITE_URL}/blog` },
   ];
 
   return (
@@ -117,10 +119,10 @@ const Blog = () => {
 
           <header className="mb-8 sm:mb-12">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-3 sm:mb-4">
-              Blog
+              {t("blogPage.title")}
             </h1>
             <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-2xl">
-              Insights, strategies, and case studies from the Flow Theory AI team.
+              {t("blogPage.description")}
             </p>
           </header>
 
@@ -144,7 +146,7 @@ const Blog = () => {
           ) : error ? (
             <section className="text-center py-12 sm:py-20">
               <p className="text-base sm:text-xl text-muted-foreground">
-                Failed to load blog posts. Please try again later.
+                {t("blogPage.loadFailed")}
               </p>
             </section>
           ) : blogs.length > 0 ? (
@@ -183,7 +185,7 @@ const Blog = () => {
                           </Avatar>
                           <div>
                             <p className="text-xs sm:text-sm font-medium text-foreground">
-                              {blog.author?.display_name || "Anonymous"}
+                              {blog.author?.display_name || t("blogPage.anonymous")}
                             </p>
                             <p className="text-[10px] sm:text-xs text-muted-foreground flex items-center gap-1 sm:gap-2 flex-wrap">
                               <time dateTime={blog.published_at}>
@@ -226,7 +228,7 @@ const Blog = () => {
                     aria-label="Go to previous page"
                   >
                     <ChevronLeft className="h-4 w-4" />
-                    <span className="hidden sm:inline">Previous</span>
+                    <span className="hidden sm:inline">{t("blogPage.previous")}</span>
                   </Button>
 
                   <div className="flex items-center gap-1 sm:gap-2">
@@ -273,7 +275,7 @@ const Blog = () => {
                     className="gap-1 px-2 sm:px-3"
                     aria-label="Go to next page"
                   >
-                    <span className="hidden sm:inline">Next</span>
+                    <span className="hidden sm:inline">{t("blogPage.next")}</span>
                     <ChevronRight className="h-4 w-4" />
                   </Button>
                 </nav>
@@ -282,7 +284,7 @@ const Blog = () => {
           ) : (
             <section className="text-center py-12 sm:py-20">
               <p className="text-base sm:text-xl text-muted-foreground">
-                No blog posts yet. Check back soon!
+                {t("blogPage.empty")}
               </p>
             </section>
           )}
