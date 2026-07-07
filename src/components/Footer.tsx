@@ -1,6 +1,7 @@
 import { Linkedin, Twitter, Instagram } from "lucide-react";
 import logo from "@/assets/flow-theory-logo.png";
 import { useScrollReveal, staggerStyle } from "@/hooks/useScrollReveal";
+import { useTranslation } from "react-i18next";
 
 const social = [
   { name: "LinkedIn", icon: Linkedin, href: "https://www.linkedin.com/company/107525980" },
@@ -14,6 +15,7 @@ interface FooterProps {
 
 export const Footer = ({ onContactClick }: FooterProps) => {
   const { ref, isVisible } = useScrollReveal({ threshold: 0.1 });
+  const { t } = useTranslation();
 
   return (
     <footer className="relative border-t border-border/20 section-9">
@@ -23,22 +25,22 @@ export const Footer = ({ onContactClick }: FooterProps) => {
             <div style={staggerStyle(0, isVisible)}>
               <img src={logo} alt="Flow Theory AI" className="h-10 w-auto mb-4 opacity-70" />
               <p className="text-sm text-muted-foreground leading-relaxed">
-                AI transformation built on strategy, discovery, and measurable results. Built by founders, for ambitious companies.
+                {t("footer.tagline")}
               </p>
             </div>
 
             <div style={staggerStyle(1, isVisible)}>
-              <h4 className="text-mono text-foreground mb-4">Navigate</h4>
+              <h4 className="text-mono text-foreground mb-4">{t("footer.navigate")}</h4>
               <nav className="flex flex-col gap-2">
-                <a href="#about" className="text-sm text-muted-foreground hover:text-primary transition-colors">About</a>
-                <a href="#services" className="text-sm text-muted-foreground hover:text-primary transition-colors">Services</a>
-                <a href="#case-studies" className="text-sm text-muted-foreground hover:text-primary transition-colors">Case Studies</a>
-                <button onClick={onContactClick} className="text-sm text-muted-foreground hover:text-primary transition-colors text-left">Contact</button>
+                <a href="#about" className="text-sm text-muted-foreground hover:text-primary transition-colors">{t("nav.about")}</a>
+                <a href="#services" className="text-sm text-muted-foreground hover:text-primary transition-colors">{t("nav.services")}</a>
+                <a href="#case-studies" className="text-sm text-muted-foreground hover:text-primary transition-colors">{t("nav.caseStudies")}</a>
+                <button onClick={onContactClick} className="text-sm text-muted-foreground hover:text-primary transition-colors text-left">{t("nav.contact")}</button>
               </nav>
             </div>
 
             <div style={staggerStyle(2, isVisible)}>
-              <h4 className="text-mono text-foreground mb-4">Connect</h4>
+              <h4 className="text-mono text-foreground mb-4">{t("footer.connect")}</h4>
               <div className="flex gap-4">
                 {social.map((item) => (
                   <a
@@ -57,8 +59,8 @@ export const Footer = ({ onContactClick }: FooterProps) => {
           </div>
 
           <div className="border-t border-border/20 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4" style={staggerStyle(3, isVisible)}>
-            <p className="text-xs text-muted-foreground">© 2026 Flow Theory AI</p>
-            <p className="text-xs text-muted-foreground/50 italic">Built with precision and purpose.</p>
+            <p className="text-xs text-muted-foreground">{t("footer.copyright")}</p>
+            <p className="text-xs text-muted-foreground/50 italic">{t("footer.built")}</p>
           </div>
         </div>
       </div>

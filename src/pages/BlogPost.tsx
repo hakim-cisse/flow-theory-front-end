@@ -21,6 +21,8 @@ import { SEO } from "@/components/SEO";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { ArticleSchema, BreadcrumbSchema } from "@/components/StructuredData";
 import { RelatedPosts } from "@/components/RelatedPosts";
+import { useTranslation } from "react-i18next";
+import { useTranslatedContent } from "@/hooks/useTranslatedContent";
 
 // Author images mapping
 import hakimImage from "@/assets/hakim.jpg";
@@ -245,6 +247,22 @@ const BlogPost = () => {
   const authorName = blog.author?.display_name || "Flow Theory AI";
   const readingTime = calculateReadingTime(blog.content);
 
+  // On-the-fly translation of title, excerpt, and rendered HTML body.
+  const { t } = useTranslation();
+  const { translated, loading: translating, lang } = useTranslatedContent(
+    blog
+      ? [
+          { key: "title", text: blog.title },
+          { key: "excerpt", text: blog.excerpt || "" },
+          { key: "body", text: htmlContent },
+        ]
+      : null,
+  );
+  const displayTitle = translated?.title ?? blog.title;
+  const displayExcerpt = translated?.excerpt ?? blog.excerpt ?? "";
+  const displayBody = translated?.body ?? htmlContent;
+
+
   return (
     <div className="min-h-screen bg-background">
       <SEO
@@ -280,8 +298,16 @@ const BlogPost = () => {
 
           <header>
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 sm:mb-6 leading-tight">
-              {blog.title}
+              {displayTitle}
             </h1>
+
+            {lang !== "en" && (
+              <p className="text-xs text-muted-foreground/70 italic mb-4">
+                {translating ? t("blog.translating") : t("blog.machineTranslated")}
+              </p>
+            )}
+
+
 
             {blog.cover_image_url && (
               <figure className="aspect-video rounded-lg overflow-hidden mb-5 sm:mb-8">
@@ -354,7 +380,7 @@ const BlogPost = () => {
 
           <section
             className="prose prose-sm sm:prose-base lg:prose-lg dark:prose-invert max-w-none"
-            dangerouslySetInnerHTML={{ __html: htmlContent }}
+            dangerouslySetInnerHTML={{ __html: displayBody }}
           />
 
           <RelatedPosts currentPostId={postId!} />

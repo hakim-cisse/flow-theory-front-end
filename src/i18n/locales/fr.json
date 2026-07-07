@@ -1,0 +1,76 @@
+{
+  "nav": {
+    "about": "À propos",
+    "team": "Équipe",
+    "services": "Services",
+    "caseStudies": "Études de cas",
+    "blog": "Blog",
+    "contact": "Contact",
+    "bookIntro": "Réserver un appel"
+  },
+  "hero": {
+    "featured": "À la une : 96 000 $ économisés · APT Locator",
+    "title1": "Vos opérations,",
+    "title2": "conçues pour couler.",
+    "sideNote": "Nous analysons le fonctionnement actuel de votre entreprise, identifions précisément où l'automatisation crée de l'effet de levier, et construisons des systèmes que votre équipe utilisera réellement.",
+    "tagline": "Moins de battage. Plus de résultats mesurables.",
+    "cta": "Nous contacter",
+    "explore": "Découvrir nos projets →",
+    "footerLeft": "Stratégie / Systèmes / Impact",
+    "scroll": "Défiler ↓"
+  },
+  "cta": {
+    "eyebrow": "Discutons",
+    "titleA": "Contactez",
+    "titleB": "l'équipe Flow Theory.",
+    "intro": "Que vous exploriez nos services, cherchiez une opportunité de carrière, souhaitiez un partenariat ou vouliez simplement dire bonjour, écrivez-nous et nous répondrons sous 24 heures.",
+    "labels": {
+      "firstName": "01 / Prénom",
+      "lastName": "02 / Nom",
+      "email": "03 / E-mail",
+      "reason": "04 / Motif de contact",
+      "company": "05 / Entreprise",
+      "website": "06 / Site web",
+      "message": "07 / Votre message",
+      "optional": "(facultatif)"
+    },
+    "placeholders": {
+      "firstName": "Jeanne",
+      "lastName": "Dupont",
+      "email": "vous@entreprise.com",
+      "reason": "Sélectionnez…",
+      "company": "Votre entreprise ou organisation",
+      "website": "https://",
+      "message": "Dites-nous en un peu plus sur ce qui vous amène…"
+    },
+    "reasons": {
+      "services": "Intérêt pour les services",
+      "careers": "Opportunités de carrière",
+      "partnership": "Partenariat",
+      "other": "Autre chose"
+    },
+    "submit": "Envoyer le message",
+    "sending": "Envoi",
+    "toastSuccessTitle": "Message envoyé.",
+    "toastSuccessDesc": "Nous vous répondrons sous 24 heures.",
+    "toastErrorTitle": "Erreur",
+    "toastErrorDesc": "Échec de l'envoi. Veuillez réessayer."
+  },
+  "footer": {
+    "tagline": "Transformation IA fondée sur la stratégie, la découverte et des résultats mesurables. Créée par des fondateurs, pour des entreprises ambitieuses.",
+    "navigate": "Naviguer",
+    "connect": "Nous suivre",
+    "copyright": "© 2026 Flow Theory AI",
+    "built": "Conçu avec précision et intention."
+  },
+  "lang": {
+    "label": "Langue",
+    "en": "English",
+    "fr": "Français",
+    "ar": "العربية"
+  },
+  "blog": {
+    "translating": "Traduction en cours…",
+    "machineTranslated": "Cet article a été traduit automatiquement. Voir l'original en anglais."
+  }
+}

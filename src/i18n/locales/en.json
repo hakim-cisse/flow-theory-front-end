@@ -1,0 +1,76 @@
+{
+  "nav": {
+    "about": "About",
+    "team": "Team",
+    "services": "Services",
+    "caseStudies": "Case Studies",
+    "blog": "Blog",
+    "contact": "Contact",
+    "bookIntro": "Book intro"
+  },
+  "hero": {
+    "featured": "Featured: $96K saved · APT Locator",
+    "title1": "Your operations,",
+    "title2": "engineered to flow.",
+    "sideNote": "We analyze how your business runs today, identify exactly where automation creates leverage, and build systems your team will actually use.",
+    "tagline": "Less hype. More measurable outcomes.",
+    "cta": "Get in touch",
+    "explore": "Explore our work →",
+    "footerLeft": "Strategy / Systems / Impact",
+    "scroll": "Scroll ↓"
+  },
+  "cta": {
+    "eyebrow": "Let's talk",
+    "titleA": "Get in touch with",
+    "titleB": "the Flow Theory team.",
+    "intro": "Whether you're exploring our services, interested in a career, looking to partner, or just want to say hello, drop us a note and we'll reply within 24 hours.",
+    "labels": {
+      "firstName": "01 / First name",
+      "lastName": "02 / Last name",
+      "email": "03 / Email",
+      "reason": "04 / Reason for reaching out",
+      "company": "05 / Company",
+      "website": "06 / Website",
+      "message": "07 / Your message",
+      "optional": "(optional)"
+    },
+    "placeholders": {
+      "firstName": "Jane",
+      "lastName": "Doe",
+      "email": "you@company.com",
+      "reason": "Select one…",
+      "company": "Your company or organization",
+      "website": "https://",
+      "message": "Tell us a bit more about what brought you here…"
+    },
+    "reasons": {
+      "services": "Interest in services",
+      "careers": "Career opportunities",
+      "partnership": "Partnering with us",
+      "other": "Something else"
+    },
+    "submit": "Send message",
+    "sending": "Sending",
+    "toastSuccessTitle": "Message sent.",
+    "toastSuccessDesc": "We'll be in touch within 24 hours.",
+    "toastErrorTitle": "Error",
+    "toastErrorDesc": "Failed to send. Please try again."
+  },
+  "footer": {
+    "tagline": "AI transformation built on strategy, discovery, and measurable results. Built by founders, for ambitious companies.",
+    "navigate": "Navigate",
+    "connect": "Connect",
+    "copyright": "© 2026 Flow Theory AI",
+    "built": "Built with precision and purpose."
+  },
+  "lang": {
+    "label": "Language",
+    "en": "English",
+    "fr": "Français",
+    "ar": "العربية"
+  },
+  "blog": {
+    "translating": "Translating…",
+    "machineTranslated": "This article was automatically translated. View original in English."
+  }
+}
