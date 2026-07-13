@@ -10,14 +10,14 @@ import { calculateReadingTime, formatReadingTime } from "@/lib/readingTime";
 import { useScrollReveal, staggerStyle } from "@/hooks/useScrollReveal";
 import { useTranslation } from "react-i18next";
 
-import hakimImage from "@/assets/hakim.jpg";
+import hakimAsset from "@/assets/hakim.png.asset.json";
 import yassineImage from "@/assets/yassine.png";
 import yunusImage from "@/assets/yunus.jpg";
 
 import { BLOG_API_BASE_URL as API_BASE_URL } from "@/lib/blogApi";
 
 const authorImages: Record<string, string> = {
-  "Hakim Cisse": hakimImage,
+  "Hakim Cisse": hakimAsset.url,
   "Yassine Diallo": yassineImage,
   "Yunus Kounkourou": yunusImage,
 };
