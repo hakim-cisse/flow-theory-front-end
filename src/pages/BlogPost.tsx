@@ -25,12 +25,12 @@ import { useTranslation } from "react-i18next";
 import { useTranslatedContent } from "@/hooks/useTranslatedContent";
 
 // Author images mapping
-import hakimAsset from "@/assets/hakim.png.asset.json";
+import hakimImage from "@/assets/hakim.png";
 import yassineImage from "@/assets/yassine.png";
 import yunusImage from "@/assets/yunus.jpg";
 
 const authorImages: Record<string, string> = {
-  "Hakim Cisse": hakimAsset.url,
+  "Hakim Cisse": hakimImage,
   "Yassine Diallo": yassineImage,
   "Yunus Kounkourou": yunusImage,
 };
