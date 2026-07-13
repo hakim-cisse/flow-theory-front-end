@@ -1,11 +1,11 @@
-import hakimImage from "@/assets/hakim.jpg";
+import hakimAsset from "@/assets/hakim.png.asset.json";
 import yassineImage from "@/assets/yassine.png";
 import yunusImage from "@/assets/yunus.jpg";
 import { useScrollReveal, staggerStyle } from "@/hooks/useScrollReveal";
 import { useTranslation } from "react-i18next";
 
 const founders = [
-  { key: "hakim", name: "Hakim Cisse", image: hakimImage },
+  { key: "hakim", name: "Hakim Cisse", image: hakimAsset.url },
   { key: "yassine", name: "Yassine Diallo", image: yassineImage },
   { key: "yunus", name: "Yunus Kounkourou", image: yunusImage },
 ] as const;
