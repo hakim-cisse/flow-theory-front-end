@@ -11,6 +11,7 @@ import { Clock, ChevronLeft, ChevronRight } from "lucide-react";
 import { createBlogPath } from "@/lib/slug";
 import { calculateReadingTime, formatReadingTime } from "@/lib/readingTime";
 import { SEO } from "@/components/SEO";
+import LoadingState from "@/components/LoadingState";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { BreadcrumbSchema, BlogListingSchema } from "@/components/StructuredData";
 import { Button } from "@/components/ui/button";
