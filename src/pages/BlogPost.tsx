@@ -165,6 +165,18 @@ const BlogPost = () => {
     }
   }, [blog?.content]);
 
+  // On-the-fly translation of title, excerpt, and rendered HTML body.
+  const { t } = useTranslation();
+  const { translated, loading: translating, lang } = useTranslatedContent(
+    blog
+      ? [
+          { key: "title", text: blog.title },
+          { key: "excerpt", text: blog.excerpt || "" },
+          { key: "body", text: htmlContent },
+        ]
+      : null,
+  );
+
   useEffect(() => {
     if (!blog || !slug) return;
 
@@ -247,17 +259,6 @@ const BlogPost = () => {
   const authorName = blog.author?.display_name || "Flow Theory AI";
   const readingTime = calculateReadingTime(blog.content);
 
-  // On-the-fly translation of title, excerpt, and rendered HTML body.
-  const { t } = useTranslation();
-  const { translated, loading: translating, lang } = useTranslatedContent(
-    blog
-      ? [
-          { key: "title", text: blog.title },
-          { key: "excerpt", text: blog.excerpt || "" },
-          { key: "body", text: htmlContent },
-        ]
-      : null,
-  );
   const displayTitle = translated?.title ?? blog.title;
   const displayExcerpt = translated?.excerpt ?? blog.excerpt ?? "";
   const displayBody = translated?.body ?? htmlContent;
