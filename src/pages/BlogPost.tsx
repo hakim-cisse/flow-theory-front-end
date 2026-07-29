@@ -18,6 +18,7 @@ import { TextStyle } from "@tiptap/extension-text-style";
 import { extractIdFromSlug, generateSlug, isUuidLike } from "@/lib/slug";
 import { calculateReadingTime, formatReadingTime } from "@/lib/readingTime";
 import { SEO } from "@/components/SEO";
+import LoadingState from "@/components/LoadingState";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { ArticleSchema, BreadcrumbSchema } from "@/components/StructuredData";
 import { RelatedPosts } from "@/components/RelatedPosts";
