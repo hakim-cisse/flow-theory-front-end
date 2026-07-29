@@ -127,22 +127,8 @@ const Blog = () => {
           </header>
 
           {isLoading ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-              {[...Array(6)].map((_, i) => (
-                <Card key={i} className="animate-pulse">
-                  <div className="h-36 sm:h-48 bg-muted rounded-t-lg" />
-                  <CardHeader className="p-4 sm:p-6">
-                    <div className="h-5 sm:h-6 bg-muted rounded w-3/4" />
-                  </CardHeader>
-                  <CardContent className="p-4 sm:p-6 pt-0 sm:pt-0">
-                    <div className="space-y-2">
-                      <div className="h-3 sm:h-4 bg-muted rounded w-full" />
-                      <div className="h-3 sm:h-4 bg-muted rounded w-2/3" />
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
+            <LoadingState label="Loading" />
+
           ) : error ? (
             <section className="text-center py-12 sm:py-20">
               <p className="text-base sm:text-xl text-muted-foreground">
