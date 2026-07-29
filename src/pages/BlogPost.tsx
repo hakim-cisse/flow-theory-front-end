@@ -92,7 +92,7 @@ const BlogPost = () => {
   const embeddedId = slug ? extractIdFromSlug(slug) : null;
   const isFullUuid = embeddedId ? isUuidLike(embeddedId) : false;
 
-  const { data: postsData } = useQuery({
+  const { data: postsData, isLoading: isLookupLoading } = useQuery({
     queryKey: ["blog-list-lookup"],
     queryFn: async () => {
       const response = await fetch(`${API_BASE_URL}?limit=200&offset=0`);
@@ -136,7 +136,7 @@ const BlogPost = () => {
     window.open(urls[platform], "_blank", "noopener,noreferrer,width=600,height=400");
   };
 
-  const { data: blog, isLoading, error } = useQuery({
+  const { data: blog, isLoading: isBlogLoading, error } = useQuery({
     queryKey: ["blog", postId],
     queryFn: async () => {
       const response = await fetch(`${API_BASE_URL}?id=${postId}`);
@@ -202,7 +202,9 @@ const BlogPost = () => {
         { name: "Blog", url: `${SITE_URL}/blog` },
       ];
 
-  if (isLoading) {
+  const isResolvingSlug = !!slug && !isFullUuid && (isLookupLoading || !postsData || !postId);
+
+  if (isResolvingSlug || isBlogLoading) {
     return (
       <div className="min-h-screen bg-background">
         <Header onContactClick={() => setContactOpen(true)} />
@@ -384,7 +386,7 @@ const BlogPost = () => {
             dangerouslySetInnerHTML={{ __html: displayBody }}
           />
 
-          <RelatedPosts currentPostId={postId!} />
+          {postId && <RelatedPosts currentPostId={postId} />}
         </article>
       </main>
 
