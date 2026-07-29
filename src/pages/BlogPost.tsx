@@ -18,6 +18,7 @@ import { TextStyle } from "@tiptap/extension-text-style";
 import { extractIdFromSlug, generateSlug, isUuidLike } from "@/lib/slug";
 import { calculateReadingTime, formatReadingTime } from "@/lib/readingTime";
 import { SEO } from "@/components/SEO";
+import LoadingState from "@/components/LoadingState";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { ArticleSchema, BreadcrumbSchema } from "@/components/StructuredData";
 import { RelatedPosts } from "@/components/RelatedPosts";
@@ -209,15 +210,8 @@ const BlogPost = () => {
       <div className="min-h-screen bg-background">
         <Header onContactClick={() => setContactOpen(true)} />
         <main className="pt-24 sm:pt-32 pb-12 sm:pb-20 px-4 sm:px-6 lg:px-8">
-          <div className="container mx-auto max-w-4xl animate-pulse">
-            <div className="h-6 sm:h-8 bg-muted rounded w-1/4 mb-6 sm:mb-8" />
-            <div className="h-8 sm:h-12 bg-muted rounded w-3/4 mb-4" />
-            <div className="h-48 sm:h-64 bg-muted rounded mb-6 sm:mb-8" />
-            <div className="space-y-2 sm:space-y-3">
-              <div className="h-3 sm:h-4 bg-muted rounded w-full" />
-              <div className="h-3 sm:h-4 bg-muted rounded w-full" />
-              <div className="h-3 sm:h-4 bg-muted rounded w-2/3" />
-            </div>
+          <div className="container mx-auto max-w-4xl">
+            <LoadingState label="Loading" />
           </div>
         </main>
         <Footer onContactClick={() => {}} />
