@@ -1,6 +1,4 @@
-import { useState } from "react";
 import { Hero } from "@/components/Hero";
-import { LogoCatalog } from "@/components/LogoCatalog";
 import { About } from "@/components/About";
 import { WhatWeDo } from "@/components/WhatWeDo";
 import { Services } from "@/components/Services";
@@ -8,50 +6,34 @@ import { Stratum } from "@/components/Stratum";
 import { Founders } from "@/components/Founders";
 import { CaseStudy } from "@/components/CaseStudy";
 import { Testimonials } from "@/components/Testimonials";
-import { CTA } from "@/components/CTA";
-import { Footer } from "@/components/Footer";
-import { Header } from "@/components/Header";
-import { ContactDialog } from "@/components/ContactDialog";
+import { CTABanner } from "@/components/CTABanner";
 import { SEO } from "@/components/SEO";
 import { OrganizationSchema, WebsiteSchema } from "@/components/StructuredData";
 import { BlogPreview } from "@/components/BlogPreview";
-import { AmbientBackground } from "@/components/AmbientBackground";
-import { ScrollProgress } from "@/components/ScrollProgress";
+import { SiteLayout } from "@/components/SiteLayout";
 
-const Index = () => {
-  const [contactOpen, setContactOpen] = useState(false);
-
-  return (
-    <div className="min-h-screen pt-16 relative">
-      <AmbientBackground />
-      <ScrollProgress />
-      <SEO
-        title="AI Transformation Built on Strategy and ROI"
-        description="Flow Theory AI helps businesses cut through the noise, build a clear AI roadmap, and execute only what delivers measurable business value. AI automation, consulting & custom SaaS."
-        canonicalUrl="https://www.flowtheoryai.com/"
-        ogTitle="Flow Theory AI - AI Transformation Built on Strategy and ROI"
-        ogDescription="Flow Theory AI helps businesses cut through the noise, build a clear AI roadmap, and execute only what delivers measurable business value."
-      />
-      <OrganizationSchema />
-      <WebsiteSchema />
-      <div className="relative z-10">
-        <Header onContactClick={() => setContactOpen(true)} />
-        <Hero />
-        <About />
-
-        <Services />
-        <Founders />
-        <WhatWeDo />
-        <Stratum />
-        <CaseStudy />
-        <Testimonials />
-        <CTA />
-        <BlogPreview />
-        <Footer onContactClick={() => setContactOpen(true)} />
-      </div>
-      <ContactDialog open={contactOpen} onOpenChange={setContactOpen} />
-    </div>
-  );
-};
+const Index = () => (
+  <SiteLayout>
+    <SEO
+      title="AI Transformation Built on Strategy and ROI"
+      description="Flow Theory AI helps businesses cut through the noise, build a clear AI roadmap, and execute only what delivers measurable business value. AI automation, consulting & custom SaaS."
+      canonicalUrl="https://www.flowtheoryai.com/"
+      ogTitle="Flow Theory AI - AI Transformation Built on Strategy and ROI"
+      ogDescription="Flow Theory AI helps businesses cut through the noise, build a clear AI roadmap, and execute only what delivers measurable business value."
+    />
+    <OrganizationSchema />
+    <WebsiteSchema />
+    <Hero />
+    <About />
+    <Services />
+    <Founders />
+    <WhatWeDo />
+    <Stratum />
+    <CaseStudy />
+    <Testimonials />
+    <BlogPreview />
+    <CTABanner />
+  </SiteLayout>
+);
 
 export default Index;
