@@ -20,11 +20,10 @@ export const Header = ({ onContactClick }: HeaderProps) => {
   const { t } = useTranslation();
 
   const navLinks = [
-    { label: t("nav.about"), href: "#what-we-do" },
-    { label: t("nav.team"), href: "#founders" },
-    { label: t("nav.services"), href: "#services" },
-    { label: t("nav.caseStudies"), href: "#case-studies" },
+    { label: t("nav.services"), href: "/services", isRoute: true },
+    { label: t("nav.about"), href: "/about", isRoute: true },
     { label: t("nav.blog"), href: "/blog", isRoute: true },
+    { label: t("nav.contact"), href: "/contact", isRoute: true },
   ];
 
   useEffect(() => {
