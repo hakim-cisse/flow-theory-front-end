@@ -6,6 +6,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "next-themes";
 import { HelmetProvider } from "react-helmet-async";
 import Index from "./pages/Index";
+import ServicesPage from "./pages/ServicesPage";
+import AboutPage from "./pages/AboutPage";
+import ContactPage from "./pages/ContactPage";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import NotFound from "./pages/NotFound";
@@ -25,6 +28,9 @@ const App = () => (
 
             <Routes>
               <Route path="/" element={<Index />} />
+              <Route path="/services" element={<ServicesPage />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/contact" element={<ContactPage />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/:slug" element={<BlogPost />} />
               <Route path="*" element={<NotFound />} />

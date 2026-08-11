@@ -1,4 +1,5 @@
 import { Lightbulb, Code2, Puzzle, Rocket, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useScrollReveal, staggerStyle } from "@/hooks/useScrollReveal";
 import { useTranslation } from "react-i18next";
@@ -79,10 +80,10 @@ export const AIProductDevelopment = () => {
 
             <div className="mt-12 flex justify-center" style={staggerStyle(2, ctaVisible)}>
               <Button asChild size="lg" className="group px-8 py-6 font-semibold glow">
-                <a href="#cta">
+                <Link to="/contact">
                   {t("aiProduct.cta")}
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </a>
+                </Link>
               </Button>
             </div>
           </div>
