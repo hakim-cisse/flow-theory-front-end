@@ -77,17 +77,13 @@ export const Header = ({ onContactClick }: HeaderProps) => {
                 <button
                   key={link.href}
                   onClick={() => handleNavClick(link)}
-                  className="text-mono text-foreground/65 hover:text-foreground transition-colors story-link"
+                  className={`text-mono transition-colors story-link ${
+                    location.pathname === link.href ? "text-primary" : "text-foreground/65 hover:text-foreground"
+                  }`}
                 >
                   {link.label}
                 </button>
               ))}
-              <button
-                onClick={onContactClick}
-                className="text-mono text-foreground/65 hover:text-foreground transition-colors story-link"
-              >
-                {t("nav.contact")}
-              </button>
             </nav>
 
             <div className="flex items-center gap-1 md:gap-2">
@@ -102,7 +98,7 @@ export const Header = ({ onContactClick }: HeaderProps) => {
               </button>
 
               <Button
-                onClick={() => handleNavClick({ href: "#cta" })}
+                onClick={() => navigate("/contact")}
                 className="hidden md:inline-flex gap-2 text-mono rounded-none px-5"
                 size="sm"
               >
