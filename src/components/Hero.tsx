@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 import { ArrowRight, FileText } from "lucide-react";
 import { useScrollReveal, staggerStyle } from "@/hooks/useScrollReveal";
 import { useTranslation } from "react-i18next";
@@ -71,12 +72,14 @@ export const Hero = () => {
             style={staggerStyle(4, isVisible, { delay: 0.35, distance: 20 })}
           >
             <Button
+              asChild
               size="lg"
               className="group rounded-none font-medium tracking-wide px-8 py-6 text-sm uppercase"
-              onClick={() => document.querySelector("#cta")?.scrollIntoView({ behavior: "smooth" })}
             >
-              {t("hero.cta")}
-              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              <Link to="/contact">
+                {t("hero.cta")}
+                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
             </Button>
             <button
               onClick={scrollToCaseStudy}

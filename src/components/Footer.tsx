@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Linkedin, Twitter, Instagram } from "lucide-react";
 import logo from "@/assets/flow-theory-logo.png";
 import { useScrollReveal, staggerStyle } from "@/hooks/useScrollReveal";
@@ -32,10 +33,11 @@ export const Footer = ({ onContactClick }: FooterProps) => {
             <div style={staggerStyle(1, isVisible)}>
               <h4 className="text-mono text-foreground mb-4">{t("footer.navigate")}</h4>
               <nav className="flex flex-col gap-2">
-                <a href="#about" className="text-sm text-muted-foreground hover:text-primary transition-colors">{t("nav.about")}</a>
-                <a href="#services" className="text-sm text-muted-foreground hover:text-primary transition-colors">{t("nav.services")}</a>
-                <a href="#case-studies" className="text-sm text-muted-foreground hover:text-primary transition-colors">{t("nav.caseStudies")}</a>
-                <button onClick={onContactClick} className="text-sm text-muted-foreground hover:text-primary transition-colors text-left">{t("nav.contact")}</button>
+                <Link to="/" className="text-sm text-muted-foreground hover:text-primary transition-colors">{t("common.home")}</Link>
+                <Link to="/services" className="text-sm text-muted-foreground hover:text-primary transition-colors">{t("nav.services")}</Link>
+                <Link to="/about" className="text-sm text-muted-foreground hover:text-primary transition-colors">{t("nav.about")}</Link>
+                <Link to="/blog" className="text-sm text-muted-foreground hover:text-primary transition-colors">{t("nav.blog")}</Link>
+                <Link to="/contact" className="text-sm text-muted-foreground hover:text-primary transition-colors">{t("nav.contact")}</Link>
               </nav>
             </div>
 
