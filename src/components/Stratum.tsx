@@ -1,4 +1,5 @@
 import { Search, Target, ShieldCheck, Rocket, GraduationCap, LineChart, Infinity as InfinityIcon, ArrowRight, Sparkles } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useScrollReveal, staggerStyle } from "@/hooks/useScrollReveal";
 import stratumBrainScreenshot from "@/assets/stratum-brain-screenshot.png";
@@ -189,10 +190,10 @@ export const Stratum = () => {
                 {t("stratum.ctaLine")}
               </p>
               <Button asChild size="lg" className="group px-8 py-6 font-semibold glow">
-                <a href="#cta">
+                <Link to="/contact">
                   {t("stratum.ctaButton")}
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </a>
+                </Link>
               </Button>
             </div>
           </div>

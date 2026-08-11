@@ -1,6 +1,7 @@
 import { ArrowRight, ArrowLeft } from "lucide-react";
 import { AuditIcon, WorkflowIcon, IntegrationIcon, DevelopmentIcon, TrainingIcon, EducationIcon, SaaSIcon } from "@/components/icons/FlowIcons";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useScrollReveal, staggerStyle } from "@/hooks/useScrollReveal";
 import { useEffect, useRef } from "react";
@@ -249,10 +250,10 @@ export const Services = () => {
                 </p>
               </div>
               <Button asChild size="lg" className="gap-2 rounded-none uppercase text-xs tracking-wider px-6 py-5 self-start lg:self-end shrink-0 group/btn">
-                <a href="#cta">
+                <Link to="/contact">
                   {t("services.saasCta")}
                   <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
-                </a>
+                </Link>
               </Button>
             </div>
           </div>

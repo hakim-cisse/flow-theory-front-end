@@ -130,12 +130,6 @@ export const Header = ({ onContactClick }: HeaderProps) => {
                 {link.label}
               </button>
             ))}
-            <button
-              onClick={() => { onContactClick(); setIsOpen(false); }}
-              className="px-4 py-3 text-sm text-muted-foreground hover:text-foreground transition-colors text-left"
-            >
-              {t("nav.contact")}
-            </button>
           </nav>
         </div>
       )}
