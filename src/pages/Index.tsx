@@ -14,7 +14,7 @@ import { SiteLayout } from "@/components/SiteLayout";
 const Index = () => (
   <SiteLayout>
     <SEO
-      title="Built by Founders to Make AI Your Operating Advantage"
+      title="Built to Make AI Your Operating Advantage"
       description="We help ambitious companies figure out where AI creates real leverage, then build and embed the systems that make it operational. Strategy, engineering, and adoption — end to end."
       canonicalUrl="https://www.flowtheoryai.com/"
     />
