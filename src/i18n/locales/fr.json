@@ -570,29 +570,29 @@
         "label": "Ce que nous faisons",
         "title": "Nous agissons comme votre Chief AI Officer.",
         "items": {
-          "process": {
-            "title": "Audit des Processus",
-            "desc": "Nous suivons le travail de bout en bout, reperons ou il bloque et chiffrons ce que cette friction vous coute."
+          "audit": {
+            "title": "Audit IA",
+            "desc": "Nous cartographions le flux réel du travail, les pertes de temps et d'argent, et ce que l'IA peut réellement prendre en charge."
           },
-          "executive": {
-            "title": "Audit Direction",
-            "desc": "Nous clarifions ce que la direction cherche vraiment a gagner, puis classons les paris IA selon ces objectifs."
+          "roadmap": {
+            "title": "Feuille de route",
+            "desc": "Un plan séquencé des initiatives à financer, chacune avec un retour attendu, un responsable et un ordre de construction."
           },
-          "interviews": {
-            "title": "Entretiens Experts",
-            "desc": "Des echanges avec ceux qui font le travail : les vrais goulots n'apparaissent jamais dans l'organigramme."
+          "codesign": {
+            "title": "Sessions de co-conception",
+            "desc": "Des sessions de travail avec les personnes sur le terrain, pour concevoir avec elles plutôt que leur imposer un outil."
           },
-          "training": {
-            "title": "Formation Sur Mesure",
-            "desc": "Des ateliers bases sur vos propres flux, plus la conduite du changement qui ancre les nouvelles habitudes."
+          "build": {
+            "title": "Construction",
+            "desc": "Nous construisons et déployons les systèmes, seuls ou avec vos équipes, jusqu'à leur mise en production."
           },
-          "tooling": {
-            "title": "Outillage IA",
-            "desc": "Du pret a l'emploi quand ca suffit, notre propre IP quand ca aide, du sur-mesure quand rien d'autre ne convient."
+          "train": {
+            "title": "Formation",
+            "desc": "Une formation pratique sur vos propres flux de travail pour que l'IA devienne le réflexe de vos équipes."
           },
-          "engineering": {
-            "title": "Ingenierie IA",
-            "desc": "Quand la strategie exige du logiciel, notre equipe de build prend le relais et livre vite."
+          "governance": {
+            "title": "Gouvernance",
+            "desc": "Garde-fous, responsabilités et revues régulières pour que ce qui est lancé reste sûr, mesuré et en amélioration."
           }
         }
       }
