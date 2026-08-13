@@ -21,7 +21,7 @@ export const Hero = () => {
   ];
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden section-1 pt-24 md:pt-20 pb-16">
+    <section className="relative min-h-screen flex items-center overflow-hidden section-1 pb-16">
       <div ref={ref} className="relative z-10 container mx-auto px-4 md:px-10 lg:px-16 max-w-[1600px]">
         {/* Instrument panel frame */}
         <div className="relative border border-foreground/15 p-1">
