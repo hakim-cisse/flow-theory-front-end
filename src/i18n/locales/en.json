@@ -511,7 +511,7 @@
           "index": "02",
           "label": "AI Engineering",
           "eyebrow": "Product, systems, code",
-          "tagline": "Senior pods that ship production-grade AI software: new products, new intelligence inside the ones you already run.",
+          "tagline": "Production-grade AI software: new products, new intelligence inside the ones you already run.",
           "p1": "AI products and custom SaaS",
           "p2": "Integrations across your stack",
           "p3": "Owned by you, no lock-in"
@@ -539,7 +539,7 @@
             "index": "01",
             "name": "Product Transformation",
             "tagline": "Ship beautiful software, fast.",
-            "body": "Small senior pods of engineers and product operators who use AI acceleration to ship production-grade software faster and more affordably than a traditional team."
+            "body": "An engineering-led approach that uses AI acceleration to ship production-grade software faster and more affordably than a traditional team."
           },
           "process": {
             "index": "02",
@@ -592,7 +592,7 @@
           },
           "engineering": {
             "title": "AI Engineering",
-            "desc": "Outcome-based engineering squads that ship production-grade software on a compressed timeline."
+            "desc": "Outcome-based engineering that ships production-grade software on a compressed timeline."
           }
         }
       }
@@ -601,7 +601,7 @@
       "eyebrow": "Service 02 / Engineering",
       "title": "AI Engineering",
       "lead1": "Strategy without shipped software is a slide deck. This is the build arm.",
-      "lead2": "Senior pods that design, build, and deploy AI products, integrations, and custom SaaS you fully own.",
+      "lead2": "We design, build, and deploy AI products, integrations, data pipelines, and custom SaaS you fully own.",
       "capabilities": {
         "label": "Capabilities",
         "title": "What we build.",
@@ -621,6 +621,18 @@
           "saas": {
             "title": "Custom SaaS",
             "desc": "Scalable platforms built for your market, your margins, and your growth model. Owned by you."
+          },
+          "refactors": {
+            "title": "Code Refactors & Migration",
+            "desc": "Legacy codebases modernized, untangled, and migrated to current stacks without stalling the roadmap."
+          },
+          "data": {
+            "title": "Data Engineering",
+            "desc": "Complex data pipelines built and maintained: ingestion, transformation, and warehousing your systems can trust."
+          },
+          "nl2sql": {
+            "title": "Natural Language to SQL",
+            "desc": "Conversational access to your databases so teams can ask questions in plain language and get accurate answers."
           }
         }
       }
