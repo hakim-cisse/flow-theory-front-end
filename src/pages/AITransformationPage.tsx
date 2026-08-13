@@ -22,7 +22,7 @@ const CornerTicks = () => (
 );
 
 const pillarKeys = ["product", "process", "people"] as const;
-const capabilityKeys = ["process", "executive", "interviews", "training", "tooling", "engineering"] as const;
+const capabilityKeys = ["audit", "roadmap", "codesign", "build", "train", "governance"] as const;
 const whyKeys = ["p1", "p2", "p3", "p4"] as const;
 
 const AITransformationPage = () => {
