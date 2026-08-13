@@ -34,10 +34,10 @@
       "brief": "موجز"
     },
     "metrics": {
-      "savedLabel": "تكاليف موفّرة",
-      "savedValue": "+120 ألف دولار لكل عميل",
-      "hoursLabel": "ساعات مستعادة",
-      "hoursValue": "55 ساعة / أسبوع",
+      "savedLabel": "النطاق",
+      "savedValue": "من الاستراتيجية إلى الإنتاج",
+      "hoursLabel": "التبنّي",
+      "hoursValue": "تدريب وليس مجرد نشر",
       "layersLabel": "المنهجية",
       "layersValue": "STRATUM، 7 طبقات",
       "buildLabel": "المشاريع",

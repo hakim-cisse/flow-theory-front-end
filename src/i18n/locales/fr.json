@@ -34,10 +34,10 @@
       "brief": "Résumé"
     },
     "metrics": {
-      "savedLabel": "Coûts supprimés",
-      "savedValue": "120 000 $+ par client",
-      "hoursLabel": "Heures récupérées",
-      "hoursValue": "55 h / semaine",
+      "savedLabel": "Périmètre",
+      "savedValue": "Stratégie à production",
+      "hoursLabel": "Adoption",
+      "hoursValue": "Formés, pas seulement déployés",
       "layersLabel": "Méthode",
       "layersValue": "STRATUM, 7 couches",
       "buildLabel": "Missions",
