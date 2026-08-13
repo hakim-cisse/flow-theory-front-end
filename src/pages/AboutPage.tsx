@@ -6,7 +6,6 @@ import { About } from "@/components/About";
 import { Founders } from "@/components/Founders";
 import { CaseStudy } from "@/components/CaseStudy";
 import { Testimonials } from "@/components/Testimonials";
-import { CTABanner } from "@/components/CTABanner";
 
 const AboutPage = () => (
   <SiteLayout>
@@ -22,7 +21,6 @@ const AboutPage = () => (
       <Founders />
       <CaseStudy />
       <Testimonials />
-      <CTABanner />
     </div>
   </SiteLayout>
 );

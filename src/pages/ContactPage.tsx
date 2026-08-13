@@ -3,7 +3,7 @@ import { SEO } from "@/components/SEO";
 import { CTA } from "@/components/CTA";
 
 const ContactPage = () => (
-  <SiteLayout>
+  <SiteLayout hideCTA>
     <SEO
       title="Contact Flow Theory AI"
       description="Talk to the Flow Theory AI team about services, partnerships or careers. We reply within 24 hours."

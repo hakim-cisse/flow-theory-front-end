@@ -4,7 +4,6 @@ import { useTranslation } from "react-i18next";
 import { SiteLayout } from "@/components/SiteLayout";
 import { SEO } from "@/components/SEO";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
-import { CTABanner } from "@/components/CTABanner";
 import { Stratum } from "@/components/Stratum";
 import { Button } from "@/components/ui/button";
 import { useScrollReveal, staggerStyle } from "@/hooks/useScrollReveal";
@@ -215,7 +214,6 @@ const AITransformationPage = () => {
       </section>
 
       <Stratum />
-      <CTABanner />
     </SiteLayout>
   );
 };

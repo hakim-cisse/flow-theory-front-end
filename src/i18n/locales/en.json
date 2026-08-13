@@ -625,5 +625,13 @@
         }
       }
     }
+  },
+  "ctaBanner": {
+    "eyebrow": "/ Last call",
+    "titleA": "Don't fall behind.",
+    "titleB": "Move while it still counts.",
+    "lead": "The gap between AI-native companies and everyone else compounds every quarter. Let's talk about where you stand.",
+    "meshLabel": "Topology / Founding team",
+    "meshId": "MESH-FT-003"
   }
 }

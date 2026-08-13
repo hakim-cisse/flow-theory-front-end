@@ -4,7 +4,6 @@ import { useTranslation } from "react-i18next";
 import { SiteLayout } from "@/components/SiteLayout";
 import { SEO } from "@/components/SEO";
 import { Services } from "@/components/Services";
-import { CTABanner } from "@/components/CTABanner";
 import { useScrollReveal, staggerStyle } from "@/hooks/useScrollReveal";
 
 const tracks = [
@@ -89,7 +88,6 @@ const ServicesPage = () => {
       </section>
 
       <Services />
-      <CTABanner />
     </SiteLayout>
   );
 };
