@@ -20,7 +20,15 @@ export const Header = ({ onContactClick }: HeaderProps) => {
   const { t } = useTranslation();
 
   const navLinks = [
-    { label: t("nav.services"), href: "/services", isRoute: true },
+    {
+      label: t("nav.services"),
+      href: "/services",
+      isRoute: true,
+      children: [
+        { label: t("svc.hub.cards.transformation.label"), href: "/services/ai-transformation" },
+        { label: t("svc.hub.cards.engineering.label"), href: "/services/ai-engineering" },
+      ],
+    },
     { label: t("nav.about"), href: "/about", isRoute: true },
     { label: t("nav.blog"), href: "/blog", isRoute: true },
     { label: t("nav.contact"), href: "/contact", isRoute: true },
@@ -74,15 +82,33 @@ export const Header = ({ onContactClick }: HeaderProps) => {
 
             <nav className="hidden md:flex items-center gap-8">
               {navLinks.map((link) => (
-                <button
-                  key={link.href}
-                  onClick={() => handleNavClick(link)}
-                  className={`text-mono transition-colors story-link ${
-                    location.pathname === link.href ? "text-primary" : "text-foreground/65 hover:text-foreground"
-                  }`}
-                >
-                  {link.label}
-                </button>
+                <div key={link.href} className="relative group py-2">
+                  <button
+                    onClick={() => handleNavClick(link)}
+                    className={`text-mono transition-colors story-link ${
+                      location.pathname.startsWith(link.href) && link.href !== "/" ? "text-primary" : "text-foreground/65 hover:text-foreground"
+                    }`}
+                  >
+                    {link.label}
+                  </button>
+                  {link.children && (
+                    <div className="absolute left-0 top-full pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                      <div className="min-w-[240px] border border-border/40 bg-background/95 backdrop-blur-xl">
+                        {link.children.map((child) => (
+                          <button
+                            key={child.href}
+                            onClick={() => { navigate(child.href); setIsOpen(false); }}
+                            className={`block w-full text-left px-5 py-3 text-mono text-xs transition-colors hover:bg-primary/[0.06] ${
+                              location.pathname === child.href ? "text-primary" : "text-foreground/70 hover:text-foreground"
+                            }`}
+                          >
+                            {child.label}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
               ))}
             </nav>
 
@@ -122,13 +148,23 @@ export const Header = ({ onContactClick }: HeaderProps) => {
         <div className="md:hidden bg-background/95 backdrop-blur-xl border-b border-border/30">
           <nav className="container mx-auto px-4 py-4 flex flex-col gap-1">
             {navLinks.map((link) => (
-              <button
-                key={link.href}
-                onClick={() => handleNavClick(link)}
-                className="px-4 py-3 text-sm text-muted-foreground hover:text-foreground transition-colors text-left"
-              >
-                {link.label}
-              </button>
+              <div key={link.href} className="flex flex-col">
+                <button
+                  onClick={() => handleNavClick(link)}
+                  className="px-4 py-3 text-sm text-muted-foreground hover:text-foreground transition-colors text-left"
+                >
+                  {link.label}
+                </button>
+                {link.children?.map((child) => (
+                  <button
+                    key={child.href}
+                    onClick={() => { navigate(child.href); setIsOpen(false); }}
+                    className="pl-8 pr-4 py-2 text-xs text-mono text-muted-foreground/80 hover:text-foreground transition-colors text-left"
+                  >
+                    {child.label}
+                  </button>
+                ))}
+              </div>
             ))}
           </nav>
         </div>
