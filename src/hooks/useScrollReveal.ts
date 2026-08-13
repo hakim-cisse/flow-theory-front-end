@@ -7,8 +7,8 @@ interface UseScrollRevealOptions {
 }
 
 export const useScrollReveal = ({
-  threshold = 0.15,
-  rootMargin = "0px 0px -40px 0px",
+  threshold = 0.05,
+  rootMargin = "0px 0px 120px 0px",
   once = true,
 }: UseScrollRevealOptions = {}) => {
   const ref = useRef<HTMLDivElement>(null);
@@ -46,10 +46,13 @@ export const staggerStyle = (
   isVisible: boolean,
   options?: { delay?: number; duration?: number; distance?: number }
 ): React.CSSProperties => {
-  const { delay = 0.1, duration = 0.6, distance = 30 } = options || {};
+  const { delay = 0.07, duration = 0.5, distance = 20 } = options || {};
+  // Cap cumulative delay so fast scrolling never outruns the reveal.
+  const d = Math.min(index * delay, 0.35);
   return {
     opacity: isVisible ? 1 : 0,
     transform: isVisible ? "translateY(0)" : `translateY(${distance}px)`,
-    transition: `opacity ${duration}s ease-out ${index * delay}s, transform ${duration}s ease-out ${index * delay}s`,
+    transition: `opacity ${duration}s ease-out ${d}s, transform ${duration}s ease-out ${d}s`,
+    willChange: isVisible ? "auto" : "opacity, transform",
   };
 };

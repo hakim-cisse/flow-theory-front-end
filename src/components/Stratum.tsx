@@ -27,8 +27,14 @@ export const Stratum = () => {
 
   return (
     <section id="stratum" className="py-24 sm:py-32 relative overflow-hidden section-6">
-      <div className="absolute top-1/3 left-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[120px] pointer-events-none" />
+      {/* Cheap gradient washes (no blur filters) so the section stays smooth while scrolling */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(45% 40% at 10% 33%, hsl(var(--primary) / 0.06), transparent 70%), radial-gradient(40% 35% at 95% 100%, hsl(var(--accent) / 0.06), transparent 70%)",
+        }}
+      />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-screen-2xl mx-auto">
@@ -65,7 +71,7 @@ export const Stratum = () => {
                       paddingLeft: `clamp(0px, ${offset}px, ${offset}px)`,
                     }}
                   >
-                    <div className="relative flex flex-col sm:flex-row items-start gap-5 sm:gap-7 p-6 sm:p-8 border border-border/40 bg-card/40 backdrop-blur-sm transition-all duration-500 hover:border-primary/40 hover:bg-primary/[0.03]">
+                    <div className="relative flex flex-col sm:flex-row items-start gap-5 sm:gap-7 p-6 sm:p-8 border border-border/40 bg-card/40 transition-colors duration-300 hover:border-primary/40 hover:bg-primary/[0.03]">
                       <div className="flex sm:flex-col items-center sm:items-start gap-4 sm:gap-3 shrink-0 sm:w-24">
                         <span className="font-serif text-4xl sm:text-5xl leading-none text-primary tabular-nums">
                           {layer.letter}
@@ -89,7 +95,7 @@ export const Stratum = () => {
                         </p>
                       </div>
 
-                      <div className="absolute right-0 top-0 bottom-0 w-1 bg-transparent group-hover:bg-primary/40 transition-all duration-500" />
+                      <div className="absolute right-0 top-0 bottom-0 w-1 bg-transparent group-hover:bg-primary/40 transition-colors duration-300" />
                     </div>
                   </div>
                 );
@@ -133,9 +139,9 @@ export const Stratum = () => {
                 className="lg:col-span-8 order-1 lg:order-2 relative group"
                 style={staggerStyle(2, showcaseVisible, { delay: 0.15, distance: 40 })}
               >
-                <div className="absolute -inset-6 bg-gradient-to-tr from-primary/20 via-primary/5 to-accent/20 blur-3xl opacity-60 group-hover:opacity-90 transition-opacity duration-700 pointer-events-none" />
+                
 
-                <div className="relative border border-primary/20 bg-card/60 backdrop-blur-sm p-2 sm:p-3 shadow-[0_30px_80px_-30px_hsl(var(--primary)/0.5)]">
+                <div className="relative border border-primary/20 bg-card/60 p-2 sm:p-3 shadow-[0_20px_50px_-30px_hsl(var(--primary)/0.4)]">
                   <div className="flex items-center justify-between px-3 py-2 border-b border-border/40 bg-background/60">
                     <div className="flex items-center gap-1.5">
                       <span className="w-2.5 h-2.5 rounded-full bg-foreground/20" />
@@ -173,7 +179,7 @@ export const Stratum = () => {
               {principleKeys.map((k, i) => (
                 <div
                   key={k}
-                  className="group p-8 bg-background hover:bg-primary/5 transition-all duration-500"
+                  className="group p-8 bg-background hover:bg-primary/5 transition-colors duration-300"
                   style={staggerStyle(i + 1, principlesVisible, { delay: 0.1 })}
                 >
                   <span className="text-mono text-xs text-primary/60 block mb-3">0{i + 1}</span>
