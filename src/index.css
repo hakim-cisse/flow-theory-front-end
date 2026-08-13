@@ -436,3 +436,15 @@
   0% { transform: translate(-80px, 0) scale(0.92) rotate(-6deg); opacity: 0; }
   100% { transform: translate(0, 0) scale(1) rotate(0deg); opacity: 1; }
 }
+
+@keyframes logo-belt {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.logo-belt-track {
+  animation: logo-belt 40s linear infinite;
+  width: max-content;
+}
+@media (prefers-reduced-motion: reduce) {
+  .logo-belt-track { animation: none; }
+}
