@@ -633,6 +633,10 @@
           "nl2sql": {
             "title": "Langage naturel vers SQL",
             "desc": "Un accès conversationnel à vos bases de données : des questions en langage clair, des réponses exactes."
+          },
+          "andmore": {
+            "title": "Et plus",
+            "desc": "Si cela touche à l'intelligence, aux données ou au logiciel, nous pouvons l'architecturer. Parlez-nous de votre besoin."
           }
         }
       }

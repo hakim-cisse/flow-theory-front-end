@@ -9,7 +9,7 @@ import { HowItWorks } from "@/components/HowItWorks";
 import { Button } from "@/components/ui/button";
 import { useScrollReveal, staggerStyle } from "@/hooks/useScrollReveal";
 
-const capabilityKeys = ["products", "features", "integrations", "saas", "refactors", "data", "nl2sql"] as const;
+const capabilityKeys = ["products", "features", "integrations", "saas", "refactors", "data", "nl2sql", "andmore"] as const;
 
 const AIEngineeringPage = () => {
   const { t } = useTranslation();

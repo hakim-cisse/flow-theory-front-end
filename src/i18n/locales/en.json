@@ -633,6 +633,10 @@
           "nl2sql": {
             "title": "Natural Language to SQL",
             "desc": "Conversational access to your databases so teams can ask questions in plain language and get accurate answers."
+          },
+          "andmore": {
+            "title": "And more",
+            "desc": "If it involves intelligence, data, or software, we can architect it. Tell us what you're facing."
           }
         }
       }
