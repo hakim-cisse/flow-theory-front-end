@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useScrollReveal, staggerStyle } from "@/hooks/useScrollReveal";
 import { useTranslation } from "react-i18next";
-import meshTeam from "@/assets/mesh-team.png";
+import meshTeam from "@/assets/mesh-team-cutout.png";
 
 export const CTABanner = () => {
   const { ref, isVisible } = useScrollReveal({ threshold: 0.2 });
@@ -21,16 +21,23 @@ export const CTABanner = () => {
         }}
       />
 
-      {/* team mesh as background */}
-      <div className="absolute inset-y-0 right-0 w-full lg:w-3/5 pointer-events-none select-none">
+      {/* team mesh blended into the environment */}
+      <div className="absolute inset-y-0 right-0 w-full lg:w-1/2 pointer-events-none select-none flex items-end justify-center lg:justify-end">
         <img
           src={meshTeam}
           alt="Wireframe mesh render of the Flow Theory AI founding team"
-          className="w-full h-full object-cover object-center opacity-[0.22] lg:opacity-40 mix-blend-screen dark:mix-blend-screen"
+          className="h-[85%] lg:h-[92%] w-auto max-w-none object-contain opacity-20 lg:opacity-50"
+          style={{
+            maskImage:
+              "linear-gradient(to right, transparent 0%, black 28%), linear-gradient(to top, transparent 0%, black 18%)",
+            maskComposite: "intersect",
+            WebkitMaskImage:
+              "linear-gradient(to right, transparent 0%, black 28%), linear-gradient(to top, transparent 0%, black 18%)",
+            WebkitMaskComposite: "source-in",
+          }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/70 to-transparent lg:via-background/30" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/60" />
       </div>
+
 
       <div ref={ref} className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-20 sm:py-28">
         <div className="max-w-screen-2xl mx-auto grid grid-cols-1 lg:grid-cols-12">
