@@ -144,9 +144,8 @@ const AITransformationPage = () => {
               className="mt-px flex flex-wrap items-center gap-x-2 gap-y-1 border border-border/40 border-t-0 bg-secondary/30 px-8 py-6 text-sm hover:bg-primary/[0.05] transition-colors group"
             >
               <span className="text-muted-foreground">{t("svc.transformation.execution.linkA")}</span>
-              <span className="text-foreground">{t("svc.transformation.execution.linkB")}</span>
               <span className="text-primary inline-flex items-center gap-1">
-                {t("svc.transformation.execution.linkC")}
+                {t("svc.transformation.execution.linkB")}
                 <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
               </span>
             </Link>
