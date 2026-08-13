@@ -17,6 +17,7 @@ const AboutPage = () => (
     />
     <div className="pt-10">
       <FlowDefinition />
+      <Thesis />
       <About />
       <Founders />
       <CaseStudy />
