@@ -20,7 +20,7 @@ const ServicesPage = () => {
     <SiteLayout>
       <SEO
         title="Services: AI Transformation and AI Engineering"
-        description="Flow Theory AI offers two services: AI Transformation for strategy, process and people, and AI Engineering for production-grade AI software."
+        description="We help ambitious companies figure out where AI creates real leverage, then build and embed the systems that make it operational. Explore our AI Transformation and AI Engineering tracks."
         canonicalUrl="https://www.flowtheoryai.com/services"
       />
 
