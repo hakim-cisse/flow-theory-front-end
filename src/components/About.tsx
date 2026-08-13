@@ -38,30 +38,21 @@ export const About = () => {
           </div>
 
           <div
-            className="flex flex-col gap-y-16 md:gap-y-24 py-8"
+            className="relative overflow-hidden py-8 border-y border-border/30"
             style={staggerStyle(1, isVisible)}
           >
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-x-12 md:gap-x-20 gap-y-16 items-center justify-items-center">
-              {logos.slice(0, 4).map((logo, i) => (
+            <div className="logo-belt-track flex items-center gap-x-16 md:gap-x-28">
+              {[...logos, ...logos].map((logo, i) => (
                 <img
                   key={i}
                   src={logo.src}
                   alt={logo.alt}
-                  className="max-h-20 md:max-h-28 max-w-[200px] md:max-w-[280px] object-contain"
-                />
-              ))}
-            </div>
-            <div className="grid grid-cols-2 gap-x-12 md:gap-x-20 items-center justify-items-center max-w-2xl mx-auto w-full">
-              {logos.slice(4, 6).map((logo, i) => (
-                <img
-                  key={i}
-                  src={logo.src}
-                  alt={logo.alt}
-                  className="max-h-20 md:max-h-28 max-w-[200px] md:max-w-[280px] object-contain"
+                  className="max-h-16 md:max-h-24 max-w-[160px] md:max-w-[240px] object-contain shrink-0"
                 />
               ))}
             </div>
           </div>
+
         </div>
       </div>
 
