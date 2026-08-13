@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useScrollReveal, staggerStyle } from "@/hooks/useScrollReveal";
 import { useTranslation } from "react-i18next";
-import meshTeam from "@/assets/mesh-team.png";
+import meshTeam from "@/assets/mesh-team-cutout.png";
 
 export const CTABanner = () => {
   const { ref, isVisible } = useScrollReveal({ threshold: 0.2 });
