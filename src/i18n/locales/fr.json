@@ -511,7 +511,7 @@
           "index": "02",
           "label": "Ingénierie IA",
           "eyebrow": "Produit, systèmes, code",
-          "tagline": "Des équipes seniors qui livrent des logiciels IA prêts pour la production : nouveaux produits ou intelligence ajoutée à l'existant.",
+          "tagline": "Des logiciels IA prêts pour la production : nouveaux produits ou intelligence ajoutée à l'existant.",
           "p1": "Produits IA et SaaS sur mesure",
           "p2": "Intégrations dans toute votre stack",
           "p3": "Vous en êtes propriétaire, sans dépendance"
@@ -539,7 +539,7 @@
             "index": "01",
             "name": "Transformation produit",
             "tagline": "Livrer un logiciel remarquable, vite.",
-            "body": "De petites équipes seniors d'ingénieurs et de product operators qui utilisent l'accélération IA pour livrer du logiciel de production plus vite et à moindre coût."
+            "body": "Une approche pilotée par l'ingénierie qui utilise l'accélération IA pour livrer du logiciel de production plus vite et à moindre coût."
           },
           "process": {
             "index": "02",
@@ -592,7 +592,7 @@
           },
           "engineering": {
             "title": "Ingénierie IA",
-            "desc": "Des équipes orientées résultats qui livrent du logiciel de production en temps réduit."
+            "desc": "Une ingénierie orientée résultats qui livre du logiciel de production sur un calendrier compressé."
           }
         }
       }
@@ -601,7 +601,7 @@
       "eyebrow": "Service 02 / Ingénierie",
       "title": "Ingénierie IA",
       "lead1": "Une stratégie sans logiciel livré n'est qu'une présentation. Voici le bras d'exécution.",
-      "lead2": "Des équipes seniors qui conçoivent, développent et déploient produits IA, intégrations et SaaS sur mesure dont vous êtes propriétaire.",
+      "lead2": "Nous concevons, développons et déployons produits IA, intégrations, pipelines de données et SaaS sur mesure dont vous êtes propriétaire.",
       "capabilities": {
         "label": "Capacités",
         "title": "Ce que nous construisons.",
@@ -621,6 +621,18 @@
           "saas": {
             "title": "SaaS sur mesure",
             "desc": "Des plateformes scalables pensées pour votre marché, vos marges et votre croissance."
+          },
+          "refactors": {
+            "title": "Refactorisation & migration de code",
+            "desc": "Bases de code héritées modernisées, clarifiées et migrées vers des stacks actuelles sans bloquer la feuille de route."
+          },
+          "data": {
+            "title": "Data engineering",
+            "desc": "Pipelines de données complexes conçus et maintenus : ingestion, transformation et entreposage fiables."
+          },
+          "nl2sql": {
+            "title": "Langage naturel vers SQL",
+            "desc": "Un accès conversationnel à vos bases de données : des questions en langage clair, des réponses exactes."
           }
         }
       }
