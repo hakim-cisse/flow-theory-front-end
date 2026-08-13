@@ -570,29 +570,29 @@
         "label": "What we do",
         "title": "We act as your Chief AI Officer.",
         "items": {
-          "process": {
-            "title": "Process Survey",
-            "desc": "We follow the work end to end, find where it stalls, and price what that friction is costing you."
+          "audit": {
+            "title": "AI Audit",
+            "desc": "We map how work actually moves, where time and money leak, and which of it AI can realistically take on."
           },
-          "executive": {
-            "title": "Executive Survey",
-            "desc": "We get clear on what leadership is actually trying to win, then rank AI bets against those goals."
+          "roadmap": {
+            "title": "Roadmap",
+            "desc": "A sequenced plan of the bets worth funding, each with an expected return, an owner, and a build order."
           },
-          "interviews": {
-            "title": "Expert Interviews",
-            "desc": "Conversations with the people doing the work, because the real bottlenecks never show up in the org chart."
+          "codesign": {
+            "title": "Co-Design Sessions",
+            "desc": "Working sessions with the people who do the job, so the solution is shaped with them instead of dropped on them."
           },
-          "training": {
-            "title": "Custom Training",
-            "desc": "Workshops built on your own workflows, plus the change management that makes new habits stick."
+          "build": {
+            "title": "Build",
+            "desc": "We build and deploy the systems, either ourselves or alongside your team, until they run in production."
           },
-          "tooling": {
-            "title": "AI Tooling",
-            "desc": "Off-the-shelf where it fits, our own IP where it helps, custom builds where nothing else will do."
+          "train": {
+            "title": "Educate & Train",
+            "desc": "Hands-on training on your own workflows so AI becomes the default way your team works."
           },
-          "engineering": {
-            "title": "AI Engineering",
-            "desc": "When strategy calls for software, our build team picks it up and ships it on a compressed timeline."
+          "governance": {
+            "title": "Governance",
+            "desc": "Guardrails, ownership, and review cadence so what we launch stays safe, measured, and improving."
           }
         }
       }
