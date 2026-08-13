@@ -9,7 +9,7 @@ import { HowItWorks } from "@/components/HowItWorks";
 import { Button } from "@/components/ui/button";
 import { useScrollReveal, staggerStyle } from "@/hooks/useScrollReveal";
 
-const capabilityKeys = ["products", "features", "integrations", "saas"] as const;
+const capabilityKeys = ["products", "features", "integrations", "saas", "refactors", "data", "nl2sql"] as const;
 
 const AIEngineeringPage = () => {
   const { t } = useTranslation();
@@ -20,7 +20,7 @@ const AIEngineeringPage = () => {
     <SiteLayout>
       <SEO
         title="AI Engineering Services"
-        description="Senior engineering pods that ship production-grade AI products, integrations, and custom SaaS you fully own."
+        description="We build production-grade AI products, integrations, data pipelines, and custom SaaS you fully own."
         canonicalUrl="https://www.flowtheoryai.com/services/ai-engineering"
       />
 
