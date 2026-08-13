@@ -25,7 +25,24 @@
     "cta": "Get in touch",
     "explore": "Explore our work →",
     "footerLeft": "Strategy / Systems / Impact",
-    "scroll": "Scroll ↓"
+    "scroll": "Scroll ↓",
+    "panel": {
+      "status": "Status: Operating",
+      "ref": "Ref: FT / 2026",
+      "live": "Systems live",
+      "featuredTag": "Case file",
+      "brief": "Brief"
+    },
+    "metrics": {
+      "savedLabel": "Cost removed",
+      "savedValue": "$120K+ per client",
+      "hoursLabel": "Hours returned",
+      "hoursValue": "55 hrs / week",
+      "layersLabel": "Method",
+      "layersValue": "STRATUM, 7 layers",
+      "buildLabel": "Engagements",
+      "buildValue": "Boutique, by design"
+    }
   },
   "clientsStrip": {
     "trustedBy": "Trusted by businesses building the future"
@@ -57,11 +74,26 @@
     "titleA": "Discovery first.",
     "titleB": "Results always.",
     "steps": {
-      "discover": { "title": "Discover", "blurb": "Map workflows. Surface real bottlenecks." },
-      "diagnose": { "title": "Diagnose", "blurb": "Score opportunities by ROI and effort." },
-      "design": { "title": "Design", "blurb": "Build the roadmap. Set the metrics." },
-      "deploy": { "title": "Deploy", "blurb": "Ship fast. Train your team to own it." },
-      "scale": { "title": "Scale", "blurb": "Expand wins across the business." }
+      "discover": {
+        "title": "Discover",
+        "blurb": "Map workflows. Surface real bottlenecks."
+      },
+      "diagnose": {
+        "title": "Diagnose",
+        "blurb": "Score opportunities by ROI and effort."
+      },
+      "design": {
+        "title": "Design",
+        "blurb": "Build the roadmap. Set the metrics."
+      },
+      "deploy": {
+        "title": "Deploy",
+        "blurb": "Ship fast. Train your team to own it."
+      },
+      "scale": {
+        "title": "Scale",
+        "blurb": "Expand wins across the business."
+      }
     }
   },
   "aiProduct": {
@@ -158,9 +190,18 @@
     "titleA": "The team behind",
     "titleB": "the dream.",
     "members": {
-      "hakim": { "title": "Co-Founder & CEO", "description": "Visionary entrepreneur leading Flow Theory AI's mission to help companies scale intelligently through automation and AI systems." },
-      "yassine": { "title": "Co-Founder & CTO", "description": "Technical leader and automation architect focused on building stable, high-performance AI ecosystems for clients." },
-      "yunus": { "title": "Co-Founder & COO", "description": "Operations leader with technical experience enabling scalable execution and efficiency." }
+      "hakim": {
+        "title": "Co-Founder & CEO",
+        "description": "Visionary entrepreneur leading Flow Theory AI's mission to help companies scale intelligently through automation and AI systems."
+      },
+      "yassine": {
+        "title": "Co-Founder & CTO",
+        "description": "Technical leader and automation architect focused on building stable, high-performance AI ecosystems for clients."
+      },
+      "yunus": {
+        "title": "Co-Founder & COO",
+        "description": "Operations leader with technical experience enabling scalable execution and efficiency."
+      }
     }
   },
   "stratum": {
@@ -189,9 +230,18 @@
     },
     "principlesEyebrow": "Principles we hold to",
     "principles": {
-      "quickWins": { "title": "Quick Wins first", "description": "We start with high-confidence, high-reversibility value in 60 to 90 days. That credibility funds everything that comes after." },
-      "builtIn": { "title": "Built into your tools", "description": "Every solution runs inside the platforms your teams already use. No new tool unless it is clearly the best path, and no adoption barrier from day one." },
-      "limits": { "title": "AI that knows its limits", "description": "Every system we build has a confidence threshold. When the data is insufficient or the right action is unclear, it defers to a human instead of guessing." }
+      "quickWins": {
+        "title": "Quick Wins first",
+        "description": "We start with high-confidence, high-reversibility value in 60 to 90 days. That credibility funds everything that comes after."
+      },
+      "builtIn": {
+        "title": "Built into your tools",
+        "description": "Every solution runs inside the platforms your teams already use. No new tool unless it is clearly the best path, and no adoption barrier from day one."
+      },
+      "limits": {
+        "title": "AI that knows its limits",
+        "description": "Every system we build has a confidence threshold. When the data is insufficient or the right action is unclear, it defers to a human instead of guessing."
+      }
     },
     "ctaLine": "See how STRATUM applies to your organization.",
     "ctaButton": "Get in touch"
@@ -200,34 +250,74 @@
     "eyebrow": "Case Studies",
     "titleA": "Real businesses.",
     "titleB": "Real results.",
-    "phases": { "problem": "Problem", "solution": "Solution", "results": "Results" },
+    "phases": {
+      "problem": "Problem",
+      "solution": "Solution",
+      "results": "Results"
+    },
     "readFull": "Read Full Case Study",
     "companies": {
       "apt": {
         "tagline": "Leading Apartment Locating Company",
-        "metrics": { "m1": "Yearly Savings", "m2": "Saved Weekly" },
+        "metrics": {
+          "m1": "Yearly Savings",
+          "m2": "Saved Weekly"
+        },
         "steps": {
-          "problem": { "title": "Scaling bottlenecks", "description": "ISAs spent too much time qualifying leads and manually compiling apartment suggestions. Invoicing and follow-up consumed hours of founder time monthly." },
-          "solution": { "title": "End-to-end automation", "description": "Automated core ISA tasks, built an AI-powered apartment suggestion bot, streamlined invoicing workflows, and trained founders on AI integration." },
-          "results": { "title": "Operational transformation", "description": "Dramatically reduced ISA friction, near-instant apartment recommendations, fully automated invoicing, and a stronger operational backbone." }
+          "problem": {
+            "title": "Scaling bottlenecks",
+            "description": "ISAs spent too much time qualifying leads and manually compiling apartment suggestions. Invoicing and follow-up consumed hours of founder time monthly."
+          },
+          "solution": {
+            "title": "End-to-end automation",
+            "description": "Automated core ISA tasks, built an AI-powered apartment suggestion bot, streamlined invoicing workflows, and trained founders on AI integration."
+          },
+          "results": {
+            "title": "Operational transformation",
+            "description": "Dramatically reduced ISA friction, near-instant apartment recommendations, fully automated invoicing, and a stronger operational backbone."
+          }
         }
       },
       "een": {
         "tagline": "Real Estate Wholesaling Network",
-        "metrics": { "m1": "Seller Call Overlap", "m2": "Buyer Outreach" },
+        "metrics": {
+          "m1": "Seller Call Overlap",
+          "m2": "Buyer Outreach"
+        },
         "steps": {
-          "problem": { "title": "Operational chaos", "description": "Multiple contacts tied to a single property caused repeated calls. Buyer outreach was delayed by manual processes, and founders lacked hot lead visibility." },
-          "solution": { "title": "Intelligent systems", "description": "Built a deduplication system for the dialer queue, automated buyer outreach triggered on contract, and implemented real-time hot lead notifications." },
-          "results": { "title": "Streamlined deal flow", "description": "Duplicate seller calls reduced to near zero, buyer outreach 60–75% faster, and founders gained immediate visibility into high-intent leads." }
+          "problem": {
+            "title": "Operational chaos",
+            "description": "Multiple contacts tied to a single property caused repeated calls. Buyer outreach was delayed by manual processes, and founders lacked hot lead visibility."
+          },
+          "solution": {
+            "title": "Intelligent systems",
+            "description": "Built a deduplication system for the dialer queue, automated buyer outreach triggered on contract, and implemented real-time hot lead notifications."
+          },
+          "results": {
+            "title": "Streamlined deal flow",
+            "description": "Duplicate seller calls reduced to near zero, buyer outreach 60–75% faster, and founders gained immediate visibility into high-intent leads."
+          }
         }
       },
       "elite": {
         "tagline": "Car Rental & Fleet Management, Niger",
-        "metrics": { "m1": "Fleet Utilization", "m2": "Admin Hours Cut" },
+        "metrics": {
+          "m1": "Fleet Utilization",
+          "m2": "Admin Hours Cut"
+        },
         "steps": {
-          "problem": { "title": "Infrastructure, not effort", "description": "Tools didn't talk to each other and data lived in silos. Founders spent their days chasing updates, vehicles sat idle without visibility, invoices aged for weeks, and 3–4 hours daily were lost to manual logging and reporting." },
-          "solution": { "title": "STRATUM Brain deployment", "description": "Deployed an agentic intelligence layer with four core agents (Fleet, Revenue & Bookings, Payments, and Operations) unified under a central registry with confidence-tiered autonomy and on-demand plain-English querying." },
-          "results": { "title": "From operators to executives", "description": "+23% fleet utilization, 60% reduction in daily admin hours, 18-day cut in payment collection cycle, 2 hours/day reclaimed for founders, and zero additional hires needed to absorb the scale-up." }
+          "problem": {
+            "title": "Infrastructure, not effort",
+            "description": "Tools didn't talk to each other and data lived in silos. Founders spent their days chasing updates, vehicles sat idle without visibility, invoices aged for weeks, and 3–4 hours daily were lost to manual logging and reporting."
+          },
+          "solution": {
+            "title": "STRATUM Brain deployment",
+            "description": "Deployed an agentic intelligence layer with four core agents (Fleet, Revenue & Bookings, Payments, and Operations) unified under a central registry with confidence-tiered autonomy and on-demand plain-English querying."
+          },
+          "results": {
+            "title": "From operators to executives",
+            "description": "+23% fleet utilization, 60% reduction in daily admin hours, 18-day cut in payment collection cycle, 2 hours/day reclaimed for founders, and zero additional hires needed to absorb the scale-up."
+          }
         }
       }
     }
