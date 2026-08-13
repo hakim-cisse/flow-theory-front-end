@@ -34,10 +34,10 @@
       "brief": "Brief"
     },
     "metrics": {
-      "savedLabel": "Cost removed",
-      "savedValue": "$120K+ per client",
-      "hoursLabel": "Hours returned",
-      "hoursValue": "55 hrs / week",
+      "savedLabel": "Scope",
+      "savedValue": "Strategy to production",
+      "hoursLabel": "Adoption",
+      "hoursValue": "Trained, not just deployed",
       "layersLabel": "Method",
       "layersValue": "STRATUM, 7 layers",
       "buildLabel": "Engagements",
