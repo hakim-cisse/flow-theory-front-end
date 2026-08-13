@@ -45,7 +45,7 @@ export const CTABanner = () => {
           </div>
 
           <div className="lg:col-span-5" style={staggerStyle(1, isVisible)}>
-            <div className="relative border border-border/50 bg-background/40 backdrop-blur-sm p-4 sm:p-6">
+            <div className="relative border border-border/50 bg-[#05070a] p-4 sm:p-6">
               <span className="absolute top-0 left-0 w-3 h-px bg-primary" />
               <span className="absolute top-0 left-0 w-px h-3 bg-primary" />
               <span className="absolute top-0 right-0 w-3 h-px bg-primary" />
@@ -58,11 +58,11 @@ export const CTABanner = () => {
               <img
                 src={meshTeam}
                 alt="Wireframe mesh render of the Flow Theory AI founding team"
-                className="w-full h-auto object-contain mix-blend-screen"
+                className="w-full h-auto object-contain"
               />
 
-              <div className="flex items-center justify-between border-t border-border/40 mt-4 pt-4">
-                <span className="text-mono text-[10px] tracking-widest text-muted-foreground/70">
+              <div className="flex items-center justify-between border-t border-white/10 mt-4 pt-4">
+                <span className="text-mono text-[10px] tracking-widest text-white/50">
                   {t("ctaBanner.meshLabel")}
                 </span>
                 <span className="text-mono text-[10px] tracking-widest text-primary/70">
