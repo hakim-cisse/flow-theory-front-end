@@ -1,26 +1,100 @@
-import hakimImage from "@/assets/hakim.png";
-import yassineImage from "@/assets/yassine.png";
-import yunusImage from "@/assets/yunus.jpg";
+import meshHakim from "@/assets/mesh-hakim.png";
+import meshYassine from "@/assets/mesh-yassine.png";
+import meshYunus from "@/assets/mesh-yunus.png";
 import { useScrollReveal, staggerStyle } from "@/hooks/useScrollReveal";
 import { useTranslation } from "react-i18next";
 
 const founders = [
-  { key: "hakim", name: "Hakim Cisse", image: hakimImage },
-  { key: "yassine", name: "Yassine Diallo", image: yassineImage },
-  { key: "yunus", name: "Yunus Kounkourou", image: yunusImage },
+  { key: "hakim", name: "Hakim Cisse", mesh: meshHakim, id: "MSH_01" },
+  { key: "yassine", name: "Yassine Diallo", mesh: meshYassine, id: "MSH_02" },
+  { key: "yunus", name: "Yunus Kounkourou", mesh: meshYunus, id: "MSH_03" },
 ] as const;
+
+const FounderRow = ({
+  founder,
+  index,
+}: {
+  founder: (typeof founders)[number];
+  index: number;
+}) => {
+  const { ref, isVisible } = useScrollReveal({ threshold: 0.15 });
+  const { t } = useTranslation();
+  const flipped = index % 2 === 1;
+
+  return (
+    <div
+      ref={ref}
+      className="grid grid-cols-12 gap-8 md:gap-12 items-center py-14 md:py-20 border-t border-foreground/12"
+    >
+      {/* Mesh portrait */}
+      <div
+        className={`col-span-12 md:col-span-5 ${flipped ? "md:order-2 md:col-start-8" : ""}`}
+        style={staggerStyle(0, isVisible, { delay: 0.05, distance: 28 })}
+      >
+        <div className="relative mx-auto md:mx-0 w-full max-w-[360px] aspect-square">
+          {/* technical grid backdrop */}
+          <div
+            className="absolute inset-0 opacity-[0.10] pointer-events-none"
+            aria-hidden="true"
+            style={{
+              backgroundImage:
+                "linear-gradient(to right, hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(to bottom, hsl(var(--foreground)) 1px, transparent 1px)",
+              backgroundSize: "28px 28px",
+            }}
+          />
+          {/* corner ticks */}
+          <span className="absolute top-0 left-0 w-3 h-px bg-primary" />
+          <span className="absolute top-0 left-0 w-px h-3 bg-primary" />
+          <span className="absolute bottom-0 right-0 w-3 h-px bg-foreground/40" />
+          <span className="absolute bottom-0 right-0 w-px h-3 bg-foreground/40" />
+
+          <img
+            src={founder.mesh}
+            alt={`${founder.name}, 3D wireframe mesh portrait`}
+            className="relative w-full h-full object-contain"
+          />
+
+          <span className="absolute -bottom-6 left-0 text-mono text-muted-foreground">
+            {founder.id} / TOPOLOGY
+          </span>
+        </div>
+      </div>
+
+      {/* Bio */}
+      <div
+        className={`col-span-12 md:col-span-6 ${flipped ? "md:order-1 md:col-start-1" : "md:col-start-7"}`}
+        style={staggerStyle(1, isVisible, { delay: 0.15, distance: 28 })}
+      >
+        <span className="text-mono text-primary/70 block mb-4">
+          {String(index + 1).padStart(2, "0")}
+        </span>
+        <h3 className="text-3xl md:text-4xl font-serif text-foreground leading-tight">
+          {founder.name}
+        </h3>
+        <p className="text-mono text-primary mt-3">
+          {t(`founders.members.${founder.key}.title`)}
+        </p>
+        <div className="accent-bar my-6" />
+        <p className="text-base text-muted-foreground leading-relaxed max-w-xl">
+          {t(`founders.members.${founder.key}.description`)}
+        </p>
+      </div>
+    </div>
+  );
+};
 
 export const Founders = () => {
   const { ref: headerRef, isVisible: headerVisible } = useScrollReveal();
-  const { ref: gridRef, isVisible: gridVisible } = useScrollReveal({ threshold: 0.1 });
   const { t } = useTranslation();
 
   return (
     <section id="founders" className="py-24 sm:py-32 relative section-8">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-screen-2xl mx-auto">
-          <div ref={headerRef} className="mb-10 sm:mb-12">
-            <span className="text-mono text-primary/70 block mb-6" style={staggerStyle(0, headerVisible)}>{t("founders.eyebrow")}</span>
+        <div className="max-w-screen-xl mx-auto">
+          <div ref={headerRef} className="mb-10 sm:mb-14">
+            <span className="text-mono text-primary/70 block mb-6" style={staggerStyle(0, headerVisible)}>
+              {t("founders.eyebrow")}
+            </span>
             <h2 className="text-heading" style={staggerStyle(1, headerVisible)}>
               {t("founders.titleA")}<br />
               <span className="text-gradient">{t("founders.titleB")}</span>
@@ -28,31 +102,9 @@ export const Founders = () => {
             <div className="accent-bar mt-6" style={staggerStyle(2, headerVisible)} />
           </div>
 
-          <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-3 gap-px bg-border/30">
+          <div>
             {founders.map((founder, i) => (
-              <div
-                key={founder.name}
-                className="group flex flex-col items-center text-center p-10 bg-background hover:bg-primary/5 transition-all duration-500"
-                style={staggerStyle(i, gridVisible, { delay: 0.15 })}
-              >
-                <div className="relative mb-8">
-                  <img
-                    src={founder.image}
-                    alt={founder.name}
-                    className="relative w-40 h-40 object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
-                    style={{ clipPath: 'polygon(0 0, 100% 0, 100% 85%, 85% 100%, 0 100%)' }}
-                  />
-                </div>
-
-                <div className="space-y-3">
-                  <h3 className="text-xl font-bold text-foreground">{founder.name}</h3>
-                  <p className="text-mono text-primary">{t(`founders.members.${founder.key}.title`)}</p>
-                </div>
-
-                <p className="text-sm text-muted-foreground leading-relaxed mt-4 max-w-xs">
-                  {t(`founders.members.${founder.key}.description`)}
-                </p>
-              </div>
+              <FounderRow key={founder.key} founder={founder} index={i} />
             ))}
           </div>
         </div>
