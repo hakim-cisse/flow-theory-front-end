@@ -4,7 +4,6 @@ import { useTranslation } from "react-i18next";
 import { SiteLayout } from "@/components/SiteLayout";
 import { SEO } from "@/components/SEO";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
-import { CTABanner } from "@/components/CTABanner";
 import { AIProductDevelopment } from "@/components/AIProductDevelopment";
 import { HowItWorks } from "@/components/HowItWorks";
 import { Button } from "@/components/ui/button";
@@ -93,7 +92,6 @@ const AIEngineeringPage = () => {
 
       <AIProductDevelopment />
       <HowItWorks />
-      <CTABanner />
     </SiteLayout>
   );
 };

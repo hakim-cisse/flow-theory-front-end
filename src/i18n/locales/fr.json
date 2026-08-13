@@ -625,5 +625,13 @@
         }
       }
     }
+  },
+  "ctaBanner": {
+    "eyebrow": "/ Dernier appel",
+    "titleA": "Ne restez pas à la traîne.",
+    "titleB": "Agissez pendant que cela compte.",
+    "lead": "L'écart entre les entreprises nées avec l'IA et les autres se creuse chaque trimestre. Parlons de votre situation.",
+    "meshLabel": "Topologie / Équipe fondatrice",
+    "meshId": "MESH-FT-003"
   }
 }

@@ -6,7 +6,6 @@ import { Stratum } from "@/components/Stratum";
 import { Founders } from "@/components/Founders";
 import { CaseStudy } from "@/components/CaseStudy";
 import { Testimonials } from "@/components/Testimonials";
-import { CTABanner } from "@/components/CTABanner";
 import { SEO } from "@/components/SEO";
 import { OrganizationSchema, WebsiteSchema } from "@/components/StructuredData";
 import { BlogPreview } from "@/components/BlogPreview";
@@ -32,7 +31,6 @@ const Index = () => (
     <CaseStudy />
     <Testimonials />
     <BlogPreview />
-    <CTABanner />
   </SiteLayout>
 );
 
