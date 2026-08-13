@@ -501,20 +501,20 @@
         "transformation": {
           "index": "01",
           "label": "Transformation IA",
-          "eyebrow": "Stratégie, processus, équipes",
-          "tagline": "Passez d'une entreprise sans IA à une entreprise native IA, avec une feuille de route, un ROI chiffré et la conduite du changement.",
-          "p1": "Jalons exploratoires et modélisation du ROI",
-          "p2": "Automatisation des processus dans toute l'entreprise",
-          "p3": "Formation et adoption par vos équipes"
+          "eyebrow": "Stratégie → Opérations",
+          "tagline": "Faites passer l'IA de l'expérimentation en comité à un avantage opérationnel. Nous diagnostiquons, priorisons et pilotons la transformation pour que l'entreprise change réellement.",
+          "p1": "Cartographie des opportunités IA et scoring ROI",
+          "p2": "Redesign des workflows et adoption",
+          "p3": "Exécution intégrée, pas de présentations"
         },
         "engineering": {
           "index": "02",
           "label": "Ingénierie IA",
-          "eyebrow": "Produit, systèmes, code",
-          "tagline": "Des logiciels IA prêts pour la production : nouveaux produits ou intelligence ajoutée à l'existant.",
-          "p1": "Produits IA et SaaS sur mesure",
-          "p2": "Intégrations dans toute votre stack",
-          "p3": "Vous en êtes propriétaire, sans dépendance"
+          "eyebrow": "Build → Ship",
+          "tagline": "Le bras industriel qui transforme vos paris IA validés en logiciels opérationnels que vous possédez, exploitez et faites évoluer.",
+          "p1": "Produits et fonctionnalités IA prêts pour la production",
+          "p2": "Intégration de systèmes et pipelines de données",
+          "p3": "Passation de relais propre, sans dépendance"
         }
       },
       "explore": "Explorer"
