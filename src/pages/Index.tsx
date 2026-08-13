@@ -14,11 +14,9 @@ import { SiteLayout } from "@/components/SiteLayout";
 const Index = () => (
   <SiteLayout>
     <SEO
-      title="AI Transformation Built on Strategy and ROI"
-      description="Flow Theory AI helps businesses cut through the noise, build a clear AI roadmap, and execute only what delivers measurable business value. AI automation, consulting & custom SaaS."
+      title="Built by Founders to Make AI Your Operating Advantage"
+      description="We help ambitious companies figure out where AI creates real leverage, then build and embed the systems that make it operational. Strategy, engineering, and adoption — end to end."
       canonicalUrl="https://www.flowtheoryai.com/"
-      ogTitle="Flow Theory AI - AI Transformation Built on Strategy and ROI"
-      ogDescription="Flow Theory AI helps businesses cut through the noise, build a clear AI roadmap, and execute only what delivers measurable business value."
     />
     <OrganizationSchema />
     <WebsiteSchema />
