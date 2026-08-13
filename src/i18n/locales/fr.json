@@ -25,7 +25,24 @@
     "cta": "Nous contacter",
     "explore": "Découvrir nos projets →",
     "footerLeft": "Stratégie / Systèmes / Impact",
-    "scroll": "Défiler ↓"
+    "scroll": "Défiler ↓",
+    "panel": {
+      "status": "Statut : En service",
+      "ref": "Réf. : FT / 2026",
+      "live": "Systèmes actifs",
+      "featuredTag": "Dossier",
+      "brief": "Résumé"
+    },
+    "metrics": {
+      "savedLabel": "Coûts supprimés",
+      "savedValue": "120 000 $+ par client",
+      "hoursLabel": "Heures récupérées",
+      "hoursValue": "55 h / semaine",
+      "layersLabel": "Méthode",
+      "layersValue": "STRATUM, 7 couches",
+      "buildLabel": "Missions",
+      "buildValue": "Boutique, par choix"
+    }
   },
   "clientsStrip": {
     "trustedBy": "La confiance des entreprises qui construisent l'avenir"
@@ -57,11 +74,26 @@
     "titleA": "La découverte d'abord.",
     "titleB": "Les résultats toujours.",
     "steps": {
-      "discover": { "title": "Découvrir", "blurb": "Cartographier les flux. Identifier les vrais goulots." },
-      "diagnose": { "title": "Diagnostiquer", "blurb": "Prioriser les opportunités par ROI et effort." },
-      "design": { "title": "Concevoir", "blurb": "Bâtir la feuille de route. Définir les indicateurs." },
-      "deploy": { "title": "Déployer", "blurb": "Livrer vite. Former votre équipe à l'exploiter." },
-      "scale": { "title": "Scaler", "blurb": "Étendre les succès à toute l'entreprise." }
+      "discover": {
+        "title": "Découvrir",
+        "blurb": "Cartographier les flux. Identifier les vrais goulots."
+      },
+      "diagnose": {
+        "title": "Diagnostiquer",
+        "blurb": "Prioriser les opportunités par ROI et effort."
+      },
+      "design": {
+        "title": "Concevoir",
+        "blurb": "Bâtir la feuille de route. Définir les indicateurs."
+      },
+      "deploy": {
+        "title": "Déployer",
+        "blurb": "Livrer vite. Former votre équipe à l'exploiter."
+      },
+      "scale": {
+        "title": "Scaler",
+        "blurb": "Étendre les succès à toute l'entreprise."
+      }
     }
   },
   "aiProduct": {
@@ -158,9 +190,18 @@
     "titleA": "L'équipe derrière",
     "titleB": "le projet.",
     "members": {
-      "hakim": { "title": "Co-fondateur & CEO", "description": "Entrepreneur visionnaire à la tête de la mission de Flow Theory AI : aider les entreprises à scaler intelligemment grâce à l'automatisation et aux systèmes IA." },
-      "yassine": { "title": "Co-fondateur & CTO", "description": "Leader technique et architecte d'automatisation, concentré sur la construction d'écosystèmes IA stables et performants pour les clients." },
-      "yunus": { "title": "Co-fondateur & COO", "description": "Responsable des opérations avec une expérience technique, permettant une exécution scalable et une efficacité opérationnelle." }
+      "hakim": {
+        "title": "Co-fondateur & CEO",
+        "description": "Entrepreneur visionnaire à la tête de la mission de Flow Theory AI : aider les entreprises à scaler intelligemment grâce à l'automatisation et aux systèmes IA."
+      },
+      "yassine": {
+        "title": "Co-fondateur & CTO",
+        "description": "Leader technique et architecte d'automatisation, concentré sur la construction d'écosystèmes IA stables et performants pour les clients."
+      },
+      "yunus": {
+        "title": "Co-fondateur & COO",
+        "description": "Responsable des opérations avec une expérience technique, permettant une exécution scalable et une efficacité opérationnelle."
+      }
     }
   },
   "stratum": {
@@ -189,9 +230,18 @@
     },
     "principlesEyebrow": "Nos principes",
     "principles": {
-      "quickWins": { "title": "Quick Wins d'abord", "description": "Nous commençons par de la valeur à haute confiance et haute réversibilité en 60 à 90 jours. Cette crédibilité finance tout ce qui suit." },
-      "builtIn": { "title": "Intégré à vos outils", "description": "Chaque solution s'exécute dans les plateformes que vos équipes utilisent déjà. Pas de nouvel outil sauf si c'est clairement la meilleure voie, et aucune barrière d'adoption dès le premier jour." },
-      "limits": { "title": "Une IA qui connaît ses limites", "description": "Chaque système que nous construisons a un seuil de confiance. Quand les données sont insuffisantes ou la bonne action peu claire, il défère à un humain plutôt que de deviner." }
+      "quickWins": {
+        "title": "Quick Wins d'abord",
+        "description": "Nous commençons par de la valeur à haute confiance et haute réversibilité en 60 à 90 jours. Cette crédibilité finance tout ce qui suit."
+      },
+      "builtIn": {
+        "title": "Intégré à vos outils",
+        "description": "Chaque solution s'exécute dans les plateformes que vos équipes utilisent déjà. Pas de nouvel outil sauf si c'est clairement la meilleure voie, et aucune barrière d'adoption dès le premier jour."
+      },
+      "limits": {
+        "title": "Une IA qui connaît ses limites",
+        "description": "Chaque système que nous construisons a un seuil de confiance. Quand les données sont insuffisantes ou la bonne action peu claire, il défère à un humain plutôt que de deviner."
+      }
     },
     "ctaLine": "Voyez comment STRATUM s'applique à votre organisation.",
     "ctaButton": "Nous contacter"
@@ -200,34 +250,74 @@
     "eyebrow": "Études de cas",
     "titleA": "De vraies entreprises.",
     "titleB": "De vrais résultats.",
-    "phases": { "problem": "Problème", "solution": "Solution", "results": "Résultats" },
+    "phases": {
+      "problem": "Problème",
+      "solution": "Solution",
+      "results": "Résultats"
+    },
     "readFull": "Lire l'étude complète",
     "companies": {
       "apt": {
         "tagline": "Leader de la recherche d'appartements",
-        "metrics": { "m1": "Économies annuelles", "m2": "Économisées / semaine" },
+        "metrics": {
+          "m1": "Économies annuelles",
+          "m2": "Économisées / semaine"
+        },
         "steps": {
-          "problem": { "title": "Goulots à l'échelle", "description": "Les ISA passaient trop de temps à qualifier des leads et à compiler manuellement des propositions d'appartements. La facturation et les relances consommaient des heures mensuelles des fondateurs." },
-          "solution": { "title": "Automatisation de bout en bout", "description": "Automatisation des tâches ISA clés, création d'un bot IA de suggestion d'appartements, refonte des workflows de facturation, et formation des fondateurs à l'intégration IA." },
-          "results": { "title": "Transformation opérationnelle", "description": "Friction ISA fortement réduite, recommandations d'appartements quasi instantanées, facturation entièrement automatisée et colonne vertébrale opérationnelle renforcée." }
+          "problem": {
+            "title": "Goulots à l'échelle",
+            "description": "Les ISA passaient trop de temps à qualifier des leads et à compiler manuellement des propositions d'appartements. La facturation et les relances consommaient des heures mensuelles des fondateurs."
+          },
+          "solution": {
+            "title": "Automatisation de bout en bout",
+            "description": "Automatisation des tâches ISA clés, création d'un bot IA de suggestion d'appartements, refonte des workflows de facturation, et formation des fondateurs à l'intégration IA."
+          },
+          "results": {
+            "title": "Transformation opérationnelle",
+            "description": "Friction ISA fortement réduite, recommandations d'appartements quasi instantanées, facturation entièrement automatisée et colonne vertébrale opérationnelle renforcée."
+          }
         }
       },
       "een": {
         "tagline": "Réseau de wholesaling immobilier",
-        "metrics": { "m1": "Doublons d'appels vendeurs", "m2": "Contact acheteurs" },
+        "metrics": {
+          "m1": "Doublons d'appels vendeurs",
+          "m2": "Contact acheteurs"
+        },
         "steps": {
-          "problem": { "title": "Chaos opérationnel", "description": "Plusieurs contacts liés à un même bien provoquaient des appels redondants. Le contact acheteurs était retardé par des processus manuels, et les fondateurs manquaient de visibilité sur les leads chauds." },
-          "solution": { "title": "Systèmes intelligents", "description": "Système de déduplication pour la file d'appel, contact acheteurs automatisé au signing, et notifications temps réel des leads chauds." },
-          "results": { "title": "Flux de deals fluidifié", "description": "Doublons d'appels vendeurs quasi éliminés, contact acheteurs 60 à 75 % plus rapide, et visibilité immédiate des fondateurs sur les leads à haute intention." }
+          "problem": {
+            "title": "Chaos opérationnel",
+            "description": "Plusieurs contacts liés à un même bien provoquaient des appels redondants. Le contact acheteurs était retardé par des processus manuels, et les fondateurs manquaient de visibilité sur les leads chauds."
+          },
+          "solution": {
+            "title": "Systèmes intelligents",
+            "description": "Système de déduplication pour la file d'appel, contact acheteurs automatisé au signing, et notifications temps réel des leads chauds."
+          },
+          "results": {
+            "title": "Flux de deals fluidifié",
+            "description": "Doublons d'appels vendeurs quasi éliminés, contact acheteurs 60 à 75 % plus rapide, et visibilité immédiate des fondateurs sur les leads à haute intention."
+          }
         }
       },
       "elite": {
         "tagline": "Location de voitures & gestion de flotte, Niger",
-        "metrics": { "m1": "Utilisation de la flotte", "m2": "Heures administratives coupées" },
+        "metrics": {
+          "m1": "Utilisation de la flotte",
+          "m2": "Heures administratives coupées"
+        },
         "steps": {
-          "problem": { "title": "Un problème d'infrastructure, pas d'effort", "description": "Les outils ne communiquaient pas et les données restaient en silos. Les fondateurs passaient leurs journées à courir après les mises à jour, des véhicules restaient inutilisés sans visibilité, les factures traînaient pendant des semaines, et 3 à 4 heures par jour se perdaient en saisie et reporting." },
-          "solution": { "title": "Déploiement du STRATUM Brain", "description": "Déploiement d'une couche d'intelligence agentique avec quatre agents (Flotte, Revenus & Réservations, Paiements, Opérations) unifiés dans un registre central, avec une autonomie graduée par confiance et des requêtes en langage courant à la demande." },
-          "results": { "title": "D'opérateurs à dirigeants", "description": "+23 % d'utilisation de la flotte, -60 % d'heures administratives quotidiennes, cycle d'encaissement raccourci de 18 jours, 2 h/jour rendues aux fondateurs, et aucune embauche supplémentaire nécessaire pour absorber la croissance." }
+          "problem": {
+            "title": "Un problème d'infrastructure, pas d'effort",
+            "description": "Les outils ne communiquaient pas et les données restaient en silos. Les fondateurs passaient leurs journées à courir après les mises à jour, des véhicules restaient inutilisés sans visibilité, les factures traînaient pendant des semaines, et 3 à 4 heures par jour se perdaient en saisie et reporting."
+          },
+          "solution": {
+            "title": "Déploiement du STRATUM Brain",
+            "description": "Déploiement d'une couche d'intelligence agentique avec quatre agents (Flotte, Revenus & Réservations, Paiements, Opérations) unifiés dans un registre central, avec une autonomie graduée par confiance et des requêtes en langage courant à la demande."
+          },
+          "results": {
+            "title": "D'opérateurs à dirigeants",
+            "description": "+23 % d'utilisation de la flotte, -60 % d'heures administratives quotidiennes, cycle d'encaissement raccourci de 18 jours, 2 h/jour rendues aux fondateurs, et aucune embauche supplémentaire nécessaire pour absorber la croissance."
+          }
         }
       }
     }
