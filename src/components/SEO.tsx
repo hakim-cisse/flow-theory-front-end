@@ -19,8 +19,8 @@ interface SEOProps {
 }
 
 const SITE_NAME = "Flow Theory AI";
-const DEFAULT_TITLE = "Flow Theory AI - Become an AI-First Business";
-const DEFAULT_DESCRIPTION = "Flow Theory AI helps businesses become AI-first. Explore our team, AI automation services, case studies, and book an intro call to start your transformation.";
+const DEFAULT_TITLE = "Flow Theory AI — Built by Founders to Make AI Your Operating Advantage";
+const DEFAULT_DESCRIPTION = "We help ambitious companies figure out where AI creates real leverage, then build and embed the systems that make it operational. Strategy, engineering, and adoption — end to end.";
 const DEFAULT_OG_IMAGE = "https://www.flowtheoryai.com/og-image.jpg";
 const SITE_URL = "https://www.flowtheoryai.com";
 
