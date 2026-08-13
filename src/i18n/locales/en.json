@@ -501,20 +501,20 @@
         "transformation": {
           "index": "01",
           "label": "AI Transformation",
-          "eyebrow": "Strategy, process, people",
-          "tagline": "Move from AI-absent to AI-native with a roadmap, quantified ROI, and the change management to make it stick.",
-          "p1": "Exploratory milestones and ROI modeling",
-          "p2": "Process automation across the business",
-          "p3": "Training and adoption for your team"
+          "eyebrow": "Strategy → Operations",
+          "tagline": "Turn AI from boardroom curiosity into operating advantage. We diagnose, prioritize, and run the transformation so your business actually changes.",
+          "p1": "AI opportunity mapping & ROI scoring",
+          "p2": "Workflow redesign and adoption",
+          "p3": "Embedded execution, not slide decks"
         },
         "engineering": {
           "index": "02",
           "label": "AI Engineering",
-          "eyebrow": "Product, systems, code",
-          "tagline": "Production-grade AI software: new products, new intelligence inside the ones you already run.",
-          "p1": "AI products and custom SaaS",
-          "p2": "Integrations across your stack",
-          "p3": "Owned by you, no lock-in"
+          "eyebrow": "Build → Ship",
+          "tagline": "The build arm that turns approved AI bets into working software you own, operate, and scale.",
+          "p1": "Production-grade AI products & features",
+          "p2": "Systems integration & data pipelines",
+          "p3": "Clean handoff, no vendor lock-in"
         }
       },
       "explore": "Explore"
