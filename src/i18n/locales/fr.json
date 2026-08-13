@@ -490,5 +490,140 @@
   "blog": {
     "translating": "Traduction en cours…",
     "machineTranslated": "Cet article a été traduit automatiquement. Voir l'original en anglais."
+  },
+  "svc": {
+    "hub": {
+      "eyebrow": "Services",
+      "titleA": "Deux services.",
+      "titleB": "Un seul partenaire.",
+      "lead": "Flow Theory AI fait deux choses. Nous concevons et pilotons votre transformation par l'IA, et nous développons les logiciels qui la rendent réelle. Choisissez la voie qui correspond à votre situation.",
+      "cards": {
+        "transformation": {
+          "index": "01",
+          "label": "Transformation IA",
+          "eyebrow": "Stratégie, processus, équipes",
+          "tagline": "Passez d'une entreprise sans IA à une entreprise native IA, avec une feuille de route, un ROI chiffré et la conduite du changement.",
+          "p1": "Jalons exploratoires et modélisation du ROI",
+          "p2": "Automatisation des processus dans toute l'entreprise",
+          "p3": "Formation et adoption par vos équipes"
+        },
+        "engineering": {
+          "index": "02",
+          "label": "Ingénierie IA",
+          "eyebrow": "Produit, systèmes, code",
+          "tagline": "Des équipes seniors qui livrent des logiciels IA prêts pour la production : nouveaux produits ou intelligence ajoutée à l'existant.",
+          "p1": "Produits IA et SaaS sur mesure",
+          "p2": "Intégrations dans toute votre stack",
+          "p3": "Vous en êtes propriétaire, sans dépendance"
+        }
+      },
+      "explore": "Explorer"
+    },
+    "transformation": {
+      "eyebrow": "Service 01 / Transformation",
+      "title": "Transformation IA",
+      "lead1": "À mesure que le coût de l'intelligence tend vers zéro, l'écart entre les entreprises sans IA et les entreprises natives IA devient décisif.",
+      "lead2": "Nous concevons votre stratégie IA et l'exécutons sur trois piliers : produit, processus et personnes.",
+      "strategy": {
+        "label": "Phase 01 / Stratégie",
+        "title": "Stratégie",
+        "p1": "Pas de mission de six mois. Pas de présentation de 200 slides.",
+        "p2": "Des jalons exploratoires de 30, 60 ou 90 jours qui font émerger les cas d'usage IA à plus forte valeur, chiffrent le ROI et tracent la feuille de route.",
+        "p3": "Chaque mission se conclut par un rapport d'adoption clair et une annexe technique que vos équipes peuvent exécuter, ou nous confier."
+      },
+      "execution": {
+        "label": "Phase 02 / Exécution",
+        "title": "Exécution",
+        "pillars": {
+          "product": {
+            "index": "01",
+            "name": "Transformation produit",
+            "tagline": "Livrer un logiciel remarquable, vite.",
+            "body": "De petites équipes seniors d'ingénieurs et de product operators qui utilisent l'accélération IA pour livrer du logiciel de production plus vite et à moindre coût."
+          },
+          "process": {
+            "index": "02",
+            "name": "Transformation des processus",
+            "tagline": "Trouver les fuites. Les fermer.",
+            "body": "Nous cartographions les flux, mesurons la référence et automatisons le travail que vos équipes ne devraient pas faire. Goulots identifiés, inefficacités chiffrées."
+          },
+          "people": {
+            "index": "03",
+            "name": "Transformation humaine",
+            "tagline": "L'adoption est le livrable.",
+            "body": "Plus dangereux qu'ignorer l'IA : la déployer en oubliant vos équipes. Des programmes sur mesure et des ateliers pratiques pour instaurer un réflexe IA."
+          }
+        },
+        "linkA": "Vous cherchez uniquement nos",
+        "linkB": "services d'ingénierie IA ?",
+        "linkC": "En savoir plus."
+      },
+      "why": {
+        "label": "Pourquoi nous",
+        "title": "Devenir natif IA est difficile, et vital.",
+        "p1": "Personne en interne ne porte la transformation IA, elle reste donc inachevée.",
+        "p2": "Une vraie expertise technique IA est nécessaire et rarement présente en interne.",
+        "p3": "L'adhésion culturelle exige une communication soignée et une montée en compétences réelle.",
+        "p4": "La plupart des cabinets facturent trop cher et ne relient jamais stratégie et exécution."
+      },
+      "capabilities": {
+        "label": "Ce que nous faisons",
+        "title": "Nous agissons comme votre Chief AI Officer.",
+        "items": {
+          "process": {
+            "title": "Audit des processus",
+            "desc": "Identifier les frictions, mesurer l'impact business et évaluer la maturité face à l'IA."
+          },
+          "executive": {
+            "title": "Entretiens dirigeants",
+            "desc": "Comprendre les priorités du comité, clarifier les objectifs et hiérarchiser les opportunités IA."
+          },
+          "interviews": {
+            "title": "Entretiens experts",
+            "desc": "Échanger avec les parties prenantes clés pour valider les constats et cibler les solutions."
+          },
+          "training": {
+            "title": "Formation sur mesure",
+            "desc": "Programmes dédiés, ateliers pratiques et conduite du changement sur des flux réels."
+          },
+          "tooling": {
+            "title": "Outillage IA",
+            "desc": "Relier stratégie et implémentation via outils du marché, notre IP et des développements sur mesure."
+          },
+          "engineering": {
+            "title": "Ingénierie IA",
+            "desc": "Des équipes orientées résultats qui livrent du logiciel de production en temps réduit."
+          }
+        }
+      }
+    },
+    "engineering": {
+      "eyebrow": "Service 02 / Ingénierie",
+      "title": "Ingénierie IA",
+      "lead1": "Une stratégie sans logiciel livré n'est qu'une présentation. Voici le bras d'exécution.",
+      "lead2": "Des équipes seniors qui conçoivent, développent et déploient produits IA, intégrations et SaaS sur mesure dont vous êtes propriétaire.",
+      "capabilities": {
+        "label": "Capacités",
+        "title": "Ce que nous construisons.",
+        "items": {
+          "products": {
+            "title": "Produits IA",
+            "desc": "Des produits inédits menés du concept à la production, avec la couche modèle pensée dès le premier jour."
+          },
+          "features": {
+            "title": "Fonctionnalités IA",
+            "desc": "De l'intelligence ajoutée à vos logiciels existants, sans réécrire le système sous-jacent."
+          },
+          "integrations": {
+            "title": "Intégrations",
+            "desc": "CRM, ERP et outils de communication reliés en une seule couche de contexte partagée."
+          },
+          "saas": {
+            "title": "SaaS sur mesure",
+            "desc": "Des plateformes scalables pensées pour votre marché, vos marges et votre croissance."
+          }
+        }
+      }
+    }
   }
 }
