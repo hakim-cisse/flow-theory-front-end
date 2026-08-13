@@ -59,6 +59,19 @@
     ],
     "closing": "Pas un mot à la mode. La norme à laquelle nous bâtissons."
   },
+  "thesis": {
+    "label": "THÈSE / 01",
+    "titleA": "Notre vision",
+    "titleB": "du travail.",
+    "lead": "L'IA est l'outil. L'effet de levier opérationnel est le résultat. Nous bâtissons des systèmes qui éliminent la friction, pas des consultants qui la documentent.",
+    "points": [
+      "Les opérations d'abord, le logiciel ensuite. Un code qui ne correspond pas à un flux réel est du gaspillage.",
+      "Des systèmes sur mesure, pas des playbooks empruntés. Chaque entreprise a ses propres leviers.",
+      "L'impact avant la livraison. Un modèle déployé ne vaut rien si l'indicateur ne bouge pas.",
+      "Les équipes possèdent le système. Nous construisons pour que vos équipes puissent l'exploiter sans nous."
+    ],
+    "closing": "C'est ainsi que Flow Theory AI produit un travail qui se capitalise."
+  },
   "about": {
     "eyebrow": "Nos clients",
     "titleA": "La confiance",
