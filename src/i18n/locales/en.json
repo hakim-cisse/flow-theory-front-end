@@ -59,6 +59,19 @@
     ],
     "closing": "Not a buzzword. The standard we build to."
   },
+  "thesis": {
+    "label": "THESIS / 01",
+    "titleA": "How we see",
+    "titleB": "the work.",
+    "lead": "AI is the tool. Operating leverage is the outcome. We build systems that remove friction, not consultants who document it.",
+    "points": [
+      "Operations first, software second. Code that doesn't map to a real workflow is waste.",
+      "Bespoke systems, not borrowed playbooks. Every business has different leverage points.",
+      "Outcomes over outputs. A deployed model means nothing if the metric doesn't move.",
+      "Teams own the system. We build so your people can run it without us."
+    ],
+    "closing": "This is how Flow Theory AI delivers work that compounds."
+  },
   "about": {
     "eyebrow": "Our clients",
     "titleA": "Trusted by",

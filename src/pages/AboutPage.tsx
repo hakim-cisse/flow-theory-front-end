@@ -1,6 +1,7 @@
 import { SiteLayout } from "@/components/SiteLayout";
 import { SEO } from "@/components/SEO";
 import { FlowDefinition } from "@/components/FlowDefinition";
+import { Thesis } from "@/components/Thesis";
 import { About } from "@/components/About";
 import { Founders } from "@/components/Founders";
 import { CaseStudy } from "@/components/CaseStudy";
@@ -16,6 +17,7 @@ const AboutPage = () => (
     />
     <div className="pt-10">
       <FlowDefinition />
+      <Thesis />
       <About />
       <Founders />
       <CaseStudy />
