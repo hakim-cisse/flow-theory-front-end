@@ -15,6 +15,7 @@ const AboutPage = () => (
       canonicalUrl="https://www.flowtheoryai.com/about"
     />
     <div className="pt-10">
+      <FlowDefinition />
       <About />
       <Founders />
       <CaseStudy />
