@@ -27,8 +27,14 @@ export const Stratum = () => {
 
   return (
     <section id="stratum" className="py-24 sm:py-32 relative overflow-hidden section-6">
-      <div className="absolute top-1/3 left-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[120px] pointer-events-none" />
+      {/* Cheap gradient washes (no blur filters) so the section stays smooth while scrolling */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(45% 40% at 10% 33%, hsl(var(--primary) / 0.06), transparent 70%), radial-gradient(40% 35% at 95% 100%, hsl(var(--accent) / 0.06), transparent 70%)",
+        }}
+      />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-screen-2xl mx-auto">
