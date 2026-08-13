@@ -47,6 +47,18 @@
   "clientsStrip": {
     "trustedBy": "La confiance des entreprises qui construisent l'avenir"
   },
+  "flowDefinition": {
+    "label": "TERME / 01",
+    "word": "flow",
+    "phonetic": "/flo/",
+    "part": "nom",
+    "definitions": [
+      "L'état où les décisions avancent plus vite que les réunions.",
+      "Une condition opérationnelle où la friction est éliminée par conception, pas négociée.",
+      "Ce qu'on ressent dans une entreprise quand les bons systèmes ont été construits pour elle."
+    ],
+    "closing": "Pas un mot à la mode. La norme à laquelle nous bâtissons."
+  },
   "about": {
     "eyebrow": "Nos clients",
     "titleA": "La confiance",

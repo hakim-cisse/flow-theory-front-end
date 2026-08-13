@@ -1,5 +1,6 @@
 import { SiteLayout } from "@/components/SiteLayout";
 import { SEO } from "@/components/SEO";
+import { FlowDefinition } from "@/components/FlowDefinition";
 import { About } from "@/components/About";
 import { Founders } from "@/components/Founders";
 import { CaseStudy } from "@/components/CaseStudy";
@@ -14,6 +15,7 @@ const AboutPage = () => (
       canonicalUrl="https://www.flowtheoryai.com/about"
     />
     <div className="pt-10">
+      <FlowDefinition />
       <About />
       <Founders />
       <CaseStudy />

@@ -47,6 +47,18 @@
   "clientsStrip": {
     "trustedBy": "Trusted by businesses building the future"
   },
+  "flowDefinition": {
+    "label": "TERM / 01",
+    "word": "flow",
+    "phonetic": "/flō/",
+    "part": "noun",
+    "definitions": [
+      "The state where decisions move faster than meetings.",
+      "An operating condition in which friction is engineered out, not negotiated around.",
+      "The feeling inside a business after the right systems have been built to fit it."
+    ],
+    "closing": "Not a buzzword. The standard we build to."
+  },
   "about": {
     "eyebrow": "Our clients",
     "titleA": "Trusted by",
