@@ -490,5 +490,140 @@
   "blog": {
     "translating": "Translating…",
     "machineTranslated": "This article was automatically translated. View original in English."
+  },
+  "svc": {
+    "hub": {
+      "eyebrow": "Services",
+      "titleA": "Two services.",
+      "titleB": "One operating partner.",
+      "lead": "Flow Theory AI does two things. We architect and run your AI transformation, and we engineer the software that makes it real. Choose the track that matches where you are.",
+      "cards": {
+        "transformation": {
+          "index": "01",
+          "label": "AI Transformation",
+          "eyebrow": "Strategy, process, people",
+          "tagline": "Move from AI-absent to AI-native with a roadmap, quantified ROI, and the change management to make it stick.",
+          "p1": "Exploratory milestones and ROI modeling",
+          "p2": "Process automation across the business",
+          "p3": "Training and adoption for your team"
+        },
+        "engineering": {
+          "index": "02",
+          "label": "AI Engineering",
+          "eyebrow": "Product, systems, code",
+          "tagline": "Senior pods that ship production-grade AI software: new products, new intelligence inside the ones you already run.",
+          "p1": "AI products and custom SaaS",
+          "p2": "Integrations across your stack",
+          "p3": "Owned by you, no lock-in"
+        }
+      },
+      "explore": "Explore"
+    },
+    "transformation": {
+      "eyebrow": "Service 01 / Transformation",
+      "title": "AI Transformation",
+      "lead1": "As the cost of intelligence approaches zero, the gap between AI-absent and AI-native companies becomes the whole game.",
+      "lead2": "We architect your AI strategy and execute it across three pillars: product, process, and people.",
+      "strategy": {
+        "label": "Phase 01 / Strategy",
+        "title": "Strategy",
+        "p1": "No six-month strategy engagement. No 200-slide deck.",
+        "p2": "30, 60, or 90-day exploratory milestones that surface the highest-value AI use cases, quantify the ROI, and map an implementation roadmap.",
+        "p3": "Every engagement ends with a crisp adoption report and a technical appendix your team can run with, or hand back to us to execute."
+      },
+      "execution": {
+        "label": "Phase 02 / Execution",
+        "title": "Execution",
+        "pillars": {
+          "product": {
+            "index": "01",
+            "name": "Product Transformation",
+            "tagline": "Ship beautiful software, fast.",
+            "body": "Small senior pods of engineers and product operators who use AI acceleration to ship production-grade software faster and more affordably than a traditional team."
+          },
+          "process": {
+            "index": "02",
+            "name": "Process Transformation",
+            "tagline": "Find the leaks. Close them.",
+            "body": "We map the workflow, measure the baseline, and automate the work your team should not be doing. Bottlenecks identified, inefficiencies priced, money back in your pocket."
+          },
+          "people": {
+            "index": "03",
+            "name": "People Transformation",
+            "tagline": "Adoption is the deliverable.",
+            "body": "The only thing more dangerous than ignoring AI is implementing it and forgetting your people. Bespoke curricula and hands-on workshops that get teams thinking AI-first."
+          }
+        },
+        "linkA": "Just looking for",
+        "linkB": "AI Engineering services?",
+        "linkC": "Learn more."
+      },
+      "why": {
+        "label": "Why you need us",
+        "title": "Becoming AI-native is hard, and mission critical.",
+        "p1": "No one internally owns AI transformation, so it stays half-finished.",
+        "p2": "Deep technical AI capability is required and rarely sits in-house.",
+        "p3": "Cultural buy-in needs careful communication and real upskilling.",
+        "p4": "Most consultancies overcharge and never marry strategy with execution."
+      },
+      "capabilities": {
+        "label": "What we do",
+        "title": "We operate as your Chief AI Officer.",
+        "items": {
+          "process": {
+            "title": "Process Survey",
+            "desc": "Pinpoint workflow friction, measure business impact, and gauge readiness for AI-driven change."
+          },
+          "executive": {
+            "title": "Executive Survey",
+            "desc": "Understand leadership priorities, clarify objectives, and rank the AI opportunities that matter."
+          },
+          "interviews": {
+            "title": "Expert Interviews",
+            "desc": "Talk to stakeholders across critical business units to validate insights and uncover targeted solutions."
+          },
+          "training": {
+            "title": "Custom Training",
+            "desc": "Bespoke curricula, hands-on workshops, and change management that upskill teams on real workflows."
+          },
+          "tooling": {
+            "title": "AI Tooling",
+            "desc": "Marry strategy with implementation using off-the-shelf tools, our own IP, and custom builds."
+          },
+          "engineering": {
+            "title": "AI Engineering",
+            "desc": "Outcome-based engineering squads that ship production-grade software on a compressed timeline."
+          }
+        }
+      }
+    },
+    "engineering": {
+      "eyebrow": "Service 02 / Engineering",
+      "title": "AI Engineering",
+      "lead1": "Strategy without shipped software is a slide deck. This is the build arm.",
+      "lead2": "Senior pods that design, build, and deploy AI products, integrations, and custom SaaS you fully own.",
+      "capabilities": {
+        "label": "Capabilities",
+        "title": "What we build.",
+        "items": {
+          "products": {
+            "title": "AI Products",
+            "desc": "Net-new products taken from concept to production, with the model layer designed in from day one."
+          },
+          "features": {
+            "title": "AI Features",
+            "desc": "Intelligence added to software you already run, without rewriting the system underneath it."
+          },
+          "integrations": {
+            "title": "Integrations",
+            "desc": "Your CRM, ERP, and comms stack connected into one context layer that everything can read from."
+          },
+          "saas": {
+            "title": "Custom SaaS",
+            "desc": "Scalable platforms built for your market, your margins, and your growth model. Owned by you."
+          }
+        }
+      }
+    }
   }
 }
