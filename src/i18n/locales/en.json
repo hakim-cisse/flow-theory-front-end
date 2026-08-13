@@ -496,7 +496,7 @@
       "eyebrow": "Services",
       "titleA": "Two services.",
       "titleB": "One operating partner.",
-      "lead": "Flow Theory AI does two things. We architect and run your AI transformation, and we engineer the software that makes it real. Choose the track that matches where you are.",
+      "lead": "We do two things. We figure out where AI belongs in your business and run that change, and we build the software that makes it real. Start with whichever one you need.",
       "cards": {
         "transformation": {
           "index": "01",
@@ -522,14 +522,14 @@
     "transformation": {
       "eyebrow": "Service 01 / Transformation",
       "title": "AI Transformation",
-      "lead1": "As the cost of intelligence approaches zero, the gap between AI-absent and AI-native companies becomes the whole game.",
-      "lead2": "We architect your AI strategy and execute it across three pillars: product, process, and people.",
+      "lead1": "Intelligence is getting cheap. What stays expensive is knowing where to point it inside your business.",
+      "lead2": "We sit inside your operation, decide what AI should actually touch, and run the change across your product, your processes, and your people.",
       "strategy": {
         "label": "Phase 01 / Strategy",
         "title": "Strategy",
-        "p1": "No six-month strategy engagement. No 200-slide deck.",
-        "p2": "Exploratory milestones that surface the highest-value AI use cases, quantify the ROI, and map an implementation roadmap.",
-        "p3": "Every engagement ends with a crisp adoption report and a technical appendix your team can run with, or hand back to us to execute."
+        "p1": "No half-year discovery. No deck nobody reopens.",
+        "p2": "Short exploratory milestones that surface the use cases worth funding, put a number on the return, and lay out the order we build them in.",
+        "p3": "You walk away with a plain-language adoption report and a technical appendix. Run it yourself, or hand it back to us and we build it."
       },
       "execution": {
         "label": "Phase 02 / Execution",
@@ -539,60 +539,60 @@
             "index": "01",
             "name": "Product Transformation",
             "tagline": "Ship marvelous software, fast.",
-            "body": "An engineering-led approach that uses AI acceleration to ship production-grade software faster and more affordably than a traditional team."
+            "body": "Small senior-led builds with AI in the loop, which means real production software lands in weeks at a fraction of what a traditional build costs you."
           },
           "process": {
             "index": "02",
             "name": "Process Transformation",
             "tagline": "Find the leaks. Close them.",
-            "body": "We map the workflow, measure the baseline, and automate the work your team should not be doing. Bottlenecks identified, inefficiencies priced, money back in your pocket."
+            "body": "We trace how work actually moves, put a cost on every handoff and delay, and automate the parts nobody should be doing by hand. The savings are measured, not promised."
           },
           "people": {
             "index": "03",
             "name": "People Transformation",
             "tagline": "Adoption is the deliverable.",
-            "body": "The only thing more dangerous than ignoring AI is implementing it and forgetting your people. Bespoke curricula and hands-on workshops that get teams thinking AI-first."
+            "body": "Software nobody uses is worse than no software. We train your team on their own workflows until AI is the default way they work, not a tool they were handed."
           }
         },
-        "linkA": "Just looking for",
-        "linkB": "AI Engineering services?",
-        "linkC": "Learn more."
+        "linkA": "Only need the build side?",
+        "linkB": "See AI Engineering.",
+        "linkC": ""
       },
       "why": {
-        "label": "Why you need us",
-        "title": "Becoming AI-native is hard, and mission critical.",
-        "p1": "No one internally owns AI transformation, so it stays half-finished.",
-        "p2": "Deep technical AI capability is required and rarely sits in-house.",
-        "p3": "Cultural buy-in needs careful communication and real upskilling.",
-        "p4": "Most consultancies overcharge and never marry strategy with execution."
+        "label": "Why bring us in",
+        "title": "Going AI-native is hard, and putting it off is expensive.",
+        "p1": "Nobody internally owns it, so it stalls at pilot stage.",
+        "p2": "The technical depth it takes rarely exists on the current team.",
+        "p3": "People resist what they were not brought into, and adoption quietly dies.",
+        "p4": "Most firms sell you a strategy and disappear before anything ships."
       },
       "capabilities": {
         "label": "What we do",
-        "title": "We operate as your Chief AI Officer.",
+        "title": "We act as your Chief AI Officer.",
         "items": {
           "process": {
             "title": "Process Survey",
-            "desc": "Pinpoint workflow friction, measure business impact, and gauge readiness for AI-driven change."
+            "desc": "We follow the work end to end, find where it stalls, and price what that friction is costing you."
           },
           "executive": {
             "title": "Executive Survey",
-            "desc": "Understand leadership priorities, clarify objectives, and rank the AI opportunities that matter."
+            "desc": "We get clear on what leadership is actually trying to win, then rank AI bets against those goals."
           },
           "interviews": {
             "title": "Expert Interviews",
-            "desc": "Talk to stakeholders across critical business units to validate insights and uncover targeted solutions."
+            "desc": "Conversations with the people doing the work, because the real bottlenecks never show up in the org chart."
           },
           "training": {
             "title": "Custom Training",
-            "desc": "Bespoke curricula, hands-on workshops, and change management that upskill teams on real workflows."
+            "desc": "Workshops built on your own workflows, plus the change management that makes new habits stick."
           },
           "tooling": {
             "title": "AI Tooling",
-            "desc": "Marry strategy with implementation using off-the-shelf tools, our own IP, and custom builds."
+            "desc": "Off-the-shelf where it fits, our own IP where it helps, custom builds where nothing else will do."
           },
           "engineering": {
             "title": "AI Engineering",
-            "desc": "Outcome-based engineering that ships production-grade software on a compressed timeline."
+            "desc": "When strategy calls for software, our build team picks it up and ships it on a compressed timeline."
           }
         }
       }
@@ -600,43 +600,43 @@
     "engineering": {
       "eyebrow": "Service 02 / Engineering",
       "title": "AI Engineering",
-      "lead1": "Strategy without shipped software is a slide deck. This is the build arm.",
-      "lead2": "We design, build, and deploy AI products, integrations, data pipelines, and custom SaaS you fully own.",
+      "lead1": "A plan you cannot ship is just an opinion. This is where things get built.",
+      "lead2": "Products, features, integrations, pipelines, and full platforms, designed and deployed by us, owned outright by you.",
       "capabilities": {
         "label": "Capabilities",
         "title": "What we build.",
         "items": {
           "products": {
             "title": "AI Products",
-            "desc": "Net-new products taken from concept to production, with the model layer designed in from day one."
+            "desc": "New products taken from a rough idea to something live, with the model layer designed in from the first sketch."
           },
           "features": {
             "title": "AI Features",
-            "desc": "Intelligence added to software you already run, without rewriting the system underneath it."
+            "desc": "Intelligence dropped into the software you already run, without tearing up what works underneath."
           },
           "integrations": {
             "title": "Integrations",
-            "desc": "Your CRM, ERP, and comms stack connected into one context layer that everything can read from."
+            "desc": "CRM, ERP, and comms wired into one shared context layer, so every system reads from the same truth."
           },
           "saas": {
             "title": "Custom SaaS",
-            "desc": "Scalable platforms built for your market, your margins, and your growth model. Owned by you."
+            "desc": "Platforms built around your market, your margins, and how you plan to grow. The code is yours."
           },
           "refactors": {
             "title": "Code Refactors & Migration",
-            "desc": "Legacy codebases modernized, untangled, and migrated to current stacks without stalling the roadmap."
+            "desc": "Old codebases untangled and moved onto current stacks while the roadmap keeps moving."
           },
           "data": {
             "title": "Data Engineering",
-            "desc": "Complex data pipelines built and maintained: ingestion, transformation, and warehousing your systems can trust."
+            "desc": "Pipelines you can trust: ingestion, transformation, and storage that hold up when the volume grows."
           },
           "nl2sql": {
             "title": "Natural Language to SQL",
-            "desc": "Conversational access to your databases so teams can ask questions in plain language and get accurate answers."
+            "desc": "Ask your database a question in plain English and get an answer you can act on, no analyst queue."
           },
           "andmore": {
             "title": "And more",
-            "desc": "If it involves intelligence, data, or software, we can architect it. Tell us what you're facing."
+            "desc": "If it runs on data, software, or intelligence, we can architect it. Tell us what you are up against."
           }
         }
       }

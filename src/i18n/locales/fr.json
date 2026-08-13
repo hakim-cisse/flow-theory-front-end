@@ -496,7 +496,7 @@
       "eyebrow": "Services",
       "titleA": "Deux services.",
       "titleB": "Un seul partenaire.",
-      "lead": "Flow Theory AI fait deux choses. Nous concevons et pilotons votre transformation par l'IA, et nous développons les logiciels qui la rendent réelle. Choisissez la voie qui correspond à votre situation.",
+      "lead": "Nous faisons deux choses. Nous determinons ou l'IA a sa place dans votre entreprise et pilotons ce changement, et nous construisons le logiciel qui le rend reel. Commencez par ce dont vous avez besoin.",
       "cards": {
         "transformation": {
           "index": "01",
@@ -522,121 +522,121 @@
     "transformation": {
       "eyebrow": "Service 01 / Transformation",
       "title": "Transformation IA",
-      "lead1": "À mesure que le coût de l'intelligence tend vers zéro, l'écart entre les entreprises sans IA et les entreprises natives IA devient décisif.",
-      "lead2": "Nous concevons votre stratégie IA et l'exécutons sur trois piliers : produit, processus et personnes.",
+      "lead1": "L'intelligence devient bon marche. Ce qui reste cher, c'est de savoir ou la diriger dans votre entreprise.",
+      "lead2": "Nous nous installons dans vos operations, decidons ce que l'IA doit reellement toucher, et pilotons le changement sur votre produit, vos processus et vos equipes.",
       "strategy": {
-        "label": "Phase 01 / Stratégie",
-        "title": "Stratégie",
-        "p1": "Pas de mission de six mois. Pas de présentation de 200 slides.",
-        "p2": "Des jalons exploratoires qui font émerger les cas d'usage IA à plus forte valeur, chiffrent le ROI et tracent la feuille de route.",
-        "p3": "Chaque mission se conclut par un rapport d'adoption clair et une annexe technique que vos équipes peuvent exécuter, ou nous confier."
+        "label": "Phase 01 / Strategie",
+        "title": "Strategie",
+        "p1": "Pas de six mois de decouverte. Pas de deck que personne ne rouvre.",
+        "p2": "Des jalons exploratoires courts qui font ressortir les cas d'usage qui meritent d'etre finances, chiffrent le retour et fixent l'ordre de construction.",
+        "p3": "Vous repartez avec un rapport d'adoption en langage clair et une annexe technique. Executez-le vous-meme, ou confiez-le nous."
       },
       "execution": {
-        "label": "Phase 02 / Exécution",
-        "title": "Exécution",
+        "label": "Phase 02 / Execution",
+        "title": "Execution",
         "pillars": {
           "product": {
             "index": "01",
-            "name": "Transformation produit",
-            "tagline": "Livrer un logiciel remarquable, vite.",
-            "body": "Une approche pilotée par l'ingénierie qui utilise l'accélération IA pour livrer du logiciel de production plus vite et à moindre coût."
+            "name": "Transformation Produit",
+            "tagline": "Livrez un logiciel remarquable, vite.",
+            "body": "Des equipes reduites et seniors, avec l'IA dans la boucle : du vrai logiciel en production en quelques semaines, pour une fraction du cout d'un build traditionnel."
           },
           "process": {
             "index": "02",
-            "name": "Transformation des processus",
-            "tagline": "Trouver les fuites. Les fermer.",
-            "body": "Nous cartographions les flux, mesurons la référence et automatisons le travail que vos équipes ne devraient pas faire. Goulots identifiés, inefficacités chiffrées."
+            "name": "Transformation des Processus",
+            "tagline": "Trouver les fuites. Les colmater.",
+            "body": "Nous suivons le travail reel, chiffrons chaque transfert et chaque attente, puis automatisons ce que personne ne devrait faire a la main. Les gains sont mesures, pas promis."
           },
           "people": {
             "index": "03",
-            "name": "Transformation humaine",
+            "name": "Transformation Humaine",
             "tagline": "L'adoption est le livrable.",
-            "body": "Plus dangereux qu'ignorer l'IA : la déployer en oubliant vos équipes. Des programmes sur mesure et des ateliers pratiques pour instaurer un réflexe IA."
+            "body": "Un logiciel que personne n'utilise est pire que pas de logiciel. Nous formons vos equipes sur leurs propres flux jusqu'a ce que l'IA devienne leur reflexe."
           }
         },
-        "linkA": "Vous cherchez uniquement nos",
-        "linkB": "services d'ingénierie IA ?",
-        "linkC": "En savoir plus."
+        "linkA": "Vous ne cherchez que la partie build ?",
+        "linkB": "Voir Ingenierie IA.",
+        "linkC": ""
       },
       "why": {
         "label": "Pourquoi nous",
-        "title": "Devenir natif IA est difficile, et vital.",
-        "p1": "Personne en interne ne porte la transformation IA, elle reste donc inachevée.",
-        "p2": "Une vraie expertise technique IA est nécessaire et rarement présente en interne.",
-        "p3": "L'adhésion culturelle exige une communication soignée et une montée en compétences réelle.",
-        "p4": "La plupart des cabinets facturent trop cher et ne relient jamais stratégie et exécution."
+        "title": "Devenir AI-native est difficile, et repousser coute cher.",
+        "p1": "Personne en interne n'en est proprietaire, alors tout cale au stade du pilote.",
+        "p2": "La profondeur technique requise existe rarement dans l'equipe actuelle.",
+        "p3": "Les gens rejettent ce qu'on ne leur a pas explique, et l'adoption s'eteint.",
+        "p4": "La plupart des cabinets vendent une strategie et disparaissent avant la livraison."
       },
       "capabilities": {
         "label": "Ce que nous faisons",
         "title": "Nous agissons comme votre Chief AI Officer.",
         "items": {
           "process": {
-            "title": "Audit des processus",
-            "desc": "Identifier les frictions, mesurer l'impact business et évaluer la maturité face à l'IA."
+            "title": "Audit des Processus",
+            "desc": "Nous suivons le travail de bout en bout, reperons ou il bloque et chiffrons ce que cette friction vous coute."
           },
           "executive": {
-            "title": "Entretiens dirigeants",
-            "desc": "Comprendre les priorités du comité, clarifier les objectifs et hiérarchiser les opportunités IA."
+            "title": "Audit Direction",
+            "desc": "Nous clarifions ce que la direction cherche vraiment a gagner, puis classons les paris IA selon ces objectifs."
           },
           "interviews": {
-            "title": "Entretiens experts",
-            "desc": "Échanger avec les parties prenantes clés pour valider les constats et cibler les solutions."
+            "title": "Entretiens Experts",
+            "desc": "Des echanges avec ceux qui font le travail : les vrais goulots n'apparaissent jamais dans l'organigramme."
           },
           "training": {
-            "title": "Formation sur mesure",
-            "desc": "Programmes dédiés, ateliers pratiques et conduite du changement sur des flux réels."
+            "title": "Formation Sur Mesure",
+            "desc": "Des ateliers bases sur vos propres flux, plus la conduite du changement qui ancre les nouvelles habitudes."
           },
           "tooling": {
             "title": "Outillage IA",
-            "desc": "Relier stratégie et implémentation via outils du marché, notre IP et des développements sur mesure."
+            "desc": "Du pret a l'emploi quand ca suffit, notre propre IP quand ca aide, du sur-mesure quand rien d'autre ne convient."
           },
           "engineering": {
-            "title": "Ingénierie IA",
-            "desc": "Une ingénierie orientée résultats qui livre du logiciel de production sur un calendrier compressé."
+            "title": "Ingenierie IA",
+            "desc": "Quand la strategie exige du logiciel, notre equipe de build prend le relais et livre vite."
           }
         }
       }
     },
     "engineering": {
-      "eyebrow": "Service 02 / Ingénierie",
-      "title": "Ingénierie IA",
-      "lead1": "Une stratégie sans logiciel livré n'est qu'une présentation. Voici le bras d'exécution.",
-      "lead2": "Nous concevons, développons et déployons produits IA, intégrations, pipelines de données et SaaS sur mesure dont vous êtes propriétaire.",
+      "eyebrow": "Service 02 / Ingenierie",
+      "title": "Ingenierie IA",
+      "lead1": "Un plan qu'on ne peut pas livrer n'est qu'une opinion. Ici, on construit.",
+      "lead2": "Produits, fonctionnalites, integrations, pipelines et plateformes completes, concus et deployes par nous, possedes entierement par vous.",
       "capabilities": {
-        "label": "Capacités",
+        "label": "Capacites",
         "title": "Ce que nous construisons.",
         "items": {
           "products": {
             "title": "Produits IA",
-            "desc": "Des produits inédits menés du concept à la production, avec la couche modèle pensée dès le premier jour."
+            "desc": "Des produits menes d'une idee brute a la mise en ligne, avec la couche modele pensee des le premier croquis."
           },
           "features": {
-            "title": "Fonctionnalités IA",
-            "desc": "De l'intelligence ajoutée à vos logiciels existants, sans réécrire le système sous-jacent."
+            "title": "Fonctionnalites IA",
+            "desc": "De l'intelligence ajoutee au logiciel que vous utilisez deja, sans casser ce qui fonctionne dessous."
           },
           "integrations": {
-            "title": "Intégrations",
-            "desc": "CRM, ERP et outils de communication reliés en une seule couche de contexte partagée."
+            "title": "Integrations",
+            "desc": "CRM, ERP et outils de communication relies a une meme couche de contexte, pour une seule verite partagee."
           },
           "saas": {
-            "title": "SaaS sur mesure",
-            "desc": "Des plateformes scalables pensées pour votre marché, vos marges et votre croissance."
+            "title": "SaaS Sur Mesure",
+            "desc": "Des plateformes pensees pour votre marche, vos marges et votre croissance. Le code vous appartient."
           },
           "refactors": {
-            "title": "Refactorisation & migration de code",
-            "desc": "Bases de code héritées modernisées, clarifiées et migrées vers des stacks actuelles sans bloquer la feuille de route."
+            "title": "Refonte & Migration de Code",
+            "desc": "Des bases de code anciennes demelees et migrees vers des stacks actuelles sans arreter la roadmap."
           },
           "data": {
-            "title": "Data engineering",
-            "desc": "Pipelines de données complexes conçus et maintenus : ingestion, transformation et entreposage fiables."
+            "title": "Data Engineering",
+            "desc": "Des pipelines fiables : ingestion, transformation et stockage qui tiennent quand le volume augmente."
           },
           "nl2sql": {
-            "title": "Langage naturel vers SQL",
-            "desc": "Un accès conversationnel à vos bases de données : des questions en langage clair, des réponses exactes."
+            "title": "Langage Naturel vers SQL",
+            "desc": "Posez une question a votre base en francais courant et obtenez une reponse exploitable, sans file d'attente analyste."
           },
           "andmore": {
-            "title": "Et plus",
-            "desc": "Si cela touche à l'intelligence, aux données ou au logiciel, nous pouvons l'architecturer. Parlez-nous de votre besoin."
+            "title": "Et plus encore",
+            "desc": "Si ca tourne sur de la donnee, du logiciel ou de l'intelligence, nous savons l'architecturer. Dites-nous votre probleme."
           }
         }
       }
