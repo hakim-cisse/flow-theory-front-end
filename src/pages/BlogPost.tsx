@@ -259,15 +259,21 @@ const BlogPost = () => {
   const displayExcerpt = translated?.excerpt ?? blog.excerpt ?? "";
   const displayBody = translated?.body ?? htmlContent;
 
+  // Custom SEO override for the newest blog post
+  const isNewestBlog = blog.title === "How AI Changes Business Management: An Operations-First View";
+  const metaTitle = isNewestBlog ? "How AI Changes Business Management | Flow Theory AI" : blog.title;
+  const metaDescription = isNewestBlog
+    ? "AI doesn't just change strategy decks. It changes how teams manage work day to day. Here's the operations-first view of what actually shifts."
+    : blog.excerpt || `Read ${blog.title} on the Flow Theory AI blog.`;
 
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title={blog.title}
-        description={blog.excerpt || `Read ${blog.title} on the Flow Theory AI blog.`}
+        title={metaTitle}
+        description={metaDescription}
         canonicalUrl={canonicalUrl}
-        ogTitle={blog.title}
-        ogDescription={blog.excerpt || `Read ${blog.title} on the Flow Theory AI blog.`}
+        ogTitle={metaTitle}
+        ogDescription={metaDescription}
         ogImage={blog.cover_image_url || undefined}
         ogType="article"
         article={{
