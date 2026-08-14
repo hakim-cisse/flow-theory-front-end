@@ -283,8 +283,8 @@ const BlogPost = () => {
         }}
       />
       <ArticleSchema
-        title={blog.title}
-        description={blog.excerpt || `Read ${blog.title} on the Flow Theory AI blog.`}
+        title={metaTitle}
+        description={metaDescription}
         url={canonicalUrl}
         imageUrl={blog.cover_image_url || undefined}
         publishedTime={blog.published_at}
