@@ -1,3 +1,6 @@
+import photoHakim from "@/assets/hakim.png";
+import photoYassine from "@/assets/yassine.jpg";
+import photoYunus from "@/assets/yunus.jpg";
 import meshHakim from "@/assets/mesh-hakim.png";
 import meshYassine from "@/assets/mesh-yassine.png";
 import meshYunus from "@/assets/mesh-yunus.png";
