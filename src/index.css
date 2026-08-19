@@ -449,10 +449,3 @@
   .logo-belt-track { animation: none; }
 }
 
-/* Founder mesh portraits: clear by default, pixelate on hover */
-.founder-mesh {
-  transition: filter 0.35s ease;
-}
-.founder-mesh:hover {
-  filter: url(#pixelate);
-}
