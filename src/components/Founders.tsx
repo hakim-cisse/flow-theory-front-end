@@ -60,7 +60,7 @@ const FounderRow = ({
           <img
             src={founder.mesh}
             alt={`${founder.name}, 3D wireframe mesh portrait`}
-            className="absolute inset-0 w-full h-full object-contain founder-mesh opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out"
+            className="absolute inset-0 w-full h-full object-contain opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out"
           />
 
           <span className="absolute -bottom-6 left-0 text-mono text-muted-foreground">
