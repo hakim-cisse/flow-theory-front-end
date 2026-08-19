@@ -51,7 +51,7 @@ const FounderRow = ({
           <img
             src={founder.mesh}
             alt={`${founder.name}, 3D wireframe mesh portrait`}
-            className="relative w-full h-full object-contain"
+            className="relative w-full h-full object-contain founder-mesh"
           />
 
           <span className="absolute -bottom-6 left-0 text-mono text-muted-foreground">
@@ -89,6 +89,18 @@ export const Founders = () => {
 
   return (
     <section id="founders" className="py-24 sm:py-32 relative section-8">
+      <svg className="absolute w-0 h-0" aria-hidden="true">
+        <defs>
+          <filter id="pixelate" x="0" y="0" width="100%" height="100%">
+            <feFlood x="2" y="2" height="1" width="1" />
+            <feComposite width="10" height="10" />
+            <feTile result="a" />
+            <feComposite in="SourceGraphic" in2="a" operator="in" />
+            <feMorphology operator="dilate" radius="5" />
+          </filter>
+        </defs>
+      </svg>
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-screen-xl mx-auto">
           <div ref={headerRef} className="mb-10 sm:mb-14">
