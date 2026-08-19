@@ -34,7 +34,7 @@ const FounderRow = ({
         className={`col-span-12 md:col-span-5 ${flipped ? "md:order-2 md:col-start-8" : ""}`}
         style={staggerStyle(0, isVisible, { delay: 0.05, distance: 28 })}
       >
-        <div className="relative mx-auto md:mx-0 w-full max-w-[360px] aspect-square">
+        <div className="group relative mx-auto md:mx-0 w-full max-w-[360px] aspect-square">
           {/* technical grid backdrop */}
           <div
             className="absolute inset-0 opacity-[0.10] pointer-events-none"
@@ -52,9 +52,15 @@ const FounderRow = ({
           <span className="absolute bottom-0 right-0 w-px h-3 bg-foreground/40" />
 
           <img
+            src={founder.photo}
+            alt={`${founder.name}`}
+            className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ease-out opacity-100 group-hover:opacity-0"
+          />
+
+          <img
             src={founder.mesh}
             alt={`${founder.name}, 3D wireframe mesh portrait`}
-            className="relative w-full h-full object-contain founder-mesh"
+            className="absolute inset-0 w-full h-full object-contain founder-mesh opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out"
           />
 
           <span className="absolute -bottom-6 left-0 text-mono text-muted-foreground">
