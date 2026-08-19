@@ -8,9 +8,9 @@ import { useScrollReveal, staggerStyle } from "@/hooks/useScrollReveal";
 import { useTranslation } from "react-i18next";
 
 const founders = [
-  { key: "hakim", name: "Hakim Cisse", mesh: meshHakim, id: "MSH_01" },
-  { key: "yassine", name: "Yassine Diallo", mesh: meshYassine, id: "MSH_02" },
-  { key: "yunus", name: "Yunus Kounkourou", mesh: meshYunus, id: "MSH_03" },
+  { key: "hakim", name: "Hakim Cisse", photo: photoHakim, mesh: meshHakim, id: "MSH_01" },
+  { key: "yassine", name: "Yassine Diallo", photo: photoYassine, mesh: meshYassine, id: "MSH_02" },
+  { key: "yunus", name: "Yunus Kounkourou", photo: photoYunus, mesh: meshYunus, id: "MSH_03" },
 ] as const;
 
 const FounderRow = ({
