@@ -216,15 +216,15 @@
     "titleB": "the dream.",
     "members": {
       "hakim": {
-        "title": "Co-Founder & CEO",
+        "title": "Managing Partner",
         "description": "Visionary entrepreneur leading Flow Theory AI's mission to help companies scale intelligently through automation and AI systems."
       },
       "yassine": {
-        "title": "Co-Founder & CTO",
+        "title": "Managing Partner",
         "description": "Technical leader and automation architect focused on building stable, high-performance AI ecosystems for clients."
       },
       "yunus": {
-        "title": "Co-Founder & COO",
+        "title": "Managing Partner",
         "description": "Operations leader with technical experience enabling scalable execution and efficiency."
       }
     }
