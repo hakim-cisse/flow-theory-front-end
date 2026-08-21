@@ -216,15 +216,15 @@
     "titleB": "le projet.",
     "members": {
       "hakim": {
-        "title": "Co-fondateur & CEO",
+        "title": "Associé gérant",
         "description": "Entrepreneur visionnaire à la tête de la mission de Flow Theory AI : aider les entreprises à scaler intelligemment grâce à l'automatisation et aux systèmes IA."
       },
       "yassine": {
-        "title": "Co-fondateur & CTO",
+        "title": "Associé gérant",
         "description": "Leader technique et architecte d'automatisation, concentré sur la construction d'écosystèmes IA stables et performants pour les clients."
       },
       "yunus": {
-        "title": "Co-fondateur & COO",
+        "title": "Associé gérant",
         "description": "Responsable des opérations avec une expérience technique, permettant une exécution scalable et une efficacité opérationnelle."
       }
     }
