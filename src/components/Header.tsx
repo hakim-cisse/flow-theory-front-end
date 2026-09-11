@@ -71,7 +71,7 @@ export const Header = ({ onContactClick }: HeaderProps) => {
             <button
               onClick={handleLogoClick}
               className="flex items-center gap-2 text-mono text-foreground hover:text-primary transition-colors"
-              aria-label="Flow Theory AI — home"
+              aria-label="Flow Theory AI - home"
             >
               <img
                 src={logoSrc}
