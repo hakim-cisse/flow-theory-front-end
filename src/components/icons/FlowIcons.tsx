@@ -77,3 +77,15 @@ export const SaaSIcon = (props: IconProps) => (
     <path d="M3 16.5l9 4.5 9-4.5" />
   </svg>
 );
+
+/** ClickUp + AI Agents — task list merged with a connected agent node */
+export const AgentIcon = (props: IconProps) => (
+  <svg {...base(props)}>
+    <rect x="3" y="5" width="10" height="10" />
+    <path d="M6 9l2 2 4-4" />
+    <circle cx="18.5" cy="6.5" r="2.5" />
+    <path d="M13 10l3.5-2M13 14l3.5 2" />
+    <path d="M18.5 9v7" />
+    <circle cx="18.5" cy="18.5" r="1.75" fill="currentColor" />
+  </svg>
+);
