@@ -502,9 +502,9 @@
   "svc": {
     "hub": {
       "eyebrow": "Services",
-      "titleA": "Two services.",
+      "titleA": "Three services.",
       "titleB": "One operating partner.",
-      "lead": "We do two things. We figure out where AI belongs in your business and run that change, and we build the software that makes it real. Start with whichever one you need.",
+      "lead": "Three ways we work with you. We figure out where AI belongs in your business, we build the software that makes it real, and we operate it inside your tools so work keeps moving. Start with whichever one you need.",
       "cards": {
         "transformation": {
           "index": "01",
@@ -523,6 +523,15 @@
           "p1": "Production-grade AI products & features",
           "p2": "Systems integration & data pipelines",
           "p3": "Clean handoff, no vendor lock-in"
+        },
+        "agents": {
+          "index": "03",
+          "label": "ClickUp & AI Agents",
+          "eyebrow": "Operate → Automate",
+          "tagline": "Make ClickUp the command center for AI-driven work. We connect your workspace and deploy agents that update tasks, draft updates, and move work forward.",
+          "p1": "ClickUp workspace architecture",
+          "p2": "Autonomous task agents & status updates",
+          "p3": "Cross-tool orchestration with guardrails"
         }
       },
       "explore": "Explore"
