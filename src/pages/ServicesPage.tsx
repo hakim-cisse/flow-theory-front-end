@@ -9,6 +9,7 @@ import { useScrollReveal, staggerStyle } from "@/hooks/useScrollReveal";
 const tracks = [
   { key: "transformation", href: "/services/ai-transformation" },
   { key: "engineering", href: "/services/ai-engineering" },
+  { key: "agents", href: "/services/ai-agents" },
 ] as const;
 
 const ServicesPage = () => {
@@ -43,7 +44,7 @@ const ServicesPage = () => {
 
             <div
               ref={cardsRef}
-              className="grid grid-cols-1 md:grid-cols-2 gap-px bg-border/30 border border-border/40"
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-border/30 border border-border/40"
             >
               {tracks.map((track, i) => (
                 <Link

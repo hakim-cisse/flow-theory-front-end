@@ -9,6 +9,7 @@ import Index from "./pages/Index";
 import ServicesPage from "./pages/ServicesPage";
 import AITransformationPage from "./pages/AITransformationPage";
 import AIEngineeringPage from "./pages/AIEngineeringPage";
+import AIAgentsPage from "./pages/AIAgentsPage";
 import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
 import Blog from "./pages/Blog";
@@ -33,6 +34,7 @@ const App = () => (
               <Route path="/services" element={<ServicesPage />} />
               <Route path="/services/ai-transformation" element={<AITransformationPage />} />
               <Route path="/services/ai-engineering" element={<AIEngineeringPage />} />
+              <Route path="/services/ai-agents" element={<AIAgentsPage />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/blog" element={<Blog />} />
