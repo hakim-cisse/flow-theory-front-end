@@ -657,6 +657,50 @@
           }
         }
       }
+    },
+    "agents": {
+      "eyebrow": "Service 03 / Agents",
+      "title": "ClickUp Integration & AI Agents",
+      "lead1": "Most teams live inside ClickUp, but the real work happens across Slack, email, CRMs, and spreadsheets. We build agents that bridge that gap.",
+      "lead2": "From workspace architecture to autonomous task agents, we make ClickUp the command center for AI-driven operations — without forcing your team to learn another tool.",
+      "capabilities": {
+        "label": "Capabilities",
+        "title": "Operate inside the tools your team already uses.",
+        "items": {
+          "clickup": {
+            "title": "ClickUp Architecture",
+            "desc": "Spaces, lists, statuses, and automations designed around how your team actually works, not a default template."
+          },
+          "agents": {
+            "title": "Autonomous Task Agents",
+            "desc": "AI agents that create, assign, update, and close tasks based on real activity in your other tools."
+          },
+          "workflows": {
+            "title": "Workflow Automation",
+            "desc": "Handoffs, approvals, and recurring processes running inside ClickUp with the right human checks."
+          },
+          "integrations": {
+            "title": "Cross-Tool Orchestration",
+            "desc": "Connect ClickUp to CRM, email, Slack, databases, and custom systems so context stays in one place."
+          },
+          "reports": {
+            "title": "Status Intelligence",
+            "desc": "Automated status updates, risk flags, and summaries written from live project data."
+          },
+          "governance": {
+            "title": "Guardrails & Handoffs",
+            "desc": "Confidence thresholds, audit trails, and clear human escalation so agents never overstep."
+          },
+          "data": {
+            "title": "Live Data Access",
+            "desc": "Agents read from connected systems and update ClickUp without manual exports or stale spreadsheets."
+          },
+          "andmore": {
+            "title": "Custom Agent Behavior",
+            "desc": "Specialized agents tuned to your SOPs, approval chains, and operating rhythm."
+          }
+        }
+      }
     }
   },
   "ctaBanner": {
