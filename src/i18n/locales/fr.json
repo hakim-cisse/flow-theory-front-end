@@ -179,6 +179,14 @@
         "h2": "Synchro données en temps réel",
         "h3": "Contexte unifié"
       },
+      "agents": {
+        "title": "Intégration ClickUp & Agents IA",
+        "description": "Nous connectons ClickUp au reste de votre stack et construisons des agents IA autonomes qui mettent à jour les tâches, rédigent des comptes-rendus et font avancer le travail sans intervention manuelle.",
+        "kicker": "Opérer",
+        "h1": "Architecture de l'espace ClickUp",
+        "h2": "Agents de tâches autonomes",
+        "h3": "Orchestration multi-outils"
+      },
       "development": {
         "title": "Développement",
         "description": "Applications IA sur mesure, construites pour vos vrais problèmes métier, pas des templates génériques.",

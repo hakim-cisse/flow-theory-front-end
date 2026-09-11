@@ -179,6 +179,14 @@
         "h2": "Real-time data sync",
         "h3": "Unified context"
       },
+      "agents": {
+        "title": "ClickUp Integration & AI Agents",
+        "description": "We connect ClickUp to the rest of your stack and build autonomous AI agents that update tasks, draft status updates, and move work forward without manual prompting.",
+        "kicker": "Operate",
+        "h1": "ClickUp workspace architecture",
+        "h2": "Autonomous task agents",
+        "h3": "Cross-tool orchestration"
+      },
       "development": {
         "title": "Development",
         "description": "Custom AI-powered applications built for your specific business problems, not generic templates.",

@@ -1,4 +1,4 @@
-import { ArrowRight, ArrowLeft } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { AuditIcon, WorkflowIcon, IntegrationIcon, DevelopmentIcon, TrainingIcon, EducationIcon, SaaSIcon, AgentIcon } from "@/components/icons/FlowIcons";
 import { useState } from "react";
 import { Link } from "react-router-dom";
