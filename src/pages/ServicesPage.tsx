@@ -9,6 +9,7 @@ import { useScrollReveal, staggerStyle } from "@/hooks/useScrollReveal";
 const tracks = [
   { key: "transformation", href: "/services/ai-transformation" },
   { key: "engineering", href: "/services/ai-engineering" },
+  { key: "agents", href: "/services/ai-agents" },
 ] as const;
 
 const ServicesPage = () => {
@@ -19,8 +20,8 @@ const ServicesPage = () => {
   return (
     <SiteLayout>
       <SEO
-        title="Services: AI Transformation and AI Engineering"
-        description="We help ambitious companies figure out where AI creates real leverage, then build and embed the systems that make it operational. Explore our AI Transformation and AI Engineering tracks."
+        title="Services: AI Transformation, AI Engineering, and ClickUp & AI Agents"
+        description="We help ambitious companies figure out where AI creates real leverage, then build and embed the systems that make it operational. Explore our AI Transformation, AI Engineering, and ClickUp & AI Agents service lines."
         canonicalUrl="https://www.flowtheoryai.com/services"
       />
 
@@ -43,7 +44,7 @@ const ServicesPage = () => {
 
             <div
               ref={cardsRef}
-              className="grid grid-cols-1 md:grid-cols-2 gap-px bg-border/30 border border-border/40"
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-border/30 border border-border/40"
             >
               {tracks.map((track, i) => (
                 <Link

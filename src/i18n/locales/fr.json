@@ -502,9 +502,9 @@
   "svc": {
     "hub": {
       "eyebrow": "Services",
-      "titleA": "Deux services.",
+      "titleA": "Trois services.",
       "titleB": "Un seul partenaire.",
-      "lead": "Nous faisons deux choses. Nous determinons ou l'IA a sa place dans votre entreprise et pilotons ce changement, et nous construisons le logiciel qui le rend reel. Commencez par ce dont vous avez besoin.",
+      "lead": "Trois façons de travailler avec vous. Nous déterminons où l'IA a sa place dans votre entreprise, nous construisons le logiciel qui la rend réelle, et nous l'opérons dans vos outils pour que le travail continue à avancer. Commencez par ce dont vous avez besoin.",
       "cards": {
         "transformation": {
           "index": "01",
@@ -523,6 +523,15 @@
           "p1": "Produits et fonctionnalités IA prêts pour la production",
           "p2": "Intégration de systèmes et pipelines de données",
           "p3": "Passation de relais propre, sans dépendance"
+        },
+        "agents": {
+          "index": "03",
+          "label": "ClickUp & Agents IA",
+          "eyebrow": "Opérer → Automatiser",
+          "tagline": "Faites de ClickUp le centre de commande d'un travail piloté par l'IA. Nous connectons votre espace et déployons des agents qui mettent à jour les tâches, rédigent des comptes-rendus et font avancer le travail.",
+          "p1": "Architecture de l'espace ClickUp",
+          "p2": "Agents de tâches autonomes et comptes-rendus",
+          "p3": "Orchestration multi-outils avec garde-fous"
         }
       },
       "explore": "Explorer"
@@ -645,6 +654,50 @@
           "andmore": {
             "title": "Et plus encore",
             "desc": "Si ca tourne sur de la donnee, du logiciel ou de l'intelligence, nous savons l'architecturer. Dites-nous votre probleme."
+          }
+        }
+      }
+    },
+    "agents": {
+      "eyebrow": "Service 03 / Agents",
+      "title": "Intégration ClickUp & Agents IA",
+      "lead1": "La plupart des équipes vivent dans ClickUp, mais le vrai travail se passe sur Slack, dans les e-mails, les CRMs et les tableurs. Nous construisons des agents qui comblent ce fossé.",
+      "lead2": "De l'architecture de l'espace aux agents de tâches autonomes, nous faisons de ClickUp le centre de commande des opérations pilotées par l'IA — sans forcer votre équipe à apprendre un nouvel outil.",
+      "capabilities": {
+        "label": "Capacités",
+        "title": "Opérez dans les outils que votre équipe utilise déjà.",
+        "items": {
+          "clickup": {
+            "title": "Architecture ClickUp",
+            "desc": "Espaces, listes, statuts et automatisations conçus autour de la façon dont votre équipe travaille réellement, pas un modèle par défaut."
+          },
+          "agents": {
+            "title": "Agents de tâches autonomes",
+            "desc": "Des agents IA qui créent, assignent, mettent à jour et cloturent des tâches à partir de l'activité réelle dans vos autres outils."
+          },
+          "workflows": {
+            "title": "Automatisation des workflows",
+            "desc": "Passations, approbations et processus récurrents qui tournent dans ClickUp avec les bons contrôles humains."
+          },
+          "integrations": {
+            "title": "Orchestration multi-outils",
+            "desc": "Connectez ClickUp au CRM, à l'e-mail, à Slack, aux bases de données et aux systèmes personnalisés pour garder le contexte au même endroit."
+          },
+          "reports": {
+            "title": "Intelligence de statut",
+            "desc": "Comptes-rendus d'état, signaux de risque et résumés générés automatiquement à partir des données de projet en direct."
+          },
+          "governance": {
+            "title": "Garde-fous et passations",
+            "desc": "Seuils de confiance, pistes d'audit et remontées humaines claires pour que les agents ne dépassent jamais leur mandat."
+          },
+          "data": {
+            "title": "Accès aux données en direct",
+            "desc": "Les agents lisent dans les systèmes connectés et mettent ClickUp à jour sans exports manuels ni tableurs obsolètes."
+          },
+          "andmore": {
+            "title": "Comportements d'agent sur mesure",
+            "desc": "Des agents spécialisés calibrés sur vos procédures, vos chaînes d'approbation et votre rythme opérationnel."
           }
         }
       }

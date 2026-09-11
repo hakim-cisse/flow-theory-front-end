@@ -27,6 +27,7 @@ export const Header = ({ onContactClick }: HeaderProps) => {
       children: [
         { label: t("svc.hub.cards.transformation.label"), href: "/services/ai-transformation" },
         { label: t("svc.hub.cards.engineering.label"), href: "/services/ai-engineering" },
+        { label: t("svc.hub.cards.agents.label"), href: "/services/ai-agents" },
       ],
     },
     { label: t("nav.about"), href: "/about", isRoute: true },

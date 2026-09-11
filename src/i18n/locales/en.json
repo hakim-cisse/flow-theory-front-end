@@ -502,9 +502,9 @@
   "svc": {
     "hub": {
       "eyebrow": "Services",
-      "titleA": "Two services.",
+      "titleA": "Three services.",
       "titleB": "One operating partner.",
-      "lead": "We do two things. We figure out where AI belongs in your business and run that change, and we build the software that makes it real. Start with whichever one you need.",
+      "lead": "Three ways we work with you. We figure out where AI belongs in your business, we build the software that makes it real, and we operate it inside your tools so work keeps moving. Start with whichever one you need.",
       "cards": {
         "transformation": {
           "index": "01",
@@ -523,6 +523,15 @@
           "p1": "Production-grade AI products & features",
           "p2": "Systems integration & data pipelines",
           "p3": "Clean handoff, no vendor lock-in"
+        },
+        "agents": {
+          "index": "03",
+          "label": "ClickUp & AI Agents",
+          "eyebrow": "Operate → Automate",
+          "tagline": "Make ClickUp the command center for AI-driven work. We connect your workspace and deploy agents that update tasks, draft updates, and move work forward.",
+          "p1": "ClickUp workspace architecture",
+          "p2": "Autonomous task agents & status updates",
+          "p3": "Cross-tool orchestration with guardrails"
         }
       },
       "explore": "Explore"
@@ -645,6 +654,50 @@
           "andmore": {
             "title": "And more",
             "desc": "If it runs on data, software, or intelligence, we can architect it. Tell us what you are up against."
+          }
+        }
+      }
+    },
+    "agents": {
+      "eyebrow": "Service 03 / Agents",
+      "title": "ClickUp Integration & AI Agents",
+      "lead1": "Most teams live inside ClickUp, but the real work happens across Slack, email, CRMs, and spreadsheets. We build agents that bridge that gap.",
+      "lead2": "From workspace architecture to autonomous task agents, we make ClickUp the command center for AI-driven operations — without forcing your team to learn another tool.",
+      "capabilities": {
+        "label": "Capabilities",
+        "title": "Operate inside the tools your team already uses.",
+        "items": {
+          "clickup": {
+            "title": "ClickUp Architecture",
+            "desc": "Spaces, lists, statuses, and automations designed around how your team actually works, not a default template."
+          },
+          "agents": {
+            "title": "Autonomous Task Agents",
+            "desc": "AI agents that create, assign, update, and close tasks based on real activity in your other tools."
+          },
+          "workflows": {
+            "title": "Workflow Automation",
+            "desc": "Handoffs, approvals, and recurring processes running inside ClickUp with the right human checks."
+          },
+          "integrations": {
+            "title": "Cross-Tool Orchestration",
+            "desc": "Connect ClickUp to CRM, email, Slack, databases, and custom systems so context stays in one place."
+          },
+          "reports": {
+            "title": "Status Intelligence",
+            "desc": "Automated status updates, risk flags, and summaries written from live project data."
+          },
+          "governance": {
+            "title": "Guardrails & Handoffs",
+            "desc": "Confidence thresholds, audit trails, and clear human escalation so agents never overstep."
+          },
+          "data": {
+            "title": "Live Data Access",
+            "desc": "Agents read from connected systems and update ClickUp without manual exports or stale spreadsheets."
+          },
+          "andmore": {
+            "title": "Custom Agent Behavior",
+            "desc": "Specialized agents tuned to your SOPs, approval chains, and operating rhythm."
           }
         }
       }
